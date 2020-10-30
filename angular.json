@@ -135,5 +135,10 @@
       }
     }
   },
-  "defaultProject": "magazine"
+  "defaultProject": "magazine",
+  "cli": {
+    "warnings": {
+      "versionMismatch": false
+    }
+  }
 }

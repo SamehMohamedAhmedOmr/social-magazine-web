@@ -6,6 +6,9 @@ $secondColor: #f2f2f2;
 $thirdColor: #6c665c;
 $backGround1: #fffaf3;
 $backGround2: #ffffff;
+$backGround3: #f1f1f1;
+$titleAfterColor: #6f605d;
+$titleColor: #2f0909;
 
 .main-color{
     color: $mainColor;
@@ -25,6 +28,10 @@ $backGround2: #ffffff;
 
 .back-ground2{
     background-color: $backGround2;
+}
+
+.back-ground3{
+    background-color: $backGround3;
 }
 
 

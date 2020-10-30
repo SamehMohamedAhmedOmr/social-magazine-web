@@ -1,0 +1,63 @@
+@import '../../app.component.scss';
+
+.title-box{
+
+    .title{
+        font-size: 2.4rem;
+        font-weight: 900;
+        color: $titleColor;
+    }
+
+    .title-border{
+        position: relative;
+        width: 100px;
+        height: 3px;
+        border-radius: 10px;
+        background-color: $titleAfterColor;
+        margin: -2px auto;
+        &:before{
+            content: "";
+            position: absolute;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            border-top: 2px solid $titleAfterColor;
+            top: 5px;
+            padding: 4px 0 5px;
+            width: 40px;
+        }
+    }
+}
+
+.news-box{
+    border-radius: 15px;
+
+    .img-container{
+        border-radius: 15px 15px 0 0;
+    }
+
+    .news-img{
+        transition: transform 0.7s ease-in-out;
+        &:hover{
+            transform: scale(1.2,1.2);
+        }
+    }
+
+    .news-content{
+        h3{
+            &:hover{
+                color: $mainColor;
+            }
+            color: #333333;
+            font-size: 1.6rem;
+            font-weight: 600;
+            transition: color 0.4s ease-in-out;
+        }
+        p{
+            color: #555555;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+    }
+}
+

@@ -1,0 +1,20 @@
+@import '../../app.component.scss';
+@import '../../shared/latest-news/latest-news.component.scss';
+
+.my-container{
+    width: 85%;
+}
+
+.mini-title{
+    &:hover{
+        color: $mainColor;
+    }
+    color: #333333;
+    font-size: 1.6rem;
+    font-weight: 600;
+    transition: color 0.4s ease-in-out;
+}
+
+.most-content{
+    color: #b0b0b8;
+}
