@@ -9,6 +9,7 @@ import { LatestNewsComponent } from '../shared/latest-news/latest-news.component
 import { MostViewedComponent } from './most-viewed/most-viewed.component';
 import { MostDownloadedComponent } from './most-downloaded/most-downloaded.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     NgMarqueeModule,
+    CarouselModule
   ]
 })
 export class HomeModule { }
