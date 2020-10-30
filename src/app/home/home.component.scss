@@ -1,1 +1,8 @@
-@import "../app.component.scss"
+@import "../app.component.scss";
+
+.testimonial{
+    background-image: linear-gradient(rgb(154, 123, 101, 0.4),rgb(154, 123, 101, 0.5)), url('../../assets/images/overlay-bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
