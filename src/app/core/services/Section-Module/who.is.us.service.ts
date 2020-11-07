@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {BaseService} from '../Base/base.service';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
 import {WhoIsUsModel} from '../../models/section-module/who.is.us.model';
 import {WhoIsUsSerializer} from '../../Serializers/Section-Module/who.is.us.serializer';
 

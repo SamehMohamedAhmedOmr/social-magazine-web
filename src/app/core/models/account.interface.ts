@@ -1,4 +1,4 @@
-export interface Admin {
+export interface Account {
 	message : string,
 	body: {
 		token: string ,

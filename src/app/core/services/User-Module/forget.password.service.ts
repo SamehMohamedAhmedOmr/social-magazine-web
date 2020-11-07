@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {BaseService} from '../Base/base.service';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
 import {ForgetPasswordModel} from '../../models/User-Module/forget.password.model';
 import {ForgetPasswordSerializer} from '../../Serializers/User-Module/forget.password.serializer';
 

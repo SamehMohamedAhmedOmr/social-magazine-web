@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 import {BaseService} from '../../Base/base.service';
 import {GalleryModel} from '../../../models/Gallery-Module/Gallery/gallery.model';
 import {GallerySerializer} from '../../../Serializers/Gallery-Module/Gallery/gallery.serializer';
-import {environment} from '../../../../environments/environment';
+import {environment} from '../../../../../environments/environment';
 
 
 @Injectable({

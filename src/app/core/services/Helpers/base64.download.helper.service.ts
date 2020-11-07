@@ -9,7 +9,6 @@ export class Base64DownloadHelperService {
 
 	public static downloadBase64File(contentType, base64Data, fileName) {
 		const linkSource = `data:${contentType};base64,${base64Data}`;
-		console.log(linkSource);
 		const downloadLink = document.createElement("a");
 		downloadLink.href = linkSource;
 		downloadLink.download = fileName;

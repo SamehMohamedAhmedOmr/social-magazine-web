@@ -1,6 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
 import {ProfileModel} from '../../models/User-Module/profile.model';
 import {ProfileSerializer} from '../../Serializers/User-Module/profile.serializer';
 import {Observable} from 'rxjs';

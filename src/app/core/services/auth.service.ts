@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Admin} from '../models/admin.interface';
 import * as jwt_decode from 'jwt-decode';
-import {environment} from '../../environments/environment';
+import {Account} from '../models/account.interface';
+import {environment} from '../../../environments/environment';
 
 
 @Injectable()
 export class AuthService {
     constructor(private http: HttpClient) {}
     // Authentication/Authorization
-    login(authData : {email , password}): Observable<Admin> {
-		return this.http.post<Admin>(environment.url() + 'admins/login' , authData);
+    login(authData : {email , password}): Observable<Account> {
+		return this.http.post<Account>(environment.url() + 'login' , authData);
     }
     // getter and setter token
 	getToken(): string {
@@ -38,6 +38,6 @@ export class AuthService {
 	}
 	// logout Function
 	logout (): Observable<any> {
-		return this.http.post<Admin>(environment.url() + 'admins/logout' , {});
+		return this.http.post<Account>(environment.url() + 'admins/logout' , {});
 	}
 }

@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {BaseService} from '../Base/base.service';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
 import {MagazineNewsModel} from '../../models/section-module/magazine.news.model';
 import {MagazineNewsSerializer} from '../../Serializers/Section-Module/magazine.news.serializer';
 
