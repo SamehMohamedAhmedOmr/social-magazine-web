@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {DOCUMENT} from "@angular/common";
-import {TranslationService} from "../_base/layout";
 import {TranslateService} from "@ngx-translate/core";
+import {TranslationService} from './Base/translation.service';
 
 @Injectable({
   providedIn: 'root'

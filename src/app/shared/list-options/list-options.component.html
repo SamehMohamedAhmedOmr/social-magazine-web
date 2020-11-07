@@ -1,0 +1,38 @@
+<div class="dropdown">
+	<button class="btn btn-outline-hover-dark btn-outline-secondary btn-circle" type="button"
+			id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+			aria-expanded="false">
+		<i class="flaticon-settings"></i>
+	</button>
+
+	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+		<!--Edit-->
+		<div class="col-12 my-2 dropdown-option">
+			<button class="btn btn-outline-dark w-100" [routerLink]="element.id">
+				{{ 'Components.Edit' | translate }} <i class="flaticon-edit"></i>
+			</button>
+		</div>
+
+		<!--change-status-->
+		<div class="col-12 my-2 dropdown-option">
+			<button class="btn w-100 {{element.is_active ? 'btn-outline-danger' : 'btn-outline-success'}}"
+					(click)="changeStatus(element)">
+
+				<span *ngIf="!element.is_active">{{ 'COMMON.activation_button' | translate }} </span>
+				<span *ngIf="element.is_active">{{ 'COMMON.deactivation_button' | translate }} </span>
+
+				<i class="flaticon-edit-1"></i>
+			</button>
+		</div>
+
+		<!--Delete-->
+		<div class="col-12" *ngIf="enabled_delete">
+			<div class="my-2 dropdown-option" *ngIf="!element.is_active">
+				<button class="btn btn-outline-danger w-100" (click)="deleteModal(element)">
+					{{ 'Components.Delete' | translate }} <i class="flaticon-delete"></i>
+				</button>
+			</div>
+		</div>
+
+	</div>
+</div>

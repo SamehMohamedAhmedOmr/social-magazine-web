@@ -3,13 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './layout/layout.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthLinksComponent } from './auth-links/auth-links.component';
-import { AccountLinksComponent } from './header/account-links/account-links.component';
+import {LayoutComponent} from './pages/layout/layout.component';
+import {FooterComponent} from './pages/footer/footer.component';
+import {AccountLinksComponent} from './pages/header/account-links/account-links.component';
+import {AuthLinksComponent} from './pages/auth-links/auth-links.component';
+import {NotFoundComponent} from './pages/not-found/not-found.component';
+import {HeaderComponent} from './pages/header/header.component';
+import {TranslateModule} from '@ngx-translate/core';
+import {CustomDatePipe} from './core/models/Base/custom.datepipe';
+
 
 @NgModule({
   declarations: [
@@ -19,12 +22,14 @@ import { AccountLinksComponent } from './header/account-links/account-links.comp
     HeaderComponent,
     NotFoundComponent,
     AuthLinksComponent,
-    AccountLinksComponent
+    AccountLinksComponent,
+    CustomDatePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TranslateModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

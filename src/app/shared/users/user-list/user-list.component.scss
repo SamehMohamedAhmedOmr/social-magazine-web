@@ -1,0 +1,16 @@
+table , th , td ,tr ,.mat-sort-header-container {
+	text-align: center;
+}
+
+td{
+	padding: 20px !important;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 670px) {
+
+	.example-table-container{
+		width: 100% !important;
+	}
+
+}
