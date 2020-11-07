@@ -15,7 +15,7 @@ export class MagazineGoalsService extends BaseService<MagazineGoalsModel> {
 		super(
 			Http,
 			environment.url(),
-			'admins/magazine-goals',
+			'magazine-goals',
 			new MagazineGoalsSerializer());
 	}
 

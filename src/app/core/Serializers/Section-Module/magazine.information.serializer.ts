@@ -13,17 +13,7 @@ export class MagazineInformationSerializer extends BaseSerializer implements Ser
 	}
 
 	toJson(model: MagazineInformationModel): any {
-		return {
-			id : model.id,
-			vision : model.vision,
-			mission : model.mission,
-			address : model.address,
-			phone : model.phone,
-			fax_number : model.fax_number,
-			email : model.email,
-			postal_code : model.postal_code,
-
-		};
+		return {};
 	}
 
 	toFormData(object: MagazineInformationModel): FormData {
@@ -48,10 +38,8 @@ export class MagazineInformationSerializer extends BaseSerializer implements Ser
 	}
 
 
-	status(status): any {
-		return {
-			'is_active' : status,
-		};
-	}
+  status(status): any {
+    return {};
+  }
 
 }

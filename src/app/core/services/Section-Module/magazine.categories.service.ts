@@ -15,7 +15,7 @@ export class MagazineCategoriesService extends BaseService<MagazineCategoryModel
 		super(
 			Http,
 			environment.url(),
-			'admins/magazine-categories',
+			'magazine-categories',
 			new MagazineCategorySerializer());
 	}
 

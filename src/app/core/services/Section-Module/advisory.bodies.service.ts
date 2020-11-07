@@ -15,7 +15,7 @@ export class AdvisoryBodiesService extends BaseService<AdvisoryBodyModel> {
 		super(
 			Http,
 			environment.url(),
-			'admins/advisory-bodies',
+			'advisory-bodies',
 			new AdvisoryBodiesSerializer());
 	}
 

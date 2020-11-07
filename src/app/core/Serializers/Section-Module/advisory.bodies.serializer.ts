@@ -13,12 +13,7 @@ export class AdvisoryBodiesSerializer extends BaseSerializer implements Serializ
 	}
 
 	toJson(model: AdvisoryBodyModel): any {
-		return {
-			id : model.id,
-			name : model.name,
-			job : model.job,
-			is_active : model.is_active,
-		};
+		return {};
 	}
 
 	toFormData(object: AdvisoryBodyModel): FormData {
@@ -39,10 +34,8 @@ export class AdvisoryBodiesSerializer extends BaseSerializer implements Serializ
 	}
 
 
-	status(status): any {
-		return {
-			'is_active' : status,
-		};
-	}
+  status(status): any {
+    return {};
+  }
 
 }

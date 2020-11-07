@@ -72,3 +72,13 @@
     }
   }
 }
+
+.nav-link{
+  color: var(--lite-black) !important;
+  transition: all .35s ease-in-out;
+}
+
+.nav-link.active,
+.nav-link:hover{
+  color: var(--main-color) !important;
+}

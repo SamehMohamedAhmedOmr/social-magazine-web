@@ -2,10 +2,10 @@
 //Vars
 
 $backGroundFooter: #35322d;
-$copyrightFooter: #292723;
+$copyrightFooter: #262a30;
 
 .footer{
-    background-color: $backGroundFooter;
+    background-color: var(--lite-black);
 }
 
 .main-footer{

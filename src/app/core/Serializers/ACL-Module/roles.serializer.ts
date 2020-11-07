@@ -15,9 +15,6 @@ export class RolesSerializer extends BaseSerializer implements Serializer {
 
 	toJson(model: RolesModel): any {
 		return {
-			'id' : model.id,
-			'name' : model.name,
-			'permissions' : model.permissions,
 		};
 	}
 
@@ -35,7 +32,6 @@ export class RolesSerializer extends BaseSerializer implements Serializer {
 	}
 
 	status(status): any {
-
 		return {
 		};
 	}

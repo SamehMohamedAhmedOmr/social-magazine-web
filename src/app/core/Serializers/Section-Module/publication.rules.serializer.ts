@@ -13,11 +13,7 @@ export class PublicationRulesSerializer extends BaseSerializer implements Serial
 	}
 
 	toJson(model: PublicationRulesModel): any {
-		return {
-			id : model.id,
-			content : model.content,
-			is_active : model.is_active,
-		};
+		return {};
 	}
 
 	toFormData(object: PublicationRulesModel): FormData {
@@ -36,10 +32,8 @@ export class PublicationRulesSerializer extends BaseSerializer implements Serial
 	}
 
 
-	status(status): any {
-		return {
-			'is_active' : status,
-		};
-	}
+  status(status): any {
+    return {};
+  }
 
 }

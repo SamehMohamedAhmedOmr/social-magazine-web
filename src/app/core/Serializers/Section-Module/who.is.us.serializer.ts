@@ -13,11 +13,7 @@ export class WhoIsUsSerializer extends BaseSerializer implements Serializer {
 	}
 
 	toJson(model: WhoIsUsModel): any {
-		return {
-			id : model.id,
-			content : model.content,
-			is_active : model.is_active,
-		};
+		return {};
 	}
 
 	toFormData(object: WhoIsUsModel): FormData {
@@ -36,10 +32,8 @@ export class WhoIsUsSerializer extends BaseSerializer implements Serializer {
 	}
 
 
-	status(status): any {
-		return {
-			'is_active' : status,
-		};
-	}
+  status(status): any {
+    return {};
+  }
 
 }

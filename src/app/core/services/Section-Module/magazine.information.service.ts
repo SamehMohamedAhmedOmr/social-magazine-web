@@ -17,7 +17,7 @@ export class MagazineInformationService extends BaseService<MagazineInformationM
 		super(
 			Http,
 			environment.url(),
-			'admins/magazine-information',
+			'magazine-information',
 			new MagazineInformationSerializer());
 	}
 

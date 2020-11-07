@@ -15,7 +15,7 @@ export class ResetPasswordService extends BaseService<ResetPasswordModel> {
 		super(
 			Http,
 			environment.url(),
-			'admins/reset/password',
+			'reset/password',
 			new ResetPasswordSerializer());
 	}
 

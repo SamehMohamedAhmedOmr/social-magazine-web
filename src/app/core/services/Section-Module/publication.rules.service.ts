@@ -15,7 +15,7 @@ export class PublicationRulesService extends BaseService<PublicationRulesModel> 
 		super(
 			Http,
 			environment.url(),
-			'admins/publication-rules',
+			'publication-rules',
 			new PublicationRulesSerializer());
 	}
 

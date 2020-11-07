@@ -15,7 +15,7 @@ export class ForgetPasswordService extends BaseService<ForgetPasswordModel> {
 		super(
 			Http,
 			environment.url(),
-			'admins/passwords/forget',
+			'passwords/forget',
 			new ForgetPasswordSerializer());
 	}
 

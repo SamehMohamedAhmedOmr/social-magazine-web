@@ -13,11 +13,7 @@ export class MagazineGoalsSerializer extends BaseSerializer implements Serialize
 	}
 
 	toJson(model: MagazineGoalsModel): any {
-		return {
-			id : model.id,
-			content : model.content,
-			is_active : model.is_active,
-		};
+		return {};
 	}
 
 	toFormData(object: MagazineGoalsModel): FormData {
@@ -36,10 +32,8 @@ export class MagazineGoalsSerializer extends BaseSerializer implements Serialize
 	}
 
 
-	status(status): any {
-		return {
-			'is_active' : status,
-		};
-	}
+  status(status): any {
+    return {};
+  }
 
 }

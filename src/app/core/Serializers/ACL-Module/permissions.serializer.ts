@@ -14,9 +14,7 @@ export class PermissionsSerializer extends BaseSerializer implements Serializer 
 	}
 
 	toJson(model: PermissionsModel): any {
-		return {
-
-		};
+		return {};
 	}
 
 	toFormData(object: any): FormData {

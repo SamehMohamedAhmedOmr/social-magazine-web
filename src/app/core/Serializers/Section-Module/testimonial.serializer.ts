@@ -13,18 +13,7 @@ export class TestimonialSerializer extends BaseSerializer implements Serializer 
 	}
 
 	toJson(model: TestimonialModel): any {
-		let object = {
-			id : model.id,
-			name : model.name,
-			content : model.content,
-			stars : model.stars,
-			is_active : model.is_active,
-		};
-		if(model.image_id){
-			object['image_id'] = model.image_id;
-		}
-
-		return object;
+		return {};
 	}
 
 	toFormData(object: TestimonialModel): FormData {
@@ -49,10 +38,8 @@ export class TestimonialSerializer extends BaseSerializer implements Serializer 
 	}
 
 
-	status(status): any {
-		return {
-			'is_active' : status,
-		};
-	}
+  status(status): any {
+    return {};
+  }
 
 }

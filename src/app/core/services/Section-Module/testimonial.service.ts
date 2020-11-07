@@ -15,7 +15,7 @@ export class TestimonialService extends BaseService<TestimonialModel> {
 		super(
 			Http,
 			environment.url(),
-			'admins/testimonials',
+			'testimonials',
 			new TestimonialSerializer());
 	}
 

@@ -7,10 +7,6 @@ $titleFont: 20px;
 $amongFont: 16px;
 
 
-.nav-item-color{
-    color: $navItemColor;
-}
-
 // Bootstrap Adjustment
 .rtl .navbar-nav .nav-item + .nav-item{
     margin-right: 0;
@@ -36,7 +32,7 @@ $amongFont: 16px;
 // NavBar
 
 .my-nav{
-    background: $backGroundHeader;
+    background: var(--white);
 }
 
 .img-logo{
@@ -97,3 +93,4 @@ ul li{
 .img-cont{
     width: 30px;
 }
+
