@@ -1,13 +1,14 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {PaginateParams} from '../../../core/models/paginateParams.interface';
 import {TranslateService} from '@ngx-translate/core';
 import {IndexInterface} from '../Base-Interface/Index.Interface';
-import {GlobalConfig} from '../../../core/Global/global.config';
-import {BaseService} from '../../../core/services/Base/base.service';
-import {ModelBase} from '../../../core/models/Base/base.model';
-import {Base64DownloadHelperService} from '../../../core/services/Helpers/base64.download.helper.service';
-import {AuthNoticeService} from '../../../core/services/auth-notice.service';
-import {HelperService} from '../../../core/services/helper.service';
+import {PaginateParams} from '../../core/models/paginateParams.interface';
+import {GlobalConfig} from '../../core/global/global.config';
+import {BaseService} from '../../core/services/Base/base.service';
+import {ModelBase} from '../../core/models/Base/base.model';
+import {AuthNoticeService} from '../../core/services/auth-notice.service';
+import {HelperService} from '../../core/services/helper.service';
+import {Base64DownloadHelperService} from '../../core/services/Helpers/base64.download.helper.service';
+
 
 @Component({
 	selector: 'kt-filter',

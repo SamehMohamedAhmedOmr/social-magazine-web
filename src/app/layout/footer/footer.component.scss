@@ -1,6 +1,4 @@
 
-@import '../app.component.scss';
-
 //Vars
 
 $backGroundFooter: #35322d;
@@ -11,7 +9,7 @@ $copyrightFooter: #292723;
 }
 
 .main-footer{
-    color: $secondColor;
+    color: var(--second-color);
     ul{
         padding: 0;
         list-style-type: none;

@@ -2,8 +2,9 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit, Output} from '@angular/core';
 // RxJS
 import {Subscription} from 'rxjs';
-import {AuthNoticeService} from '../../../core/services/auth-notice.service';
-import {AuthNotice} from '../../../core/models/auth-notice.interface';
+import {AuthNoticeService} from '../../core/services/auth-notice.service';
+import {AuthNotice} from '../../core/models/auth-notice.interface';
+
 
 // Auth
 

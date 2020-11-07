@@ -10,6 +10,7 @@ import { MostViewedComponent } from './most-viewed/most-viewed.component';
 import { MostDownloadedComponent } from './most-downloaded/most-downloaded.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import {LatestNewsModule} from '../latest-news/latest-news.module';
 
 const routes: Routes = [
   {
@@ -20,11 +21,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [HomeComponent, MarqueeComponent, SliderComponent, LatestNewsComponent, MostViewedComponent, MostDownloadedComponent, TestimonialComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    NgMarqueeModule,
-    CarouselModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        NgMarqueeModule,
+        CarouselModule,
+        LatestNewsModule
+    ]
 })
 export class HomeModule { }

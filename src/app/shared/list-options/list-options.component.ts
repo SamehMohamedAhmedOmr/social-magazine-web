@@ -1,13 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BaseService} from '../../../core/services/Base/base.service';
-import {ModelBase} from '../../../core/models/Base/base.model';
-import {AuthNoticeService} from '../../../core/services/auth-notice.service';
 import {TranslateService} from '@ngx-translate/core';
-import {HelperService} from '../../../core/services/helper.service';
 import {IndexInterface} from '../Base-Interface/Index.Interface';
-import {PaginateParams} from '../../../core/models/paginateParams.interface';
+import {ModelBase} from '../../core/models/Base/base.model';
+import {BaseService} from '../../core/services/Base/base.service';
+import {PaginateParams} from '../../core/models/paginateParams.interface';
+import {AuthNoticeService} from '../../core/services/auth-notice.service';
+import {MatDialog} from '@angular/material/dialog';
+import {HelperService} from '../../core/services/helper.service';
 import {DeleteModalComponent} from '../delete-modal/delete-modal.component';
-import {MatDialog} from '@angular/material';
+
 
 @Component({
 	selector: 'kt-list-options',

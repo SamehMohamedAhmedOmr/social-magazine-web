@@ -1,11 +1,10 @@
-@import '../../app.component.scss';
 
 .title-box{
 
     .title{
         font-size: 2.4rem;
         font-weight: 900;
-        color: $titleColor;
+        color: var(--title-color);
     }
 
     .title-border{
@@ -13,7 +12,7 @@
         width: 100px;
         height: 3px;
         border-radius: 10px;
-        background-color: $titleAfterColor;
+        background-color: var(--title-after-color);
         margin: -2px auto;
         &:before{
             content: "";
@@ -21,7 +20,7 @@
             margin: 0 auto;
             left: 0;
             right: 0;
-            border-top: 2px solid $titleAfterColor;
+            border-top: 2px solid var(--title-after-color);
             top: 5px;
             padding: 4px 0 5px;
             width: 40px;
@@ -46,7 +45,7 @@
     .news-content{
         h3{
             &:hover{
-                color: $mainColor;
+                color: var(--main-color);
             }
             color: #333333;
             font-size: 1.6rem;

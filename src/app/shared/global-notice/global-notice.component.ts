@@ -2,8 +2,8 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit, Output} from '@angular/core';
 // RxJS
 import {Subscription} from 'rxjs';
-import {GlobalNoticeService} from '../../../core/services/global-notice.service';
-import {GlobalNoticeInterface} from '../../../core/models/global-notice.interface';
+import {GlobalNoticeInterface} from '../../core/models/global-notice.interface';
+import {GlobalNoticeService} from '../../core/services/global-notice.service';
 
 // Auth
 

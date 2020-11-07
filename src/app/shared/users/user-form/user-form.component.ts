@@ -1,11 +1,11 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {CountriesService} from '../../../../core/services/Basic-Module/countries.service';
-import {GendersService} from '../../../../core/services/Basic-Module/genders.service';
-import {TitlesService} from '../../../../core/services/Basic-Module/titles.service';
-import {EducationalDegreesService} from '../../../../core/services/Basic-Module/educational-degrees.service';
-import {EducationalLevelsService} from '../../../../core/services/Basic-Module/educational-levels.service';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {CountriesService} from '../../../core/services/Basic-Module/countries.service';
+import {GendersService} from '../../../core/services/Basic-Module/genders.service';
+import {TitlesService} from '../../../core/services/Basic-Module/titles.service';
+import {EducationalDegreesService} from '../../../core/services/Basic-Module/educational-degrees.service';
+import {EducationalLevelsService} from '../../../core/services/Basic-Module/educational-levels.service';
 
 @Component({
 	selector: 'kt-user-form',

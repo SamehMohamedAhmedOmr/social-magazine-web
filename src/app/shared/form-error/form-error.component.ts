@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormErrorService} from '../../../core/services/FormError.service';
 import {FormGroup} from '@angular/forms';
+import {FormErrorService} from '../../core/services/FormError.service';
 
 @Component({
 	selector: 'kt-form-error',

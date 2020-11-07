@@ -11,10 +11,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [LatestNewsComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-  ]
+    declarations: [LatestNewsComponent],
+    exports: [
+        LatestNewsComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+    ]
 })
 export class LatestNewsModule { }

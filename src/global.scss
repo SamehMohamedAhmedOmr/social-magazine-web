@@ -1,0 +1,48 @@
+
+// colors used among the project ...
+
+
+
+.main-color{
+  color: $mainColor;
+}
+
+.second-color{
+  color: $secondColor;
+}
+
+.third-color{
+  color: $thirdColor;
+}
+
+.back-ground1{
+  background-color: $backGround1;
+}
+
+.back-ground2{
+  background-color: $backGround2;
+}
+
+.back-ground3{
+  background-color: $backGround3;
+}
+
+
+// common code
+
+.link{
+  text-decoration: none;
+}
+
+.list{
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.list-item{
+  list-style-type: none;
+}
+
+.web-container{
+  padding: 12px 48px;
+}

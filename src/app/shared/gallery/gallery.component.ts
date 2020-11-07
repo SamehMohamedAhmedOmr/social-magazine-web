@@ -1,15 +1,15 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
-import {GalleryService} from '../../../core/services/Gallery-Module/Gallery/gallery.service';
-import {PaginateParams} from '../../../core/models/paginateParams.interface';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {FormErrorService} from '../../../core/services/FormError.service';
-import {AuthNoticeService} from '../../../core/services/auth-notice.service';
-import {HelperService} from '../../../core/services/helper.service';
 import {GalleryInterface} from '../Base-Interface/gallery.Interface';
-import {DeleteModalComponent} from '../delete-modal/delete-modal.component';
-import {MatDialog} from '@angular/material';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {TranslateService} from '@ngx-translate/core';
+import {PaginateParams} from '../../core/models/paginateParams.interface';
+import {GalleryService} from '../../core/services/Gallery-Module/Gallery/gallery.service';
+import {FormErrorService} from '../../core/services/FormError.service';
+import {AuthNoticeService} from '../../core/services/auth-notice.service';
+import {MatDialog} from '@angular/material/dialog';
+import {HelperService} from '../../core/services/helper.service';
+import {DeleteModalComponent} from '../delete-modal/delete-modal.component';
 
 declare var $: any;
 
