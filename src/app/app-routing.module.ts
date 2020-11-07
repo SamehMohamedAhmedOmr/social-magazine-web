@@ -1,61 +1,61 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import {RoutesName} from '../core/global/routes.name';
 
 const routes: Routes = [
   {
-    path: "home",
+    path: RoutesName.home(),
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
-    path: "about-us",
+    path: RoutesName.whoIsUs(),
     loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule)
   },
   {
-    path: "contact-us",
+    path: RoutesName.contactUs(),
     loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule)
   },
   {
-    path: "publication-terms",
+    path: RoutesName.publicationRules(),
     loadChildren: () => import('./publication-terms/publication-terms.module').then(m => m.PublicationTermsModule)
   },
   {
-    path: "editorial-board",
+    path: 'editorial-board',
     loadChildren: () => import('./editorial-board/editorial-board.module').then(m => m.EditorialBoardModule)
   },
   {
-    path: "advisory-board",
+    path: RoutesName.advisoryBody(),
     loadChildren: () => import('./advisory-board/advisory-board.module').then(m => m.AdvisoryBoardModule)
   },
   {
-    path: "what-we-are",
+    path: RoutesName.testimonial(),
     loadChildren: () => import('./said-about-us/said-about-us.module').then(m => m.SaidAboutUsModule)
   },
   {
-    path: "category",
+    path: RoutesName.magazineCategory(),
     loadChildren: () => import('./category/category.module').then(m => m.CategoryModule)
   },
   {
-    path: "submit-article",
+    path: RoutesName.submitArticle(),
     loadChildren: () => import('./submit-article/submit-article.module').then(m => m.SubmitArticleModule)
   },
   {
-    path: "archive",
+    path: RoutesName.archive(),
     loadChildren: () => import('./archive/archive.module').then(m => m.ArchiveModule)
   },
   {
-    path: "latest-news",
+    path: RoutesName.latestNews(),
     loadChildren: () => import('./latest-news/latest-news.module').then(m => m.LatestNewsModule)
   },
   {
-    path: "login",
+    path: RoutesName.login(),
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   },
   {
-    path: "register",
+    path: RoutesName.register(),
     loadChildren: () => import('./registration/registration.module').then(m => m.RegistrationModule)
   },
-  { path: "**", redirectTo: "/home", pathMatch: "full" }
+  { path: '**', redirectTo: RoutesName.home(), pathMatch: 'full' }
 ];
 
 @NgModule({

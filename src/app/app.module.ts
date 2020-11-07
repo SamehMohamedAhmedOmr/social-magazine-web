@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthLinksComponent } from './auth-links/auth-links.component';
+import { AccountLinksComponent } from './header/account-links/account-links.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AuthLinksComponent } from './auth-links/auth-links.component';
     FooterComponent,
     HeaderComponent,
     NotFoundComponent,
-    AuthLinksComponent
+    AuthLinksComponent,
+    AccountLinksComponent
   ],
   imports: [
     BrowserModule,

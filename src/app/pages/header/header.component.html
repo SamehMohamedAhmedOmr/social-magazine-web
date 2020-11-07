@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark my-nav">
+    <div class="container-fluid d-flex rtl">
+        <a class="navbar-brand rtl" [routerLink]="['/home']">
+            <img src="../../assets/images/logo2.png" alt="logo" class="img-logo">
+            <span class="main-Title">الرساله</span>
+        </a>
+        <button class="navbar-toggler rtl" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon rtl"></span>
+        </button>
+        <div class="collapse navbar-collapse rtl" id="navbarNavDropdown">
+            <ul class="navbar-nav rtl">
+
+                <li class="nav-item rtl">
+                    <a class="nav-link rtl" [routerLink]="['/home']" routerLinkActive="active">
+                      <span>الرئيسية</span>
+                      <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown dropdown-mine rtl">
+                    <a class="nav-link dropdown-toggle rtl" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        الأرشيف
+                    </a>
+                    <div class="dropdown-menu dropdown-content rtl" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item rtl" [routerLink]="['/']">عدد 1</a>
+                        <a class="dropdown-item rtl" [routerLink]="['/']">عدد 2</a>
+                        <a class="dropdown-item rtl" [routerLink]="['/']">عدد 3</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown dropdown-mine rtl">
+                    <a class="nav-link dropdown-toggle rtl" id="navbarDropdownMenuLink2" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        عن المجلة
+                    </a>
+                    <div class="dropdown-menu dropdown-content rtl" aria-labelledby="navbarDropdownMenuLink2">
+                        <a class="dropdown-item rtl" [routerLink]="['/about-us']">من نحن</a>
+                        <a class="dropdown-item rtl" [routerLink]="['/what-we-are']">قالوا عنا</a>
+                        <a class="dropdown-item rtl" [routerLink]="['/editorial-board']">هيئة التحرير</a>
+                        <a class="dropdown-item rtl" [routerLink]="['/advisory-board']">الهيئة الاستشارية</a>
+                    </div>
+                </li>
+
+                <li class="nav-item rtl" aria-label="Publication-rule">
+                    <a class="nav-link rtl" [routerLink]="['/publication-terms']" routerLinkActive="active">
+                      شروط النشر
+                    </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="category">
+                    <a class="nav-link rtl" [routerLink]="['/category']" routerLinkActive="active">
+                      التصنيف
+                    </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="send Article">
+                    <a class="nav-link rtl" [routerLink]="['/submit-article']" routerLinkActive="active">
+                      ارسال مقالة
+                    </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="contact-us">
+                    <a class="nav-link rtl" [routerLink]="['/contact-us']" routerLinkActive="active">
+                      تواصل معنا
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="form-inline">
+            <app-account-links></app-account-links>
+        </div>
+    </div>
+</nav>
