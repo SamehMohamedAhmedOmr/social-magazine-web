@@ -12,6 +12,8 @@ import {LayoutComponent} from './layout/layout.component';
 import {FooterComponent} from './layout/footer/footer.component';
 import {HeaderComponent} from './layout/header/header.component';
 import {AccountLinksComponent} from './layout/header/account-links/account-links.component';
+import {MarqueeComponent} from './layout/marquee/marquee.component';
+import {NgMarqueeModule} from 'ng-marquee';
 
 
 
@@ -25,12 +27,14 @@ import {AccountLinksComponent} from './layout/header/account-links/account-links
     AuthLinksComponent,
     AccountLinksComponent,
     CustomDatePipe,
+    MarqueeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
+    NgMarqueeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -41,6 +41,20 @@ export class TestimonialComponent implements OnInit {
     { name: 'slide2', content: 'lorem lom', stars: 0, image: 'assets/images/slid2.jpg' },
     { name: 'slide3', content: 'lorem lom', stars: 2, image: 'assets/images/slid3.jpg' },
     { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
+
   ]
 
   constructor() {

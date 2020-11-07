@@ -46,7 +46,7 @@ $amongFont: 16px;
 .main-Title{
     font-size: $titleFont;
     font-weight: 800;
-    color: var(--main-color);
+    color: var(--main-color) !important;
     text-shadow: -4px 3px 5px rgba(152, 150, 150, 0.77);
 }
 

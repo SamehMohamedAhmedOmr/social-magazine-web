@@ -3,58 +3,91 @@ import { Routes, RouterModule } from '@angular/router';
 import {RoutesName} from './core/global/routes.name';
 
 const routes: Routes = [
+
+  // Home
   {
     path: RoutesName.home(),
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
+
+  // About-us
   {
-    path: RoutesName.whoIsUs(),
+    path: RoutesName.aboutUs(),
     loadChildren: () => import('./pages/about-us/about-us.module').then(m => m.AboutUsModule)
   },
+
+  // Contact-us
   {
     path: RoutesName.contactUs(),
     loadChildren: () => import('./pages/contact-us/contact-us.module').then(m => m.ContactUsModule)
   },
+
+  // Publication-Rules
   {
     path: RoutesName.publicationRules(),
     loadChildren: () => import('./pages/publication-terms/publication-terms.module').then(m => m.PublicationTermsModule)
   },
+
+
   {
     path: 'editorial-board',
     loadChildren: () => import('./pages/editorial-board/editorial-board.module').then(m => m.EditorialBoardModule)
   },
+
+  // Advisory-Body
   {
     path: RoutesName.advisoryBody(),
     loadChildren: () => import('./pages/advisory-board/advisory-board.module').then(m => m.AdvisoryBoardModule)
   },
+
+  // Testimonial
   {
     path: RoutesName.testimonial(),
     loadChildren: () => import('./pages/said-about-us/said-about-us.module').then(m => m.SaidAboutUsModule)
   },
+
+  // Magazine Category
   {
     path: RoutesName.magazineCategory(),
     loadChildren: () => import('./pages/category/category.module').then(m => m.CategoryModule)
   },
+
+  // Submit Article
   {
     path: RoutesName.submitArticle(),
     loadChildren: () => import('./pages/submit-article/submit-article.module').then(m => m.SubmitArticleModule)
   },
+
+  // Archive
   {
     path: RoutesName.archive(),
     loadChildren: () => import('./pages/archive/archive.module').then(m => m.ArchiveModule)
   },
+
+  // Latest-news
   {
     path: RoutesName.latestNews(),
-    loadChildren: () => import('./pages/latest-news/latest-news.module').then(m => m.LatestNewsModule)
+    loadChildren: () => import('./pages/news/news.module').then(m => m.NewsModule)
   },
+
+  // Login
   {
     path: RoutesName.login(),
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
+    loadChildren: () => import('./pages/Auth/login/login.module').then(m => m.LoginModule)
   },
+
+  // register
   {
     path: RoutesName.register(),
-    loadChildren: () => import('./pages/registration/registration.module').then(m => m.RegistrationModule)
+    loadChildren: () => import('./pages/Auth/registration/registration.module').then(m => m.RegistrationModule)
   },
+
+  // profile
+  {
+    path: RoutesName.profile(),
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
+  },
+
   { path: '**', redirectTo: RoutesName.home(), pathMatch: 'full' }
 ];
 

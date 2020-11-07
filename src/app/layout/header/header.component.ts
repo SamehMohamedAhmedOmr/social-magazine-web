@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RoutesName} from '../../core/global/routes.name';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  getHomeLink(){
+    return '/' + RoutesName.home();
+  }
+
+  getAboutUs(){
+    return '/' + RoutesName.aboutUs();
+  }
+
+  getTestimonial(){
+    return '/' + RoutesName.testimonial();
+  }
+
+  getAdvisoryBody(){
+    return '/' + RoutesName.advisoryBody();
+  }
+
+  getMagazineCategory(){
+    return '/' + RoutesName.magazineCategory();
+  }
+
+  getSubmitArticle(){
+    return '/' + RoutesName.submitArticle();
+  }
+
+  getContactUs(){
+    return '/' + RoutesName.contactUs();
+  }
+
+  getPublicationRules(){
+    return '/' + RoutesName.publicationRules();
   }
 
 }

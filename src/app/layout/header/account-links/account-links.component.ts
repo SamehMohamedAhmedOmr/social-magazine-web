@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {RoutesName} from '../../../core/global/routes.name';
 
 @Component({
   selector: 'app-account-links',
@@ -11,6 +12,18 @@ export class AccountLinksComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  getLoginPage(){
+    return '/' + RoutesName.login();
+  }
+
+  getRegister(){
+    return '/' + RoutesName.register();
+  }
+
+  getProfile(){
+    return '/' + RoutesName.profile();
   }
 
 }

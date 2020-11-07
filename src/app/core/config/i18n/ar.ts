@@ -73,6 +73,11 @@ export const locale = {
 
 		},
 
+
+    PAGES:{
+		  HOME:'الرئيسية'
+    },
+
 		Sales: {
 			TITLE: 'مبيعات',
 			menu: {

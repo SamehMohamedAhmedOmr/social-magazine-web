@@ -42,7 +42,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormErrorComponent,
     ListOptionsComponent,
     UserFormComponent,
-    TranslateModule
+    TranslateModule,
+    LatestNewsComponent
   ],
   imports: [
     CommonModule

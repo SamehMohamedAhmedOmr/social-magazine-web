@@ -9,7 +9,7 @@ export class RoutesName {
   }
 
   // Section Module
-  public static whoIsUs() {
+  public static aboutUs() {
     return 'من-نحن';
   }
 
@@ -93,7 +93,7 @@ export class RoutesName {
 
 
   public static login() {
-    return 'تسجيل-دخول';
+    return 'تسجيل-الدخول';
   }
 
   public static register() {

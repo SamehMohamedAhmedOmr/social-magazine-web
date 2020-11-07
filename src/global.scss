@@ -1,37 +1,33 @@
 
-// colors used among the project ...
-
-
-
 .main-color{
-  color: $mainColor;
+  color: var(--main-color);
 }
 
 .second-color{
-  color: $secondColor;
+  color: var(--second-color);
 }
 
 .third-color{
-  color: $thirdColor;
+  color: var(--third-color);
 }
 
 .back-ground1{
-  background-color: $backGround1;
+  background-color: var(--background-1);
 }
 
 .back-ground2{
-  background-color: $backGround2;
+  background-color: var(--white);
 }
 
 .back-ground3{
-  background-color: $backGround3;
+  background-color: var(--background-3);
 }
 
 
 // common code
 
 .link{
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .list{
@@ -45,4 +41,34 @@
 
 .web-container{
   padding: 12px 48px;
+}
+
+
+.title-box{
+
+  .title{
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--title-color);
+  }
+
+  .title-border{
+    position: relative;
+    width: 100px;
+    height: 3px;
+    border-radius: 10px;
+    background-color: var(--title-after-color);
+    margin: -2px auto;
+    &:before{
+      content: "";
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      border-top: 2px solid var(--title-after-color);
+      top: 5px;
+      padding: 4px 0 5px;
+      width: 40px;
+    }
+  }
 }

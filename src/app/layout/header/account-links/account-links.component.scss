@@ -1,56 +1,55 @@
-
 //Vars
 
 $backGroundHeader: #3c3a38;
-$navItemColor: rgba(255,255,255,.5);
+$navItemColor: rgba(255, 255, 255, .5);
 $titleFont: 20px;
 $amongFont: 16px;
 
 
-.nav-item-color{
+.nav-item-color {
   color: $navItemColor;
 }
 
 // Bootstrap Adjustment
-.rtl .navbar-nav .nav-item + .nav-item{
+.rtl .navbar-nav .nav-item + .nav-item {
   margin-right: 0;
 }
 
-.navbar-light .navbar-nav .nav-link.active{
+.navbar-light .navbar-nav .nav-link.active {
   color: var(--main-color);
 }
 
-.navbar-light .navbar-nav .nav-link{
+.navbar-light .navbar-nav .nav-link {
   color: var(--second-color);
   transition: color 0.3s ease;
 }
 
-.navbar-light .navbar-nav .nav-link:hover{
+.navbar-light .navbar-nav .nav-link:hover {
   color: var(--main-color);
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
   background-color: transparent;
 }
 
 // NavBar
 
-.my-nav{
+.my-nav {
   background: $backGroundHeader;
 }
 
-.img-logo{
+.img-logo {
   width: 50px;
 }
 
-.main-Title{
+.main-Title {
   font-size: $titleFont;
   font-weight: 800;
   color: var(--main-color);
   text-shadow: -4px 3px 5px rgba(152, 150, 150, 0.77);
 }
 
-ul li{
+ul li {
   font-size: $amongFont;
   font-weight: 600;
 }
@@ -67,11 +66,11 @@ ul li{
   position: absolute;
   background-color: var(--white);
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
 
-.dropdown-content a , .dropdown-menu a{
+.dropdown-content a, .dropdown-menu a {
   color: var(--third-color);
   font-size: 15px;
   font-weight: 700;
@@ -90,10 +89,18 @@ ul li{
   display: block;
 }
 
-.my-btn{
+.my-btn {
   padding: 4px 8px;
 }
 
-.img-cont{
+.img-cont {
   width: 30px;
+}
+
+
+@media (min-width: 992px) {
+  .dropdown-menu {
+    position: absolute;
+    top: 40px !important;
+  }
 }

@@ -2,6 +2,7 @@
 export const locale = {
 	lang: 'en',
 	data: {
+
 		TRANSLATOR: {
 			SELECT: 'Select your language',
 		},
@@ -72,6 +73,10 @@ export const locale = {
 			}
 
 		},
+
+    PAGES:{
+      HOME:'Home'
+    },
 
 		Sales: {
 			TITLE: 'Sales',
