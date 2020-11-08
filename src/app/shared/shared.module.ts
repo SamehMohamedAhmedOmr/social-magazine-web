@@ -14,7 +14,20 @@ import {PopupGalleryComponent} from './popup-gallery/popup-gallery.component';
 import {SoonComponent} from './soon/soon.component';
 import {UserFormComponent} from './users/user-form/user-form.component';
 import {DeleteModalComponent} from './delete-modal/delete-modal.component';
-import { TranslateModule } from '@ngx-translate/core';
+import {TranslateModule} from '@ngx-translate/core';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {RouterModule} from '@angular/router';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -42,11 +55,26 @@ import { TranslateModule } from '@ngx-translate/core';
     FormErrorComponent,
     ListOptionsComponent,
     UserFormComponent,
-    TranslateModule,
-    LatestNewsComponent
+    LatestNewsComponent,
+    TranslateModule
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    TranslateModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatTooltipModule,
+    RouterModule,
+    FormsModule,
+    MatDividerModule,
+    MatIconModule,
+    MatRadioModule,
+    MatInputModule,
   ]
 })
 

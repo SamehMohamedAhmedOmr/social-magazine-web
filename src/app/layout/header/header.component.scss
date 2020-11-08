@@ -4,7 +4,6 @@
 $backGroundHeader: #3c3a38;
 $navItemColor: rgba(255,255,255,.5);
 $titleFont: 20px;
-$amongFont: 16px;
 
 
 // Bootstrap Adjustment
@@ -47,7 +46,7 @@ $amongFont: 16px;
 }
 
 ul li{
-    font-size: $amongFont;
+    font-size: var(--big-font-size);
     font-weight: 600;
 }
 
@@ -94,3 +93,8 @@ ul li{
     width: 30px;
 }
 
+
+.navbar-toggler{
+  background-color: var(--greyish-two);
+  border: 1px solid var(--grey) !important;
+}

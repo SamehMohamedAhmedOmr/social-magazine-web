@@ -42,12 +42,18 @@
 .web-container{
   padding: 12px 48px;
 }
+h3{
+  font-size: 1.4rem !important;
+}
 
+p{
+  font-size: 1.1rem !important;
+}
 
 .title-box{
 
   .title{
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 900;
     color: var(--title-color);
   }

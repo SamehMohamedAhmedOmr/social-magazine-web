@@ -9,6 +9,7 @@ import { MostDownloadedComponent } from './most-downloaded/most-downloaded.compo
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {SharedModule} from '../../shared/shared.module';
+import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -23,13 +24,15 @@ const routes: Routes = [
     SliderComponent,
     MostViewedComponent,
     MostDownloadedComponent,
-    TestimonialComponent],
+    TestimonialComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     NgMarqueeModule,
     CarouselModule,
-    SharedModule
+    TranslateModule,
+    SharedModule,
   ]
 })
 export class HomeModule { }

@@ -58,7 +58,7 @@ export class TranslationService {
 		if (lang) {
 			this.translate.use(this.translate.getDefaultLang());
 			this.translate.use(lang);
-			localStorage.setItem('cms_lang', lang);
+			localStorage.setItem('lang', lang);
 		}
 	}
 
@@ -66,6 +66,6 @@ export class TranslationService {
 	 * Returns selected language
 	 */
 	getSelectedLanguage(): any {
-		return localStorage.getItem('cms_lang') || this.translate.getDefaultLang();
+		return localStorage.getItem('lang') || this.translate.getDefaultLang();
 	}
 }

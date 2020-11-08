@@ -10,7 +10,7 @@ export class PrepareLanguagesService {
 		if (!languages || !languages.length){
 			return [];
 		}
-		let lang = languages.find(k => k.lang == localStorage.getItem('cms_lang'));
+		let lang = languages.find(k => k.lang == localStorage.getItem('lang'));
 		if (!lang){
 			return ($title) ? languages[0].title : languages[0].name;
 		}
@@ -22,7 +22,7 @@ export class PrepareLanguagesService {
 		if (!languages.length){
 			return [];
 		}
-		let lang = languages.find(k => k.lang == localStorage.getItem('cms_lang'));
+		let lang = languages.find(k => k.lang == localStorage.getItem('lang'));
 		if (!lang){
 			return  languages[0].note_body;
 		}

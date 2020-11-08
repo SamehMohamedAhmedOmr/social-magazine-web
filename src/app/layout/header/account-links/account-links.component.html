@@ -2,31 +2,32 @@
 
   <li aria-label="login" class="nav-item rtl d-flex justify-content-center align-items-center">
     <a class="nav-link rtl" [routerLink]="[getLoginPage()]">
-      تسجيل دخول
+      {{ 'PAGES.LOGIN' | translate }}
     </a>
   </li>
 
   <li aria-label="register" class="nav-item rtl d-flex justify-content-center align-items-center">
     <a class="nav-link rtl" [routerLink]="[getRegister()]">
-      إنشاء حساب
+      {{ 'PAGES.REGISTER' | translate }}
     </a>
   </li>
 
   <li class="nav-item dropdown dropdown-mine rtl d-flex justify-content-center align-items-center">
-    <a class="nav-link dropdown-toggle rtl" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+    <a class="nav-link dropdown-toggle rtl" id="accountDropdown" role="button" data-toggle="dropdown"
+       aria-haspopup="true"
        aria-expanded="false">
       <img src="../../assets/images/original.jpg" alt="" class="img-cont rounded-circle mr-2">
       <span class="nav-item-color">
-        مرحبا مستخدم
+           {{ 'PAGES.HELLO' | translate }} مستخدم
       </span>
     </a>
     <div class="dropdown-menu dropdown-content rtl" aria-labelledby="accountDropdown">
       <a class="dropdown-item rtl" [routerLink]="[getProfile()]">
-        حسابي
+        {{ 'PAGES.ACCOUNT' | translate }}
       </a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="#">
-        تسجيل خروج
+        {{ 'PAGES.LOGOUT' | translate }}
       </a>
     </div>
   </li>

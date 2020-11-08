@@ -1,4 +1,4 @@
-<div class="py-5">
+<div class="py-5" direction="ltr">
   <owl-carousel-o [options]="customOptions">
 
     <ng-container *ngFor="let slide of slidesStore">
@@ -21,11 +21,9 @@
 
           <div class="test-content">
             <p class="px-5 py-2">
-              <i class="fas fa-quote-left pr-4 mb-1"></i>
-              Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Repudiandae et id exercitationem, odio rem in explicabo velit debitis a molestiae, dolor
-              provident laborum nulla ducimus ea consequatur dicta dolores ad!
-              <i class="fas fa-quote-right pl-4 mt-1"></i>
+              <i class="fas fa-quote-left pl-4 mb-3"></i>
+              {{ slide.content }}
+              <i class="fas fa-quote-right pr-4 pb-5"></i>
             </p>
           </div>
         </div>

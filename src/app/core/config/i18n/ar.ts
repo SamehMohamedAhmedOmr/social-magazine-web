@@ -3,41 +3,6 @@ export const locale = {
 	lang: 'ar',
 	data: {
 
-		TRANSLATOR: {
-			SELECT: 'Wähle deine Sprache',
-		},
-
-		MENU: {
-			NEW: 'القائمة',
-			ACTIONS: 'Aktionen',
-			CREATE_POST: 'Erstellen Sie einen neuen Beitrag',
-			PAGES: 'Pages',
-			FEATURES: 'Eigenschaften',
-			SHORT_ACCESS: 'الاختصارات السريعه',
-			ADD_NEW: 'اضافة جديد',
-			APPS: 'Apps',
-			DASHBOARD: 'لوحة التحكم',
-			STAND: 'الأساسيات',
-			LOGOUT: 'تسجيل الخروج',
-			ANALS: 'تحاليل البيانات',
-			LANG: {
-				AR: 'عربى',
-				EN: 'انجليزى',
-			},
-			FORM: {
-				NAME: 'نماذج الإدخال',
-				ITEMS1:
-					{
-						NAME: 'الفورمات 1'
-					}
-			},
-			DATA_TABLE: 'جدول البيانات',
-			BANNER: {
-				TITLE: 'رايه',
-				ALL: 'كل الرايات',
-				ADD: 'إاضافة بانر'
-			}
-		},
 
 		VALIDATION: {
 			INVALID: '{{name}} غير صحيح',
@@ -53,99 +18,28 @@ export const locale = {
 			INVALID_FIELD: '{{name}} غير صحيح',
 		},
 
-		STATISTICS: {
-			ORDERS: {
-				orders_count: 'اجمالي الطلبات',
-				orders_total_price: 'اجمالي سعر الطلبات',
-				canceled_orders: 'الطلبات الملغاة',
-				delivered_orders: 'الطلبات الموصلة',
-				pending_orders: 'الطلبات قيد الانتظار',
-			},
-
-			CARTS: {
-				pending_cart_item_count: 'المنتجات قيد الانتظار في السلة',
-				pending_carts_count: 'اجمالي السلات التي بها منتجات',
-			},
-
-			CUSTOMERS: {
-				new_customers: 'العملاء الجدد في اخر شهر',
-			}
-
-		},
 
 
     PAGES:{
-		  HOME:'الرئيسية'
+		  HOME:'الرئيسية',
+      ARCHIVE: 'الأرشيف',
+      ABOUT: 'عن المجلة',
+      WHO_IS_US: 'من نحن',
+      TESTIMONIAL: 'قالوا عننا',
+      ADVISORY_BODY: 'الهيئة الاستشارية',
+      PUBLICATION_RULES: 'شروط النشر',
+      MAGAZINE_CATEGORY: 'التصنيف',
+      SEND_ARTICLE: 'ارسال مقالة',
+      CONTACT_US : 'تواصل معنا',
+      LOGIN: 'تسجيل الدخول',
+      REGISTER: 'انشاء حساب',
+      HELLO: 'مرحبا',
+      ACCOUNT: 'حسابي',
+      LOGOUT: 'تسجيل خروج',
+      LAST_NEWS: 'آخر الأخبار',
+      MOST_ARTICLE_VIEWED: 'أكثر المقالات مشاهدًة',
+      MOST_ARTICLE_DOWNLOADED : 'أكثر المقالات تحميلًا'
     },
-
-		Sales: {
-			TITLE: 'مبيعات',
-			menu: {
-				projects: 'العملاء',
-			}
-		},
-
-		MENUS:{
-			USERS:{
-				TITLE : 'المستخدمين',
-				menu:{
-					MAGAZINE_EDITOR_MANAGER: 'رؤساء التحرير',
-					JOURNAL_EDITOR_DIRECTOR: 'مديرين التحرير',
-					REFEREES: 'المحكمين',
-					RESEARCHER: 'الباحثين',
-				}
-			},
-			MAGAZINE_SETTINGS:{
-				TITLE : 'اعدادات المجلة',
-				menu:{
-					WHO_IS_US: 'من نحن',
-					PUBLICATION_RULE: 'شروط النشر',
-					ADVISORY_BODY: 'الهيئة الاستشارية',
-					MAGAZINE_CATEGORY: 'التصنيف',
-					MAGAZINE_NEWS: 'الاخبار',
-					TESTIMONIAL: 'قالوا عنا',
-					MAGAZINE_GOAL: 'اهداف المجلة',
-					MAGAZINE_INFORMATION: 'معلومات المجلة',
-				}
-			},
-		},
-
-
-		AUTH: {
-			GENERAL: {
-				OR: 'Oder',
-				SUBMIT_BUTTON: 'einreichen',
-				NO_ACCOUNT: 'Hast du kein Konto?',
-				SIGNUP_BUTTON: 'Anmelden',
-				FORGOT_BUTTON: 'Passwort vergessen',
-				BACK_BUTTON: 'Zurück',
-				PRIVACY: 'Privatsphäre',
-				LEGAL: 'Legal',
-				CONTACT: 'Kontakt',
-			},
-			LOGIN: {
-				TITLE: 'Create Account',
-				BUTTON: 'تسجيل الدخول',
-			},
-			FORGOT: {
-				TITLE: 'Forgotten Password?',
-				DESC: 'Enter your email to reset your password',
-				SUCCESS: 'Your account has been successfully reset.'
-			},
-			REGISTER: {
-				TITLE: 'Sign Up',
-				DESC: 'Enter your details to create your account',
-				SUCCESS: 'Your account has been successfuly registered.'
-			},
-			INPUT: {
-				EMAIL: 'البريد الالكتروني',
-				FULLNAME: 'Fullname',
-				PASSWORD: 'كلمة المرور',
-				CONFIRM_PASSWORD: 'Confirm Password',
-				USERNAME: 'Nutzername'
-			},
-		},
-
 
 		Components: {
 			item_per_page: 'عدد العناصر في كل صفحة',
@@ -337,9 +231,6 @@ export const locale = {
 
 		},
 
-		MSG:{
-
-		},
 
 		stepper:{
 			basic_data : 'البيانات الاساسية',

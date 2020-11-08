@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark my-nav">
     <div class="container-fluid d-flex rtl">
-        <a class="navbar-brand rtl" [routerLink]="[getHomeLink()]">
+        <a class="navbar-brand d-flex flex-column align-items-center justify-content-center rtl"
+           [routerLink]="[getHomeLink()]">
             <img src="../../assets/images/logo2.png" alt="logo" class="img-logo">
-            <span class="main-Title">الرساله</span>
+            <span class="main-Title">
+              {{ 'BASIC.APP_NAME' | translate }}
+            </span>
         </a>
         <button class="navbar-toggler rtl" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +26,7 @@
                 <li class="nav-item dropdown dropdown-mine rtl">
                     <a class="nav-link dropdown-toggle rtl" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        الأرشيف
+                      {{ 'PAGES.ARCHIVE' | translate }}
                     </a>
                     <div class="dropdown-menu dropdown-content rtl" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item rtl" [routerLink]="['/']">عدد 1</a>
@@ -35,36 +38,42 @@
                 <li class="nav-item dropdown dropdown-mine rtl">
                     <a class="nav-link dropdown-toggle rtl" id="navbarDropdownMenuLink2" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        عن المجلة
+                      {{ 'PAGES.ABOUT' | translate }}
                     </a>
                     <div class="dropdown-menu dropdown-content rtl" aria-labelledby="navbarDropdownMenuLink2">
-                        <a class="dropdown-item rtl" [routerLink]="[getAboutUs()]">من نحن</a>
-                        <a class="dropdown-item rtl" [routerLink]="[getTestimonial()]">قالوا عنا</a>
-                        <a class="dropdown-item rtl" [routerLink]="[getAdvisoryBody()]">الهيئة الاستشارية</a>
+                        <a class="dropdown-item rtl" [routerLink]="[getAboutUs()]">
+                          {{ 'PAGES.WHO_IS_US' | translate }}
+                        </a>
+                        <a class="dropdown-item rtl" [routerLink]="[getTestimonial()]">
+                          {{ 'PAGES.TESTIMONIAL' | translate }}
+                        </a>
+                        <a class="dropdown-item rtl" [routerLink]="[getAdvisoryBody()]">
+                          {{ 'PAGES.ADVISORY_BODY' | translate }}
+                        </a>
                     </div>
                 </li>
 
                 <li class="nav-item rtl" aria-label="Publication-rule">
                     <a class="nav-link rtl" [routerLink]="[getPublicationRules()]" routerLinkActive="active">
-                      شروط النشر
+                      {{ 'PAGES.PUBLICATION_RULES' | translate }}
                     </a>
                 </li>
 
                 <li class="nav-item rtl" aria-label="category">
                     <a class="nav-link rtl" [routerLink]="[getMagazineCategory()]" routerLinkActive="active">
-                      التصنيف
+                      {{ 'PAGES.MAGAZINE_CATEGORY' | translate }}
                     </a>
                 </li>
 
                 <li class="nav-item rtl" aria-label="send Article">
                     <a class="nav-link rtl" [routerLink]="[getSubmitArticle()]" routerLinkActive="active">
-                      ارسال مقالة
+                      {{ 'PAGES.SEND_ARTICLE' | translate }}
                     </a>
                 </li>
 
                 <li class="nav-item rtl" aria-label="contact-us">
                     <a class="nav-link rtl" [routerLink]="[getContactUs()]" routerLinkActive="active">
-                      تواصل معنا
+                      {{ 'PAGES.CONTACT_US' | translate }}
                     </a>
                 </li>
 
