@@ -16,6 +16,8 @@ import {NgMarqueeModule} from 'ng-marquee';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {Interceptor} from './interceptor';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -37,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     TranslateModule.forRoot(),
     NgMarqueeModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
