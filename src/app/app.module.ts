@@ -34,7 +34,7 @@ import { environment } from '../environments/environment';
     MarqueeComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot(),
