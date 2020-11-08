@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AboutUsComponent } from './about-us.component';
-import { RouterModule, Routes } from '@angular/router';
-import {SharedModule} from '../../shared/shared.module';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {AboutUsComponent} from './about-us.component';
+import {RouterModule, Routes} from '@angular/router';
+import {PagesModule} from '../pages.module';
 
 
 const routes: Routes = [
@@ -15,10 +15,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AboutUsComponent],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        SharedModule,
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    PagesModule,
+  ]
 })
-export class AboutUsModule { }
+export class AboutUsModule {
+}

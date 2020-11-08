@@ -1,4 +1,4 @@
-export class RoutesName {
+export class UrlName {
 
   public static default() {
     return '/';

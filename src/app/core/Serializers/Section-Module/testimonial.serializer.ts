@@ -21,9 +21,7 @@ export class TestimonialSerializer extends BaseSerializer implements Serializer 
 	}
 
 	public adapt(item: any): TestimonialModel {
-		let object = new TestimonialModel(
-			item.id
-		);
+		let object = new TestimonialModel(null);
 
 		object.name = item.name;
 		object.content = item.content;
@@ -31,8 +29,6 @@ export class TestimonialSerializer extends BaseSerializer implements Serializer 
 		object.image = item.image;
 		object.image_id = item.image_id;
 		object.stars = item.stars;
-
-		object.is_active = item.is_active;
 
 		return object;
 	}

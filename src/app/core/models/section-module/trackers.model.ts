@@ -10,7 +10,6 @@ export class TrackersModel extends ModelBase {
 
 	public list() {
 		return {
-			'id': this.id,
 			'visitors' : this.visitors,
 		};
 	}

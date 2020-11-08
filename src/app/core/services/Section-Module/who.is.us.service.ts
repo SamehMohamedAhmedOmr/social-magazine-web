@@ -15,7 +15,7 @@ export class WhoIsUsService extends BaseService<WhoIsUsModel> {
 		super(
 			Http,
 			environment.url(),
-			'who-is-us-sections',
+			'who-is-us',
 			new WhoIsUsSerializer());
 	}
 

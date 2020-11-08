@@ -21,12 +21,9 @@ export class WhoIsUsSerializer extends BaseSerializer implements Serializer {
 	}
 
 	public adapt(item: any): WhoIsUsModel {
-		let object = new WhoIsUsModel(
-			item.id
-		);
+		let object = new WhoIsUsModel(null);
 
 		object.content = item.content;
-		object.is_active = item.is_active;
 
 		return object;
 	}

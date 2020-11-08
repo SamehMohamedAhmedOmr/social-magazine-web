@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RoutesName} from '../../core/global/routes.name';
+import {UrlName} from '../../core/global/url.name';
 
 @Component({
   selector: 'app-header',
@@ -15,35 +15,35 @@ export class HeaderComponent implements OnInit {
   }
 
   getHomeLink(){
-    return '/' + RoutesName.home();
+    return '/' + UrlName.home();
   }
 
   getAboutUs(){
-    return '/' + RoutesName.aboutUs();
+    return '/' + UrlName.aboutUs();
   }
 
   getTestimonial(){
-    return '/' + RoutesName.testimonial();
+    return '/' + UrlName.testimonial();
   }
 
   getAdvisoryBody(){
-    return '/' + RoutesName.advisoryBody();
+    return '/' + UrlName.advisoryBody();
   }
 
   getMagazineCategory(){
-    return '/' + RoutesName.magazineCategory();
+    return '/' + UrlName.magazineCategory();
   }
 
   getSubmitArticle(){
-    return '/' + RoutesName.submitArticle();
+    return '/' + UrlName.submitArticle();
   }
 
   getContactUs(){
-    return '/' + RoutesName.contactUs();
+    return '/' + UrlName.contactUs();
   }
 
   getPublicationRules(){
-    return '/' + RoutesName.publicationRules();
+    return '/' + UrlName.publicationRules();
   }
 
 }

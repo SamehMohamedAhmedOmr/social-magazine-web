@@ -21,12 +21,9 @@ export class MagazineGoalsSerializer extends BaseSerializer implements Serialize
 	}
 
 	public adapt(item: any): MagazineGoalsModel {
-		let object = new MagazineGoalsModel(
-			item.id
-		);
+		let object = new MagazineGoalsModel(item.id);
 
 		object.content = item.content;
-		object.is_active = item.is_active;
 
 		return object;
 	}

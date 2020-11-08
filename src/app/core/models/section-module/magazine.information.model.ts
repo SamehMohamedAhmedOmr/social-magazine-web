@@ -17,7 +17,6 @@ export class MagazineInformationModel extends ModelBase {
 
 	public list() {
 		return {
-			'id': this.id,
 			'title' : this.title,
 			'vision' : this.vision,
 			'mission' : this.mission,

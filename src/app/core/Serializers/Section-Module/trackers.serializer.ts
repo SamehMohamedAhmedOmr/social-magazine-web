@@ -21,9 +21,7 @@ export class TrackersSerializer extends BaseSerializer implements Serializer {
 	}
 
 	public adapt(item: any): TrackersModel {
-		let object = new TrackersModel(
-			item.id
-		);
+		let object = new TrackersModel(null);
 
 		object.visitors = item.visitors;
 

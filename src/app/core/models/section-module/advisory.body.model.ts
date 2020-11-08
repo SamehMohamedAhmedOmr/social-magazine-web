@@ -4,7 +4,6 @@ export class AdvisoryBodyModel extends ModelBase {
 
 	public name:string;
 	public job:string;
-	public is_active:boolean;
 
 	constructor(id: number) {
 		super(id);
@@ -12,10 +11,8 @@ export class AdvisoryBodyModel extends ModelBase {
 
 	public list() {
 		return {
-			'id': this.id,
 			'name' : this.name,
 			'job' : this.job,
-			'is_active' : this.is_active,
 		};
 	}
 

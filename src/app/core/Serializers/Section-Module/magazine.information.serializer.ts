@@ -21,9 +21,7 @@ export class MagazineInformationSerializer extends BaseSerializer implements Ser
 	}
 
 	public adapt(item: any): MagazineInformationModel {
-		let object = new MagazineInformationModel(
-			item.id
-		);
+		let object = new MagazineInformationModel(null);
 
 		object.title = item.title;
 		object.vision = item.vision;

@@ -21,14 +21,10 @@ export class AdvisoryBodiesSerializer extends BaseSerializer implements Serializ
 	}
 
 	public adapt(item: any): AdvisoryBodyModel {
-		let object = new AdvisoryBodyModel(
-			item.id
-		);
+		let object = new AdvisoryBodyModel(null);
 
 		object.name = item.name;
 		object.job = item.job;
-
-		object.is_active = item.is_active;
 
 		return object;
 	}

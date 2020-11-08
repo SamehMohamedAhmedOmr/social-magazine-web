@@ -21,12 +21,9 @@ export class PublicationRulesSerializer extends BaseSerializer implements Serial
 	}
 
 	public adapt(item: any): PublicationRulesModel {
-		let object = new PublicationRulesModel(
-			item.id
-		);
+		let object = new PublicationRulesModel(null);
 
 		object.content = item.content;
-		object.is_active = item.is_active;
 
 		return object;
 	}

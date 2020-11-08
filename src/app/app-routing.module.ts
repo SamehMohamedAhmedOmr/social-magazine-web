@@ -1,30 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {RoutesName} from './core/global/routes.name';
+import {UrlName} from './core/global/url.name';
 
 const routes: Routes = [
 
   // Home
   {
-    path: RoutesName.home(),
+    path: UrlName.home(),
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
 
   // About-us
   {
-    path: RoutesName.aboutUs(),
+    path: UrlName.aboutUs(),
     loadChildren: () => import('./pages/about-us/about-us.module').then(m => m.AboutUsModule)
   },
 
   // Contact-us
   {
-    path: RoutesName.contactUs(),
+    path: UrlName.contactUs(),
     loadChildren: () => import('./pages/contact-us/contact-us.module').then(m => m.ContactUsModule)
   },
 
   // Publication-Rules
   {
-    path: RoutesName.publicationRules(),
+    path: UrlName.publicationRules(),
     loadChildren: () => import('./pages/publication-terms/publication-terms.module').then(m => m.PublicationTermsModule)
   },
 
@@ -36,59 +36,59 @@ const routes: Routes = [
 
   // Advisory-Body
   {
-    path: RoutesName.advisoryBody(),
+    path: UrlName.advisoryBody(),
     loadChildren: () => import('./pages/advisory-board/advisory-board.module').then(m => m.AdvisoryBoardModule)
   },
 
   // Testimonial
   {
-    path: RoutesName.testimonial(),
+    path: UrlName.testimonial(),
     loadChildren: () => import('./pages/said-about-us/said-about-us.module').then(m => m.SaidAboutUsModule)
   },
 
   // Magazine Category
   {
-    path: RoutesName.magazineCategory(),
+    path: UrlName.magazineCategory(),
     loadChildren: () => import('./pages/category/category.module').then(m => m.CategoryModule)
   },
 
   // Submit Article
   {
-    path: RoutesName.submitArticle(),
+    path: UrlName.submitArticle(),
     loadChildren: () => import('./pages/submit-article/submit-article.module').then(m => m.SubmitArticleModule)
   },
 
   // Archive
   {
-    path: RoutesName.archive(),
+    path: UrlName.archive(),
     loadChildren: () => import('./pages/archive/archive.module').then(m => m.ArchiveModule)
   },
 
   // Latest-news
   {
-    path: RoutesName.latestNews(),
+    path: UrlName.latestNews(),
     loadChildren: () => import('./pages/news/news.module').then(m => m.NewsModule)
   },
 
   // Login
   {
-    path: RoutesName.login(),
+    path: UrlName.login(),
     loadChildren: () => import('./pages/Auth/login/login.module').then(m => m.LoginModule)
   },
 
   // register
   {
-    path: RoutesName.register(),
+    path: UrlName.register(),
     loadChildren: () => import('./pages/Auth/registration/registration.module').then(m => m.RegistrationModule)
   },
 
   // profile
   {
-    path: RoutesName.profile(),
+    path: UrlName.profile(),
     loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
   },
 
-  { path: '**', redirectTo: RoutesName.home(), pathMatch: 'full' }
+  { path: '**', redirectTo: UrlName.home(), pathMatch: 'full' }
 ];
 
 @NgModule({

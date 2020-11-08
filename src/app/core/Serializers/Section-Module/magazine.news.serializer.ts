@@ -21,16 +21,13 @@ export class MagazineNewsSerializer extends BaseSerializer implements Serializer
 	}
 
 	public adapt(item: any): MagazineNewsModel {
-		let object = new MagazineNewsModel(
-			item.id
-		);
+		let object = new MagazineNewsModel(null);
 
 		object.title = item.title;
 		object.content = item.content;
 
 		object.images = item.images;
 
-		object.is_active = item.is_active;
 
 		return object;
 	}

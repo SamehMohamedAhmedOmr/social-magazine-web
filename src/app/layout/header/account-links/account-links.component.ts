@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RoutesName} from '../../../core/global/routes.name';
+import {UrlName} from '../../../core/global/url.name';
 
 @Component({
   selector: 'app-account-links',
@@ -15,15 +15,15 @@ export class AccountLinksComponent implements OnInit {
   }
 
   getLoginPage(){
-    return '/' + RoutesName.login();
+    return '/' + UrlName.login();
   }
 
   getRegister(){
-    return '/' + RoutesName.register();
+    return '/' + UrlName.register();
   }
 
   getProfile(){
-    return '/' + RoutesName.profile();
+    return '/' + UrlName.profile();
   }
 
 }

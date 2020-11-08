@@ -7,7 +7,6 @@ export class TestimonialModel extends ModelBase {
 	public stars:number;
 	public image:any;
 	public image_id:number;
-	public is_active:boolean;
 
 	constructor(id: number) {
 		super(id);
@@ -20,7 +19,6 @@ export class TestimonialModel extends ModelBase {
 			'stars' : this.stars,
 			'content' : this.content,
 			'image' : this.image,
-			'is_active' : this.is_active,
 		};
 	}
 

@@ -21,14 +21,10 @@ export class MagazineCategorySerializer extends BaseSerializer implements Serial
 	}
 
 	public adapt(item: any): MagazineCategoryModel {
-		let object = new MagazineCategoryModel(
-			item.id
-		);
+		let object = new MagazineCategoryModel(null);
 
 		object.content = item.content;
 		object.images = item.images;
-
-		object.is_active = item.is_active;
 
 		return object;
 	}
