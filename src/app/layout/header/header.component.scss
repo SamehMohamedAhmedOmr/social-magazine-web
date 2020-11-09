@@ -3,7 +3,7 @@
 
 $backGroundHeader: #3c3a38;
 $navItemColor: rgba(255,255,255,.5);
-$titleFont: 20px;
+$titleFont: 1.2rem;
 
 
 // Bootstrap Adjustment
@@ -95,6 +95,28 @@ ul li{
 
 
 .navbar-toggler{
-  background-color: var(--greyish-two);
-  border: 1px solid var(--grey) !important;
+  background-color: var(--main-color);
+}
+
+.navbar-toggler:focus{
+  outline: none !important;
+}
+
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .nav-bar-list{
+    padding: 0;
+  }
+
+  ul.menu-item > li{
+    width: 100%;
+    a{
+      text-align: center;
+    }
+    div.dropdown-content{
+      width: 100%;
+      top: 30px;
+    }
+  }
 }

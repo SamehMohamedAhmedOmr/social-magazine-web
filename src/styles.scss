@@ -2,5 +2,38 @@
 @import "global.scss";
 @import "variables.scss";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-md-lg: 1270px;
+$screen-lg: 1200px;
+$screen-xl: 1600px;
+
+$max-lg-width: 991.98px;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+@media screen and (max-width: $max-lg-width){
+  html{
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: $max-lg-width){
+  html{
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: $screen-md-lg){
+  html{
+    font-size: 16px;
+  }
+}

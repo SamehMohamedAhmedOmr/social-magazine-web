@@ -45,7 +45,7 @@ $amongFont: 16px;
 }
 
 ul li {
-  font-size: $amongFont;
+  font-size: var(--big-font-size);
   font-weight: 600;
 }
 
@@ -99,3 +99,16 @@ ul li {
     top: 40px !important;
   }
 }
+
+@media (max-width: 1199.98px) {
+  .accountDropdown {
+    width: 100%;
+    text-align: center !important;
+    .dropdown-item{
+      text-align: center !important;
+    }
+  }
+}
+
+
+

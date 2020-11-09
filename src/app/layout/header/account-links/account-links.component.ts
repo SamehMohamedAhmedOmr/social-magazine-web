@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UrlName} from '../../../core/global/url.name';
+import {LocalStorageService} from '../../../core/services/localStorage.service';
 
 @Component({
   selector: 'app-account-links',
@@ -8,7 +9,7 @@ import {UrlName} from '../../../core/global/url.name';
 })
 export class AccountLinksComponent implements OnInit {
 
-  constructor() {
+  constructor(public localStorageService :LocalStorageService) {
   }
 
   ngOnInit(): void {

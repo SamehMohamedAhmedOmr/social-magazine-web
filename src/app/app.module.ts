@@ -18,6 +18,7 @@ import {Interceptor} from './interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -34,13 +35,14 @@ import { environment } from '../environments/environment';
     MarqueeComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     AppRoutingModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot(),
     NgMarqueeModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    MatDividerModule
   ],
   providers: [
     {

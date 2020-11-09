@@ -12,7 +12,16 @@
             <span class="navbar-toggler-icon rtl"></span>
         </button>
         <div class="collapse navbar-collapse rtl" id="navbarNavDropdown">
-            <ul class="navbar-nav rtl">
+            <ul class="navbar-nav rtl align-items-center nav-bar-list menu-item w-100">
+
+                <li class="nav-item rtl d-lg-none d-block w-100">
+                  <div class="form-inline w-100">
+                    <app-account-links class="w-100"></app-account-links>
+                  </div>
+                  <div class="my-4">
+                    <mat-divider></mat-divider>
+                  </div>
+                </li>
 
                 <li class="nav-item rtl">
                     <a class="nav-link rtl" [routerLink]="[getHomeLink()]" routerLinkActive="active">
@@ -79,7 +88,7 @@
 
             </ul>
         </div>
-        <div class="form-inline">
+        <div class="form-inline d-lg-block d-none">
             <app-account-links></app-account-links>
         </div>
     </div>

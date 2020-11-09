@@ -1,18 +1,24 @@
-<ul class="navbar-nav rtl">
+<ul class="navbar-nav rtl p-0 flex-xl-row flex-column">
 
-  <li aria-label="login" class="nav-item rtl d-flex justify-content-center align-items-center">
+  <li aria-label="login"
+      *ngIf="!localStorageService.getToken()"
+      class="nav-item rtl d-flex justify-content-center align-items-center">
     <a class="nav-link rtl" [routerLink]="[getLoginPage()]">
       {{ 'PAGES.LOGIN' | translate }}
     </a>
   </li>
 
-  <li aria-label="register" class="nav-item rtl d-flex justify-content-center align-items-center">
+  <li aria-label="register"
+      *ngIf="!localStorageService.getToken()"
+      class="nav-item rtl d-flex justify-content-center align-items-center mx-0">
     <a class="nav-link rtl" [routerLink]="[getRegister()]">
       {{ 'PAGES.REGISTER' | translate }}
     </a>
   </li>
 
-  <li class="nav-item dropdown dropdown-mine rtl d-flex justify-content-center align-items-center">
+  <li aria-label="Profile"
+      *ngIf="localStorageService.getToken()"
+      class="nav-item dropdown dropdown-mine rtl d-flex justify-content-center align-items-center">
     <a class="nav-link dropdown-toggle rtl" id="accountDropdown" role="button" data-toggle="dropdown"
        aria-haspopup="true"
        aria-expanded="false">
@@ -21,7 +27,7 @@
            {{ 'PAGES.HELLO' | translate }} مستخدم
       </span>
     </a>
-    <div class="dropdown-menu dropdown-content rtl" aria-labelledby="accountDropdown">
+    <div class="dropdown-menu dropdown-content rtl accountDropdown" aria-labelledby="accountDropdown">
       <a class="dropdown-item rtl" [routerLink]="[getProfile()]">
         {{ 'PAGES.ACCOUNT' | translate }}
       </a>
@@ -31,4 +37,5 @@
       </a>
     </div>
   </li>
+
 </ul>
