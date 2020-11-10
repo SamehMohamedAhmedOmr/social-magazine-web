@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {WhoIsUsService} from '../../core/services/Section-Module/who.is.us.service';
-import {NgxSpinnerService} from 'ngx-spinner';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-about-us',
@@ -12,8 +12,8 @@ export class AboutUsComponent implements OnInit {
   who_is_us:[] = [];
 
   constructor(private service:WhoIsUsService,
-              private cdr:ChangeDetectorRef,
-              private spinner: NgxSpinnerService) {
+              private ngxService: NgxUiLoaderService,
+              private cdr:ChangeDetectorRef) {
   }
 
 
@@ -22,10 +22,10 @@ export class AboutUsComponent implements OnInit {
   }
 
   getWhoIsUs(){
-    this.spinner.show();
+    this.ngxService.start();
     this.service.list(null).subscribe(value => {
       this.who_is_us  = value;
-     this.spinner.hide();
+      this.ngxService.stop();
       this.cdr.markForCheck();
       console.log(this.who_is_us)
     });

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SpinnerType} from 'ngx-ui-loader/lib/utils/types';
 
 @Component({
   selector: 'app-layout',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+
+  loader_color = '#a98f5b';
+  loader_type:SpinnerType = 'rotating-plane';
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

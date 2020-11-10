@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 import {MatDividerModule} from '@angular/material/divider';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import {NgxUiLoaderModule} from 'ngx-ui-loader';
 
 
 
@@ -44,7 +45,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     MatDividerModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    // Import NgxUiLoaderModule
+    NgxUiLoaderModule
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
