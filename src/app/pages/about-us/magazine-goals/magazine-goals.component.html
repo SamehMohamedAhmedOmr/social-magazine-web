@@ -1,0 +1,16 @@
+<section aria-label="goals" *ngIf="goals" class="portfolio-item mb-5">
+
+  <div class="title-box py-3 mb-2">
+    <h2 class="text-center title">
+      {{ 'Components.MAGAZINE_GOAL.name' | translate }}
+    </h2>
+    <div class="title-border"></div>
+  </div>
+
+  <ol class="text-left">
+    <li *ngFor="let goal of goals">
+      <p class="description">{{goal.content}}</p>
+    </li>
+  </ol>
+
+</section>

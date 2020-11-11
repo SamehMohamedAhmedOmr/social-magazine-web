@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {PublicationRulesService} from '../../core/services/Section-Module/publication.rules.service';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {AdvisoryBodiesService} from '../../core/services/Section-Module/advisory.bodies.service';
 
 @Component({
   selector: 'app-advisory-board',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdvisoryBoardComponent implements OnInit {
 
-  constructor() { }
+  advisory_bodies:[] = [];
+
+  constructor(private advisoryBodiesService:AdvisoryBodiesService,
+              private ngxService: NgxUiLoaderService,
+              private cdr:ChangeDetectorRef) {
+  }
 
   ngOnInit(): void {
+    this.getPublicationRules();
   }
+
+  getPublicationRules(){
+    this.ngxService.start();
+    this.advisoryBodiesService.list(null).subscribe(value => {
+      this.advisory_bodies  = value;
+      this.ngxService.stop();
+
+      this.cdr.markForCheck();
+    });
+  }
+
 
 }

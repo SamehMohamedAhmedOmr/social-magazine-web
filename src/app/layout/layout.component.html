@@ -1,14 +1,23 @@
+
 <ngx-ui-loader [fgsType]="loader_type"
                [bgsType]="loader_type"
                [bgsColor]="loader_color"
                [fgsColor]="loader_color"
                [pbColor]="loader_color"
+               [pbThickness] = "pbThickness"
+               [pbDirection] = "pbDirection"
+               [overlayColor]="overlayColor"
+               [logoUrl]= "logoUrl"
+               [text] = "overlay_text"
 ></ngx-ui-loader>
 
-<app-header></app-header>
+<div ngxUiLoaderBlurred blur="11">
+  <!-- This page content will be blurred/frosted when foreground loader is showed -->
+  <app-header></app-header>
 
-<app-marquee></app-marquee>
+  <app-marquee></app-marquee>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
-<app-footer></app-footer>
+  <app-footer></app-footer>
+</div>

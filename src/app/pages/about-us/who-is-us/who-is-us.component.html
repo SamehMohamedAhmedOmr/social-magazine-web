@@ -1,0 +1,16 @@
+<section aria-label="who-is-us" *ngIf="who_is_us" class="portfolio-item mb-5">
+
+  <div class="title-box py-3 mb-2">
+    <h2 class="text-center title">
+      {{ 'PAGES.WHO_IS_US' | translate }}
+    </h2>
+    <div class="title-border"></div>
+  </div>
+
+  <ol class="text-left">
+    <li *ngFor="let about of who_is_us">
+      <p class="description">{{about.content}}</p>
+    </li>
+  </ol>
+
+</section>
