@@ -1,12 +1,13 @@
 <div class="py-5" direction="ltr">
   <owl-carousel-o [options]="customOptions">
 
-    <ng-container *ngFor="let slide of slidesStore">
+    <ng-container *ngFor="let slide of testimonials">
       <ng-template carouselSlide [id]="slide.id">
         <div class="text-center">
           <div class="">
             <div class="text-center">
-              <img src="../../../../assets/images/slid1.jpg" alt="" class="test-img">
+              <img src="{{slide.image}}" class="test-img"
+                   onerror="this.src = '../../../assets/images/default.jpg'">
             </div>
             <div class="py-3">
               <h4 class="test-name">

@@ -40,11 +40,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/advisory-board/advisory-board.module').then(m => m.AdvisoryBoardModule)
   },
 
-  // Testimonial
-  {
-    path: UrlName.testimonial(),
-    loadChildren: () => import('./pages/said-about-us/said-about-us.module').then(m => m.SaidAboutUsModule)
-  },
+  // // Testimonial
+  // {
+  //   path: UrlName.testimonial(),
+  //   loadChildren: () => import('./pages/said-about-us/said-about-us.module').then(m => m.SaidAboutUsModule)
+  // },
 
   // Magazine Category
   {

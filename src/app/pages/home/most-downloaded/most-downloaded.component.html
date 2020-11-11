@@ -1,108 +1,37 @@
 <div class="title-box py-3 mb-2">
-    <h2 class="text-center title">
-      {{ 'PAGES.MOST_ARTICLE_DOWNLOADED' | translate }}
-    </h2>
-    <div class="title-border"></div>
+  <h2 class="text-center title">
+    {{ 'PAGES.MOST_ARTICLE_DOWNLOADED' | translate }}
+  </h2>
+  <div class="title-border"></div>
 </div>
 
 <div class="d-flex flex-column align-items-center">
-    <div class="mb-3 my-container">
-        <div class="row">
-            <div class="col-4">
-                <div class="">
-                    <div class="">
-                        <img src="../../../assets/images/slid4.jpg" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+  <div class="mb-3 my-container">
 
-            <div class="col-8">
-                <div class="py-2">
-                    <div class="">
-                        <a href="#" class="link">
-                            <h3 class="mini-title">عنوان رئيسي كبير</h3>
-                        </a>
-                    </div>
-                    <div class="pl-3 most-content">
-                        <i class="fas fa-download pr-2"></i> <span>38</span>
-                    </div>
-                </div>
-            </div>
+    <div class="row mb-3" *ngFor="let x of generateArray()">
+      <div class="col-4">
+        <div class="">
+          <div class="">
+            <img src="../../../assets/images/default.jpg" alt="" class="img-fluid"
+                 onerror="this.src = '../../../assets/images/default.jpg'">
+          </div>
         </div>
+      </div>
+
+      <div class="col-8">
+        <div class="py-2">
+          <div class="">
+            <a href="#" class="link">
+              <h3 class="mini-title">عنوان رئيسي كبير</h3>
+            </a>
+          </div>
+          <div class="pl-3 most-content">
+            <i class="fas fa-download pr-2"></i> <span>38</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="mb-3 my-container">
-        <div class="row">
-            <div class="col-4">
-                <div class="">
-                    <div class="">
-                        <img src="../../../assets/images/slid4.jpg" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+  </div>
 
-            <div class="col-8">
-                <div class="py-2">
-                    <div class="">
-                        <a href="#" class="link">
-                            <h3 class="mini-title">عنوان رئيسي كبير</h3>
-                        </a>
-                    </div>
-                    <div class="pl-3 most-content">
-                        <i class="fas fa-download pr-2"></i> <span>38</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="mb-3 my-container">
-        <div class="row">
-            <div class="col-4">
-                <div class="">
-                    <div class="">
-                        <img src="../../../assets/images/slid4.jpg" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-8">
-                <div class="py-2">
-                    <div class="">
-                        <a href="#" class="link">
-                            <h3 class="mini-title">عنوان رئيسي كبير</h3>
-                        </a>
-                    </div>
-                    <div class="pl-3 most-content">
-                        <i class="fas fa-download pr-2"></i> <span>38</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="mb-3 my-container">
-        <div class="row">
-            <div class="col-4">
-                <div class="">
-                    <div class="">
-                        <img src="../../../assets/images/slid4.jpg" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-8">
-                <div class="py-2">
-                    <div class="">
-                        <a href="#" class="link">
-                            <h3 class="mini-title">عنوان رئيسي كبير</h3>
-                        </a>
-                    </div>
-                    <div class="pl-3 most-content">
-                        <i class="fas fa-download pr-2"></i> <span>38</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

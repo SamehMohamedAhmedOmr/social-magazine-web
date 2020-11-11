@@ -1,4 +1,4 @@
-<section class="back-ground3 py-4">
+<section class="back-ground3 py-4" *ngIf="latest_news.length">
     <div class="container-fluid">
         <div class="web-container">
             <div class="title-box py-3 mb-2">
@@ -9,50 +9,30 @@
             </div>
 
             <div class="row rtl mt-2">
-                <div class="col-md-4 mb-4 rtl">
+
+                <div class="col-md-4 mb-4 rtl" *ngFor="let news of latest_news">
                     <div class="news-box bg-white">
                         <div class="overflow-hidden img-container">
-                            <a href="#"><img class="img-fluid news-img" src="../../../assets/images/slid1.jpg"
-                                    alt=""></a>
+                            <a href="#">
+                              <img class="img-fluid news-img"
+                                   src="{{this.news.images[0]}}"
+                                   onerror="this.src = '../../../assets/images/default.jpg'"
+                                   alt="">
+                            </a>
                         </div>
                         <div class="news-content py-2 px-3">
                             <a href="#" class="link">
-                                <h3 class="">عنوان رئيسي كبير </h3>
+                                <h3 class="">
+                                  {{ news.title }}
+                                </h3>
                             </a>
-                            <p class="">كلام نصي </p>
+                            <p class="">
+                              {{ news.content }}
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-4 rtl">
-                    <div class="news-box bg-white">
-                        <div class="overflow-hidden img-container">
-                            <a href="#"><img class="img-fluid news-img" src="../../../assets/images/slid1.jpg"
-                                    alt=""></a>
-                        </div>
-                        <div class="news-content py-2 px-3">
-                            <a href="#" class="link">
-                                <h3 class="">عنوان رئيسي كبير </h3>
-                            </a>
-                            <p class="">كلام نصي </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-4 rtl">
-                    <div class="news-box bg-white">
-                        <div class="overflow-hidden img-container">
-                            <a href="#"><img class="img-fluid news-img" src="../../../assets/images/slid1.jpg"
-                                    alt=""></a>
-                        </div>
-                        <div class="news-content py-2 px-3">
-                            <a href="#" class="link">
-                                <h3 class="">عنوان رئيسي كبير </h3>
-                            </a>
-                            <p class="">كلام نصي </p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

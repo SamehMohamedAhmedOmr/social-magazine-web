@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {LatestMagazineNewsService} from '../../core/services/Section-Module/latest.magazine.news.service';
 
 @Component({
   selector: 'app-latest-news',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LatestNewsComponent implements OnInit {
 
-  constructor() { }
+  @Input() latest_news:[] = [];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
+
+
 
 }

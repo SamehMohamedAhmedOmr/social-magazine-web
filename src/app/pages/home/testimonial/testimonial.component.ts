@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -36,26 +36,7 @@ export class TestimonialComponent implements OnInit {
     // },
   };
 
-  slidesStore = [
-    { name: 'slide1', content: 'lorem lom ipsum dolor 1', stars: 5, image: 'assets/images/slid1.jpg' },
-    { name: 'slide2', content: 'lorem lom ipsum dolor 2', stars: 0, image: 'assets/images/slid2.jpg' },
-    { name: 'slide3', content: 'lorem lom ipsum dolor 3', stars: 2, image: 'assets/images/slid3.jpg' },
-    { name: 'slide4', content: 'lorem lom ipsum dolor 4', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-    { name: 'slide4', content: 'lorem lom', stars: 1, image: 'assets/images/slid4.jpg' },
-
-  ];
+  @Input() testimonials = [];
 
   constructor() {
   }

@@ -1,5 +1,4 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {PublicationRulesService} from '../../core/services/Section-Module/publication.rules.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {AdvisoryBodiesService} from '../../core/services/Section-Module/advisory.bodies.service';
 
