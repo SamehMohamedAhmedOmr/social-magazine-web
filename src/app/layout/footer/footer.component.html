@@ -1,60 +1,49 @@
 <footer class="footer">
-    <div class="container-fluid">
-        <div class="main-footer pt-4 pb-2 px-5">
-            <div class="row rtl">
-                <div class="col-md-6">
-                    <div class="py-3">
-                        <h3>تواصل معنا</h3>
-                    </div>
-                    <ul>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>00966114674454</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-print"></i>
-                            <span>(+966) 11-4679965</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>Jes@ksu.edu.sa</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>العنوان : جامعة حلوان </span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <div class="py-3">
-                        <h3> تواصل معنا</h3>
-                    </div>
-                    <ul>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>00966114674454</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-print"></i>
-                            <span>(+966) 11-4679965</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>Jes@ksu.edu.sa</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                          <span>العنوان : جامعة حلوان </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
+  <div class="container-fluid">
+    <div class="main-footer pt-4 pb-2 px-5">
+      <div class="py-3 text-left">
+        <h3>{{ 'PAGES.CONTACT_US' | translate }}</h3>
+      </div>
+      <div class="row rtl" *ngIf="magazine_information">
+        <div class="col-md-6">
+          <ul>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>{{ magazine_information.phone }}</span>
+            </li>
+            <li>
+              <i class="fas fa-print"></i>
+              <span>{{ magazine_information.fax_number }}</span>
+            </li>
+          </ul>
         </div>
-    </div>
-    <div class="container-fluid copyright-footer">
-        <div class="py-2 text-center second-color">
-            <span class="d-block">حقوق الطبع والنشر <strong class="main-color">{{ 'BASIC.APP_NAME' | translate }}</strong>. كل
-                الحقوق محفوظه<i class="far fa-copyright ml-2"></i></span>
+        <div class="col-md-6">
+          <ul>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>{{ magazine_information.email }}</span>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>{{ 'COMMON.address' | translate }} : {{ magazine_information.address }}</span>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
+  </div>
+
+  <div class="container-fluid copyright-footer py-3">
+    <div class="py-2 text-center second-color">
+      <span class="d-block mb-3">
+        حقوق الطبع والنشر
+        <i class="far fa-copyright ml-2"></i>
+      </span>
+      <span class="d-block">
+        <strong class="main-color">{{ 'BASIC.APP_NAME' | translate }}</strong>
+        . كل الحقوق محفوظه
+      </span>
+    </div>
+  </div>
 </footer>

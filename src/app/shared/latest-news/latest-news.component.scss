@@ -2,10 +2,14 @@
     border-radius: 15px;
 
     .img-container{
+        height: 350px;
         border-radius: 15px 15px 0 0;
     }
 
     .news-img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
         transition: transform 0.7s ease-in-out;
         &:hover{
             transform: scale(1.2,1.2);

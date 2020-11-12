@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import {TestimonialModel} from '../../../core/models/section-module/testimonial.model';
+
 
 @Component({
   selector: 'app-testimonial',
@@ -36,15 +38,15 @@ export class TestimonialComponent implements OnInit {
     // },
   };
 
-  @Input() testimonials = [];
+  @Input() testimonials:TestimonialModel[] = [];
 
   constructor() {
   }
 
-  ngOnInit(): void {
-  }
-
   newArray(num) {
     return new Array(num);
+  }
+
+  ngOnInit(): void {
   }
 }

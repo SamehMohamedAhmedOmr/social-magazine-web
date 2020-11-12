@@ -18,8 +18,6 @@ export const locale = {
 			INVALID_FIELD: '{{name}} غير صحيح',
 		},
 
-
-
     PAGES:{
 		  HOME:'الرئيسية',
       ARCHIVE: 'الأرشيف',

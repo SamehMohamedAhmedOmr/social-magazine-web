@@ -1,7 +1,9 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {NgxUiLoaderService} from 'ngx-ui-loader';
-import {TestimonialService} from '../../core/services/Section-Module/testimonial.service';
-import {LatestMagazineNewsService} from '../../core/services/Section-Module/latest.magazine.news.service';
+import {Component, OnInit} from '@angular/core';
+import {HomeModel} from '../../core/models/section-module/home.model';
+import {HomeService} from '../../core/services/Section-Module/Home.service';
+import {TestimonialModel} from '../../core/models/section-module/testimonial.model';
+import {MagazineNewsModel} from '../../core/models/section-module/magazine.news.model';
+
 
 @Component({
   selector: 'app-home',
@@ -10,34 +12,20 @@ import {LatestMagazineNewsService} from '../../core/services/Section-Module/late
 })
 export class HomeComponent implements OnInit {
 
-  testimonials:[] = [];
-  latest_news:[] = [];
+  testimonials:TestimonialModel[] = [];
+  latest_news:MagazineNewsModel[] = [];
 
-  constructor(private testimonialService:TestimonialService,
-              private latestMagazineNewsService:LatestMagazineNewsService,
-              private ngxService: NgxUiLoaderService,
-              private cdr:ChangeDetectorRef) {
-  }
+  homeModel:HomeModel;
 
-  ngOnInit(): void {
-    this.getTestimonial();
-  }
+  constructor(private homeService: HomeService) { }
 
-  getTestimonial(){
-    this.ngxService.start();
-    this.testimonialService.list(null).subscribe(value => {
-      this.testimonials  = value;
-      this.cdr.markForCheck();
-      this.getLatestNews();
-    });
-  }
-
-  getLatestNews(){
-    this.latestMagazineNewsService.list(null).subscribe(value => {
-      this.latest_news  = value;
-      this.ngxService.stop();
-
-      this.cdr.markForCheck();
+  ngOnInit() {
+    this.homeService.content.subscribe(model => {
+      if (model){
+        this.homeModel = model;
+        this.testimonials = this.homeModel.testimonial;
+        this.latest_news = this.homeModel.latest_news;
+      }
     });
   }
 
