@@ -1,5 +1,5 @@
 <div class="form-div">
-	<mat-vertical-stepper #stepper>
+	<mat-vertical-stepper #stepper *ngIf="accountDependenciesModel != null">
 
 		<mat-step aria-label="Basic-data" [stepControl]="form" errorMessage="{{ 'stepper.error' | translate }}">
 			<ng-template matStepLabel>
@@ -81,7 +81,7 @@
                   <mat-label>{{ 'Components.USERS.columns.country' | translate }}</mat-label>
                   <mat-select
                     formControlName="country">
-                    <mat-option *ngFor="let country of countries" [value]="country.id">
+                    <mat-option *ngFor="let country of accountDependenciesModel.country" [value]="country.id">
                       <img src="{{country.image}}">
                       <span class="mx-2">{{country.name}}</span>
                     </mat-option>
@@ -132,7 +132,7 @@
 									<mat-label>{{ 'Components.USERS.columns.gender' | translate }}</mat-label>
 									<mat-select
 										formControlName="gender">
-										<mat-option *ngFor="let gender of genders" [value]="gender.id">
+										<mat-option *ngFor="let gender of accountDependenciesModel.genders" [value]="gender.id">
 											{{gender.name}}
 										</mat-option>
 									</mat-select>
@@ -177,7 +177,7 @@
                   <mat-label>{{ 'Components.USERS.columns.educational_degree' | translate }}</mat-label>
                   <mat-select
                     formControlName="educational_degree">
-                    <mat-option *ngFor="let degree of educational_degrees" [value]="degree.id">
+                    <mat-option *ngFor="let degree of accountDependenciesModel.degrees" [value]="degree.id">
                       {{degree.name}}
                     </mat-option>
                   </mat-select>
@@ -201,7 +201,7 @@
                   <mat-label>{{ 'Components.USERS.columns.educational_level' | translate }}</mat-label>
                   <mat-select
                     formControlName="educational_level">
-                    <mat-option *ngFor="let level of educational_levels" [value]="level.id">
+                    <mat-option *ngFor="let level of accountDependenciesModel.levels" [value]="level.id">
                       {{level.name}}
                     </mat-option>
                   </mat-select>
@@ -227,7 +227,7 @@
                   <mat-label>{{ 'Components.USERS.columns.title' | translate }}</mat-label>
                   <mat-select
                     formControlName="title">
-                    <mat-option *ngFor="let title of titles" [value]="title.id">
+                    <mat-option *ngFor="let title of accountDependenciesModel.titles" [value]="title.id">
                       {{title.name}}
                     </mat-option>
                   </mat-select>

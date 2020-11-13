@@ -3,6 +3,9 @@ import {LangService} from './core/services/lang.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {HomeService} from './core/services/Section-Module/Home.service';
 import {HomeModel} from './core/models/section-module/home.model';
+import {AccountDependenciesService} from './core/services/Basic-Module/account.dependencies.service';
+import {AccountDependenciesModel} from './core/models/Basic-Module/account.dependencies.model';
+import {LocalStorageService} from './core/services/localStorage.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +15,12 @@ import {HomeModel} from './core/models/section-module/home.model';
 export class AppComponent implements OnInit{
   title = '';
   homeModel: HomeModel;
+  accountDependenciesModel:AccountDependenciesModel;
+
   constructor(private langService: LangService,
               private homeService:HomeService,
+              private accountDependenciesService: AccountDependenciesService,
+              private LocalStorageService:LocalStorageService,
               private ngxService: NgxUiLoaderService,
               private cdr:ChangeDetectorRef) {
   }
@@ -29,8 +36,39 @@ export class AppComponent implements OnInit{
       this.homeModel  = value;
       this.homeService.homeContent(this.homeModel);
       this.cdr.markForCheck();
-      this.ngxService.stop();
+      this.getAccountDependency()
     });
+  }
+
+  getAccountDependency(){
+
+    let accountDependencies = this.LocalStorageService.getWithExpiry('account_dependency');
+    if (!accountDependencies){
+      this.accountDependenciesService.get().subscribe(
+        (resp) => {
+          this.accountDependenciesModel = resp;
+          this.accountDependenciesService.accountContent(this.accountDependenciesModel);
+          this.LocalStorageService.setWithExpiry('account_dependency',
+            this.accountDependenciesModel,this.calculateTTL(4));
+          this.ngxService.stop();
+          this.cdr.markForCheck();
+        }, error => {
+          this.accountDependenciesModel = null;
+          this.ngxService.stop();
+          this.cdr.markForCheck();
+        });
+    }
+    else{
+      this.accountDependenciesService.accountContent(accountDependencies);
+      this.ngxService.stop();
+    }
+
+  }
+
+  calculateTTL(days){
+    let hour = 3600;
+    let day = hour * 24;
+    return day * days;
   }
 
 }
