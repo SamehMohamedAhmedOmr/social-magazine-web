@@ -10,6 +10,7 @@ import {AuthNoticeService} from '../../core/services/auth-notice.service';
 import {MatDialog} from '@angular/material/dialog';
 import {HelperService} from '../../core/services/helper.service';
 import {DeleteModalComponent} from '../delete-modal/delete-modal.component';
+import {GalleryModel} from '../../core/models/Gallery-Module/Gallery/gallery.model';
 
 declare var $: any;
 
@@ -32,7 +33,7 @@ export class GalleryComponent implements OnInit {
 	@Input() multiple_images: boolean = true;
 
 	isLoadingResults: boolean = true;
-	images: [];
+	images: GalleryModel [];
 
 
 	uploadForm: FormGroup;

@@ -248,6 +248,11 @@ export const locale = {
       copyright:'Copyrights',
       all_right_saved:'All rights reserved.',
       visitor_number:'You are visitor number',
+    },
+
+    login:{
+      new_customer: 'New User',
+      sign_in_msg: 'Sign up for a free account at our site. Registration is quick and easy. To start your journey click register.'
     }
 
 	}

@@ -1,1 +1,54 @@
-<kt-soon></kt-soon>
+<!-- section start -->
+<section class="container-fluid my-4 px-5 py-4">
+
+  <div class="rtl portfolio-item">
+
+    <div class="row px-5 pb-5 pt-3">
+
+      <div class="col-lg-6">
+        <div class="title-box py-3 mb-2">
+          <h3 class="text-center title">
+            {{ 'PAGES.LOGIN' | translate }}
+          </h3>
+          <div class="title-border"></div>
+        </div>
+
+        <div class="theme-card">
+          <app-form [form]="form"></app-form>
+          <button mat-raised-button
+                  color="warn"
+                  class="btn btn-solid"
+                  (click)="submitForm()">
+            {{ 'PAGES.LOGIN' | translate }}
+          </button>
+        </div>
+
+      </div>
+
+      <div class="col-lg-6 right-login">
+
+        <div class="title-box py-3 mb-2">
+          <h3 class="text-center title">
+            {{ 'login.new_customer' | translate }}
+          </h3>
+          <div class="title-border"></div>
+        </div>
+
+        <div class="theme-card authentication-right">
+          <p>
+            {{ 'login.sign_in_msg' | translate }}
+          </p>
+          <button mat-raised-button
+                  color="warn"
+                  [routerLink]="registerLink()"
+                  class="btn btn-solid">
+            {{ 'PAGES.REGISTER' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<!--Section ends-->

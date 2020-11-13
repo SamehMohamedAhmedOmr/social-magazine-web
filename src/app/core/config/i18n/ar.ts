@@ -228,7 +228,7 @@ export const locale = {
 			new_password : 'كلمة المرور الجديدة',
       more: 'المزيد',
       view: 'مشاهدة',
-      attachment: 'مرفقات'
+      attachment: 'مرفقات',
 		},
 
 
@@ -246,8 +246,12 @@ export const locale = {
 		  copyright:'حقوق الطبع والنشر',
       all_right_saved:'كل الحقوق محفوظة.',
       visitor_number: 'انت الزائر رقم',
-    }
+    },
 
+    login:{
+		  new_customer: 'مستخدم جديد',
+      sign_in_msg: 'قم بالتسجيل للحصول على حساب مجاني في موقعنا. تسجيل سريع وسهل. لبدء رحلتك انقر فوق انشاء حساب.'
+    }
 
 
 	}

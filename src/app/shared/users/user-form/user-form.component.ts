@@ -6,6 +6,11 @@ import {GendersService} from '../../../core/services/Basic-Module/genders.servic
 import {TitlesService} from '../../../core/services/Basic-Module/titles.service';
 import {EducationalDegreesService} from '../../../core/services/Basic-Module/educational-degrees.service';
 import {EducationalLevelsService} from '../../../core/services/Basic-Module/educational-levels.service';
+import {CountryModel} from '../../../core/models/Basic-Module/country.model';
+import {GenderModel} from '../../../core/models/Basic-Module/gender.model';
+import {TitleModel} from '../../../core/models/Basic-Module/title.model';
+import {EducationalDegreeModel} from '../../../core/models/Basic-Module/educational.degree.model';
+import {EducationalLevelModel} from '../../../core/models/Basic-Module/educational.level.model';
 
 @Component({
 	selector: 'kt-user-form',
@@ -21,11 +26,11 @@ export class UserFormComponent implements OnInit {
 	@Input() educational_form: FormGroup;
 	@Input() hide_password = false;
 
-	countries: [] = [];
-	genders: [] = [];
-	titles: [] = [];
-	educational_degrees: [] = [];
-	educational_levels: [] = [];
+	countries: CountryModel[] = [];
+	genders: GenderModel[] = [];
+	titles: TitleModel[] = [];
+	educational_degrees: EducationalDegreeModel[] = [];
+	educational_levels: EducationalLevelModel[] = [];
 
 	constructor(private countriesService: CountriesService,
 				private gendersService:GendersService,
