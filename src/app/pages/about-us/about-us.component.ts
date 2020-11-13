@@ -7,7 +7,6 @@ import {HomeModel} from '../../core/models/section-module/home.model';
 import {HomeService} from '../../core/services/Section-Module/Home.service';
 import {WhoIsUsModel} from '../../core/models/section-module/who.is.us.model';
 import {MagazineGoalsModel} from '../../core/models/section-module/magazine.goals.model';
-import {ModelBase} from '../../core/models/Base/base.model';
 
 @Component({
   selector: 'app-about-us',

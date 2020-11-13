@@ -25,6 +25,7 @@ export class MagazineNewsSerializer extends BaseSerializer implements Serializer
 
 		object.title = item.title;
 		object.content = item.content;
+    object.views = item.views;
 
 		object.images = item.images;
 

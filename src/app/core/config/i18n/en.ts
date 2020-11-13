@@ -227,7 +227,9 @@ export const locale = {
 			status_changed: 'Status changed successfully',
 			old_password : 'Old Password',
 			new_password : 'New Password',
-      more: 'More'
+      more: 'More',
+      view: 'view',
+      attachment: 'Attachment'
 
     },
 

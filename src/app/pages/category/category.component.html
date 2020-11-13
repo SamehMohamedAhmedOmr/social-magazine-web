@@ -1,1 +1,26 @@
-<kt-soon></kt-soon>
+<section class="container-fluid my-4 px-5 py-4">
+
+  <section aria-label="PUBLICATION_RULE" *ngIf="categories" class="portfolio-item mb-5">
+
+    <div class="title-box py-3 mb-2">
+      <h2 class="text-center title">
+        {{ 'Components.MAGAZINE_CATEGORY.name' | translate }}
+      </h2>
+      <div class="title-border"></div>
+    </div>
+
+    <ol class="text-left">
+      <li *ngFor="let category of categories" class="mb-3 p-4">
+        <p class="description">{{category.content}}</p>
+        <div *ngIf="category.images" class="text-right">
+          <button class="btn btn-dark"
+                  (click)="openGalleryDialog(category.images)">
+            {{ 'COMMON.attachment' | translate }}
+          </button>
+        </div>
+      </li>
+    </ol>
+
+  </section>
+
+</section>

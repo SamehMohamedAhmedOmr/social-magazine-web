@@ -1,1 +1,24 @@
-<p>details works!</p>
+<section class="container-fluid my-4 px-5 py-4 rtl" *ngIf="model">
+
+  <div class="card mb-3">
+
+    <app-image-slider [images]="model.images"></app-image-slider>
+
+    <div class="card-body">
+      <h3 class="card-title">
+        {{ model.title }}
+      </h3>
+      <p class="card-text">
+        {{ model.content }}
+      </p>
+      <p class="card-text">
+        <small class="text-muted">
+          <span>{{'COMMON.view' | translate }}</span>
+          <i class="fa fa-eye mx-2"></i>
+          <span>{{ model.views }}</span>
+        </small>
+      </p>
+    </div>
+  </div>
+
+</section>

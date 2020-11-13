@@ -28,6 +28,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatInputModule} from '@angular/material/input';
+import {ImageSliderComponent} from './image-slider/image-slider.component';
+import {PopupImageGalleryComponent} from './popup-image-gallery/popup-image-gallery.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +38,12 @@ import {MatInputModule} from '@angular/material/input';
     FormErrorComponent, GalleryComponent, GlobalNoticeComponent,
     ListOptionsComponent, NextPreviousListComponent,
     NoRecordFoundComponent, PopupGalleryComponent,
-    SoonComponent, UserFormComponent, DeleteModalComponent
+    SoonComponent, UserFormComponent, DeleteModalComponent, ImageSliderComponent, PopupImageGalleryComponent
   ],
   entryComponents: [
     DeleteModalComponent,
     PopupGalleryComponent,
+    PopupImageGalleryComponent,
   ],
   exports: [
     FilterComponent,
@@ -56,7 +59,8 @@ import {MatInputModule} from '@angular/material/input';
     ListOptionsComponent,
     UserFormComponent,
     LatestNewsComponent,
-    TranslateModule
+    TranslateModule,
+    ImageSliderComponent
   ],
   imports: [
     CommonModule,
