@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {MagazineNewsModel} from '../../core/models/section-module/magazine.news.model';
 import {HomeModel} from '../../core/models/section-module/home.model';
 import {HomeService} from '../../core/services/Section-Module/Home.service';
 import {MagazineInformationModel} from '../../core/models/section-module/magazine.information.model';
+import {TrackersModel} from '../../core/models/section-module/trackers.model';
 
 @Component({
   selector: 'app-footer',
@@ -12,6 +12,7 @@ import {MagazineInformationModel} from '../../core/models/section-module/magazin
 export class FooterComponent implements OnInit {
 
   magazine_information:MagazineInformationModel = null;
+  visitor:TrackersModel;
 
   homeModel:HomeModel;
 
@@ -22,6 +23,7 @@ export class FooterComponent implements OnInit {
       if (model){
         this.homeModel = model;
         this.magazine_information = this.homeModel.magazine_information;
+        this.visitor = this.homeModel.visitors_count;
       }
     });
   }

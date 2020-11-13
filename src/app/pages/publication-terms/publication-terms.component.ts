@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {PublicationRulesService} from '../../core/services/Section-Module/publication.rules.service';
+import {PublicationRulesModel} from '../../core/models/section-module/publication.rules.model';
 
 @Component({
   selector: 'app-publication-terms',
@@ -9,7 +10,7 @@ import {PublicationRulesService} from '../../core/services/Section-Module/public
 })
 export class PublicationTermsComponent implements OnInit {
 
-  rules:[] = [];
+  rules:PublicationRulesModel[] = [];
 
   constructor(private publicationRulesService:PublicationRulesService,
               private ngxService: NgxUiLoaderService,

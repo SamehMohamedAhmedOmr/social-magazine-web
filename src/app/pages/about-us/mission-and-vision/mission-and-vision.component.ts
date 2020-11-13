@@ -8,7 +8,7 @@ import {MagazineInformationModel} from '../../../core/models/section-module/maga
 })
 export class MissionAndVisionComponent implements OnInit {
 
-  @Input() information:MagazineInformationModel;
+  @Input() information:MagazineInformationModel = null;
 
   constructor() { }
 

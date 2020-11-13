@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {WhoIsUsModel} from '../../../core/models/section-module/who.is.us.model';
 
 @Component({
   selector: 'app-who-is-us',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class WhoIsUsComponent implements OnInit {
 
-  @Input() who_is_us;
+  @Input() who_is_us:WhoIsUsModel[] = [];
 
   constructor() {
   }

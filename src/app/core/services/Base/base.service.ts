@@ -56,7 +56,7 @@ export class BaseService<T extends ModelBase> {
       .pipe(map((data: any) => this.serializer.fromJson(data) as T));
   }
 
-  public list(paginationParams: PaginateParams, paginate = 1): Observable<[]> {
+  public list(paginationParams: PaginateParams, paginate = 1): Observable<T[]> {
     const params = {};
     if (paginationParams) {
       if (paginationParams.search_key) {
@@ -80,7 +80,7 @@ export class BaseService<T extends ModelBase> {
     }
     return this.http.get(`${this.url}${this.endpoint}`, {
       params: params
-    }).pipe(map((data: any) => this.serializer.fromJsonList(data) as []));
+    }).pipe(map((data: any) => this.serializer.fromJsonList(data) as T[]));
   }
 
   public exportExcelSheet(paginationParams: PaginateParams): Observable<ExportModel> {

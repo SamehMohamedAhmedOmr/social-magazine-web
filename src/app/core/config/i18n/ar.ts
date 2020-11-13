@@ -240,6 +240,12 @@ export const locale = {
 			error:"من فضلك ادخل البيانات المطلوبة"
 		},
 
+    footer:{
+		  copyright:'حقوق الطبع والنشر',
+      all_right_saved:'كل الحقوق محفوظة.',
+      visitor_number: 'انت الزائر رقم',
+    }
+
 
 
 	}

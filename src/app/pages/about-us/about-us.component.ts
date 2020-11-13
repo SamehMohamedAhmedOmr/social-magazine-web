@@ -3,7 +3,11 @@ import {WhoIsUsService} from '../../core/services/Section-Module/who.is.us.servi
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {MagazineGoalsService} from '../../core/services/Section-Module/magazine.goals.service';
 import {MagazineInformationModel} from '../../core/models/section-module/magazine.information.model';
-import {MagazineInformationService} from '../../core/services/Section-Module/magazine.information.service';
+import {HomeModel} from '../../core/models/section-module/home.model';
+import {HomeService} from '../../core/services/Section-Module/Home.service';
+import {WhoIsUsModel} from '../../core/models/section-module/who.is.us.model';
+import {MagazineGoalsModel} from '../../core/models/section-module/magazine.goals.model';
+import {ModelBase} from '../../core/models/Base/base.model';
 
 @Component({
   selector: 'app-about-us',
@@ -12,13 +16,14 @@ import {MagazineInformationService} from '../../core/services/Section-Module/mag
 })
 export class AboutUsComponent implements OnInit {
 
-  who_is_us:[] = [];
-  goals:[] = [];
-  magazineInformationModel:MagazineInformationModel;
+  who_is_us:WhoIsUsModel[] = [];
+  goals:MagazineGoalsModel[] = [];
+  magazine_information:MagazineInformationModel = null;
+  homeModel:HomeModel;
 
   constructor(private whoIsUsService:WhoIsUsService,
+              private homeService: HomeService,
               private magazineGoalsService:MagazineGoalsService,
-              private magazineInformationService:MagazineInformationService,
               private ngxService: NgxUiLoaderService,
               private cdr:ChangeDetectorRef) {
   }
@@ -26,6 +31,7 @@ export class AboutUsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWhoIsUs();
+    this.subscribeHomeAPI();
   }
 
   getWhoIsUs(){
@@ -37,20 +43,20 @@ export class AboutUsComponent implements OnInit {
     });
   }
 
-
   getGoals(){
     this.magazineGoalsService.list(null).subscribe(value => {
       this.goals  = value;
       this.cdr.markForCheck();
-      this.getMagazineInformation();
+      this.ngxService.stop();
     });
   }
 
-  getMagazineInformation(){
-    this.magazineInformationService.get().subscribe(value => {
-      this.magazineInformationModel  = value;
-      this.ngxService.stop();
-      this.cdr.markForCheck();
+  subscribeHomeAPI() {
+    this.homeService.content.subscribe(model => {
+      if (model){
+        this.homeModel = model;
+        this.magazine_information = this.homeModel.magazine_information;
+      }
     });
   }
 

@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {AdvisoryBodiesService} from '../../core/services/Section-Module/advisory.bodies.service';
+import {AdvisoryBodyModel} from '../../core/models/section-module/advisory.body.model';
 
 @Component({
   selector: 'app-advisory-board',
@@ -9,7 +10,7 @@ import {AdvisoryBodiesService} from '../../core/services/Section-Module/advisory
 })
 export class AdvisoryBoardComponent implements OnInit {
 
-  advisory_bodies:[] = [];
+  advisory_bodies:AdvisoryBodyModel[] = [];
 
   constructor(private advisoryBodiesService:AdvisoryBodiesService,
               private ngxService: NgxUiLoaderService,

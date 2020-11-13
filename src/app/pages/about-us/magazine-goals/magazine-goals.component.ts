@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {MagazineGoalsModel} from '../../../core/models/section-module/magazine.goals.model';
 
 @Component({
   selector: 'app-magazine-goals',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MagazineGoalsComponent implements OnInit {
 
-  @Input() goals;
+  @Input() goals:MagazineGoalsModel[] = null;
 
   constructor() {
   }

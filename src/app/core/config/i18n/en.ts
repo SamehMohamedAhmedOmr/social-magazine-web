@@ -240,5 +240,11 @@ export const locale = {
 
 		},
 
+    footer:{
+      copyright:'Copyrights',
+      all_right_saved:'All rights reserved.',
+      visitor_number:'You are visitor number',
+    }
+
 	}
 };

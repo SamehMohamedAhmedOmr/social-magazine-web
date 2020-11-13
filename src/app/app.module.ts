@@ -22,6 +22,7 @@ import {MatDividerModule} from '@angular/material/divider';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import {NgxUiLoaderModule} from 'ngx-ui-loader';
+import {VisitorCountComponent} from './layout/footer/visitor-count/visitor-count.component';
 
 
 
@@ -35,6 +36,7 @@ import {NgxUiLoaderModule} from 'ngx-ui-loader';
     AuthLinksComponent,
     AccountLinksComponent,
     MarqueeComponent,
+    VisitorCountComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),

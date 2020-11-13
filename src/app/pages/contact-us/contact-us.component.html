@@ -1,1 +1,91 @@
-<kt-soon></kt-soon>
+<section class="container-fluid my-4 px-5 py-4" *ngIf="magazine_information">
+
+  <section aria-label="PUBLICATION_RULE" class="portfolio-item mb-5">
+
+    <div class="title-box py-3 mb-2">
+      <h2 class="text-center title">
+        {{ 'PAGES.CONTACT_US' | translate }}
+      </h2>
+      <div class="title-border"></div>
+    </div>
+
+    <div class="contact-us row rtl p-4" *ngIf="magazine_information">
+
+      <div aria-label="title"
+           *ngIf="magazine_information.title"
+           class="col-12 mb-3">
+        <i class="fas fa-home mx-2"></i>
+        <span>
+          <strong>{{ 'COMMON.name' | translate }} : </strong>
+          <span>
+            {{ magazine_information.title }}
+          </span>
+        </span>
+      </div>
+
+      <div aria-label="phone"
+           *ngIf="magazine_information.phone"
+           class="col-sm-6 col-12 mb-3">
+        <i class="fas fa-phone mx-2"></i>
+        <span>
+          <strong>{{ 'COMMON.phone' | translate }} : </strong>
+          <span>
+            {{ magazine_information.phone }}
+          </span>
+        </span>
+      </div>
+
+      <div aria-label="fax_number"
+           *ngIf="magazine_information.fax_number"
+           class="col-sm-6 col-12 mb-3">
+        <i class="fas fa-print mx-2"></i>
+        <span>
+          <strong>{{ 'Components.MAGAZINE_INFORMATION.columns.fax_number' | translate }} : </strong>
+          <span>
+            {{ magazine_information.fax_number }}
+          </span>
+        </span>
+      </div>
+
+      <div aria-label="email"
+           *ngIf="magazine_information.email"
+           class="col-sm-6 col-12 mb-3">
+        <i class="fas fa-envelope mx-2"></i>
+        <span>
+          <strong>{{ 'COMMON.email' | translate }} : </strong>
+          <span>
+            {{ magazine_information.email }}
+          </span>
+        </span>
+      </div>
+
+      <div aria-label="address"
+           *ngIf="magazine_information.address"
+           class="col-sm-6 col-12 mb-3">
+        <i class="fas fa-map-marker-alt mx-2"></i>
+        <span>
+          <strong>{{ 'COMMON.address' | translate }} : </strong>
+          <span>
+            {{ magazine_information.address }}
+          </span>
+        </span>
+      </div>
+
+      <div aria-label="postal_code"
+           *ngIf="magazine_information.postal_code"
+           class="col-sm-6 col-12 mb-3">
+        <i class="fas fa-inbox mx-2"></i>
+        <span>
+          <strong>{{ 'Components.MAGAZINE_INFORMATION.columns.postal_code' | translate }} : </strong>
+          <span>
+            {{ magazine_information.postal_code }}
+          </span>
+        </span>
+      </div>
+
+    </div>
+
+
+  </section>
+
+</section>
