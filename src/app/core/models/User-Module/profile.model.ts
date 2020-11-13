@@ -7,11 +7,36 @@ export class ProfileModel extends ModelBase {
 	public email:string;
 	public alternative_email:string;
 
-	public gender_id:number;
-	public title_id:number;
-	public educational_level_id:number;
-	public educational_degree_id:number;
-	public country_id:number;
+  public gender:{
+    id: number,
+    name: string,
+    key: string
+  };
+
+  public title:{
+    id: number,
+    name: string,
+    key: string
+  };
+
+  public educational_level:{
+    id: number,
+    name: string,
+    key: string
+  };
+
+  public educational_degree:{
+    id: number,
+    name: string,
+    key: string
+  };
+
+  public country:{
+    id: number,
+    name: string,
+    image: string,
+    country_code: string
+  };
 
 	public educational_field:string;
 	public university:string;
@@ -37,12 +62,6 @@ export class ProfileModel extends ModelBase {
 			'email' : this.email,
 			'alternative_email' : this.alternative_email,
 
-			'gender_id' : this.gender_id,
-			'country_id' : this.country_id,
-			'title_id' : this.title_id,
-			'educational_level_id' : this.educational_level_id,
-			'educational_degree_id' : this.educational_degree_id,
-
 			'educational_field' : this.educational_field,
 			'university' : this.university,
 			'faculty' : this.faculty,
@@ -52,6 +71,38 @@ export class ProfileModel extends ModelBase {
 			'types' : this.types,
 		};
 	}
+
+  public initialLists(){
+    this.educational_degree = {
+      id: null,
+      name: null,
+      key: null
+    };
+    this.educational_level = {
+      id: null,
+      name: null,
+      key: null
+    };
+
+    this.title = {
+      id: null,
+      name: null,
+      key: null
+    };
+
+    this.gender = {
+      id: null,
+      name: null,
+      key: null
+    };
+
+    this.country = {
+      id: null,
+      name: null,
+      image: null,
+      country_code: null
+    };
+  }
 
 
 }

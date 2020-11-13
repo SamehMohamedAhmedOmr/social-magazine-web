@@ -19,11 +19,11 @@ export class ProfileSerializer extends BaseSerializer implements Serializer {
 			email : model.email,
 			alternative_email : model.alternative_email,
 			phone_number : model.phone_number,
-			country_id : model.country_id,
-			gender_id : model.gender_id,
-			title_id : model.title_id,
-			educational_level_id : model.educational_level_id,
-			educational_degree_id : model.educational_degree_id,
+			country_id : model.country.id,
+			gender_id : model.gender.id,
+			title_id : model.title.id,
+			educational_level_id : model.educational_level.id,
+			educational_degree_id : model.educational_degree.id,
 			educational_field : model.educational_field,
 			university : model.university,
 			faculty : model.faculty,
@@ -45,11 +45,11 @@ export class ProfileSerializer extends BaseSerializer implements Serializer {
 		object.family_name = item.family_name;
 		object.email = item.email;
 		object.alternative_email = item.alternative_email;
-		object.gender_id = item.gender_id;
-		object.title_id = item.title_id;
-		object.educational_level_id = item.educational_level_id;
-		object.educational_degree_id = item.educational_degree_id;
-		object.country_id = item.country_id;
+		object.gender = item.gender;
+		object.title = item.title;
+		object.educational_level = item.educational_level;
+		object.educational_degree = item.educational_degree;
+		object.country = item.country;
 		object.types = (item.types) ? item.types : [];
 		object.educational_field = item.educational_field;
 		object.university = item.university;
@@ -61,6 +61,7 @@ export class ProfileSerializer extends BaseSerializer implements Serializer {
 
 		return object;
 	}
+
 
 
 	status(status): any {

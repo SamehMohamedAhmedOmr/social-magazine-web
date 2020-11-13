@@ -50,7 +50,7 @@
 					</div>
 				</div>
 
-				<div class="row" aria-label="Email and Password">
+				<div class="row" aria-label="Email and country">
 					<div class="col-md-6 col-12">
 						<!-- email  -->
 						<div class="my-4">
@@ -72,30 +72,36 @@
 						</div>
 						<!-- email  -->
 					</div>
-					<div class="col-md-6 col-12">
-						<!-- password  -->
-						<div class="my-4" *ngIf="!hide_password">
-							<div>
-								<mat-form-field class="w-100">
-									<mat-label>{{ 'COMMON.password' | translate }}</mat-label>
-									<input matInput
-										   formControlName="password"
-										   placeholder="{{ 'COMMON.password' | translate }}">
-								</mat-form-field>
-							</div>
-							<kt-form-error
-								[form]="form"
-								[controlName]="'password'"
-								[validationType]="'required'"
-								[controlText]="'COMMON.password' | translate"
-								[IS_F]="true"
-							></kt-form-error>
-						</div>
-						<!-- password  -->
-					</div>
+
+          <div class="col-md-6 col-12">
+            <!-- country  -->
+            <div class="my-4">
+              <div>
+                <mat-form-field class="w-100">
+                  <mat-label>{{ 'Components.USERS.columns.country' | translate }}</mat-label>
+                  <mat-select
+                    formControlName="country">
+                    <mat-option *ngFor="let country of countries" [value]="country.id">
+                      <img src="{{country.image}}">
+                      <span class="mx-2">{{country.name}}</span>
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <kt-form-error
+                [form]="form"
+                [controlName]="'country'"
+                [validationType]="'required'"
+                [controlText]="'Components.USERS.columns.country' | translate"
+                [IS_F]="true"
+              ></kt-form-error>
+            </div>
+            <!-- country  -->
+          </div>
 				</div>
 
 				<div class="row" aria-label="Phone and gender">
+
 					<div class="col-md-6 col-12">
 						<!-- phone  -->
 						<div class="my-4">
@@ -117,6 +123,7 @@
 						</div>
 						<!-- phone  -->
 					</div>
+
 					<div class="col-md-6 col-12">
 						<!-- gender  -->
 						<div class="my-4">
@@ -142,34 +149,6 @@
 					</div>
 				</div>
 
-				<div class="row" aria-label="country">
-					<div class="col-md-6 col-12">
-						<!-- country  -->
-						<div class="my-4">
-							<div>
-								<mat-form-field class="w-100">
-									<mat-label>{{ 'Components.USERS.columns.country' | translate }}</mat-label>
-									<mat-select
-										formControlName="country">
-										<mat-option *ngFor="let country of countries" [value]="country.id">
-											<img src="{{country.image}}">
-											<span class="mx-2">{{country.name}}</span>
-										</mat-option>
-									</mat-select>
-								</mat-form-field>
-							</div>
-							<kt-form-error
-								[form]="form"
-								[controlName]="'country'"
-								[validationType]="'required'"
-								[controlText]="'Components.USERS.columns.country' | translate"
-								[IS_F]="true"
-							></kt-form-error>
-						</div>
-						<!-- country  -->
-					</div>
-				</div>
-
 				<div class="d-flex justify-content-end">
 					<button matStepperNext class="btn btn-primary">
 						{{ 'stepper.next' | translate }}
@@ -179,7 +158,142 @@
 
 		</mat-step>
 
-		<mat-step aria-label="Additional data">
+    <mat-step aria-label="educational Data"
+              [stepControl]="educational_form"
+              errorMessage="{{ 'stepper.error' | translate }}">
+
+      <ng-template matStepLabel>
+        {{ 'stepper.education_degree' | translate }}
+      </ng-template>
+
+      <form class="p-3" [formGroup]="educational_form" autocomplete="off">
+
+        <div class="row" aria-label="educational_degree and educational_level">
+          <div class="col-md-6 col-12">
+            <!-- educational_degree  -->
+            <div class="my-4">
+              <div>
+                <mat-form-field class="w-100">
+                  <mat-label>{{ 'Components.USERS.columns.educational_degree' | translate }}</mat-label>
+                  <mat-select
+                    formControlName="educational_degree">
+                    <mat-option *ngFor="let degree of educational_degrees" [value]="degree.id">
+                      {{degree.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <kt-form-error
+                [form]="educational_form"
+                [controlName]="'educational_degree'"
+                [validationType]="'required'"
+                [controlText]="'Components.USERS.columns.educational_degree' | translate"
+                [IS_F]="true"
+              ></kt-form-error>
+            </div>
+            <!-- educational_degree  -->
+          </div>
+          <div class="col-md-6 col-12">
+            <!-- educational_level  -->
+            <div class="my-4">
+              <div>
+                <mat-form-field class="w-100">
+                  <mat-label>{{ 'Components.USERS.columns.educational_level' | translate }}</mat-label>
+                  <mat-select
+                    formControlName="educational_level">
+                    <mat-option *ngFor="let level of educational_levels" [value]="level.id">
+                      {{level.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <kt-form-error
+                [form]="educational_form"
+                [controlName]="'educational_level'"
+                [validationType]="'required'"
+                [controlText]="'Components.USERS.columns.educational_level' | translate"
+              ></kt-form-error>
+            </div>
+            <!-- educational_level  -->
+          </div>
+        </div>
+
+        <div class="row" aria-label="title and educational_field">
+          <div class="col-md-6 col-12">
+            <!-- title  -->
+            <div class="my-4">
+              <div>
+                <mat-form-field class="w-100">
+                  <mat-label>{{ 'Components.USERS.columns.title' | translate }}</mat-label>
+                  <mat-select
+                    formControlName="title">
+                    <mat-option *ngFor="let title of titles" [value]="title.id">
+                      {{title.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <kt-form-error
+                [form]="educational_form"
+                [controlName]="'title'"
+                [validationType]="'required'"
+                [controlText]="'Components.USERS.columns.title' | translate"
+              ></kt-form-error>
+            </div>
+            <!-- title  -->
+          </div>
+          <div class="col-md-6 col-12">
+            <!-- educational_field  -->
+            <div class="my-4">
+              <div>
+                <mat-form-field class="w-100">
+                  <mat-label>{{ 'Components.USERS.columns.educational_field' | translate }}</mat-label>
+                  <input matInput
+                         formControlName="educational_field"
+                         placeholder="{{ 'Components.USERS.columns.educational_field' | translate }}">
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- educational_field  -->
+          </div>
+        </div>
+
+        <div class="row" aria-label="faculty and university">
+          <div class="col-md-6 col-12">
+            <!-- faculty  -->
+            <div class="my-4">
+              <div>
+                <mat-form-field class="w-100">
+                  <mat-label>{{ 'Components.USERS.columns.faculty' | translate }}</mat-label>
+                  <input matInput
+                         formControlName="faculty"
+                         placeholder="{{ 'Components.USERS.columns.faculty' | translate }}">
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- faculty  -->
+          </div>
+          <div class="col-md-6 col-12">
+            <!-- university  -->
+            <div class="my-4">
+              <div>
+                <mat-form-field class="w-100">
+                  <mat-label>{{ 'Components.USERS.columns.university' | translate }}</mat-label>
+                  <input matInput
+                         formControlName="university"
+                         placeholder="{{ 'Components.USERS.columns.university' | translate }}">
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- university  -->
+          </div>
+        </div>
+
+      </form>
+
+    </mat-step>
+
+    <mat-step aria-label="Additional data">
 			<ng-template matStepLabel>
 				{{ 'stepper.additional_data' | translate }}
 			</ng-template>
@@ -245,141 +359,6 @@
 					</button>
 				</div>
 			</form>
-		</mat-step>
-
-		<mat-step aria-label="educational Data"
-				  [stepControl]="educational_form"
-				  errorMessage="{{ 'stepper.error' | translate }}">
-
-			<ng-template matStepLabel>
-				{{ 'stepper.education_degree' | translate }}
-			</ng-template>
-
-			<form class="p-3" [formGroup]="educational_form" autocomplete="off">
-
-				<div class="row" aria-label="educational_degree and educational_level">
-					<div class="col-md-6 col-12">
-						<!-- educational_degree  -->
-						<div class="my-4">
-							<div>
-								<mat-form-field class="w-100">
-									<mat-label>{{ 'Components.USERS.columns.educational_degree' | translate }}</mat-label>
-									<mat-select
-										formControlName="educational_degree">
-										<mat-option *ngFor="let degree of educational_degrees" [value]="degree.id">
-											{{degree.name}}
-										</mat-option>
-									</mat-select>
-								</mat-form-field>
-							</div>
-							<kt-form-error
-								[form]="educational_form"
-								[controlName]="'educational_degree'"
-								[validationType]="'required'"
-								[controlText]="'Components.USERS.columns.educational_degree' | translate"
-								[IS_F]="true"
-							></kt-form-error>
-						</div>
-						<!-- educational_degree  -->
-					</div>
-					<div class="col-md-6 col-12">
-						<!-- educational_level  -->
-						<div class="my-4">
-							<div>
-								<mat-form-field class="w-100">
-									<mat-label>{{ 'Components.USERS.columns.educational_level' | translate }}</mat-label>
-									<mat-select
-										formControlName="educational_level">
-										<mat-option *ngFor="let level of educational_levels" [value]="level.id">
-											{{level.name}}
-										</mat-option>
-									</mat-select>
-								</mat-form-field>
-							</div>
-							<kt-form-error
-								[form]="educational_form"
-								[controlName]="'educational_level'"
-								[validationType]="'required'"
-								[controlText]="'Components.USERS.columns.educational_level' | translate"
-							></kt-form-error>
-						</div>
-						<!-- educational_level  -->
-					</div>
-				</div>
-
-				<div class="row" aria-label="title and educational_field">
-					<div class="col-md-6 col-12">
-						<!-- title  -->
-						<div class="my-4">
-							<div>
-								<mat-form-field class="w-100">
-									<mat-label>{{ 'Components.USERS.columns.title' | translate }}</mat-label>
-									<mat-select
-										formControlName="title">
-										<mat-option *ngFor="let title of titles" [value]="title.id">
-											{{title.name}}
-										</mat-option>
-									</mat-select>
-								</mat-form-field>
-							</div>
-							<kt-form-error
-								[form]="educational_form"
-								[controlName]="'title'"
-								[validationType]="'required'"
-								[controlText]="'Components.USERS.columns.title' | translate"
-							></kt-form-error>
-						</div>
-						<!-- title  -->
-					</div>
-					<div class="col-md-6 col-12">
-						<!-- educational_field  -->
-						<div class="my-4">
-							<div>
-								<mat-form-field class="w-100">
-									<mat-label>{{ 'Components.USERS.columns.educational_field' | translate }}</mat-label>
-									<input matInput
-										   formControlName="educational_field"
-										   placeholder="{{ 'Components.USERS.columns.educational_field' | translate }}">
-								</mat-form-field>
-							</div>
-						</div>
-						<!-- educational_field  -->
-					</div>
-				</div>
-
-				<div class="row" aria-label="faculty and university">
-					<div class="col-md-6 col-12">
-						<!-- faculty  -->
-						<div class="my-4">
-							<div>
-								<mat-form-field class="w-100">
-									<mat-label>{{ 'Components.USERS.columns.faculty' | translate }}</mat-label>
-									<input matInput
-										   formControlName="faculty"
-										   placeholder="{{ 'Components.USERS.columns.faculty' | translate }}">
-								</mat-form-field>
-							</div>
-						</div>
-						<!-- faculty  -->
-					</div>
-					<div class="col-md-6 col-12">
-						<!-- university  -->
-						<div class="my-4">
-							<div>
-								<mat-form-field class="w-100">
-									<mat-label>{{ 'Components.USERS.columns.university' | translate }}</mat-label>
-									<input matInput
-										   formControlName="university"
-										   placeholder="{{ 'Components.USERS.columns.university' | translate }}">
-								</mat-form-field>
-							</div>
-						</div>
-						<!-- university  -->
-					</div>
-				</div>
-
-			</form>
-
 		</mat-step>
 
 	</mat-vertical-stepper>

@@ -262,6 +262,10 @@ export const locale = {
       success: 'تم تسجيل الخروج بنجاح',
     },
 
+    profile:{
+      success: 'تم تعديل الملف بنجاح',
+    },
+
     error: 'خطأ'
 
 

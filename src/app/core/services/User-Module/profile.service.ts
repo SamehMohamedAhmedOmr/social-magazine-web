@@ -20,7 +20,7 @@ export class ProfileService {
 	constructor(Http: HttpClient) {
 		this.http = Http;
 		this.url = environment.url();
-		this.endpoint = 'profile';
+		this.endpoint = 'users/profile';
 		this.serializer = new ProfileSerializer();
 	}
 

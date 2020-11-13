@@ -264,6 +264,10 @@ export const locale = {
       success: 'Logout Successfully',
     },
 
+    profile:{
+      success: 'Profile Updated Successfully',
+    },
+
     error: 'Error!'
 
 
