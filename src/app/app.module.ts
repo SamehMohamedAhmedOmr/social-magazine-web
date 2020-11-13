@@ -23,6 +23,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {NgxUiLoaderModule} from 'ngx-ui-loader';
 import {VisitorCountComponent} from './layout/footer/visitor-count/visitor-count.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {ToastNoAnimationModule, ToastrModule} from 'ngx-toastr';
 
 
 
@@ -49,7 +51,11 @@ import {VisitorCountComponent} from './layout/footer/visitor-count/visitor-count
     MatDividerModule,
     NgxSpinnerModule,
     // Import NgxUiLoaderModule
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+    ToastrModule.forRoot(), // ToastrModule added
+    ToastNoAnimationModule.forRoot(),
+
+
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

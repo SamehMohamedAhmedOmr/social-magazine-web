@@ -3,8 +3,10 @@ import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {AuthService} from '../services/User-Module/auth.service';
 
-@Injectable()
-export class AuthGuard implements CanActivate {
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard {
 	constructor(private router: Router, private authService: AuthService) {
 	}
 
@@ -19,7 +21,7 @@ export class AuthGuard implements CanActivate {
 		}
 		localStorage.removeItem('token');
 		localStorage.removeItem('token_expired');
-		this.router.navigate(['/login']);
+		this.router.navigate(['/']);
 		return false;
 	}
 }

@@ -18,4 +18,12 @@ export class LocalStorageService {
   }
 
 
+  getName(){
+    return localStorage.getItem('first_name');
+  }
+
+  setItem(key, value){
+    localStorage.setItem(key, value);
+  }
+
 }

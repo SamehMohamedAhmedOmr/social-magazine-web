@@ -53,7 +53,7 @@ export class AuthService {
 
     // logout Function
     logout(): Observable<any> {
-        return this.http.post<AuthModel>(environment.url('v1') + 'users/logout', {});
+        return this.http.post<AuthModel>(environment.url() + 'users/logout', {});
     }
 
     // get token expiration Date

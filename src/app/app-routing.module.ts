@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {UrlName} from './core/global/url.name';
+import {GuestGuard} from './core/guards/guest.guard';
+import {AuthGuard} from './core/guards/auth.guard';
 
 const routes: Routes = [
 
@@ -79,18 +81,21 @@ const routes: Routes = [
   // Login
   {
     path: UrlName.login(),
+    canActivate: [GuestGuard],
     loadChildren: () => import('./pages/Auth/login/login.module').then(m => m.LoginModule)
   },
 
   // register
   {
     path: UrlName.register(),
+    canActivate: [GuestGuard],
     loadChildren: () => import('./pages/Auth/registration/registration.module').then(m => m.RegistrationModule)
   },
 
   // profile
   {
     path: UrlName.profile(),
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
   },
 

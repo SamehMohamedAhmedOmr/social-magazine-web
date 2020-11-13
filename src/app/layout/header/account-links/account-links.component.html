@@ -22,17 +22,17 @@
     <a class="nav-link dropdown-toggle rtl" id="accountDropdown" role="button" data-toggle="dropdown"
        aria-haspopup="true"
        aria-expanded="false">
-      <img src="../../assets/images/original.jpg" alt="" class="img-cont rounded-circle mr-2">
+      <img src="../../assets/images/no-avatar.png" alt="" class="img-cont rounded-circle mr-2">
       <span class="nav-item-color">
-           {{ 'PAGES.HELLO' | translate }} مستخدم
+           {{ 'PAGES.HELLO' | translate }} {{localStorageService.getName()}}
       </span>
     </a>
-    <div class="dropdown-menu dropdown-content rtl accountDropdown" aria-labelledby="accountDropdown">
-      <a class="dropdown-item rtl" [routerLink]="[getProfile()]">
+    <div class="dropdown-menu dropdown-content rtl accountDropdown w-100" aria-labelledby="accountDropdown">
+      <a class="dropdown-item rtl text-center" [routerLink]="[getProfile()]">
         {{ 'PAGES.ACCOUNT' | translate }}
       </a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">
+      <a class="dropdown-item rtl text-center logout-btn" (click)="logout()">
         {{ 'PAGES.LOGOUT' | translate }}
       </a>
     </div>

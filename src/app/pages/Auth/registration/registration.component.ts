@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../core/services/User-Module/auth.service';
 import {FormErrorService} from '../../../core/services/FormError.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {AuthNoticeService} from '../../../core/services/auth-notice.service';
-import {HelperService} from '../../../core/services/helper.service';
 import {AuthModel} from '../../../core/models/User-Module/Auth.model';
 import {UrlName} from '../../../core/global/url.name';
+import {LocalStorageService} from '../../../core/services/localStorage.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration',
@@ -23,9 +23,10 @@ export class RegistrationComponent implements OnInit {
               private ngxService: NgxUiLoaderService,
               private route: ActivatedRoute,
               private router: Router,
+              private cdr: ChangeDetectorRef,
               public translateService: TranslateService,
-              private authNoticeService: AuthNoticeService,
-              private helper: HelperService) {
+              private toastr: ToastrService,
+              public localStorageService:LocalStorageService) {
   }
 
   form: FormGroup;
@@ -74,12 +75,20 @@ export class RegistrationComponent implements OnInit {
     model.title_id = controls['title'].value;
 
     this.service.register(model).subscribe(resp => {
-      // this.form.reset();
-      console.log(resp);
+      this.localStorageService.setItem('token', resp.token);
+      this.localStorageService.setItem('first_name', resp.first_name);
+      this.localStorageService.setItem('token_expired', String(resp.expire_at));
+
       this.ngxService.stop();
+
+      this.toastr.success(this.translateService.instant('register.success'),
+        this.translateService.instant('PAGES.REGISTER'));
+
+      this.router.navigate(['/']).then();
+
     }, handler => {
       this.ngxService.stop();
-      this.authNoticeService.setNotice(this.helper.showingErrors(handler.error), 'danger');
+      this.toastr.error(handler.error.message, this.translateService.instant('error'))
     });
   }
 
