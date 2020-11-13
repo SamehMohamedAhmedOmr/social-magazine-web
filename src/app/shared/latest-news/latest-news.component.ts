@@ -2,6 +2,7 @@ import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {LatestMagazineNewsService} from '../../core/services/Section-Module/latest.magazine.news.service';
 import {MagazineNewsModel} from '../../core/models/section-module/magazine.news.model';
+import {UrlName} from '../../core/global/url.name';
 
 @Component({
   selector: 'app-latest-news',
@@ -10,7 +11,7 @@ import {MagazineNewsModel} from '../../core/models/section-module/magazine.news.
 })
 export class LatestNewsComponent implements OnInit {
 
-  @Input() latest_news:MagazineNewsModel[] = [];
+  @Input() latest_news: MagazineNewsModel[] = [];
 
   constructor() {
   }
@@ -18,6 +19,17 @@ export class LatestNewsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  displayContent(text) {
+    return (text.length > 150) ? text.substring(0, 150) + ' ......' : text;
+  }
+
+  displayMore(text){
+    return (text.length > 150);
+  }
+
+  detailsUrl(slug){
+    return  '/' + UrlName.news() + '/' + slug;
+  }
 
 
 }

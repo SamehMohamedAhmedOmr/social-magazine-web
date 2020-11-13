@@ -64,10 +64,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/archive/archive.module').then(m => m.ArchiveModule)
   },
 
-  // Latest-news
+  // news
   {
-    path: UrlName.latestNews(),
+    path: UrlName.news(),
     loadChildren: () => import('./pages/news/news.module').then(m => m.NewsModule)
+  },
+
+  // article
+  {
+    path: UrlName.article(),
+    loadChildren: () => import('./pages/article/article.module').then(m => m.ArticleModule)
   },
 
   // Login

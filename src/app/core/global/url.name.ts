@@ -87,10 +87,13 @@ export class UrlName {
     return 'الارشيف';
   }
 
-  public static latestNews() {
-    return 'اخر-الاخبار';
+  public static news() {
+    return 'الاخبار';
   }
 
+  public static article() {
+    return 'المقالات';
+  }
 
   public static login() {
     return 'تسجيل-الدخول';

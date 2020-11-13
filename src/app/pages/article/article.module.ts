@@ -1,16 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {NewsComponent} from './news.component';
-import {SharedModule} from '../../shared/shared.module';
+import {ArticleComponent} from './article.component';
+import {DetailsComponent} from './details/details.component';
+import {ListComponent} from './list/list.component';
 import {RouterModule, Routes} from '@angular/router';
-import { DetailsComponent } from './details/details.component';
-import { ListComponent } from './list/list.component';
-
+import {SharedModule} from '../../shared/shared.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: NewsComponent,
+    component: ArticleComponent,
     children: [
       {
         path: '',
@@ -25,13 +24,14 @@ const routes: Routes = [
   }
 ];
 
+
 @NgModule({
-  declarations: [NewsComponent, DetailsComponent, ListComponent],
+  declarations: [ArticleComponent, DetailsComponent, ListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModule
   ]
 })
-export class NewsModule {
+export class ArticleModule {
 }
