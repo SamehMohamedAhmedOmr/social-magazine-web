@@ -30,6 +30,12 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatInputModule} from '@angular/material/input';
 import {ImageSliderComponent} from './image-slider/image-slider.component';
 import {PopupImageGalleryComponent} from './popup-image-gallery/popup-image-gallery.component';
+import { BasicComponent } from './article/forms/basic/basic.component';
+import { InfoComponent } from './article/forms/info/info.component';
+import { AuthorComponent } from './article/forms/author/author.component';
+import { SuggestedJudgeComponent } from './article/forms/suggested-judge/suggested-judge.component';
+import { AttachmentsComponent } from './article/forms/attachments/attachments.component';
+import { ConfirmComponent } from './article/forms/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,10 @@ import {PopupImageGalleryComponent} from './popup-image-gallery/popup-image-gall
     FormErrorComponent, GalleryComponent, GlobalNoticeComponent,
     ListOptionsComponent, NextPreviousListComponent,
     NoRecordFoundComponent, PopupGalleryComponent,
-    SoonComponent, UserFormComponent, DeleteModalComponent, ImageSliderComponent, PopupImageGalleryComponent
+    SoonComponent, UserFormComponent, DeleteModalComponent,
+    ImageSliderComponent, PopupImageGalleryComponent,
+    BasicComponent, InfoComponent, AuthorComponent,
+    SuggestedJudgeComponent, AttachmentsComponent, ConfirmComponent
   ],
   entryComponents: [
     DeleteModalComponent,

@@ -2,6 +2,18 @@ span{
 	border-bottom: 1px solid;
 }
 
-img{
-  width: 100% !important;
+.img-container{
+  width: 100%;
+
+  img{
+    width: inherit !important;
+  }
+}
+
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 767.98px) {
+  img{
+    width: 100% !important;
+  }
 }
