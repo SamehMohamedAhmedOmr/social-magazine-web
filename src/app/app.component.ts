@@ -6,6 +6,8 @@ import {HomeModel} from './core/models/section-module/home.model';
 import {AccountDependenciesService} from './core/services/Basic-Module/account.dependencies.service';
 import {AccountDependenciesModel} from './core/models/Basic-Module/account.dependencies.model';
 import {LocalStorageService} from './core/services/localStorage.service';
+import {ArticleDependenciesModel} from './core/models/pre-article-module/article.dependencies.model';
+import {ArticleDependenciesService} from './core/services/pre-article-Module/Article.Dependencies.service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +18,11 @@ export class AppComponent implements OnInit{
   title = '';
   homeModel: HomeModel;
   accountDependenciesModel:AccountDependenciesModel;
+  articleDependenciesModel:ArticleDependenciesModel;
 
   constructor(private langService: LangService,
               private homeService:HomeService,
+              private articleDependenciesService: ArticleDependenciesService,
               private accountDependenciesService: AccountDependenciesService,
               private LocalStorageService:LocalStorageService,
               private ngxService: NgxUiLoaderService,
@@ -36,8 +40,30 @@ export class AppComponent implements OnInit{
       this.homeModel  = value;
       this.homeService.homeContent(this.homeModel);
       this.cdr.markForCheck();
-      this.getAccountDependency()
+      this.getAccountDependency();
+      this.getHArticleDependencies();
+      this.ngxService.stop();
     });
+  }
+
+  getHArticleDependencies(){
+    let articleDependencies = this.LocalStorageService.getWithExpiry('article_dependency');
+    if (!articleDependencies){
+      this.articleDependenciesService.get().subscribe(
+        (resp) => {
+          this.articleDependenciesModel = resp;
+          this.articleDependenciesService.articleContent(this.articleDependenciesModel);
+          this.LocalStorageService.setWithExpiry('article_dependency',
+            this.articleDependenciesModel,this.calculateTTL(7));
+          this.cdr.markForCheck();
+        }, error => {
+          this.articleDependenciesService = null;
+          this.cdr.markForCheck();
+        });
+    }
+    else{
+      this.articleDependenciesService.articleContent(articleDependencies);
+    }
   }
 
   getAccountDependency(){
@@ -49,18 +75,15 @@ export class AppComponent implements OnInit{
           this.accountDependenciesModel = resp;
           this.accountDependenciesService.accountContent(this.accountDependenciesModel);
           this.LocalStorageService.setWithExpiry('account_dependency',
-            this.accountDependenciesModel,this.calculateTTL(4));
-          this.ngxService.stop();
+            this.accountDependenciesModel,this.calculateTTL(7));
           this.cdr.markForCheck();
         }, error => {
           this.accountDependenciesModel = null;
-         this.ngxService.stop();
           this.cdr.markForCheck();
         });
     }
     else{
       this.accountDependenciesService.accountContent(accountDependencies);
-     this.ngxService.stop();
     }
 
   }
