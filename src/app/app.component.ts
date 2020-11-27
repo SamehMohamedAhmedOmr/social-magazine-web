@@ -54,13 +54,13 @@ export class AppComponent implements OnInit{
           this.cdr.markForCheck();
         }, error => {
           this.accountDependenciesModel = null;
-          this.ngxService.stop();
+         this.ngxService.stop();
           this.cdr.markForCheck();
         });
     }
     else{
       this.accountDependenciesService.accountContent(accountDependencies);
-      this.ngxService.stop();
+     this.ngxService.stop();
     }
 
   }

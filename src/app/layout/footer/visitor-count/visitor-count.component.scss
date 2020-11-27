@@ -1,7 +1,8 @@
-ul{
+ul {
   list-style-type: none;
   padding: 0;
-  li{
+
+  li {
     display: inline-block;
     color: var(--white);
     background-color: var(--lite-black);
@@ -9,4 +10,14 @@ ul{
     padding: 16px;
     text-decoration: none
   }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 767.98px) {
+  ul {
+    li {
+      padding: 10px;
+    }
+  }
+
 }
