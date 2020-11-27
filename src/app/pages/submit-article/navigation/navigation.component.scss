@@ -1,0 +1,15 @@
+.list-group-item+.list-group-item{
+  border-top-width: 1px;
+}
+
+ul{
+  li{
+    line-height: 2;
+    background-color: var(--main-color);
+    color: var(--second-color);
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+}
+

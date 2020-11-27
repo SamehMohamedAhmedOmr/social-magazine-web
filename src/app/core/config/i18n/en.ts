@@ -268,7 +268,21 @@ export const locale = {
       success: 'Profile Updated Successfully',
     },
 
-    error: 'Error!'
+    error: 'Error!',
+
+    submit_article:{
+      navigation:{
+        type_title: 'Article type and title',
+        content_keywords: 'Abstract and keywords',
+        manage_authors: 'Add / delete authors',
+        suggested_judges: 'Proposed arbitrators',
+        attachments: 'Attached files',
+        confirm: 'Finish sending the article',
+      },
+      form:{
+
+      }
+    }
 
 
   }

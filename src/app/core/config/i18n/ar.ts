@@ -266,7 +266,21 @@ export const locale = {
       success: 'تم تعديل الملف بنجاح',
     },
 
-    error: 'خطأ'
+    error: 'خطأ',
+
+    submit_article:{
+		  navigation:{
+		    type_title: 'نوع و عنوان المقالة',
+        content_keywords: 'المستخلص و الكلمات الرئيسية',
+        manage_authors: 'اضافة / حذف مؤلفين',
+        suggested_judges: 'المحكمون المقترحون',
+        attachments: 'الملفات المرفقة',
+        confirm: 'الانتهاء من ارسال المقالة',
+      },
+      form:{
+
+		  }
+    }
 
 
 	}
