@@ -218,7 +218,8 @@
           </div>
         </div>
 
-        <div class="row" aria-label="title and educational_field">
+        <div class="row" aria-label="title">
+
           <div class="col-md-6 col-12">
             <!-- title  -->
             <div class="my-4">
@@ -242,51 +243,7 @@
             </div>
             <!-- title  -->
           </div>
-          <div class="col-md-6 col-12">
-            <!-- educational_field  -->
-            <div class="my-4">
-              <div>
-                <mat-form-field class="w-100">
-                  <mat-label>{{ 'Components.USERS.columns.educational_field' | translate }}</mat-label>
-                  <input matInput
-                         formControlName="educational_field"
-                         placeholder="{{ 'Components.USERS.columns.educational_field' | translate }}">
-                </mat-form-field>
-              </div>
-            </div>
-            <!-- educational_field  -->
-          </div>
-        </div>
 
-        <div class="row" aria-label="faculty and university">
-          <div class="col-md-6 col-12">
-            <!-- faculty  -->
-            <div class="my-4">
-              <div>
-                <mat-form-field class="w-100">
-                  <mat-label>{{ 'Components.USERS.columns.faculty' | translate }}</mat-label>
-                  <input matInput
-                         formControlName="faculty"
-                         placeholder="{{ 'Components.USERS.columns.faculty' | translate }}">
-                </mat-form-field>
-              </div>
-            </div>
-            <!-- faculty  -->
-          </div>
-          <div class="col-md-6 col-12">
-            <!-- university  -->
-            <div class="my-4">
-              <div>
-                <mat-form-field class="w-100">
-                  <mat-label>{{ 'Components.USERS.columns.university' | translate }}</mat-label>
-                  <input matInput
-                         formControlName="university"
-                         placeholder="{{ 'Components.USERS.columns.university' | translate }}">
-                </mat-form-field>
-              </div>
-            </div>
-            <!-- university  -->
-          </div>
         </div>
 
       </form>
@@ -302,21 +259,19 @@
 
 				<div class="row">
 					<div class="col-md-6 col-12">
-
-						<!-- fax_number  -->
-						<div class="my-4">
-							<div>
-								<mat-form-field class="w-100">
-									<mat-label>{{ 'Components.USERS.columns.fax_number' | translate }}</mat-label>
-									<input matInput
-										   formControlName="fax_number"
-										   placeholder="{{ 'Components.USERS.columns.fax_number' | translate }}">
-								</mat-form-field>
-							</div>
-						</div>
-						<!-- fax_number  -->
-
-
+            <!-- address  -->
+            <div class="my-4">
+              <div>
+                <mat-form-field class="w-100">
+                  <mat-label>{{ 'COMMON.address' | translate }}</mat-label>
+                  <textarea matInput
+                            formControlName="address"
+                            placeholder="{{ 'COMMON.address' | translate }}"
+                  ></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- address  -->
 					</div>
 					<div class="col-md-6 col-12">
 
@@ -335,23 +290,11 @@
 							</div>
 						</div>
 						<!-- alternative_email  -->
-
+            
 					</div>
 				</div>
 
-				<!-- address  -->
-				<div class="my-3">
-					<div>
-						<mat-form-field class="w-100">
-							<mat-label>{{ 'COMMON.address' | translate }}</mat-label>
-							<textarea matInput
-									  formControlName="address"
-									  placeholder="{{ 'COMMON.address' | translate }}"
-							></textarea>
-						</mat-form-field>
-					</div>
-				</div>
-				<!-- address  -->
+
 
 				<div class="d-flex justify-content-end">
 					<button matStepperNext class="btn btn-primary">

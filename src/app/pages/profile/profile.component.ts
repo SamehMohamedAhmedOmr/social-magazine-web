@@ -75,7 +75,6 @@ export class ProfileComponent implements OnInit {
 
 
       // Additional Data
-      fax_number:[this.model.fax_number] ,
       alternative_email:[this.model.alternative_email],
       address:[this.model.address] ,
     });
@@ -85,9 +84,6 @@ export class ProfileComponent implements OnInit {
       educational_degree:[this.model.educational_degree?.id, Validators.required] ,
       educational_level:[this.model.educational_level?.id, Validators.required] ,
       title:[this.model.title?.id, Validators.required] ,
-      educational_field:[this.model.educational_field] ,
-      university:[this.model.university] ,
-      faculty:[this.model.faculty] ,
     });
     this.cdr.markForCheck();
     this.ngxService.stop();
@@ -115,16 +111,12 @@ export class ProfileComponent implements OnInit {
     this.model.phone_number = controls['phone'].value;
     this.model.country.id = controls['country'].value;
 
-    this.model.fax_number = controls['fax_number'].value;
     this.model.alternative_email = controls['alternative_email'].value;
     this.model.address = controls['address'].value;
 
     this.model.title.id = controls_educational_form['title'].value;
     this.model.educational_degree.id = controls_educational_form['educational_degree'].value;
     this.model.educational_level.id = controls_educational_form['educational_level'].value;
-    this.model.educational_field = controls_educational_form['educational_field'].value;
-    this.model.university = controls_educational_form['university'].value;
-    this.model.faculty = controls_educational_form['faculty'].value;
 
     this.ngxService.start();
     this.service.update(this.model).subscribe(resp => {
