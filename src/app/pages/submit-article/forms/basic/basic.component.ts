@@ -10,7 +10,7 @@ import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory
 import {UrlName} from '../../../../core/global/url.name';
 
 @Component({
-  selector: 'app-basic',
+  selector: 'app-article-basic-data',
   templateUrl: './basic.component.html',
   styleUrls: ['./basic.component.scss']
 })

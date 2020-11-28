@@ -36,6 +36,7 @@ import { AuthorComponent } from './article/forms/author/author.component';
 import { SuggestedJudgeComponent } from './article/forms/suggested-judge/suggested-judge.component';
 import { AttachmentsComponent } from './article/forms/attachments/attachments.component';
 import { ConfirmComponent } from './article/forms/confirm/confirm.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { ConfirmComponent } from './article/forms/confirm/confirm.component';
     MatIconModule,
     MatRadioModule,
     MatInputModule,
+    MatChipsModule,
   ]
 })
 

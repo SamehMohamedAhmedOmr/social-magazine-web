@@ -10,7 +10,7 @@ import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory
 import {UrlName} from '../../../../core/global/url.name';
 
 @Component({
-  selector: 'app-info',
+  selector: 'app-article-data-info',
   templateUrl: './info.component.html',
   styleUrls: ['./info.component.scss']
 })
@@ -39,14 +39,20 @@ export class InfoComponent implements OnInit {
    */
   private initForm() {
     this.form = this.fb.group({
-      name:['', Validators.required] ,
-      job:['', Validators.required] ,
-      is_active: 		['1', Validators.required],
+      content_ar:['', Validators.required] ,
+      content_en:['', Validators.required] ,
+      keywords_en:['', Validators.required] ,
+      keywords_ar:['', Validators.required] ,
     });
   }
 
   next(){
-    let target = UrlName.submitArticle() + '/' + UrlName.ArticleContent();
+    let target = UrlName.submitArticle() + '/' + UrlName.ArticleAuthors();
+    this.router.navigate([target]).then();
+  }
+
+  back(){
+    let target = UrlName.submitArticle();
     this.router.navigate([target]).then();
   }
 

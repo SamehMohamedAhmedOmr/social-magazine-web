@@ -10,14 +10,16 @@ import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory
 import {UrlName} from '../../../../core/global/url.name';
 
 @Component({
-  selector: 'app-authors',
+  selector: 'app-article-authors-form',
   templateUrl: './authors.component.html',
   styleUrls: ['./authors.component.scss']
 })
 export class AuthorsComponent implements OnInit {
 
   form: FormGroup;
-  constructor(private fb: FormBuilder ,
+  educational_form: FormGroup;
+
+  constructor(private formBuilder: FormBuilder ,
               private service: AdvisoryBodiesService,
               private formErrorService: FormErrorService,
               private route: ActivatedRoute,
@@ -38,14 +40,35 @@ export class AuthorsComponent implements OnInit {
    *
    */
   private initForm() {
-    this.form = this.fb.group({
-      name:['', Validators.required] ,
-      job:['', Validators.required] ,
-      is_active: 		['1', Validators.required],
+    this.form = this.formBuilder.group({
+      // Basic Data
+      first_name:['', Validators.required] ,
+      family_name:['', Validators.required] ,
+      email:['', Validators.required] ,
+      gender:['', Validators.required] ,
+      phone:['', Validators.required] ,
+      country:['', Validators.required] ,
+
+
+      // Additional Data
+      alternative_email:[''],
+      address:[''] ,
+    });
+
+    this.educational_form = this.formBuilder.group({
+      // Educational Data
+      educational_degree:['', Validators.required] ,
+      educational_level:['', Validators.required] ,
+      title:['', Validators.required] ,
     });
   }
 
   next(){
+    let target = UrlName.submitArticle() + '/' + UrlName.ArticleSuggestedJudges();
+    this.router.navigate([target]).then();
+  }
+
+  back(){
     let target = UrlName.submitArticle() + '/' + UrlName.ArticleContent();
     this.router.navigate([target]).then();
   }

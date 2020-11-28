@@ -108,7 +108,7 @@ export class UrlName {
   }
 
   public static ArticleSuggestedJudges(){
-    return 'المحكمين-المقتوحون'
+    return 'المحكمون-المقترحون'
   }
 
   public static ArticleAuthors(){

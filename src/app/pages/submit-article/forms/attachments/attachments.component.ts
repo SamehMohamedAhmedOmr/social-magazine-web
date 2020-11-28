@@ -10,13 +10,14 @@ import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory
 import {UrlName} from '../../../../core/global/url.name';
 
 @Component({
-  selector: 'app-attachments',
+  selector: 'app-article-attachments-data',
   templateUrl: './attachments.component.html',
   styleUrls: ['./attachments.component.scss']
 })
 export class AttachmentsComponent implements OnInit {
 
   form: FormGroup;
+
   constructor(private fb: FormBuilder ,
               private service: AdvisoryBodiesService,
               private formErrorService: FormErrorService,
@@ -32,21 +33,25 @@ export class AttachmentsComponent implements OnInit {
   }
 
 
-
   /**
    * Initiate the form
    *
    */
   private initForm() {
     this.form = this.fb.group({
-      name:['', Validators.required] ,
-      job:['', Validators.required] ,
-      is_active: 		['1', Validators.required],
+      attachment_type:['', Validators.required] ,
+      description:['', Validators.required] ,
+      file:['', Validators.required] ,
     });
   }
 
   next(){
-    let target = UrlName.submitArticle() + '/' + UrlName.ArticleContent();
+    let target = UrlName.submitArticle() + '/' + UrlName.ArticleSubmitReview();
+    this.router.navigate([target]).then();
+  }
+
+  back(){
+    let target = UrlName.submitArticle() + '/' + UrlName.ArticleSuggestedJudges();
     this.router.navigate([target]).then();
   }
 

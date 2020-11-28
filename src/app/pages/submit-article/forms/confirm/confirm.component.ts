@@ -7,9 +7,10 @@ import {TranslateService} from '@ngx-translate/core';
 import {AuthNoticeService} from '../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../core/services/helper.service';
 import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory.body.model';
+import {UrlName} from '../../../../core/global/url.name';
 
 @Component({
-  selector: 'app-confirm',
+  selector: 'app-article-confirm-form',
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.scss']
 })
@@ -38,12 +39,16 @@ export class ConfirmComponent implements OnInit {
    */
   private initForm() {
     this.form = this.fb.group({
-      name:['', Validators.required] ,
-      job:['', Validators.required] ,
-      is_active: 		['1', Validators.required],
+      article_type_id:['', Validators.required] ,
+      title_ar:['', Validators.required] ,
+      title_en:['', Validators.required] ,
     });
   }
 
+  back(){
+    let target = UrlName.submitArticle() + '/' + UrlName.ArticleAttachments();
+    this.router.navigate([target]).then();
+  }
 
   clearForm() {
     this.form.reset();

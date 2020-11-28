@@ -1,6 +1,15 @@
 <app-article-info [form]="form">
 </app-article-info>
 
-<button class="btn btn-dark" (click)="next()">
-  {{ 'stepper.next' | translate }}
-</button>
+<div aria-label="navigation">
+
+  <button class="btn btn-dark mx-2" (click)="back()">
+    {{ 'stepper.back' | translate }}
+  </button>
+
+  <button class="btn btn-dark" (click)="next()">
+    {{ 'stepper.next' | translate }}
+  </button>
+
+</div>
+
