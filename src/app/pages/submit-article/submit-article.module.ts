@@ -10,6 +10,8 @@ import {SuggestedJudgesComponent} from './forms/suggested-judges/suggested-judge
 import {AuthorsComponent} from './forms/authors/authors.component';
 import { AttachmentsComponent } from './forms/attachments/attachments.component';
 import { ConfirmComponent } from './forms/confirm/confirm.component';
+import {UrlName} from '../../core/global/url.name';
+import {MatButtonModule} from '@angular/material/button';
 
 const routes: Routes = [
   {
@@ -21,23 +23,23 @@ const routes: Routes = [
         component: BasicComponent
       },
       {
-        path: 'add',
+        path: UrlName.ArticleContent(),
         component: InfoComponent
       },
       {
-        path: ':id',
+        path: UrlName.ArticleSuggestedJudges(),
         component: SuggestedJudgesComponent
       },
       {
-        path: 'details/:id',
+        path: UrlName.ArticleAuthors(),
         component: AuthorsComponent
       },
       {
-        path: 'details/:id',
+        path: UrlName.ArticleAttachments(),
         component: AttachmentsComponent
       },
       {
-        path: 'details/:id',
+        path: UrlName.ArticleSubmitReview(),
         component: ConfirmComponent
       },
       {path: '**', redirectTo: '', pathMatch: ''},
@@ -60,6 +62,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModule,
+    MatButtonModule,
   ]
 })
 export class SubmitArticleModule {

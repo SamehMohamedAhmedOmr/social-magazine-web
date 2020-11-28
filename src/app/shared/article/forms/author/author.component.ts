@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 @Component({
-  selector: 'app-author',
+  selector: 'app-article-author',
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.scss']
 })
 export class AuthorComponent implements OnInit {
 
-  constructor() { }
+  @Input() form: FormGroup;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

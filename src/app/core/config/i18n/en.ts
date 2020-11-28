@@ -280,7 +280,16 @@ export const locale = {
         confirm: 'Finish sending the article',
       },
       form:{
-
+        article_type: 'Article Type',
+        title_ar: 'Title in Arabic',
+        title_en: 'Title in English',
+        content_ar: 'Abstract in Arabic',
+        content_en: 'Abstract in English',
+        keywords_en: 'Keywords in English',
+        keywords_ar: 'Keywords in Arabic',
+        description: 'Description',
+        attachment_type: 'Attachment Type',
+        file: 'File',
       }
     }
 

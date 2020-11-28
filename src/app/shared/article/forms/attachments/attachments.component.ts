@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 @Component({
-  selector: 'app-attachments',
+  selector: 'app-article-attachments',
   templateUrl: './attachments.component.html',
   styleUrls: ['./attachments.component.scss']
 })
 export class AttachmentsComponent implements OnInit {
 
-  constructor() { }
+  @Input() form: FormGroup;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

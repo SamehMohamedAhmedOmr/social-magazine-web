@@ -1,2 +1,6 @@
-<p>info works!</p>
-<kt-soon></kt-soon>
+<app-article-info [form]="form">
+</app-article-info>
+
+<button class="btn btn-dark" (click)="next()">
+  {{ 'stepper.next' | translate }}
+</button>

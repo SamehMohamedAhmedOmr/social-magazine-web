@@ -69,7 +69,13 @@ import { ConfirmComponent } from './article/forms/confirm/confirm.component';
     UserFormComponent,
     LatestNewsComponent,
     TranslateModule,
-    ImageSliderComponent
+    ImageSliderComponent,
+    BasicComponent,
+    AttachmentsComponent,
+    AuthorComponent,
+    ConfirmComponent,
+    InfoComponent,
+    SuggestedJudgeComponent
   ],
   imports: [
     CommonModule,

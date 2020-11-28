@@ -103,4 +103,23 @@ export class UrlName {
     return 'انشاء-حساب';
   }
 
+  public static ArticleContent(){
+    return 'المستخلص'
+  }
+
+  public static ArticleSuggestedJudges(){
+    return 'المحكمين-المقتوحون'
+  }
+
+  public static ArticleAuthors(){
+    return 'المؤلفون'
+  }
+
+  public static ArticleAttachments(){
+    return 'المرفقات'
+  }
+
+  public static ArticleSubmitReview(){
+    return 'مراجعة'
+  }
 }
