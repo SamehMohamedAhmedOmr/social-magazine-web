@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {AuthNoticeService} from '../../../../core/services/auth-notice.service';
@@ -7,7 +7,8 @@ import {AdvisoryBodiesService} from '../../../../core/services/Section-Module/ad
 import {ActivatedRoute, Router} from '@angular/router';
 import {HelperService} from '../../../../core/services/helper.service';
 import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory.body.model';
-import {UrlName} from '../../../../core/global/url.name';
+import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
+import {ArticleSubmitObserveService} from '../../../../core/services/observable/article/Article.submit.observe.service';
 
 @Component({
   selector: 'app-article-basic-data',
@@ -16,11 +17,14 @@ import {UrlName} from '../../../../core/global/url.name';
 })
 export class BasicComponent implements OnInit {
 
+  @Input() article_id:number = null;
 
   form: FormGroup;
+
   constructor(private fb: FormBuilder ,
               private service: AdvisoryBodiesService,
               private formErrorService: FormErrorService,
+              public articleSubmitObserveService: ArticleSubmitObserveService,
               private route: ActivatedRoute,
               private router:Router,
               public translateService : TranslateService,
@@ -52,8 +56,7 @@ export class BasicComponent implements OnInit {
   }
 
   next(){
-    let target = UrlName.submitArticle() + '/' + UrlName.ArticleContent();
-    this.router.navigate([target]).then();
+    this.articleSubmitObserveService.submitOObserve(ArticleSubmitPhases.KEYWORDS());
   }
 
   submitForm () {

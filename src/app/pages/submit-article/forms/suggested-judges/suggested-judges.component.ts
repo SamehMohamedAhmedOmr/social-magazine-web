@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AdvisoryBodiesService} from '../../../../core/services/Section-Module/advisory.bodies.service';
 import {FormErrorService} from '../../../../core/services/FormError.service';
@@ -8,6 +8,8 @@ import {AuthNoticeService} from '../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../core/services/helper.service';
 import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory.body.model';
 import {UrlName} from '../../../../core/global/url.name';
+import {ArticleSubmitObserveService} from '../../../../core/services/observable/article/Article.submit.observe.service';
+import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
 
 @Component({
   selector: 'app-article-suggested-judges-data',
@@ -16,11 +18,14 @@ import {UrlName} from '../../../../core/global/url.name';
 })
 export class SuggestedJudgesComponent implements OnInit {
 
+  @Input() article_id:number = null;
+
   form: FormGroup;
   educational_form: FormGroup;
 
   constructor(private formBuilder: FormBuilder ,
               private service: AdvisoryBodiesService,
+              public articleSubmitObserveService: ArticleSubmitObserveService,
               private formErrorService: FormErrorService,
               private route: ActivatedRoute,
               private router:Router,
@@ -64,13 +69,12 @@ export class SuggestedJudgesComponent implements OnInit {
   }
 
   next(){
-    let target = UrlName.submitArticle() + '/' + UrlName.ArticleAttachments();
-    this.router.navigate([target]).then();
+    this.articleSubmitObserveService.submitOObserve(ArticleSubmitPhases.ATTACHMENTS());
+
   }
 
   back(){
-    let target = UrlName.submitArticle() + '/' + UrlName.ArticleAuthors();
-    this.router.navigate([target]).then();
+    this.articleSubmitObserveService.submitOObserve(ArticleSubmitPhases.AUTHORS());
   }
 
   clearForm() {

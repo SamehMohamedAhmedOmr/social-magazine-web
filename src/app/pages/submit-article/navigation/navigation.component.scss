@@ -6,12 +6,11 @@ ul{
   li{
     line-height: 2;
     font-weight: bold;
-    cursor: pointer;
   }
 
 }
 
-li.active{
+li.active-list{
   background-color: var(--main-color);
   color: var(--second-color);
 }
