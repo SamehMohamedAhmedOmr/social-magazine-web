@@ -37,9 +37,10 @@ import { SuggestedJudgeComponent } from './article/forms/suggested-judge/suggest
 import { AttachmentsComponent } from './article/forms/attachments/attachments.component';
 import { ConfirmComponent } from './article/forms/confirm/confirm.component';
 import {MatChipsModule} from '@angular/material/chips';
-import { AuthorsComponent } from './article/list/authors/authors.component';
-import { JudgesComponent } from './article/list/judges/judges.component';
 import {MatTableModule} from '@angular/material/table';
+import { AttachmentsListComponent } from './article/list/attachments-list/attachments-list.component';
+import { AuthorsListComponent } from './article/list/authors-list/authors-list.component';
+import { JudgesListComponent } from './article/list/judges-list/judges-list.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import {MatTableModule} from '@angular/material/table';
     SoonComponent, UserFormComponent, DeleteModalComponent,
     ImageSliderComponent, PopupImageGalleryComponent,
     BasicComponent, InfoComponent, AuthorComponent,
-    SuggestedJudgeComponent, AttachmentsComponent, ConfirmComponent, AuthorsComponent, JudgesComponent
+    SuggestedJudgeComponent, AttachmentsComponent,
+    ConfirmComponent, AttachmentsListComponent,
+    AuthorsListComponent, JudgesListComponent
   ],
   entryComponents: [
     DeleteModalComponent,
@@ -80,8 +83,9 @@ import {MatTableModule} from '@angular/material/table';
     ConfirmComponent,
     InfoComponent,
     SuggestedJudgeComponent,
-    AuthorsComponent,
-    JudgesComponent
+    AuthorsListComponent,
+    JudgesListComponent,
+    AttachmentsListComponent,
   ],
   imports: [
     CommonModule,

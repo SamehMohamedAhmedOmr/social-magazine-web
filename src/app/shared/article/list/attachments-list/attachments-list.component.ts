@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 const ELEMENT_DATA: [{ symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -14,17 +14,17 @@ const ELEMENT_DATA: [{ symbol: string; name: string; weight: number; position: n
 ];
 
 @Component({
-  selector: 'app-article-authors-list',
-  templateUrl: './authors.component.html',
-  styleUrls: ['./authors.component.scss']
+  selector: 'app-attachments-list',
+  templateUrl: './attachments-list.component.html',
+  styleUrls: ['./attachments-list.component.scss']
 })
-export class AuthorsComponent implements OnInit {
+export class AttachmentsListComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
 
-  constructor() { }
-
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
