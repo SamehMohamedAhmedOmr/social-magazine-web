@@ -14,8 +14,43 @@ export class ArticleSerializer extends BaseSerializer implements Serializer {
 	}
 
 	toJson(model: ArticleModel): any {
-		return  {};
+		return  {
+      article_type_id: model.article_type.id,
+      title_ar: model.title_ar,
+      title_en: model.title_en,
+    };
 	}
+
+  updateInfo(model: ArticleModel): any {
+    let object =  {
+      article_id: model.id,
+      title_ar: model.title_ar,
+      title_en: model.title_en,
+    };
+
+
+    if (model.content_ar){
+      object['content_ar'] = model.content_ar;
+    }
+
+    if (model.content_en){
+      object['content_en'] = model.content_en;
+    }
+
+    if (model.keywords_ar){
+      object['keywords_ar'] = model.keywords_ar;
+    }
+
+    if (model.keywords_en){
+      object['keywords_en'] = model.keywords_en;
+    }
+
+    return object;
+  }
+
+  confirm(model: ArticleModel): any {
+    return  {};
+  }
 
 	toFormData(object: any): FormData {
 		return null;

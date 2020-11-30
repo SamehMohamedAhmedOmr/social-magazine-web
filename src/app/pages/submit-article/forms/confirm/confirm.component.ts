@@ -7,9 +7,11 @@ import {TranslateService} from '@ngx-translate/core';
 import {AuthNoticeService} from '../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../core/services/helper.service';
 import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory.body.model';
-import {UrlName} from '../../../../core/global/url.name';
 import {ArticleSubmitObserveService} from '../../../../core/services/observable/article/Article.submit.observe.service';
 import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
+import {ArticleModel} from '../../../../core/models/article-module/article.model';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-article-confirm-form',
@@ -19,6 +21,7 @@ import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases
 export class ConfirmComponent implements OnInit {
 
   @Input() article_id:number = null;
+  @Input() article:ArticleModel = null;
 
   form: FormGroup;
 
@@ -26,6 +29,8 @@ export class ConfirmComponent implements OnInit {
               private service: AdvisoryBodiesService,
               public articleSubmitObserveService: ArticleSubmitObserveService,
               private formErrorService: FormErrorService,
+              private ngxService: NgxUiLoaderService,
+              private toastr: ToastrService,
               private route: ActivatedRoute,
               private router:Router,
               public translateService : TranslateService,

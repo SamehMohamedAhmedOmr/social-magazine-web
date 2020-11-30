@@ -3,6 +3,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ArticleSubmitPhases} from '../../../core/global/article.submit.phases';
 import {ArticleIdObserveService} from '../../../core/services/observable/article/Article.Id.observe.service';
 import {ArticleSubmitObserveService} from '../../../core/services/observable/article/Article.submit.observe.service';
+import {ArticleObserveService} from '../../../core/services/observable/article/Article.observe.service';
+import {ArticleModel} from '../../../core/models/article-module/article.model';
 
 @Component({
   selector: 'app-article-form',
@@ -13,27 +15,32 @@ export class ArticleFormComponent implements OnInit, OnDestroy {
 
   article_id:number = null;
   article_submit_status:string = null;
+  article:ArticleModel = null;
 
   constructor(public articleIdObserveService: ArticleIdObserveService,
+              public articleObserveService: ArticleObserveService,
               public articleSubmitObserveService: ArticleSubmitObserveService) {
 
   }
 
   ngOnInit(): void {
-    this.subscribeSubmitArticle();
-    this.subscribeArticleID();
+    this.subscription();
   }
 
-  subscribeSubmitArticle() {
-    this.articleSubmitObserveService.content.subscribe(model => {
-      this.article_submit_status = model;
+  subscription() {
+    this.articleSubmitObserveService.content.subscribe(status => {
+      this.article_submit_status = status;
     });
-  }
 
-  subscribeArticleID() {
     this.articleIdObserveService.content.subscribe(id => {
       this.article_id = id;
     });
+
+    this.articleObserveService.content.subscribe(model => {
+      this.article = model;
+    });
+
+    this.article = new ArticleModel(this.article_id);
   }
 
   checkINITIAL() {
@@ -62,6 +69,9 @@ export class ArticleFormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.articleSubmitObserveService.submitOObserve(ArticleSubmitPhases.INITIAL());
+
+    this.articleIdObserveService.articleIdObserve(null);
+    this.articleObserveService.articleOObserve(null);
   }
 
 }

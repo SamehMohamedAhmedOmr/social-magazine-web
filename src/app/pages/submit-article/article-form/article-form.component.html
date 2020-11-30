@@ -1,9 +1,15 @@
 <section aria-label="basic-form" *ngIf="checkINITIAL()">
-  <app-article-basic-data [article_id]="article_id"></app-article-basic-data>
+  <app-article-basic-data
+    [article_id]="article_id"
+    [article]="article">
+  </app-article-basic-data>
 </section>
 
 <section aria-label="basic-form" *ngIf="checkKEYWORDS()">
-  <app-article-data-info [article_id]="article_id"></app-article-data-info>
+  <app-article-data-info
+    [article_id]="article_id"
+    [article]="article">
+  ></app-article-data-info>
 </section>
 
 <section aria-label="basic-form" *ngIf="checkAUTHORS()">
@@ -19,5 +25,8 @@
 </section>
 
 <section aria-label="basic-form" *ngIf="checkSUBMIT()">
-  <app-article-confirm-form [article_id]="article_id"></app-article-confirm-form>
+  <app-article-confirm-form
+    [article_id]="article_id"
+    [article]="article">
+  ></app-article-confirm-form>
 </section>

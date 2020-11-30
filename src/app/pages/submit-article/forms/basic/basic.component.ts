@@ -1,14 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
-import {AuthNoticeService} from '../../../../core/services/auth-notice.service';
 import {FormErrorService} from '../../../../core/services/FormError.service';
-import {AdvisoryBodiesService} from '../../../../core/services/Section-Module/advisory.bodies.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {HelperService} from '../../../../core/services/helper.service';
-import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory.body.model';
 import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
 import {ArticleSubmitObserveService} from '../../../../core/services/observable/article/Article.submit.observe.service';
+import {ArticleService} from '../../../../core/services/Article-Module/article.service';
+import {ArticleModel} from '../../../../core/models/article-module/article.model';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {ToastrService} from 'ngx-toastr';
+import {ArticleIdObserveService} from '../../../../core/services/observable/article/Article.Id.observe.service';
+import {ArticleObserveService} from '../../../../core/services/observable/article/Article.observe.service';
 
 @Component({
   selector: 'app-article-basic-data',
@@ -18,18 +19,20 @@ import {ArticleSubmitObserveService} from '../../../../core/services/observable/
 export class BasicComponent implements OnInit {
 
   @Input() article_id:number = null;
+  @Input() article:ArticleModel = null;
 
   form: FormGroup;
 
   constructor(private fb: FormBuilder ,
-              private service: AdvisoryBodiesService,
+              private service: ArticleService,
               private formErrorService: FormErrorService,
               public articleSubmitObserveService: ArticleSubmitObserveService,
-              private route: ActivatedRoute,
-              private router:Router,
-              public translateService : TranslateService,
-              private authNoticeService: AuthNoticeService,
-              private helper: HelperService) {
+              private ngxService: NgxUiLoaderService,
+              private toastr: ToastrService,
+              public articleIdObserveService: ArticleIdObserveService,
+              public articleObserveService: ArticleObserveService,
+              private cdr: ChangeDetectorRef,
+              public translateService : TranslateService) {
   }
 
   ngOnInit() {
@@ -44,9 +47,9 @@ export class BasicComponent implements OnInit {
    */
   private initForm() {
     this.form = this.fb.group({
-      article_type_id:['', Validators.required] ,
-      title_ar:['', Validators.required] ,
-      title_en:['', Validators.required] ,
+      article_type_id:[this.article?.article_type?.id, Validators.required] ,
+      title_ar:[this.article?.title_ar, Validators.required] ,
+      title_en:[this.article?.title_en, Validators.required] ,
     });
   }
 
@@ -66,17 +69,67 @@ export class BasicComponent implements OnInit {
       return this.formErrorService.markAsTouched(controls);
     }
 
-    const model = new AdvisoryBodyModel(null);
-    model.name = controls['name'].value;
-    model.job = controls['job'].value;
 
-    // call service to store Banner
+    if (this.article_id){
+      this.update(controls)
+    }
+    else {
+      this.create(controls)
+    }
+  }
+
+
+
+  create(controls){
+    this.ngxService.start();
+
+    const model = this.article;
+    model.title_ar = controls['title_ar'].value;
+    model.title_en = controls['title_en'].value;
+    model.article_type.id = controls['article_type_id'].value;
+
     this.service.create(model).subscribe(resp => {
-      this.form.reset();
-      // TODO TOAST
-      // this.router.navigate(['../'], { relativeTo: this.route }).then();
+
+      this.articleIdObserveService.articleIdObserve(resp.id);
+      this.get(resp.id);
+
     } , handler => {
-      // TODO TOAST
+      let error = handler.error.message;
+      this.toastr.error(error);
+      this.ngxService.stop();
+    });
+  }
+
+  update(controls){
+    this.ngxService.start();
+
+    const model = this.article;
+    model.title_ar = controls['title_ar'].value;
+    model.title_en = controls['title_en'].value;
+
+    this.service.updateInfo(model).subscribe(resp => {
+
+      this.ngxService.stop();
+      this.articleObserveService.articleOObserve(resp);
+
+      this.next();
+
+    } , handler => {
+      let error = handler.error.message;
+      this.toastr.error(error);
+      this.ngxService.stop();
+    });
+  }
+
+  get(id){
+    this.service.get(id).subscribe(resp => {
+      this.articleObserveService.articleOObserve(resp);
+      this.ngxService.stop();
+      this.next();
+    } , handler => {
+      let error = handler.error.message;
+      this.toastr.error(error);
+      this.ngxService.stop();
     });
   }
 

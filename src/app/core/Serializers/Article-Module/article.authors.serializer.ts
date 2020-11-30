@@ -14,7 +14,20 @@ export class ArticleAuthorsSerializer extends BaseSerializer implements Serializ
 	}
 
 	toJson(model: ArticleAuthorsModel): any {
-		return  {};
+		return  {
+      first_name : model.first_name,
+      family_name : model.family_name,
+      email : model.email,
+      alternative_email : model.alternative_email,
+      phone_number : model.phone_number,
+      country_id : model.country.id,
+      gender_id : model.gender.id,
+      title_id : model.title.id,
+      educational_level_id : model.educational_level.id,
+      educational_degree_id : model.educational_degree.id,
+      address : model.address,
+      article_id: model.article_id,
+    };
 	}
 
 	toFormData(object: any): FormData {
@@ -34,7 +47,7 @@ export class ArticleAuthorsSerializer extends BaseSerializer implements Serializ
 		object.country = item.country;
 		object.phone_number = item.phone_number;
 		object.address = item.address;
-
+    object.article_id = item.article_id;
 		return  object;
 	}
 

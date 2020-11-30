@@ -6,6 +6,7 @@ export class ArticleSuggestedJudgesModel extends ModelBase {
   public family_name:string;
   public email:string;
   public alternative_email:string;
+  public article_id:number;
 
   public gender:{
     id: number,
@@ -63,6 +64,9 @@ export class ArticleSuggestedJudgesModel extends ModelBase {
 
       'phone_number' : this.phone_number,
       'address' : this.address,
+
+      'article_id' : this.article_id,
+
     };
   }
 

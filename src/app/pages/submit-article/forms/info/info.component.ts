@@ -1,15 +1,14 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AdvisoryBodiesService} from '../../../../core/services/Section-Module/advisory.bodies.service';
 import {FormErrorService} from '../../../../core/services/FormError.service';
-import {ActivatedRoute, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {AuthNoticeService} from '../../../../core/services/auth-notice.service';
-import {HelperService} from '../../../../core/services/helper.service';
-import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory.body.model';
-import {UrlName} from '../../../../core/global/url.name';
 import {ArticleSubmitObserveService} from '../../../../core/services/observable/article/Article.submit.observe.service';
 import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
+import {ArticleModel} from '../../../../core/models/article-module/article.model';
+import {ArticleObserveService} from '../../../../core/services/observable/article/Article.observe.service';
+import {ArticleService} from '../../../../core/services/Article-Module/article.service';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-article-data-info',
@@ -19,18 +18,22 @@ import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases
 export class InfoComponent implements OnInit {
 
   @Input() article_id:number = null;
+  @Input() article:ArticleModel = null;
+
+  keywords_en:string[] =[];
+  keywords_ar:string[] =[];
 
   form: FormGroup;
 
   constructor(private fb: FormBuilder ,
-              private service: AdvisoryBodiesService,
+              private service: ArticleService,
               private formErrorService: FormErrorService,
               public articleSubmitObserveService: ArticleSubmitObserveService,
-              private route: ActivatedRoute,
-              private router:Router,
-              public translateService : TranslateService,
-              private authNoticeService: AuthNoticeService,
-              private helper: HelperService) {
+              public articleObserveService: ArticleObserveService,
+              private ngxService: NgxUiLoaderService,
+              private toastr: ToastrService,
+              private cdr: ChangeDetectorRef,
+              public translateService : TranslateService) {
   }
 
   ngOnInit() {
@@ -44,11 +47,18 @@ export class InfoComponent implements OnInit {
    *
    */
   private initForm() {
+
+    this.keywords_en = (this.article?.keywords_en) ? this.article?.keywords_en: [];
+    this.keywords_ar = (this.article?.keywords_ar) ? this.article?.keywords_ar: [];
+
+    let keywords_ar = (this.article?.keywords_ar) ? ' ' : '';
+    let keywords_en = (this.article?.keywords_en) ? ' ' : '';
+
     this.form = this.fb.group({
-      content_ar:['', Validators.required] ,
-      content_en:['', Validators.required] ,
-      keywords_en:['', Validators.required] ,
-      keywords_ar:['', Validators.required] ,
+      content_ar:[this.article?.content_ar, Validators.required] ,
+      content_en:[this.article?.content_en, Validators.required] ,
+      keywords_en:[keywords_en, Validators.required] ,
+      keywords_ar:[keywords_ar, Validators.required] ,
     });
   }
 
@@ -71,21 +81,29 @@ export class InfoComponent implements OnInit {
     if (this.form.invalid) {
       return this.formErrorService.markAsTouched(controls);
     }
-
-    const model = new AdvisoryBodyModel(null);
-    model.name = controls['name'].value;
-    model.job = controls['job'].value;
-
-    // call service to store Banner
-    this.service.create(model).subscribe(resp => {
-      this.form.reset();
-      // TODO TOAST
-      // this.router.navigate(['../'], { relativeTo: this.route }).then();
-    } , handler => {
-      // TODO TOAST
-    });
+    this.update(controls)
   }
 
+  update(controls){
+    this.ngxService.start();
+
+    const model = this.article;
+    model.content_ar = controls['content_ar'].value;
+    model.content_en = controls['content_en'].value;
+
+    this.service.updateInfo(model).subscribe(resp => {
+
+      this.ngxService.stop();
+      this.articleObserveService.articleOObserve(resp);
+
+      this.next();
+
+    } , handler => {
+      let error = handler.error.message;
+      this.toastr.error(error);
+      this.ngxService.stop();
+    });
+  }
   /**
    * On destroy
    */

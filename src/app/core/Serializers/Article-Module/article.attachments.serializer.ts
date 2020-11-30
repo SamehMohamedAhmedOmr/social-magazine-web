@@ -1,6 +1,5 @@
 import {BaseSerializer} from '../Base/Base.serializer';
 import {Serializer} from '../Base/Serializer';
-import {ArticleAuthorsModel} from '../../models/article-module/article.authors.model';
 import {ArticleAttachmentsModel} from '../../models/article-module/article.attachments.model';
 
 
@@ -18,8 +17,15 @@ export class ArticleAttachmentsSerializer extends BaseSerializer implements Seri
 		return  {};
 	}
 
-	toFormData(object: any): FormData {
-		return null;
+	toFormData(object: ArticleAttachmentsModel): FormData {
+    const formData = new FormData();
+    // @ts-ignore
+    formData.append('article_id' , object.article_id );
+    formData.append('description', object.description);
+    // @ts-ignore
+    formData.append('attachment_type_id', object.attachment_type.id);
+    formData.append('file', object.file);
+    return formData;
 	}
 
 	public adapt(item: any): ArticleAttachmentsModel {

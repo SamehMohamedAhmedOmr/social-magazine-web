@@ -10,6 +10,8 @@ import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory
 import {UrlName} from '../../../../core/global/url.name';
 import {ArticleSubmitObserveService} from '../../../../core/services/observable/article/Article.submit.observe.service';
 import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-article-attachments-data',
@@ -26,6 +28,8 @@ export class AttachmentsComponent implements OnInit {
               private service: AdvisoryBodiesService,
               public articleSubmitObserveService: ArticleSubmitObserveService,
               private formErrorService: FormErrorService,
+              private ngxService: NgxUiLoaderService,
+              private toastr: ToastrService,
               private route: ActivatedRoute,
               private router:Router,
               public translateService : TranslateService,

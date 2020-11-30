@@ -26,7 +26,9 @@ export class ArticleModel extends ModelBase {
 
 	constructor(id: number) {
 		super(id);
-	}
+		this.article_type = new ArticleTypeModel(null);
+    this.main_author = new ArticleAuthorsModel(null);
+  }
 
 	public list() {
 		return {

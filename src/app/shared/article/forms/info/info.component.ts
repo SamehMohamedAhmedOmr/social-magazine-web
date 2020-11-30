@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {ArticleObserveService} from '../../../../core/services/observable/article/Article.observe.service';
+import {ArticleModel} from '../../../../core/models/article-module/article.model';
 
 @Component({
   selector: 'app-article-info',
@@ -11,16 +13,24 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 export class InfoComponent implements OnInit {
 
   @Input() form: FormGroup;
+  article:ArticleModel = null;
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  keywords_en:[] =[];
-  keywords_ar:[] =[];
+  @Input() keywords_en:string[] =[];
+  @Input() keywords_ar:string[] =[];
 
 
-  constructor() {
+  constructor(public articleObserveService: ArticleObserveService) {
   }
 
   ngOnInit(): void {
+    this.subscription();
+  }
+
+  subscription() {
+    this.articleObserveService.content.subscribe(model => {
+      this.article = model;
+    });
   }
 
   add(event: MatChipInputEvent, lang = 'en'): void {
@@ -32,11 +42,15 @@ export class InfoComponent implements OnInit {
       if (lang == 'en'){
         // @ts-ignore
         this.keywords_en.push(value.trim());
+        this.article.keywords_en = this.keywords_en;
       }
       else{
         // @ts-ignore
         this.keywords_ar.push(value.trim());
+        this.article.keywords_ar = this.keywords_ar;
       }
+
+      this.articleObserveService.articleOObserve(this.article);
 
     }
 
@@ -54,6 +68,7 @@ export class InfoComponent implements OnInit {
 
       if (index >= 0) {
         this.keywords_en.splice(index, 1);
+        this.article.keywords_en = this.keywords_en;
       }
     }
     else{
@@ -62,8 +77,10 @@ export class InfoComponent implements OnInit {
 
       if (index >= 0) {
         this.keywords_ar.splice(index, 1);
+        this.article.keywords_ar = this.keywords_ar;
       }
     }
+    this.articleObserveService.articleOObserve(this.article);
 
   }
 
