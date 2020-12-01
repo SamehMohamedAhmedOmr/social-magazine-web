@@ -288,7 +288,25 @@ export const locale = {
         description: 'وصف الملف',
         attachment_type: 'نوع الملف',
         file: 'الملف',
+        save: 'حفظ',
+        options: 'خيارات',
+        delete: 'حذف',
+      },
+      msg:{
+		    add_author_success: 'تم اضافة المؤلف بنجاح',
+        delete_author_success: 'تم حذف المؤلف بنجاح',
+        add_suggested_judge_success: 'تم اضافة المحكم المقترح بنجاح',
+        delete_suggested_judge_success: 'تم حذف المحكم المقترح بنجاح',
+        add_article_success: 'تم اضافة المقال بنجاح',
+      },
+      toast_title: {
+        add_author: 'اضافة المؤلف',
+        delete_author: 'حذف المؤلف ',
+        add_suggested_judge: 'اضافة المحكم المقترح',
+        delete_suggested_judge: 'حذف المحكم المقترح',
+        add_article: 'اضافة المقال',
       }
+
     }
 
 

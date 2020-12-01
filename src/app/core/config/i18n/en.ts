@@ -290,7 +290,24 @@ export const locale = {
         description: 'Description',
         attachment_type: 'Attachment Type',
         file: 'File',
-      }
+        save: 'Save',
+        options: 'Options',
+        delete: 'Delete',
+      },
+      msg:{
+        add_author_success: 'Add author successfully',
+        delete_author_success: 'Delete author successfully',
+        add_suggested_judge_success: 'Add suggested judge successfully',
+        delete_suggested_judge_success: 'Delete suggested judge successfully',
+        add_article_success: 'Add article successfully',
+      },
+      toast_title: {
+        add_author: 'Add author',
+        delete_author: 'Delete author',
+        add_suggested_judge: 'Add suggested judge',
+        delete_suggested_judge: 'Delete suggested judge',
+        add_article: 'Add article',
+      },
     }
 
 

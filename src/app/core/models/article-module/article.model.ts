@@ -1,6 +1,8 @@
 import {ModelBase} from '../Base/base.model';
 import {ArticleTypeModel} from '../pre-article-module/article.type.model';
 import {ArticleAuthorsModel} from './article.authors.model';
+import {ArticleAttachmentsModel} from './article.attachments.model';
+import {ArticleSuggestedJudgesModel} from './article.suggested.judges.model';
 
 export class ArticleModel extends ModelBase {
 
@@ -14,6 +16,9 @@ export class ArticleModel extends ModelBase {
   public keywords_ar: string[];
   public article_type:ArticleTypeModel;
   public main_author:ArticleAuthorsModel;
+  public authors:ArticleAuthorsModel[];
+  public attachments:ArticleAttachmentsModel[];
+  public suggested_judges:ArticleSuggestedJudgesModel[];
   public last_status:{
     status:{
       id:number,

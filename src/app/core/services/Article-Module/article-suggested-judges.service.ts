@@ -21,7 +21,7 @@ export class ArticleSuggestedJudgesService{
   constructor(Http: HttpClient) {
     this.http = Http;
     this.url = environment.url();
-    this.endpoint = 'manage-judges';
+    this.endpoint = 'article-judges';
     this.serializer = new ArticleSuggestedJudgesSerializer();
   }
 

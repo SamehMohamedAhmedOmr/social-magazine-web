@@ -4,7 +4,15 @@
 </app-article-author>
 
 
-<app-authors-list></app-authors-list>
+<div class="my-4">
+  <button class="btn btn-success mx-2" (click)="submitForm()">
+    {{ 'submit_article.form.save' | translate }}
+  </button>
+</div>
+
+<app-authors-list
+  [article]="article">
+</app-authors-list>
 
 
 <div aria-label="navigation" class="mt-5">

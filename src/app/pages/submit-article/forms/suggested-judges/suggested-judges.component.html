@@ -2,8 +2,15 @@
   [form]="form" [educational_form]="educational_form">
 </app-article-suggested-judge>
 
+<div class="my-4">
+  <button class="btn btn-success mx-2" (click)="submitForm()">
+    {{ 'submit_article.form.save' | translate }}
+  </button>
+</div>
 
-<app-judges-list></app-judges-list>
+<app-judges-list
+  [article]="article">
+</app-judges-list>
 
 
 <div aria-label="navigation" class="mt-5">

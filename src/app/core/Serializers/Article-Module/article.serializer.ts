@@ -70,6 +70,10 @@ export class ArticleSerializer extends BaseSerializer implements Serializer {
 		object.main_author = item.main_author;
 		object.last_status = item.last_status;
 
+    object.attachments = item.attachments;
+    object.authors = item.authors;
+    object.suggested_judges = item.suggested_judges;
+
 		return  object;
 	}
 

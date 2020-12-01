@@ -1,32 +1,69 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {ArticleModel} from '../../../../core/models/article-module/article.model';
+import {ArticleAuthorsService} from '../../../../core/services/Article-Module/article-authors.service';
+import {ArticleObserveService} from '../../../../core/services/observable/article/Article.observe.service';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {ToastrService} from 'ngx-toastr';
+import {ArticleService} from '../../../../core/services/Article-Module/article.service';
+import {ArticleSuggestedJudgesService} from '../../../../core/services/Article-Module/article-suggested-judges.service';
+import {TranslateService} from '@ngx-translate/core';
 
-const ELEMENT_DATA: [{ symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 
 @Component({
   selector: 'app-judges-list',
   templateUrl: './judges-list.component.html',
   styleUrls: ['./judges-list.component.scss']
 })
-export class JudgesListComponent implements OnInit {
+export class JudgesListComponent implements OnInit, OnChanges {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  @Input() article: ArticleModel = null;
 
-  constructor() {
+  displayedColumns: string[] = ['first_name', 'family_name', 'email', 'options'];
+  dataSource = [];
+
+  constructor(private service: ArticleSuggestedJudgesService,
+              public articleObserveService: ArticleObserveService,
+              private ngxService: NgxUiLoaderService,
+              private toastr: ToastrService,
+              public translateService : TranslateService,
+              private articleService: ArticleService) {
   }
 
   ngOnInit(): void {
+    this.initialize()
+  }
+
+  initialize(){
+    this.dataSource = (this.article?.suggested_judges) ? this.article?.suggested_judges : [];
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.initialize()
+  }
+
+  delete(id: number) {
+    this.ngxService.start();
+
+    this.service.delete(id, this.article.id).subscribe(resp => {
+      this.get();
+    }, handler => {
+      let error = handler.error.message;
+      this.toastr.error(error);
+      this.ngxService.stop();
+    });
+  }
+
+  get() {
+    this.articleService.get(this.article.id).subscribe(resp => {
+      this.articleObserveService.articleOObserve(resp);
+      this.ngxService.stop();
+      this.toastr.success(this.translateService.instant('submit_article.msg.add_suggested_judge_success'),
+        this.translateService.instant('submit_article.toast_title.add_suggested_judge'));
+    }, handler => {
+      let error = handler.error.message;
+      this.toastr.error(error);
+      this.ngxService.stop();
+    });
   }
 
 }

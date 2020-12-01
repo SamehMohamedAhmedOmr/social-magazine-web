@@ -1,17 +1,16 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AdvisoryBodiesService} from '../../../../core/services/Section-Module/advisory.bodies.service';
 import {FormErrorService} from '../../../../core/services/FormError.service';
-import {ActivatedRoute, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {AuthNoticeService} from '../../../../core/services/auth-notice.service';
-import {HelperService} from '../../../../core/services/helper.service';
-import {AdvisoryBodyModel} from '../../../../core/models/section-module/advisory.body.model';
-import {UrlName} from '../../../../core/global/url.name';
 import {ArticleSubmitObserveService} from '../../../../core/services/observable/article/Article.submit.observe.service';
 import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ToastrService} from 'ngx-toastr';
+import {ArticleAuthorsService} from '../../../../core/services/Article-Module/article-authors.service';
+import {ArticleAuthorsModel} from '../../../../core/models/article-module/article.authors.model';
+import {ArticleService} from '../../../../core/services/Article-Module/article.service';
+import {ArticleObserveService} from '../../../../core/services/observable/article/Article.observe.service';
+import {ArticleModel} from '../../../../core/models/article-module/article.model';
 
 @Component({
   selector: 'app-article-authors-form',
@@ -21,21 +20,21 @@ import {ToastrService} from 'ngx-toastr';
 export class AuthorsComponent implements OnInit {
 
   @Input() article_id:number = null;
+  @Input() article:ArticleModel = null;
 
   form: FormGroup;
   educational_form: FormGroup;
+  model:ArticleAuthorsModel;
 
   constructor(private formBuilder: FormBuilder ,
-              private service: AdvisoryBodiesService,
+              private service: ArticleAuthorsService,
+              private articleService: ArticleService,
               public articleSubmitObserveService: ArticleSubmitObserveService,
+              public articleObserveService: ArticleObserveService,
               private formErrorService: FormErrorService,
               private ngxService: NgxUiLoaderService,
               private toastr: ToastrService,
-              private route: ActivatedRoute,
-              private router:Router,
-              public translateService : TranslateService,
-              private authNoticeService: AuthNoticeService,
-              private helper: HelperService) {
+              public translateService : TranslateService) {
   }
 
   ngOnInit() {
@@ -57,7 +56,6 @@ export class AuthorsComponent implements OnInit {
       gender:['', Validators.required] ,
       phone:['', Validators.required] ,
       country:['', Validators.required] ,
-
 
       // Additional Data
       alternative_email:[''],
@@ -92,17 +90,57 @@ export class AuthorsComponent implements OnInit {
       return this.formErrorService.markAsTouched(controls);
     }
 
-    const model = new AdvisoryBodyModel(null);
-    model.name = controls['name'].value;
-    model.job = controls['job'].value;
+    const controls_educational_form = this.educational_form.controls;
+    /** showing Errors  */
+    if (this.educational_form.invalid) {
+      return this.formErrorService.markAsTouched(controls_educational_form);
+    }
 
-    // call service to store Banner
-    this.service.create(model).subscribe(resp => {
+    this.model = new ArticleAuthorsModel(null);
+
+    this.model.initialLists();
+
+    this.model.first_name = controls['first_name'].value;
+    this.model.family_name = controls['family_name'].value;
+    this.model.email = controls['email'].value;
+    this.model.gender.id = controls['gender'].value;
+    this.model.phone_number = controls['phone'].value;
+    this.model.country.id = controls['country'].value;
+
+    this.model.alternative_email = controls['alternative_email'].value;
+    this.model.address = controls['address'].value;
+
+    this.model.title.id = controls_educational_form['title'].value;
+    this.model.educational_degree.id = controls_educational_form['educational_degree'].value;
+    this.model.educational_level.id = controls_educational_form['educational_level'].value;
+
+    this.model.article_id = this.article_id;
+
+    this.ngxService.start();
+
+    this.service.create(this.model).subscribe(resp => {
       this.form.reset();
-      // TODO TOAST
-      // this.router.navigate(['../'], { relativeTo: this.route }).then();
+      this.educational_form.reset();
+
+      this.get();
+
     } , handler => {
-      // TODO TOAST
+      let error = handler.error.message;
+      this.toastr.error(error);
+      this.ngxService.stop();
+    });
+  }
+
+  get(){
+    this.articleService.get(this.article_id).subscribe(resp => {
+      this.articleObserveService.articleOObserve(resp);
+      this.ngxService.stop();
+      this.toastr.success(this.translateService.instant('submit_article.msg.add_author_success'),
+        this.translateService.instant('submit_article.toast_title.add_author'));
+    } , handler => {
+      let error = handler.error.message;
+      this.toastr.error(error);
+      this.ngxService.stop();
     });
   }
 

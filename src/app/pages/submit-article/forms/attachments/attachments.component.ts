@@ -12,6 +12,7 @@ import {ArticleSubmitObserveService} from '../../../../core/services/observable/
 import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ToastrService} from 'ngx-toastr';
+import {ArticleModel} from '../../../../core/models/article-module/article.model';
 
 @Component({
   selector: 'app-article-attachments-data',
@@ -21,6 +22,7 @@ import {ToastrService} from 'ngx-toastr';
 export class AttachmentsComponent implements OnInit {
 
   @Input() article_id:number = null;
+  @Input() article:ArticleModel = null;
 
   form: FormGroup;
 
