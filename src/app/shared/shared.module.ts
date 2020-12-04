@@ -41,6 +41,8 @@ import {MatTableModule} from '@angular/material/table';
 import { AttachmentsListComponent } from './article/list/attachments-list/attachments-list.component';
 import { AuthorsListComponent } from './article/list/authors-list/authors-list.component';
 import { JudgesListComponent } from './article/list/judges-list/judges-list.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -106,6 +108,8 @@ import { JudgesListComponent } from './article/list/judges-list/judges-list.comp
     MatInputModule,
     MatChipsModule,
     MatTableModule,
+    MatProgressBarModule,
+    MatCardModule,
   ]
 })
 

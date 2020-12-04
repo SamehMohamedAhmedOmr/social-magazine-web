@@ -43,10 +43,30 @@
             [form]="form"
             [controlName]="'description'"
             [validationType]="'required'"
-            [controlText]= "'submit_article.form.description' | translate"
+            [controlText]="'submit_article.form.description' | translate"
           ></kt-form-error>
         </div>
         <!-- description  -->
+      </div>
+
+      <div class="col-md-6 col-12">
+        <!-- file  -->
+        <div class="my-4">
+          <div>
+            <div class="btn btn-outline-dark">
+              <mat-label>{{ 'submit_article.form.file' | translate }}</mat-label>
+              <i class="flaticon2-image-file"></i>
+              <input type="file" (change)="onFileSelect($event)" hidden/>
+            </div>
+          </div>
+          <kt-form-error
+            [form]="form"
+            [controlName]="'file'"
+            [validationType]="'required'"
+            [controlText]="'submit_article.form.file' | translate"
+          ></kt-form-error>
+        </div>
+        <!-- file  -->
       </div>
 
     </div>

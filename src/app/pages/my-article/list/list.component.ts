@@ -21,6 +21,8 @@ import {UrlName} from '../../../core/global/url.name';
 })
 export class ListComponent implements OnInit {
 
+  isLoadingResults:boolean = false;
+
   displayedColumns: string[] = ['series', 'title_ar', 'status', 'options'];
   dataSource;
   articles = [];
@@ -42,6 +44,7 @@ export class ListComponent implements OnInit {
   pageIndex = 0;
 
   //filter variables
+  from_index: number;
 
   constructor(private service: ManageArticleService,
               private ngxService: NgxUiLoaderService,
@@ -58,10 +61,10 @@ export class ListComponent implements OnInit {
   }
 
   // call api to get Banner Data from the server
-  get(headerParams) {
+  get(headerParams, pagination = false) {
     this.headerParams = headerParams;
 
-    this.ngxService.start();
+    this.isLoadingResults = true;
 
     this.service.list(headerParams).subscribe(
       (resp) => {
@@ -69,13 +72,20 @@ export class ListComponent implements OnInit {
         this.articles = resp;
         this.dataSource.sort = this.sort;
         this.resultsLength = (resp['pagination'] ? resp['pagination'].total : 0);
+        this.from_index = (resp['pagination'] ? resp['pagination'].from : 0);
+
         this.cdr.markForCheck();
-        this.ngxService.stop();
+
+        this.isLoadingResults = false;
+
       }, error => {
         this.dataSource = new MatTableDataSource([]);
         this.dataSource.sort = this.sort;
         this.cdr.markForCheck();
-        this.ngxService.stop();
+
+        this.isLoadingResults = false;
+
+
       });
   }
 
@@ -84,7 +94,7 @@ export class ListComponent implements OnInit {
   public pagination(event?: PageEvent) {
     this.pageIndex = event.pageIndex;
     this.headerParams.next_page_index = this.pageIndex;
-    this.get(this.headerParams);
+    this.get(this.headerParams, true);
   }
 
   displayContent(text){
@@ -97,6 +107,11 @@ export class ListComponent implements OnInit {
     this.articleObserveService.articleOObserve(article.current_article);
 
     this.router.navigate(['/' + UrlName.submitArticle()],).then();
+  }
+
+
+  submitArticle() {
+    return '/' + UrlName.submitArticle();
   }
 
 }

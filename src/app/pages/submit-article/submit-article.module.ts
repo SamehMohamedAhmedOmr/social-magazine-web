@@ -12,6 +12,7 @@ import { AttachmentsComponent } from './forms/attachments/attachments.component'
 import { ConfirmComponent } from './forms/confirm/confirm.component';
 import {MatButtonModule} from '@angular/material/button';
 import { ArticleFormComponent } from './article-form/article-form.component';
+import { CompleteProfileDataComponent } from './complete-profile-data/complete-profile-data.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
     AuthorsComponent,
     AttachmentsComponent,
     ConfirmComponent,
-    ArticleFormComponent
+    ArticleFormComponent,
+    CompleteProfileDataComponent
   ],
   imports: [
     CommonModule,

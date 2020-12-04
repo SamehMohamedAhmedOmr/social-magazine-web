@@ -6,6 +6,8 @@ import {ArticleObserveService} from '../../../../core/services/observable/articl
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ToastrService} from 'ngx-toastr';
 import {TranslateService} from '@ngx-translate/core';
+import {DeleteModalComponent} from '../../../delete-modal/delete-modal.component';
+import {MatDialog} from '@angular/material/dialog';
 
 
 @Component({
@@ -16,13 +18,17 @@ import {TranslateService} from '@ngx-translate/core';
 export class AuthorsListComponent implements OnInit, OnChanges {
 
   @Input() article: ArticleModel = null;
+  @Input() show_options:boolean = false;
 
-  displayedColumns: string[] = ['first_name', 'family_name', 'email', 'options'];
+  displayedColumns: string[] = [];
   dataSource = [];
+
+  content_name:string = null;
 
   constructor(private service: ArticleAuthorsService,
               public articleObserveService: ArticleObserveService,
               private ngxService: NgxUiLoaderService,
+              public dialog: MatDialog,
               private toastr: ToastrService,
               public translateService : TranslateService,
               private articleService: ManageArticleService) {
@@ -34,12 +40,40 @@ export class AuthorsListComponent implements OnInit, OnChanges {
 
   initialize() {
     this.dataSource = (this.article?.authors) ? this.article?.authors : [];
+    this.content_name = this.translateService.instant('submit_article.form.author');
+    this.initializeDisplayColumns();
+  }
+
+  initializeDisplayColumns(){
+    if (this.show_options){
+      this.displayedColumns = ['first_name', 'family_name', 'email', 'options'];
+    }
+    else{
+      this.displayedColumns = ['first_name', 'family_name', 'email'];
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.initialize();
   }
 
+  deleteModal(item) {
+    const dialogRef = this.dialog.open(DeleteModalComponent, {
+      width: '40rem',
+      data: {
+        title: this.translateService.instant('COMMON.Delete_Title',
+          {name : this.content_name}),
+        body: this.translateService.instant('COMMON.Delete_Body',
+          {name : this.content_name}),
+        name: this.content_name,
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.delete(item.id);
+      }
+    });
+  }
 
   delete(id: number) {
     this.ngxService.start();

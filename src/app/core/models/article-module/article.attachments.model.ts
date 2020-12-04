@@ -14,7 +14,8 @@ export class ArticleAttachmentsModel extends ModelBase {
 
 	constructor(id: number) {
 		super(id);
-	}
+    this.attachment_type = new AttachmentTypeModel(null);
+  }
 
 	public list() {
 		return {
@@ -24,7 +25,7 @@ export class ArticleAttachmentsModel extends ModelBase {
       'article_id' : this.article_id,
       'status_id' : this.status_id,
       'upload_by' : this.upload_by,
-      'attachment_type' : this.attachment_type,
+      'attachment_type' : this.attachment_type?.name,
     };
 	}
 

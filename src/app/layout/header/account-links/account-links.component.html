@@ -24,7 +24,7 @@
        aria-expanded="false">
       <img src="../../assets/images/no-avatar.png" alt="" class="img-cont rounded-circle mr-2">
       <span class="nav-item-color">
-           {{ 'PAGES.HELLO' | translate }} {{localStorageService.getName()}}
+           {{ 'PAGES.HELLO' | translate }} {{ profile?.first_name }}
       </span>
     </a>
     <div class="dropdown-menu dropdown-content rtl accountDropdown w-100" aria-labelledby="accountDropdown">

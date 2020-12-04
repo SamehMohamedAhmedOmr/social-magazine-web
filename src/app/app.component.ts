@@ -8,6 +8,8 @@ import {AccountDependenciesModel} from './core/models/Basic-Module/account.depen
 import {LocalStorageService} from './core/services/localStorage.service';
 import {ArticleDependenciesModel} from './core/models/pre-article-module/article.dependencies.model';
 import {ArticleDependenciesService} from './core/services/pre-article-Module/Article.Dependencies.service';
+import {ProfileService} from './core/services/User-Module/profile.service';
+import {ProfileModel} from './core/models/User-Module/profile.model';
 
 @Component({
   selector: 'app-root',
@@ -19,11 +21,13 @@ export class AppComponent implements OnInit{
   homeModel: HomeModel;
   accountDependenciesModel:AccountDependenciesModel;
   articleDependenciesModel:ArticleDependenciesModel;
+  profileModel:ProfileModel;
 
   constructor(private langService: LangService,
               private homeService:HomeService,
               private articleDependenciesService: ArticleDependenciesService,
               private accountDependenciesService: AccountDependenciesService,
+              protected profileService: ProfileService,
               private LocalStorageService:LocalStorageService,
               private ngxService: NgxUiLoaderService,
               private cdr:ChangeDetectorRef) {
@@ -40,9 +44,13 @@ export class AppComponent implements OnInit{
       this.homeModel  = value;
       this.homeService.homeContent(this.homeModel);
       this.cdr.markForCheck();
+
+      if (this.LocalStorageService.getToken()){
+        this.getAccountProfile();
+      }
+
       this.getAccountDependency();
       this.getHArticleDependencies();
-      this.ngxService.stop();
     });
   }
 
@@ -84,6 +92,31 @@ export class AppComponent implements OnInit{
     }
     else{
       this.accountDependenciesService.accountContent(accountDependencies);
+    }
+
+  }
+
+  getAccountProfile(){
+
+    let profile = this.LocalStorageService.getWithExpiry('profile');
+    if (!profile){
+      this.profileService.get().subscribe(
+        (resp) => {
+          this.profileModel = resp;
+          this.profileService.profileContent(this.profileModel);
+          this.LocalStorageService.setWithExpiry('profile',
+            this.profileModel,this.calculateTTL(7));
+          this.cdr.markForCheck();
+          this.ngxService.stop();
+        }, error => {
+          this.profileModel = null;
+          this.ngxService.stop();
+          this.cdr.markForCheck();
+        });
+    }
+    else{
+      this.profileService.profileContent(profile);
+      this.ngxService.stop();
     }
 
   }

@@ -8,6 +8,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {ProfileModel} from '../../core/models/User-Module/profile.model';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ToastrService} from 'ngx-toastr';
+import {LocalStorageService} from '../../core/services/localStorage.service';
 
 @Component({
   selector: 'app-profile',
@@ -30,24 +31,37 @@ export class ProfileComponent implements OnInit {
               private router:Router,
               private cdr: ChangeDetectorRef,
               private ngxService: NgxUiLoaderService,
+              private LocalStorageService:LocalStorageService,
               private toastr: ToastrService,
               private authNoticeService: AuthNoticeService,
               public translateService : TranslateService) { }
 
   ngOnInit(): void {
-    this.get();
+    this.profileSubscribe();
   }
 
-  private get() {
-    this.ngxService.start();
+  private profileSubscribe(){
+    this.service.content.subscribe(model => {
+      if (model){
+        this.model = model;
+        this.initializeForm();
+        this.is_result = true;
+      }
+    });
+  }
 
+
+  private get() {
     this.service.get().subscribe(
       (data) => {
 
-        this.is_result = true;
         this.model = data;
+        this.service.profileContent(this.model);
+        this.LocalStorageService.setWithExpiry('profile',
+          this.model,this.calculateTTL(7));
+
         this.cdr.markForCheck();
-        this.initializeForm();
+        this.ngxService.stop();
       } , error => {
         this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
           {name : null}),
@@ -56,6 +70,7 @@ export class ProfileComponent implements OnInit {
         this.cdr.markForCheck();
       }
     );
+
   }
 
   /**
@@ -102,6 +117,8 @@ export class ProfileComponent implements OnInit {
       return this.formErrorService.markAsTouched(controls_educational_form);
     }
 
+    this.model = new ProfileModel(null);
+
     this.model.initialLists();
 
     this.model.first_name = controls['first_name'].value;
@@ -122,9 +139,7 @@ export class ProfileComponent implements OnInit {
     this.service.update(this.model).subscribe(resp => {
       this.toastr.success(this.translateService.instant('profile.success'),
         this.translateService.instant('Components.USERS.profile'));
-      this.cdr.markForCheck();
-      this.ngxService.stop();
-
+        this.get();
     } , handler => {
       this.toastr.error(handler.error.message, this.translateService.instant('error'));
 
@@ -134,4 +149,9 @@ export class ProfileComponent implements OnInit {
   }
 
 
+  calculateTTL(days){
+    let hour = 3600;
+    let day = hour * 24;
+    return day * days;
+  }
 }

@@ -6,6 +6,8 @@ import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {ProfileService} from '../../../core/services/User-Module/profile.service';
+import {ProfileModel} from '../../../core/models/User-Module/profile.model';
 
 @Component({
   selector: 'app-account-links',
@@ -14,8 +16,11 @@ import {NgxUiLoaderService} from 'ngx-ui-loader';
 })
 export class AccountLinksComponent implements OnInit {
 
+  profile:ProfileModel;
+
   constructor(public localStorageService :LocalStorageService,
               private toastr: ToastrService,
+              private profileService: ProfileService,
               private router: Router,
               private ngxService: NgxUiLoaderService,
               public translateService: TranslateService,
@@ -23,6 +28,15 @@ export class AccountLinksComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.profileSubscribe();
+  }
+
+  private profileSubscribe(){
+    this.profileService.content.subscribe(model => {
+      if (model){
+        this.profile = model;
+      }
+    });
   }
 
   getLoginPage(){

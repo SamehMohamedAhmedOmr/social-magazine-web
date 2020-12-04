@@ -1,13 +1,29 @@
 <section class="container-fluid my-4 px-5 py-4">
-  <div class="row w-100">
 
-    <div class="col-lg-3 col-12">
-      <app-navigation></app-navigation>
+  <div *ngIf="profile_complete_flag">
+    <div class="row w-100 mb-3">
+      <div class="col-12">
+        <button class="btn btn-primary" [routerLink]="[getMyArticle()]">
+          {{ 'PAGES.MY_ARTICLE' | translate }}
+        </button>
+      </div>
     </div>
 
-    <div class="col-lg-9 col-12 p-0">
-      <app-article-form></app-article-form>
-    </div>
+    <div class="row w-100">
 
+      <div class="col-lg-3 col-12">
+        <app-navigation></app-navigation>
+      </div>
+
+      <div class="col-lg-9 col-12 p-0">
+        <app-article-form></app-article-form>
+      </div>
+
+    </div>
   </div>
+
+  <div *ngIf="!profile_complete_flag">
+    <app-complete-profile-data></app-complete-profile-data>
+  </div>
+
 </section>

@@ -1,32 +1,86 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 rtl">
+<div class="example-container mat-elevation-z8 rtl">
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-  </ng-container>
+  <div class="alert alert-secondary">
+    {{ 'submit_article.navigation.attachments' | translate }}
+  </div>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
+  <table mat-table [dataSource]="dataSource">
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-  </ng-container>
+    <!-- attachment_type Column -->
+    <ng-container matColumnDef="attachment_type">
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
+      <mat-header-cell *matHeaderCellDef>
+        {{ 'submit_article.form.attachment_type' | translate }}
+      </mat-header-cell>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">
+          {{ 'submit_article.form.attachment_type' | translate }}
+        </span>
+        {{element.attachment_type}}
+      </mat-cell>
+
+    </ng-container>
+
+    <!-- title Column -->
+    <ng-container matColumnDef="title">
+
+      <mat-header-cell *matHeaderCellDef>
+        {{ 'submit_article.form.file_title' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">
+          {{ 'submit_article.form.file_title' | translate }}
+        </span>
+        {{element.title}}
+      </mat-cell>
+
+    </ng-container>
+
+    <!-- file Column -->
+    <ng-container matColumnDef="file">
+
+      <mat-header-cell *matHeaderCellDef>
+        {{ 'submit_article.form.file' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">
+          {{ 'submit_article.form.file' | translate }}
+        </span>
+        {{element.file}}
+      </mat-cell>
+
+    </ng-container>
+
+    <!-- options Column -->
+    <ng-container matColumnDef="options">
+
+      <mat-header-cell *matHeaderCellDef class="justify-content-center">
+        {{ 'submit_article.form.options' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element" class="justify-content-center">
+        <span class="mobile-label">
+        {{ 'submit_article.form.options' | translate }}
+        </span>
+        <button class="btn btn-outline-danger" (click)="deleteModal(element)">
+        <span>
+          {{ 'submit_article.form.delete' | translate }}
+        </span>
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </mat-cell>
+
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </table>
+
+</div>
 
 
 <kt-no-record-found [resultsLength]="dataSource.length"></kt-no-record-found>

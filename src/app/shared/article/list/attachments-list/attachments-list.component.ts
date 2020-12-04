@@ -1,32 +1,103 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {ArticleObserveService} from '../../../../core/services/observable/article/Article.observe.service';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {ToastrService} from 'ngx-toastr';
+import {MatDialog} from '@angular/material/dialog';
+import {TranslateService} from '@ngx-translate/core';
+import {ManageArticleService} from '../../../../core/services/Article-Module/manage.article.service';
+import {ArticleAttachmentsService} from '../../../../core/services/Article-Module/article-attachments.service';
+import {ArticleModel} from '../../../../core/models/article-module/article.model';
+import {DeleteModalComponent} from '../../../delete-modal/delete-modal.component';
 
-const ELEMENT_DATA: [{ symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }, { symbol: string; name: string; weight: number; position: number }] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 
 @Component({
   selector: 'app-attachments-list',
   templateUrl: './attachments-list.component.html',
   styleUrls: ['./attachments-list.component.scss']
 })
-export class AttachmentsListComponent implements OnInit {
+export class AttachmentsListComponent implements OnInit,OnChanges {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  @Input() article: ArticleModel = null;
+  @Input() show_options:boolean = false;
 
-  constructor() {
+  displayedColumns: string[] = [];
+  dataSource = [];
+
+  content_name:string = null;
+
+  constructor(private service: ArticleAttachmentsService,
+              public articleObserveService: ArticleObserveService,
+              private ngxService: NgxUiLoaderService,
+              private toastr: ToastrService,
+              public dialog: MatDialog,
+              public translateService : TranslateService,
+              private articleService: ManageArticleService) {
   }
 
   ngOnInit(): void {
+    this.initialize();
+  }
+
+  initialize(){
+   this.dataSource = (this.article?.attachments) ? this.article?.attachments : [];
+    this.content_name = this.translateService.instant('submit_article.form.attachment');
+    this.initializeDisplayColumns();
+  }
+
+  initializeDisplayColumns(){
+    if (this.show_options){
+      this.displayedColumns = ['attachment_type', 'title', 'file', 'options'];
+    }
+    else{
+      this.displayedColumns = ['attachment_type', 'title', 'file'];
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.initialize()
+  }
+
+  deleteModal(item) {
+    const dialogRef = this.dialog.open(DeleteModalComponent, {
+      width: '40rem',
+      data: {
+        title: this.translateService.instant('COMMON.Delete_Title',
+          {name : this.content_name}),
+        body: this.translateService.instant('COMMON.Delete_Body',
+          {name : this.content_name}),
+        name: this.content_name,
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.delete(item.id);
+      }
+    });
+  }
+
+  delete(id: number) {
+    this.ngxService.start();
+
+    this.service.delete(id, this.article.id).subscribe(resp => {
+      this.get();
+    }, handler => {
+      let error = handler.error.message;
+      this.toastr.error(error);
+      this.ngxService.stop();
+    });
+  }
+
+  get() {
+    this.articleService.get(this.article.id).subscribe(resp => {
+      this.articleObserveService.articleOObserve(resp);
+      this.ngxService.stop();
+      this.toastr.success(this.translateService.instant('submit_article.msg.delete_attachments_success'),
+        this.translateService.instant('submit_article.toast_title.delete_attachment'));
+    }, handler => {
+      let error = handler.error.message;
+      this.toastr.error(error);
+      this.ngxService.stop();
+    });
   }
 
 }

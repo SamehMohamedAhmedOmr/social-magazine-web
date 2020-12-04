@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../../../environments/environment';
 import {ProfileModel} from '../../models/User-Module/profile.model';
 import {ProfileSerializer} from '../../Serializers/User-Module/profile.serializer';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 @Injectable({
@@ -16,6 +16,9 @@ export class ProfileService {
 	private url:string;
 	private endpoint:string;
 	private serializer:ProfileSerializer;
+
+  private content_subject = new BehaviorSubject(null);
+  public content = this.content_subject.asObservable();
 
 	constructor(Http: HttpClient) {
 		this.http = Http;
@@ -37,4 +40,7 @@ export class ProfileService {
 			.pipe(map(data => this.serializer.fromJson(data) as ProfileModel));
 	}
 
+  profileContent(message: ProfileModel) {
+    this.content_subject.next(message)
+  }
 }

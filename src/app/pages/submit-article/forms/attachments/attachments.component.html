@@ -1,7 +1,17 @@
 <app-article-attachments [form]="form">
 </app-article-attachments>
 
-<app-attachments-list></app-attachments-list>
+
+<div class="my-4">
+  <button class="btn btn-success mx-2" (click)="submitForm()">
+    {{ 'submit_article.form.save' | translate }}
+  </button>
+</div>
+
+<app-attachments-list
+  [show_options]="true"
+  [article]="article">
+</app-attachments-list>
 
 <div aria-label="navigation" class="mt-5">
 

@@ -1,4 +1,9 @@
 <div class="example-container mat-elevation-z8 rtl">
+
+  <div class="alert alert-secondary">
+    {{ 'submit_article.navigation.suggested_judges' | translate }}
+  </div>
+
   <table mat-table [dataSource]="dataSource">
 
     <!-- first_name Column -->
@@ -60,7 +65,7 @@
         <span class="mobile-label">
         {{ 'submit_article.form.options' | translate }}
         </span>
-        <button class="btn btn-outline-danger" (click)="delete(element.id)">
+        <button class="btn btn-outline-danger" (click)="deleteModal(element)">
         <span>
           {{ 'submit_article.form.delete' | translate }}
         </span>
@@ -74,6 +79,7 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
   </table>
+
 </div>
 
 <kt-no-record-found [resultsLength]="dataSource.length"></kt-no-record-found>
