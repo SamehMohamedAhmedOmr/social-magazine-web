@@ -4,7 +4,7 @@ import {FormErrorService} from '../../../../core/services/FormError.service';
 import {TranslateService} from '@ngx-translate/core';
 import {ArticleSubmitObserveService} from '../../../../core/services/observable/article/Article.submit.observe.service';
 import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
-import {ArticleService} from '../../../../core/services/Article-Module/article.service';
+import {ManageArticleService} from '../../../../core/services/Article-Module/manage.article.service';
 import {ArticleObserveService} from '../../../../core/services/observable/article/Article.observe.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ToastrService} from 'ngx-toastr';
@@ -28,7 +28,7 @@ export class SuggestedJudgesComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder ,
               private service: ArticleSuggestedJudgesService,
-              private articleService: ArticleService,
+              private articleService: ManageArticleService,
               public articleSubmitObserveService: ArticleSubmitObserveService,
               public articleObserveService: ArticleObserveService,
               private formErrorService: FormErrorService,

@@ -122,4 +122,11 @@ export class UrlName {
   public static ArticleSubmitReview(){
     return 'مراجعة'
   }
+
+  public static myArticle(){
+    return 'مقالاتي';
+  }
+
+
+
 }

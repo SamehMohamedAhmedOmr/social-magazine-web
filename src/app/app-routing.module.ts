@@ -99,6 +99,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
   },
 
+  // My Article
+  {
+    path: UrlName.myArticle(),
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/my-article/my-article.module').then(m => m.MyArticleModule)
+  },
+
   { path: '**', redirectTo: UrlName.home(), pathMatch: 'full' }
 ];
 

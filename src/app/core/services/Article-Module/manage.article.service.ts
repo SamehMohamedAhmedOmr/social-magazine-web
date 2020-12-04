@@ -11,7 +11,7 @@ import {ArticleSerializer} from '../../Serializers/Article-Module/article.serial
   providedIn: 'root'
 })
 
-export class ArticleService {
+export class ManageArticleService {
 
   protected http: HttpClient;
   protected url: string;

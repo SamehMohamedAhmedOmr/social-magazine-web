@@ -4,7 +4,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {FormErrorService} from '../../../../core/services/FormError.service';
 import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
 import {ArticleSubmitObserveService} from '../../../../core/services/observable/article/Article.submit.observe.service';
-import {ArticleService} from '../../../../core/services/Article-Module/article.service';
+import {ManageArticleService} from '../../../../core/services/Article-Module/manage.article.service';
 import {ArticleModel} from '../../../../core/models/article-module/article.model';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ToastrService} from 'ngx-toastr';
@@ -24,7 +24,7 @@ export class BasicComponent implements OnInit {
   form: FormGroup;
 
   constructor(private fb: FormBuilder ,
-              private service: ArticleService,
+              private service: ManageArticleService,
               private formErrorService: FormErrorService,
               public articleSubmitObserveService: ArticleSubmitObserveService,
               private ngxService: NgxUiLoaderService,
@@ -139,5 +139,6 @@ export class BasicComponent implements OnInit {
   ngOnDestroy(): void {
 
   }
+
 
 }

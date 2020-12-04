@@ -6,7 +6,7 @@ import {ArticleSubmitObserveService} from '../../../../core/services/observable/
 import {ArticleSubmitPhases} from '../../../../core/global/article.submit.phases';
 import {ArticleModel} from '../../../../core/models/article-module/article.model';
 import {ArticleObserveService} from '../../../../core/services/observable/article/Article.observe.service';
-import {ArticleService} from '../../../../core/services/Article-Module/article.service';
+import {ManageArticleService} from '../../../../core/services/Article-Module/manage.article.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ToastrService} from 'ngx-toastr';
 
@@ -26,7 +26,7 @@ export class InfoComponent implements OnInit {
   form: FormGroup;
 
   constructor(private fb: FormBuilder ,
-              private service: ArticleService,
+              private service: ManageArticleService,
               private formErrorService: FormErrorService,
               public articleSubmitObserveService: ArticleSubmitObserveService,
               public articleObserveService: ArticleObserveService,

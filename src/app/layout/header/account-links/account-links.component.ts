@@ -37,6 +37,10 @@ export class AccountLinksComponent implements OnInit {
     return '/' + UrlName.profile();
   }
 
+  getMyArticle(){
+    return '/' + UrlName.myArticle();
+  }
+
   logout() {
     this.ngxService.start();
 

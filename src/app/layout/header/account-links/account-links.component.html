@@ -31,6 +31,9 @@
       <a class="dropdown-item rtl text-center" [routerLink]="[getProfile()]">
         {{ 'PAGES.ACCOUNT' | translate }}
       </a>
+      <a class="dropdown-item rtl text-center" [routerLink]="[getMyArticle()]">
+        {{ 'PAGES.MY_ARTICLE' | translate }}
+      </a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item rtl text-center logout-btn" (click)="logout()">
         {{ 'PAGES.LOGOUT' | translate }}

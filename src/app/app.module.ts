@@ -23,8 +23,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {NgxUiLoaderModule} from 'ngx-ui-loader';
 import {VisitorCountComponent} from './layout/footer/visitor-count/visitor-count.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {ToastNoAnimationModule, ToastrModule} from 'ngx-toastr';
+import {MatPaginatorIntl} from '@angular/material/paginator';
+import {getPaginatorIntl} from './core/config/paginatior.language';
 
 
 
@@ -65,6 +66,7 @@ import {ToastNoAnimationModule, ToastrModule} from 'ngx-toastr';
       useClass: Interceptor,
       multi: true
     },
+    { provide: MatPaginatorIntl, useValue: getPaginatorIntl() }
   ],
   bootstrap: [AppComponent]
 })

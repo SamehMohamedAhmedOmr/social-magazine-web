@@ -16,6 +16,7 @@ export class ArticleFormComponent implements OnInit, OnDestroy {
   article_id:number = null;
   article_submit_status:string = null;
   article:ArticleModel = null;
+  reload:boolean = false;
 
   constructor(public articleIdObserveService: ArticleIdObserveService,
               public articleObserveService: ArticleObserveService,
@@ -40,7 +41,10 @@ export class ArticleFormComponent implements OnInit, OnDestroy {
       this.article = model;
     });
 
-    this.article = new ArticleModel(this.article_id);
+    if (!(this.article_id && this.article)){
+      this.article = new ArticleModel(this.article_id);
+    }
+    
   }
 
   checkINITIAL() {

@@ -8,7 +8,7 @@ import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ToastrService} from 'ngx-toastr';
 import {ArticleAuthorsService} from '../../../../core/services/Article-Module/article-authors.service';
 import {ArticleAuthorsModel} from '../../../../core/models/article-module/article.authors.model';
-import {ArticleService} from '../../../../core/services/Article-Module/article.service';
+import {ManageArticleService} from '../../../../core/services/Article-Module/manage.article.service';
 import {ArticleObserveService} from '../../../../core/services/observable/article/Article.observe.service';
 import {ArticleModel} from '../../../../core/models/article-module/article.model';
 
@@ -28,7 +28,7 @@ export class AuthorsComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder ,
               private service: ArticleAuthorsService,
-              private articleService: ArticleService,
+              private articleService: ManageArticleService,
               public articleSubmitObserveService: ArticleSubmitObserveService,
               public articleObserveService: ArticleObserveService,
               private formErrorService: FormErrorService,

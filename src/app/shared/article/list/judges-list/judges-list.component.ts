@@ -4,7 +4,7 @@ import {ArticleAuthorsService} from '../../../../core/services/Article-Module/ar
 import {ArticleObserveService} from '../../../../core/services/observable/article/Article.observe.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ToastrService} from 'ngx-toastr';
-import {ArticleService} from '../../../../core/services/Article-Module/article.service';
+import {ManageArticleService} from '../../../../core/services/Article-Module/manage.article.service';
 import {ArticleSuggestedJudgesService} from '../../../../core/services/Article-Module/article-suggested-judges.service';
 import {TranslateService} from '@ngx-translate/core';
 
@@ -26,7 +26,7 @@ export class JudgesListComponent implements OnInit, OnChanges {
               private ngxService: NgxUiLoaderService,
               private toastr: ToastrService,
               public translateService : TranslateService,
-              private articleService: ArticleService) {
+              private articleService: ManageArticleService) {
   }
 
   ngOnInit(): void {

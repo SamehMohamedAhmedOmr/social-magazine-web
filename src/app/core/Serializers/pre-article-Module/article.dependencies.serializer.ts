@@ -25,6 +25,7 @@ export class ArticleDependenciesSerializer extends BaseSerializer implements Ser
 
 		object.article_types = item.article_type;
     object.attachment_types = item.attachment_type;
+    object.article_status = item.article_status;
 
 		return object;
 	}

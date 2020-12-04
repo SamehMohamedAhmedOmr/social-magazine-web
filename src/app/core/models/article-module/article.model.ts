@@ -37,14 +37,20 @@ export class ArticleModel extends ModelBase {
 
 	public list() {
 		return {
-			'slug' : this.slug,
+      'id' : this.id,
+
+      'slug' : this.slug,
       'code' : this.code,
       'title_ar' : this.title_ar,
       'title_en' : this.title_en,
       'content_ar' : this.content_ar,
       'content_en' : this.content_en,
+
+      'current_article' : this,
+
       'article_type' : this.article_type,
       'last_status' : this.last_status?.status?.name,
+      'last_status_key' : this.last_status?.status?.key
     };
 	}
 
