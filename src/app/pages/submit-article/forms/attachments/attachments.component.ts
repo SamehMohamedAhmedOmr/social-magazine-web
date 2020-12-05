@@ -72,12 +72,14 @@ export class AttachmentsComponent implements OnInit {
     model.attachment_type.id = controls['attachment_type'].value;
     model.description = controls['description'].value;
     model.file = controls['file'].value;
+    model.article_id = this.article_id;
 
     this.ngxService.start();
 
     // call service to store Banner
     this.service.createFormData(model).subscribe(resp => {
       this.form.reset();
+      this.service.articleOObserve(true);
       this.get();
     } , handler => {
       let error = handler.error.message;

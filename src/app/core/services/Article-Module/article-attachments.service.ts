@@ -1,8 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {environment} from '../../../../environments/environment';
-import {PaginateParams} from '../../models/paginateParams.interface';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {ArticleAttachmentsModel} from '../../models/article-module/article.attachments.model';
 import {ArticleAttachmentsSerializer} from '../../Serializers/Article-Module/article.attachments.serializer';
@@ -18,10 +17,13 @@ export class ArticleAttachmentsService {
   protected endpoint: string;
   protected serializer: ArticleAttachmentsSerializer;
 
+  private content_observe= new BehaviorSubject(null);
+  public content = this.content_observe.asObservable();
+
   constructor(Http: HttpClient) {
     this.http = Http;
     this.url = environment.url();
-    this.endpoint = 'manage-attachments';
+    this.endpoint = 'article-attachments';
     this.serializer = new ArticleAttachmentsSerializer();
   }
 
@@ -70,4 +72,7 @@ export class ArticleAttachmentsService {
       });
   }
 
+  articleOObserve(message: boolean) {
+    this.content_observe.next(message)
+  }
 }

@@ -28,6 +28,7 @@
 
 <section aria-label="basic-form" *ngIf="checkATTACHMENTS()">
   <app-article-attachments-data
+    [article]="article"
     [article_id]="article_id">
   </app-article-attachments-data>
 </section>

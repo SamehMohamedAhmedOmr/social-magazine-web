@@ -49,15 +49,16 @@
         <!-- description  -->
       </div>
 
-      <div class="col-md-6 col-12">
+      <div class="col-12 rtl">
         <!-- file  -->
         <div class="my-4">
           <div>
-            <div class="btn btn-outline-dark">
-              <mat-label>{{ 'submit_article.form.file' | translate }}</mat-label>
+            <label class="btn btn-outline-dark">
+              {{ 'submit_article.form.file' | translate }}
               <i class="flaticon2-image-file"></i>
               <input type="file" (change)="onFileSelect($event)" hidden/>
-            </div>
+            </label>
+            <label class="mx-3">{{file_name}}</label>
           </div>
           <kt-form-error
             [form]="form"

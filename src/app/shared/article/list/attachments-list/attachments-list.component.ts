@@ -8,6 +8,8 @@ import {ManageArticleService} from '../../../../core/services/Article-Module/man
 import {ArticleAttachmentsService} from '../../../../core/services/Article-Module/article-attachments.service';
 import {ArticleModel} from '../../../../core/models/article-module/article.model';
 import {DeleteModalComponent} from '../../../delete-modal/delete-modal.component';
+import {Base64DownloadHelperService} from '../../../../core/services/Helpers/base64.download.helper.service';
+import {$f} from 'codelyzer/angular/styles/chars';
 
 
 @Component({
@@ -39,7 +41,7 @@ export class AttachmentsListComponent implements OnInit,OnChanges {
   }
 
   initialize(){
-   this.dataSource = (this.article?.attachments) ? this.article?.attachments : [];
+    this.dataSource = (this.article?.attachments) ? this.article?.attachments : [];
     this.content_name = this.translateService.instant('submit_article.form.attachment');
     this.initializeDisplayColumns();
   }
@@ -99,5 +101,6 @@ export class AttachmentsListComponent implements OnInit,OnChanges {
       this.ngxService.stop();
     });
   }
+
 
 }
