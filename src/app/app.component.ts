@@ -48,6 +48,9 @@ export class AppComponent implements OnInit{
       if (this.LocalStorageService.getToken()){
         this.getAccountProfile();
       }
+      else{
+        this.ngxService.stop();
+      }
 
       this.getAccountDependency();
       this.getHArticleDependencies();
