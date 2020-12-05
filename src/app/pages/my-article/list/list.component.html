@@ -13,7 +13,7 @@
 
     <div class="row w-100 mb-4">
 
-      <div class="col-12">
+      <div class="col-12 d-flex justify-content-end">
         <button class="btn btn-primary" [routerLink]="[submitArticle()]">
           {{ 'PAGES.SEND_ARTICLE' | translate }}
         </button>
@@ -99,8 +99,8 @@
 
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </table>
 
       <kt-no-record-found [resultsLength]="articles.length"></kt-no-record-found>

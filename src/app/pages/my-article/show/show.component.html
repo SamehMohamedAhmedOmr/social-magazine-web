@@ -1,1 +1,13 @@
-<app-article-preview [article]="article"></app-article-preview>
+<section class="container-fluid my-4 px-5 py-4">
+
+  <section aria-label="MY ARTICLE" class="portfolio-item mb-5 rtl">
+
+    <div class="mx-3">
+      <kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
+
+      <app-article-preview [article]="article"></app-article-preview>
+    </div>
+
+  </section>
+
+</section>

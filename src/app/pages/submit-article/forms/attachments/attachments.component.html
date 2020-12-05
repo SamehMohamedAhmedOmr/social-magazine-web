@@ -19,7 +19,7 @@
     {{ 'stepper.back' | translate }}
   </button>
 
-  <button class="btn btn-dark" (click)="next()">
+  <button class="btn btn-dark" (click)="next()" [disabled]="disable_next">
     {{ 'stepper.next' | translate }}
   </button>
 

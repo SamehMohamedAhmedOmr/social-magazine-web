@@ -47,6 +47,14 @@
                       [value]="article?.keywords_en.toString()"
                       [title]="'submit_article.form.keywords_en' | translate">
     </app-preview-cell>
+
+    <app-preview-cell aria-label="status"
+                      class="mb-4"
+                      [value]="article?.last_status?.status?.name"
+                      [title]="'submit_article.form.status' | translate">
+    </app-preview-cell>
+
+
   </div>
 
 

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FormErrorService} from '../../../../core/services/FormError.service';
 import {TranslateService} from '@ngx-translate/core';
@@ -17,12 +17,16 @@ import {ArticleObserveService} from '../../../../core/services/observable/articl
   templateUrl: './attachments.component.html',
   styleUrls: ['./attachments.component.scss']
 })
-export class AttachmentsComponent implements OnInit {
+export class AttachmentsComponent implements OnInit, OnChanges {
 
   @Input() article_id:number = null;
   @Input() article:ArticleModel = null;
 
   form: FormGroup;
+
+  disable_next:boolean = true;
+  ORIGINAL_ARTICLE:boolean = false;
+  SUMMARY_OF_RESEARCH:boolean = false;
 
   constructor(private fb: FormBuilder ,
               private service: ArticleAttachmentsService,
@@ -37,8 +41,34 @@ export class AttachmentsComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.checkAttachmentsLimits();
   }
 
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.checkAttachmentsLimits();
+  }
+
+  checkAttachmentsLimits(){
+
+    this.ORIGINAL_ARTICLE = false;
+    this.SUMMARY_OF_RESEARCH = false;
+
+    this.article.attachments.forEach(value => {
+      let key = value?.attachment_type?.key;
+      if (key == 'ORIGINAL_ARTICLE'){
+        this.ORIGINAL_ARTICLE = true;
+      }
+      if ( key == 'SUMMARY_OF_RESEARCH'){
+        this.SUMMARY_OF_RESEARCH = true;
+      }
+    });
+
+    if (this.ORIGINAL_ARTICLE && this.SUMMARY_OF_RESEARCH){
+      this.disable_next = false;
+    }
+
+  }
 
   /**
    * Initiate the form
