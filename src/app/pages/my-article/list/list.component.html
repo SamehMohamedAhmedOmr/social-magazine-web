@@ -1,4 +1,4 @@
-<section aria-label="MY ARTICLE" class="portfolio-item mb-5">
+<section aria-label="MY ARTICLE" class="portfolio-item mb-5 rtl">
 
   <div class="title-box py-3 mb-4">
     <h2 class="text-center title">
@@ -21,56 +21,91 @@
 
     </div>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 rtl">
+    <div class="example-container mat-elevation-z8 rtl mb-5 mt-5">
 
-      <!-- series Column -->
-      <ng-container matColumnDef="series">
-        <th mat-header-cell *matHeaderCellDef>
-          {{ 'submit_article.form.series' | translate }}
-        </th>
-        <td mat-cell *matCellDef="let element; let i = index">{{i + from_index}}</td>
-      </ng-container>
+      <table mat-table [dataSource]="dataSource">
 
-      <!-- title_ar Column -->
-      <ng-container matColumnDef="title_ar">
-        <th mat-header-cell *matHeaderCellDef>
-          {{ 'submit_article.form.title_ar' | translate }}
-        </th>
-        <td mat-cell *matCellDef="let element"> {{ displayContent(element.title_ar) }} </td>
-      </ng-container>
+        <!-- series Column -->
+        <ng-container matColumnDef="series">
 
-      <!-- status Column -->
-      <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>
-          {{ 'submit_article.form.status' | translate }}
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.last_status}} </td>
-      </ng-container>
+          <mat-header-cell *matHeaderCellDef>
+            {{ 'submit_article.form.series' | translate }}
+          </mat-header-cell>
 
-      <!-- options Column -->
-      <ng-container matColumnDef="options">
-        <th mat-header-cell *matHeaderCellDef>
-          {{ 'submit_article.form.options' | translate }}
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <div *ngIf="element.last_status_key == 'NOT_COMPLETED'" class="navigate">
-            <a (click)="completeArticle(element)">
-              {{ 'submit_article.navigation.continue' | translate }}
-            </a>
-            <i class="fas fa-edit"></i>
-          </div>
-          <div *ngIf="element.last_status_key == 'NEW'" class="navigate">
+          <mat-cell *matCellDef="let element; let i = index">
+            <span class="mobile-label">
+              {{ 'submit_article.form.series' | translate }}
+            </span>
+            {{i + from_index}}
+          </mat-cell>
 
-          </div>
-        </td>
-      </ng-container>
+        </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+        <!-- title_ar Column -->
+        <ng-container matColumnDef="title_ar">
 
-    <kt-no-record-found [resultsLength]="articles.length"></kt-no-record-found>
+          <mat-header-cell *matHeaderCellDef>
+            {{ 'submit_article.form.title_ar' | translate }}
+          </mat-header-cell>
 
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">
+              {{ 'submit_article.form.title_ar' | translate }}
+            </span>
+            {{ displayContent(element.title_ar) }}
+          </mat-cell>
+
+        </ng-container>
+
+        <!-- status Column -->
+        <ng-container matColumnDef="status">
+
+          <mat-header-cell *matHeaderCellDef>
+            {{ 'submit_article.form.status' | translate }}
+          </mat-header-cell>
+
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">
+            {{ 'submit_article.form.status' | translate }}
+            </span>
+            {{element.last_status}}
+          </mat-cell>
+
+        </ng-container>
+
+        <!-- options Column -->
+        <ng-container matColumnDef="options">
+
+          <mat-header-cell *matHeaderCellDef class="justify-content-center">
+            {{ 'submit_article.form.options' | translate }}
+          </mat-header-cell>
+
+          <mat-cell *matCellDef="let element" class="justify-content-center">
+              <span class="mobile-label">
+              {{ 'submit_article.form.options' | translate }}
+              </span>
+              <div *ngIf="element.last_status_key == 'NOT_COMPLETED'" class="navigate">
+                <a (click)="completeArticle(element)">
+                  {{ 'submit_article.navigation.continue' | translate }}
+                </a>
+                <i class="fas fa-edit"></i>
+              </div>
+              <div *ngIf="element.last_status_key == 'NEW'" class="navigate">
+                <a [routerLink]="[element.id]">
+                  <i class="fas fa-eye"></i>
+                </a>
+              </div>
+          </mat-cell>
+
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <kt-no-record-found [resultsLength]="articles.length"></kt-no-record-found>
+
+    </div>
     <!--Table-->
     <mat-paginator
       [length]="resultsLength"

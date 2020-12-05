@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
+import {ArticleModel} from '../../../../core/models/article-module/article.model';
 
 @Component({
   selector: 'app-article-confirm',
@@ -8,7 +9,7 @@ import {FormGroup} from '@angular/forms';
 })
 export class ConfirmComponent implements OnInit {
 
-  @Input() form: FormGroup;
+  @Input() article:ArticleModel = null;
 
   constructor() { }
 

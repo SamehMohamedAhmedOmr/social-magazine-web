@@ -76,3 +76,7 @@ input::-ms-input-placeholder { /* Microsoft Edge */
   line-height: 2 !important;
   margin-top: 15px !important;
 }
+
+mat-cell{
+  word-break: break-all !important;
+}

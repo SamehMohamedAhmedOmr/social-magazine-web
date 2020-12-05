@@ -1,10 +1,22 @@
-<app-article-confirm [form]="form">
+<div class="px-3 mt-3">
+  <button class="btn btn-success" (click)="submitForm()">
+    {{ 'submit_article.form.send_article' | translate }}
+  </button>
+</div>
+
+<app-article-confirm [article]="article">
 </app-article-confirm>
 
 
-<div aria-label="navigation" class="mt-5">
+<div aria-label="navigation" class="mt-3 px-3">
 
-  <button class="btn btn-dark" (click)="back()">
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-success" (click)="submitForm()">
+      {{ 'submit_article.form.send_article' | translate }}
+    </button>
+  </div>
+
+  <button class="btn btn-dark mt-3" (click)="back()">
     {{ 'stepper.back' | translate }}
   </button>
 

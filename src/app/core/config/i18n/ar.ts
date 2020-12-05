@@ -289,7 +289,7 @@ export const locale = {
         keywords_en: 'الكلمات الرئيسية باللغة الانجليزية',
         keywords_ar: 'الكلمات الرئيسية باللعة العربية',
         description: 'وصف الملف',
-        code: 'الكود',
+        code: 'كود المقال',
         status: 'الحالة',
         attachment_type: 'نوع الملف',
         file: 'الملف',
@@ -301,6 +301,8 @@ export const locale = {
         judge:'محكم',
         author:'مؤلف',
         attachment:'ملف',
+        article_summary: 'نبذة مختصرة عن مقالتك',
+        send_article: 'ارسال مقالة',
       },
       msg:{
 		    add_author_success: 'تم اضافة المؤلف بنجاح',

@@ -43,6 +43,8 @@ import { AuthorsListComponent } from './article/list/authors-list/authors-list.c
 import { JudgesListComponent } from './article/list/judges-list/judges-list.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
+import { ArticlePreviewComponent } from './article/article-preview/article-preview.component';
+import { PreviewCellComponent } from './article/article-preview/preview-cell/preview-cell.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,7 @@ import {MatCardModule} from '@angular/material/card';
     BasicComponent, InfoComponent, AuthorComponent,
     SuggestedJudgeComponent, AttachmentsComponent,
     ConfirmComponent, AttachmentsListComponent,
-    AuthorsListComponent, JudgesListComponent
+    AuthorsListComponent, JudgesListComponent, ArticlePreviewComponent, PreviewCellComponent
   ],
   entryComponents: [
     DeleteModalComponent,
@@ -88,6 +90,7 @@ import {MatCardModule} from '@angular/material/card';
     AuthorsListComponent,
     JudgesListComponent,
     AttachmentsListComponent,
+    ArticlePreviewComponent,
   ],
   imports: [
     CommonModule,

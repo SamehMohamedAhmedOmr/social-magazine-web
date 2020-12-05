@@ -5,18 +5,23 @@ import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from '../../shared/shared.module';
 import {PagesModule} from '../pages.module';
 import { ListComponent } from './list/list.component';
+import { ShowComponent } from './show/show.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: MyArticleComponent
-  }
+  },
+  {
+    path: ':id',
+    component: ShowComponent
+  },
 ];
 
 
 @NgModule({
-  declarations: [MyArticleComponent, ListComponent],
+  declarations: [MyArticleComponent, ListComponent, ShowComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

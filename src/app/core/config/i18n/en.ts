@@ -303,6 +303,8 @@ export const locale = {
         judge:'Judge',
         author:'Author',
         attachment:'File',
+        article_summary: 'Article Summary',
+        send_article: 'Send Article',
       },
       msg:{
         add_author_success: 'Add author successfully',

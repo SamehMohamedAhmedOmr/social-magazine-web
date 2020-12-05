@@ -1,0 +1,66 @@
+<section *ngIf="article" class="rtl">
+
+  <div class="border p-4">
+    <h3 class="mb-5 font-weight-bold">
+    <span class="border-bottom pb-2">
+      {{ 'submit_article.form.article_summary' | translate }}
+    </span>
+    </h3>
+
+    <app-preview-cell aria-label="code"
+                      [value]="article?.code"
+                      [title]="'submit_article.form.code' | translate">
+    </app-preview-cell>
+
+    <app-preview-cell aria-label="article_type"
+                      [value]="article?.article_type?.name"
+                      [title]="'submit_article.form.article_type' | translate">
+    </app-preview-cell>
+
+    <app-preview-cell aria-label="title_ar"
+                      [value]="article?.title_ar"
+                      [title]="'submit_article.form.title_ar' | translate">
+    </app-preview-cell>
+
+    <app-preview-cell aria-label="title_en"
+                      [value]="article?.title_en"
+                      [title]="'submit_article.form.title_en' | translate">
+    </app-preview-cell>
+
+    <app-preview-cell aria-label="content_ar"
+                      [value]="article?.content_ar"
+                      [title]="'submit_article.form.content_ar' | translate">
+    </app-preview-cell>
+
+    <app-preview-cell aria-label="content_en"
+                      [value]="article?.content_en"
+                      [title]="'submit_article.form.content_en' | translate">
+    </app-preview-cell>
+
+    <app-preview-cell aria-label="keywords_ar"
+                      [value]="article?.keywords_ar.toString()"
+                      [title]="'submit_article.form.keywords_ar' | translate">
+    </app-preview-cell>
+
+    <app-preview-cell aria-label="keywords_en"
+                      class="mb-4"
+                      [value]="article?.keywords_en.toString()"
+                      [title]="'submit_article.form.keywords_en' | translate">
+    </app-preview-cell>
+  </div>
+
+
+  <app-authors-list
+    [article]="article">
+  </app-authors-list>
+
+  <app-judges-list
+    [article]="article">
+  </app-judges-list>
+
+
+  <app-attachments-list
+    [article]="article">
+  </app-attachments-list>
+
+</section>
