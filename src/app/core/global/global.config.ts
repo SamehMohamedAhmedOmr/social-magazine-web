@@ -34,4 +34,10 @@ export class GlobalConfig {
     }
     return item.value;
   }
+
+  public static calculateTTL(days){
+    let hour = 3600;
+    let day = hour * 24;
+    return day * days;
+  }
 }

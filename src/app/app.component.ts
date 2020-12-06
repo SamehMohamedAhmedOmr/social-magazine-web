@@ -10,6 +10,7 @@ import {ArticleDependenciesModel} from './core/models/pre-article-module/article
 import {ArticleDependenciesService} from './core/services/pre-article-Module/Article.Dependencies.service';
 import {ProfileService} from './core/services/User-Module/profile.service';
 import {ProfileModel} from './core/models/User-Module/profile.model';
+import {GlobalConfig} from './core/global/global.config';
 
 @Component({
   selector: 'app-root',
@@ -65,7 +66,7 @@ export class AppComponent implements OnInit{
           this.articleDependenciesModel = resp;
           this.articleDependenciesService.articleContent(this.articleDependenciesModel);
           this.LocalStorageService.setWithExpiry('article_dependency',
-            this.articleDependenciesModel,this.calculateTTL(7));
+            this.articleDependenciesModel,GlobalConfig.calculateTTL(7));
           this.cdr.markForCheck();
         }, error => {
           this.articleDependenciesService = null;
@@ -86,7 +87,7 @@ export class AppComponent implements OnInit{
           this.accountDependenciesModel = resp;
           this.accountDependenciesService.accountContent(this.accountDependenciesModel);
           this.LocalStorageService.setWithExpiry('account_dependency',
-            this.accountDependenciesModel,this.calculateTTL(7));
+            this.accountDependenciesModel,GlobalConfig.calculateTTL(7));
           this.cdr.markForCheck();
         }, error => {
           this.accountDependenciesModel = null;
@@ -108,7 +109,7 @@ export class AppComponent implements OnInit{
           this.profileModel = resp;
           this.profileService.profileContent(this.profileModel);
           this.LocalStorageService.setWithExpiry('profile',
-            this.profileModel,this.calculateTTL(7));
+            this.profileModel,GlobalConfig.calculateTTL(7));
           this.cdr.markForCheck();
           this.ngxService.stop();
         }, error => {
@@ -121,13 +122,6 @@ export class AppComponent implements OnInit{
       this.profileService.profileContent(profile);
       this.ngxService.stop();
     }
-
-  }
-
-  calculateTTL(days){
-    let hour = 3600;
-    let day = hour * 24;
-    return day * days;
   }
 
 }

@@ -9,6 +9,9 @@ import {AuthModel} from '../../../core/models/User-Module/Auth.model';
 import {UrlName} from '../../../core/global/url.name';
 import {LocalStorageService} from '../../../core/services/localStorage.service';
 import {ToastrService} from 'ngx-toastr';
+import {ProfileService} from '../../../core/services/User-Module/profile.service';
+import {ProfileModel} from '../../../core/models/User-Module/profile.model';
+import {GlobalConfig} from '../../../core/global/global.config';
 
 @Component({
   selector: 'app-registration',
@@ -25,11 +28,14 @@ export class RegistrationComponent implements OnInit {
               private router: Router,
               private cdr: ChangeDetectorRef,
               public translateService: TranslateService,
+              protected profileService: ProfileService,
+              private LocalStorageService:LocalStorageService,
               private toastr: ToastrService,
               public localStorageService:LocalStorageService) {
   }
 
   form: FormGroup;
+  profileModel:ProfileModel;
 
   ngOnInit(): void {
     this.initForm();
@@ -79,12 +85,7 @@ export class RegistrationComponent implements OnInit {
       this.localStorageService.setItem('first_name', resp.first_name);
       this.localStorageService.setItem('token_expired', String(resp.expire_at));
 
-      this.ngxService.stop();
-
-      this.toastr.success(this.translateService.instant('register.success'),
-        this.translateService.instant('PAGES.REGISTER'));
-
-      this.router.navigate(['/']).then();
+      this.getAccountProfile();
 
     }, handler => {
       this.ngxService.stop();
@@ -94,6 +95,35 @@ export class RegistrationComponent implements OnInit {
 
   loginLink(){
     return  '/' + UrlName.login();
+  }
+
+  getAccountProfile(){
+
+    let profile = this.LocalStorageService.getWithExpiry('profile');
+    if (!profile){
+      this.profileService.get().subscribe(
+        (resp) => {
+          this.profileModel = resp;
+          this.profileService.profileContent(this.profileModel);
+          this.LocalStorageService.setWithExpiry('profile',
+            this.profileModel,GlobalConfig.calculateTTL(7));
+          this.cdr.markForCheck();
+          this.ngxService.stop();
+
+          this.toastr.success(this.translateService.instant('register.success'),
+            this.translateService.instant('PAGES.REGISTER'));
+
+          this.router.navigate(['/']).then();
+        }, error => {
+          this.profileModel = null;
+          this.ngxService.stop();
+          this.cdr.markForCheck();
+        });
+    }
+    else{
+      this.profileService.profileContent(profile);
+      this.ngxService.stop();
+    }
   }
 
 }

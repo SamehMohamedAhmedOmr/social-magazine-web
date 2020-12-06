@@ -9,6 +9,7 @@ import {ProfileModel} from '../../core/models/User-Module/profile.model';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ToastrService} from 'ngx-toastr';
 import {LocalStorageService} from '../../core/services/localStorage.service';
+import {GlobalConfig} from '../../core/global/global.config';
 
 @Component({
   selector: 'app-profile',
@@ -58,7 +59,7 @@ export class ProfileComponent implements OnInit {
         this.model = data;
         this.service.profileContent(this.model);
         this.LocalStorageService.setWithExpiry('profile',
-          this.model,this.calculateTTL(7));
+          this.model,GlobalConfig.calculateTTL(7));
 
         this.cdr.markForCheck();
         this.ngxService.stop();
@@ -146,12 +147,5 @@ export class ProfileComponent implements OnInit {
       this.ngxService.stop();
       this.cdr.markForCheck();
     });
-  }
-
-
-  calculateTTL(days){
-    let hour = 3600;
-    let day = hour * 24;
-    return day * days;
   }
 }
