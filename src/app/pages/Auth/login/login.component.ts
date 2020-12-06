@@ -67,7 +67,6 @@ export class LoginComponent implements OnInit {
 
     this.service.login(model).subscribe(resp => {
       this.localStorageService.setItem('token', resp.token);
-      this.localStorageService.setItem('first_name', resp.first_name);
       this.localStorageService.setItem('token_expired', String(resp.expire_at));
 
       this.getAccountProfile();

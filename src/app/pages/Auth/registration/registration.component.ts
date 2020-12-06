@@ -82,7 +82,6 @@ export class RegistrationComponent implements OnInit {
 
     this.service.register(model).subscribe(resp => {
       this.localStorageService.setItem('token', resp.token);
-      this.localStorageService.setItem('first_name', resp.first_name);
       this.localStorageService.setItem('token_expired', String(resp.expire_at));
 
       this.getAccountProfile();
