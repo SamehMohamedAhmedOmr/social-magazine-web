@@ -62,7 +62,7 @@ export class AccountLinksComponent implements OnInit {
 
       localStorage.removeItem('token');
       localStorage.removeItem('token_expired');
-      localStorage.removeItem('first_name');
+      localStorage.removeItem('profile');
 
       this.ngxService.stop();
 
@@ -70,6 +70,7 @@ export class AccountLinksComponent implements OnInit {
         this.translateService.instant('PAGES.LOGOUT'));
 
       this.router.navigate(['/']).then();
+      window.location.reload();
 
     }, error => {
       this.ngxService.stop();

@@ -1,29 +1,60 @@
-<app-article-author
-  [form]="form"
-  [educational_form]="educational_form">
-</app-article-author>
-
-
-<div class="my-4">
-  <button class="btn btn-success mx-2" (click)="submitForm()">
-    {{ 'submit_article.form.save' | translate }}
-  </button>
+<div class="w-100 text-center">
+  <p class="alert">
+    {{ 'submit_article.navigation.manage_authors' | translate }}
+  </p>
 </div>
 
-<app-authors-list
-  [show_options]="true"
-  [article]="article">
-</app-authors-list>
-
-
-<div aria-label="navigation" class="mt-5">
+<div aria-label="navigation" class="my-3">
 
   <button class="btn btn-dark mx-2" (click)="back()">
     {{ 'stepper.back' | translate }}
   </button>
 
   <button class="btn btn-dark" (click)="next()">
-    {{ 'stepper.next' | translate }}
+    {{ 'stepper.continue' | translate }}
   </button>
 
 </div>
+
+
+<div class="my-4 text-center" *ngIf="!allow_add">
+  <button class="btn btn-success mx-2" (click)="showForm()">
+    {{ 'submit_article.toast_title.add_author' | translate }}
+  </button>
+</div>
+
+<div *ngIf="allow_add">
+  <app-article-author
+    [form]="form"
+    [educational_form]="educational_form">
+  </app-article-author>
+
+
+  <div class="my-4 text-center">
+    <button class="btn btn-success mx-2" (click)="submitForm()">
+      {{ 'submit_article.form.save' | translate }}
+    </button>
+    <button class="btn btn-danger mx-2" (click)="cancelForm()">
+      {{ 'submit_article.form.cancel' | translate }}
+    </button>
+  </div>
+</div>
+
+<app-authors-list
+  *ngIf="article.authors.length && !allow_add"
+  [show_options]="true"
+  [article]="article">
+</app-authors-list>
+
+
+<!--<div aria-label="navigation" class="mt-5">-->
+
+<!--  <button class="btn btn-dark mx-2" (click)="back()">-->
+<!--    {{ 'stepper.back' | translate }}-->
+<!--  </button>-->
+
+<!--  <button class="btn btn-dark" (click)="next()">-->
+<!--    {{ 'stepper.continue' | translate }}-->
+<!--  </button>-->
+
+<!--</div>-->

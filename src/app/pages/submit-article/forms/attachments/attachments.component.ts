@@ -28,6 +28,9 @@ export class AttachmentsComponent implements OnInit, OnChanges {
   ORIGINAL_ARTICLE:boolean = false;
   SUMMARY_OF_RESEARCH:boolean = false;
 
+  allow_add:boolean = false;
+
+
   constructor(private fb: FormBuilder ,
               private service: ArticleAttachmentsService,
               private articleService: ManageArticleService,
@@ -122,6 +125,7 @@ export class AttachmentsComponent implements OnInit, OnChanges {
     this.articleService.get(this.article_id).subscribe(resp => {
       this.articleObserveService.articleOObserve(resp);
       this.ngxService.stop();
+      this.allow_add = false;
       this.toastr.success(this.translateService.instant('submit_article.msg.add_attachments_success'),
         this.translateService.instant('submit_article.toast_title.add_attachment'));
     } , handler => {
@@ -136,6 +140,14 @@ export class AttachmentsComponent implements OnInit, OnChanges {
    */
   ngOnDestroy(): void {
 
+  }
+
+  showForm() {
+    this.allow_add = true;
+  }
+
+  cancelForm() {
+    this.allow_add = false;
   }
 
 }

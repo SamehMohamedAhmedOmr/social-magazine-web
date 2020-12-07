@@ -84,4 +84,9 @@ export class InfoComponent implements OnInit {
 
   }
 
+   WordCount(str) {
+    console.log(str);
+     return str.split(" ").length;
+   }
+
 }

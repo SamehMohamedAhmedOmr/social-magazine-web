@@ -1,17 +1,9 @@
-<app-article-attachments [form]="form">
-</app-article-attachments>
-
-
-<div class="my-4">
-  <button class="btn btn-success mx-2" (click)="submitForm()">
-    {{ 'submit_article.form.save' | translate }}
-  </button>
+<div class="w-100 text-center">
+  <p class="alert">
+    {{ 'submit_article.navigation.attachments' | translate }}
+  </p>
 </div>
 
-<app-attachments-list
-  [show_options]="true"
-  [article]="article">
-</app-attachments-list>
 
 <div aria-label="navigation" class="mt-5">
 
@@ -20,7 +12,48 @@
   </button>
 
   <button class="btn btn-dark" (click)="next()" [disabled]="disable_next">
-    {{ 'stepper.next' | translate }}
+    {{ 'stepper.continue' | translate }}
   </button>
 
 </div>
+
+
+<div class="my-4 text-center" *ngIf="!allow_add">
+  <button class="btn btn-success mx-2" (click)="showForm()">
+    {{ 'submit_article.toast_title.add_attachment' | translate }}
+  </button>
+</div>
+
+
+<div *ngIf="allow_add">
+  <app-article-attachments [form]="form">
+  </app-article-attachments>
+
+
+  <div class="my-4 text-center">
+    <button class="btn btn-success mx-2" (click)="submitForm()">
+      {{ 'submit_article.form.save' | translate }}
+    </button>
+    <button class="btn btn-danger mx-2" (click)="cancelForm()">
+      {{ 'submit_article.form.cancel' | translate }}
+    </button>
+  </div>
+</div>
+
+<app-attachments-list
+  *ngIf="article.attachments.length && !allow_add"
+  [show_options]="true"
+  [article]="article">
+</app-attachments-list>
+
+<!--<div aria-label="navigation" class="mt-5">-->
+
+<!--  <button class="btn btn-dark mx-2" (click)="back()">-->
+<!--    {{ 'stepper.back' | translate }}-->
+<!--  </button>-->
+
+<!--  <button class="btn btn-dark" (click)="next()" [disabled]="disable_next">-->
+<!--    {{ 'stepper.continue' | translate }}-->
+<!--  </button>-->
+
+<!--</div>-->

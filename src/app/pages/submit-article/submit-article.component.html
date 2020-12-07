@@ -22,8 +22,12 @@
     </div>
   </div>
 
-  <div *ngIf="!profile_complete_flag">
+  <div *ngIf="(!profile_complete_flag) && token">
     <app-complete-profile-data></app-complete-profile-data>
+  </div>
+
+  <div *ngIf="!profile_complete_flag && !token">
+    <app-login-required></app-login-required>
   </div>
 
 </section>

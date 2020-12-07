@@ -26,6 +26,8 @@ export class AuthorsComponent implements OnInit {
   educational_form: FormGroup;
   model:ArticleAuthorsModel;
 
+  allow_add:boolean = false;
+
   constructor(private formBuilder: FormBuilder ,
               private service: ArticleAuthorsService,
               private articleService: ManageArticleService,
@@ -135,6 +137,7 @@ export class AuthorsComponent implements OnInit {
     this.articleService.get(this.article_id).subscribe(resp => {
       this.articleObserveService.articleOObserve(resp);
       this.ngxService.stop();
+      this.allow_add = false;
       this.toastr.success(this.translateService.instant('submit_article.msg.add_author_success'),
         this.translateService.instant('submit_article.toast_title.add_author'));
     } , handler => {
@@ -149,6 +152,14 @@ export class AuthorsComponent implements OnInit {
    */
   ngOnDestroy(): void {
 
+  }
+
+  showForm() {
+    this.allow_add = true;
+  }
+
+  cancelForm() {
+    this.allow_add = false;
   }
 
 }

@@ -240,7 +240,8 @@ export const locale = {
 			education_degree: "المستوى التعليمي",
 			vision_mission: 'Vision and Mission',
 			next: 'Next',
-			back:'Back',
+      continue: 'Continue',
+      back:'Back',
 			error:"Please Enter the Required Data"
 
 		},
@@ -297,6 +298,7 @@ export const locale = {
         file: 'File',
         file_title:'File Name',
         save: 'Save',
+        cancel: 'Cancel',
         options: 'Options',
         delete: 'Delete',
         series: 'Series',
@@ -314,7 +316,7 @@ export const locale = {
         add_attachments_success: 'Add attachment successfully',
         delete_attachments_success: 'Delete attachment successfully',
         add_article_success: 'Add article successfully',
-        complete_profile_data: 'Please Complete missing profile data from ',
+        login_required: 'Please Login ',
         here: 'here',
       },
       toast_title: {

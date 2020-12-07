@@ -26,6 +26,9 @@ export class SuggestedJudgesComponent implements OnInit {
   educational_form: FormGroup;
   model:ArticleSuggestedJudgesModel;
 
+  allow_add:boolean = false;
+
+
   constructor(private formBuilder: FormBuilder ,
               private service: ArticleSuggestedJudgesService,
               private articleService: ManageArticleService,
@@ -137,6 +140,7 @@ export class SuggestedJudgesComponent implements OnInit {
     this.articleService.get(this.article_id).subscribe(resp => {
       this.articleObserveService.articleOObserve(resp);
       this.ngxService.stop();
+      this.allow_add = false;
       this.toastr.success(this.translateService.instant('submit_article.msg.add_suggested_judge_success'),
         this.translateService.instant('submit_article.toast_title.add_suggested_judge'));
     } , handler => {
@@ -152,6 +156,14 @@ export class SuggestedJudgesComponent implements OnInit {
    */
   ngOnDestroy(): void {
 
+  }
+
+  showForm() {
+    this.allow_add = true;
+  }
+
+  cancelForm() {
+    this.allow_add = false;
   }
 
 }
