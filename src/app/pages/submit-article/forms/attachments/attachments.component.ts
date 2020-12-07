@@ -116,7 +116,14 @@ export class AttachmentsComponent implements OnInit, OnChanges {
       this.get();
     } , handler => {
       let error = handler.error.message;
-      this.toastr.error(error);
+      if (error){
+        this.toastr.error(error);
+        console.log(error);
+      }
+      else{
+        this.toastr.error(handler);
+        console.log(handler);
+      }
       this.ngxService.stop();
     });
   }
