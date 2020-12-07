@@ -1,9 +1,15 @@
 <div class="form-div">
   <form class="p-3" [formGroup]="form" autocomplete="off">
 
-    <div class="row">
+    <div class="row" *ngIf="articleDependenciesModel">
 
-      <div class="col-md-6 col-12" *ngIf="articleDependenciesModel">
+      <div class="col-12 rtl">
+        <p class="alert alert-secondary">
+          يجب ان يكون الملف المرفق بصيغة pdf او word
+        </p>
+      </div>
+
+      <div class="col-md-6 col-12">
         <!-- attachment_type  -->
         <div class="my-4">
           <div>
