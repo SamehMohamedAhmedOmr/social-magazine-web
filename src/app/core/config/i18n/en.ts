@@ -37,7 +37,8 @@ export const locale = {
       LOGOUT: 'Logout',
       LAST_NEWS: 'Last News',
       MOST_ARTICLE_VIEWED: 'Most Article Viewed',
-      MOST_ARTICLE_DOWNLOADED : 'Most Article Download'
+      MOST_ARTICLE_DOWNLOADED : 'Most Article Download',
+      NEWS:'News',
     },
 
 		Components: {

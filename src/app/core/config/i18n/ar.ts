@@ -37,7 +37,8 @@ export const locale = {
       LOGOUT: 'تسجيل الخروج',
       LAST_NEWS: 'آخر الأخبار',
       MOST_ARTICLE_VIEWED: 'أكثر المقالات مشاهدًة',
-      MOST_ARTICLE_DOWNLOADED : 'أكثر المقالات تحميلًا'
+      MOST_ARTICLE_DOWNLOADED : 'أكثر المقالات تحميلًا',
+      NEWS:'الأخبار',
     },
 
 		Components: {

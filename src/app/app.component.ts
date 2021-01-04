@@ -46,15 +46,17 @@ export class AppComponent implements OnInit{
       this.homeService.homeContent(this.homeModel);
       this.cdr.markForCheck();
 
-      if (this.LocalStorageService.getToken()){
-        this.getAccountProfile();
-      }
-      else{
-        this.ngxService.stop();
-      }
+      this.ngxService.stop();
 
-      this.getAccountDependency();
-      this.getHArticleDependencies();
+      // if (this.LocalStorageService.getToken()){
+      //   this.getAccountProfile();
+      // }
+      // else{
+      //   this.ngxService.stop();
+      // }
+
+      // this.getAccountDependency();
+      // this.getHArticleDependencies();
     });
   }
 

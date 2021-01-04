@@ -22,6 +22,10 @@ export class HeaderComponent implements OnInit {
     return '/' + UrlName.aboutUs();
   }
 
+  magazineGoals(){
+    return '/' + UrlName.magazineGoals();
+  }
+
   getTestimonial(){
     return '/' + UrlName.testimonial();
   }

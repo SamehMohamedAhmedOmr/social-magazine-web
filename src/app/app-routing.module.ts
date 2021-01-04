@@ -18,6 +18,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/about-us/about-us.module').then(m => m.AboutUsModule)
   },
 
+  // About-us
+  {
+    path: UrlName.magazineGoals(),
+    loadChildren: () => import('./pages/magazine-goals/magazine-goals.module').then(m => m.MagazineGoalsModule)
+  },
+
   // Contact-us
   {
     path: UrlName.contactUs(),
@@ -31,22 +37,12 @@ const routes: Routes = [
   },
 
 
-  {
-    path: 'editorial-board',
-    loadChildren: () => import('./pages/editorial-board/editorial-board.module').then(m => m.EditorialBoardModule)
-  },
-
   // Advisory-Body
   {
     path: UrlName.advisoryBody(),
     loadChildren: () => import('./pages/advisory-board/advisory-board.module').then(m => m.AdvisoryBoardModule)
   },
 
-  // // Testimonial
-  // {
-  //   path: UrlName.testimonial(),
-  //   loadChildren: () => import('./pages/said-about-us/said-about-us.module').then(m => m.SaidAboutUsModule)
-  // },
 
   // Magazine Category
   {
@@ -54,17 +50,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/category/category.module').then(m => m.CategoryModule)
   },
 
-  // Submit Article
-  {
-    path: UrlName.submitArticle(),
-    loadChildren: () => import('./pages/submit-article/submit-article.module').then(m => m.SubmitArticleModule)
-  },
-
-  // Archive
-  {
-    path: UrlName.archive(),
-    loadChildren: () => import('./pages/archive/archive.module').then(m => m.ArchiveModule)
-  },
+  // // Submit Article
+  // {
+  //   path: UrlName.submitArticle(),
+  //   loadChildren: () => import('./pages/submit-article/submit-article.module').then(m => m.SubmitArticleModule)
+  // },
+  //
+  // // Archive
+  // {
+  //   path: UrlName.archive(),
+  //   loadChildren: () => import('./pages/archive/archive.module').then(m => m.ArchiveModule)
+  // },
 
   // news
   {
@@ -72,39 +68,39 @@ const routes: Routes = [
     loadChildren: () => import('./pages/news/news.module').then(m => m.NewsModule)
   },
 
-  // article
-  {
-    path: UrlName.article(),
-    loadChildren: () => import('./pages/article/article.module').then(m => m.ArticleModule)
-  },
+  // // article
+  // {
+  //   path: UrlName.article(),
+  //   loadChildren: () => import('./pages/article/article.module').then(m => m.ArticleModule)
+  // },
+  //
+  // // Login
+  // {
+  //   path: UrlName.login(),
+  //   canActivate: [GuestGuard],
+  //   loadChildren: () => import('./pages/Auth/login/login.module').then(m => m.LoginModule)
+  // },
+  //
+  // // register
+  // {
+  //   path: UrlName.register(),
+  //   canActivate: [GuestGuard],
+  //   loadChildren: () => import('./pages/Auth/registration/registration.module').then(m => m.RegistrationModule)
+  // },
 
-  // Login
-  {
-    path: UrlName.login(),
-    canActivate: [GuestGuard],
-    loadChildren: () => import('./pages/Auth/login/login.module').then(m => m.LoginModule)
-  },
-
-  // register
-  {
-    path: UrlName.register(),
-    canActivate: [GuestGuard],
-    loadChildren: () => import('./pages/Auth/registration/registration.module').then(m => m.RegistrationModule)
-  },
-
-  // profile
-  {
-    path: UrlName.profile(),
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
-  },
-
-  // My Article
-  {
-    path: UrlName.myArticle(),
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/my-article/my-article.module').then(m => m.MyArticleModule)
-  },
+  // // profile
+  // {
+  //   path: UrlName.profile(),
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
+  // },
+  //
+  // // My Article
+  // {
+  //   path: UrlName.myArticle(),
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () => import('./pages/my-article/my-article.module').then(m => m.MyArticleModule)
+  // },
 
   { path: '**', redirectTo: UrlName.home(), pathMatch: 'full' }
 ];

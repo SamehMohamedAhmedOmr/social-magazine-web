@@ -4,9 +4,7 @@ import {AboutUsComponent} from './about-us.component';
 import {RouterModule, Routes} from '@angular/router';
 import {PagesModule} from '../pages.module';
 import { WhoIsUsComponent } from './who-is-us/who-is-us.component';
-import { MagazineGoalsComponent } from './magazine-goals/magazine-goals.component';
 import {MatDividerModule} from '@angular/material/divider';
-import { MissionAndVisionComponent } from './mission-and-vision/mission-and-vision.component';
 
 
 const routes: Routes = [
@@ -18,7 +16,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [AboutUsComponent, WhoIsUsComponent, MagazineGoalsComponent, MissionAndVisionComponent],
+  declarations: [AboutUsComponent, WhoIsUsComponent],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
