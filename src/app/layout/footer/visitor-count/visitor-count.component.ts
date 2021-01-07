@@ -1,6 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Parser} from '@angular/compiler';
-import {LocalStorageService} from '../../../core/services/localStorage.service';
 import {TrackersService} from '../../../core/services/Section-Module/trackers.service';
 import {TrackersModel} from '../../../core/models/section-module/trackers.model';
 

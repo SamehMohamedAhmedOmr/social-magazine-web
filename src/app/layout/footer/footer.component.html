@@ -37,7 +37,7 @@
   <div class="container-fluid copyright-footer py-3">
     <div class="py-2 text-center second-color">
       <span class="d-block mb-3" *ngIf="visitor">
-        <app-visitor-count [visitor_count]="visitor.visitors"></app-visitor-count>
+        <app-visitor-count [visitor_count]="visitor"></app-visitor-count>
       </span>
       <span class="d-block">
         {{ 'footer.copyright' | translate }}

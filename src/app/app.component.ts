@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, DoCheck, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {LangService} from './core/services/lang.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {HomeService} from './core/services/Section-Module/Home.service';
@@ -11,18 +11,26 @@ import {ArticleDependenciesService} from './core/services/pre-article-Module/Art
 import {ProfileService} from './core/services/User-Module/profile.service';
 import {ProfileModel} from './core/models/User-Module/profile.model';
 import {GlobalConfig} from './core/global/global.config';
+import {DependenciesModel} from './core/models/section-module/dependencies.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, DoCheck {
   title = '';
   homeModel: HomeModel;
+  dependenciesModel: DependenciesModel;
+
   accountDependenciesModel:AccountDependenciesModel;
   articleDependenciesModel:ArticleDependenciesModel;
   profileModel:ProfileModel;
+
+  is_home_load:boolean;
+  is_dependencies_load:boolean;
+
+
 
   constructor(private langService: LangService,
               private homeService:HomeService,
@@ -36,17 +44,19 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.langService.loadStyle();
+    this.ngxService.start();
+    this.is_home_load = false;
+    this.is_dependencies_load = false;
     this.getHomeAPI();
+    this.getDependencies();
   }
 
   getHomeAPI(){
-    this.ngxService.start();
     this.homeService.get().subscribe(value => {
       this.homeModel  = value;
       this.homeService.homeContent(this.homeModel);
+      this.is_home_load = true;
       this.cdr.markForCheck();
-
-      this.ngxService.stop();
 
       // if (this.LocalStorageService.getToken()){
       //   this.getAccountProfile();
@@ -57,6 +67,16 @@ export class AppComponent implements OnInit{
 
       // this.getAccountDependency();
       // this.getHArticleDependencies();
+    });
+  }
+
+  getDependencies(){
+    this.ngxService.start();
+    this.homeService.getDependencies().subscribe(value => {
+      this.dependenciesModel  = value;
+      this.homeService.dependenciesContent(this.dependenciesModel);
+      this.is_dependencies_load = true;
+      this.cdr.markForCheck();
     });
   }
 
@@ -122,6 +142,12 @@ export class AppComponent implements OnInit{
     }
     else{
       this.profileService.profileContent(profile);
+      this.ngxService.stop();
+    }
+  }
+
+  ngDoCheck(): void {
+    if (this.is_home_load && this.is_dependencies_load){
       this.ngxService.stop();
     }
   }

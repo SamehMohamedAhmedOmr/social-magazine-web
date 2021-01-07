@@ -12,7 +12,7 @@ import {TrackersModel} from '../../core/models/section-module/trackers.model';
 export class FooterComponent implements OnInit {
 
   magazine_information:MagazineInformationModel = null;
-  visitor:TrackersModel;
+  visitor:number;
 
   homeModel:HomeModel;
 

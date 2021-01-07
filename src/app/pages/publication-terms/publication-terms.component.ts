@@ -2,8 +2,8 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {PublicationRulesService} from '../../core/services/Section-Module/publication.rules.service';
 import {PublicationRulesModel} from '../../core/models/section-module/publication.rules.model';
-import {HomeModel} from '../../core/models/section-module/home.model';
 import {HomeService} from '../../core/services/Section-Module/Home.service';
+import {DependenciesModel} from '../../core/models/section-module/dependencies.model';
 
 @Component({
   selector: 'app-publication-terms',
@@ -13,7 +13,7 @@ import {HomeService} from '../../core/services/Section-Module/Home.service';
 export class PublicationTermsComponent implements OnInit {
 
   rules:PublicationRulesModel[] = [];
-  homeModel:HomeModel;
+  dependenciesModel:DependenciesModel;
 
   constructor(private publicationRulesService:PublicationRulesService,
               private ngxService: NgxUiLoaderService,
@@ -26,10 +26,10 @@ export class PublicationTermsComponent implements OnInit {
   }
 
   subscribeHomeAPI() {
-    this.homeService.content.subscribe(model => {
+    this.homeService.dependencies_content.subscribe(model => {
       if (model){
-        this.homeModel = model;
-        this.rules = this.homeModel.publication_rules;
+        this.dependenciesModel = model;
+        this.rules = this.dependenciesModel.publication_rules;
       }
     });
   }

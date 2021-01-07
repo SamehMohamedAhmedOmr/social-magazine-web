@@ -3,7 +3,7 @@ import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {AdvisoryBodiesService} from '../../core/services/Section-Module/advisory.bodies.service';
 import {AdvisoryBodyModel} from '../../core/models/section-module/advisory.body.model';
 import {HomeService} from '../../core/services/Section-Module/Home.service';
-import {HomeModel} from '../../core/models/section-module/home.model';
+import {DependenciesModel} from '../../core/models/section-module/dependencies.model';
 
 @Component({
   selector: 'app-advisory-board',
@@ -14,7 +14,7 @@ export class AdvisoryBoardComponent implements OnInit {
 
   advisory_bodies:AdvisoryBodyModel[] = [];
 
-  homeModel:HomeModel;
+  dependenciesModel:DependenciesModel;
 
   constructor(private advisoryBodiesService:AdvisoryBodiesService,
               private ngxService: NgxUiLoaderService,
@@ -29,10 +29,10 @@ export class AdvisoryBoardComponent implements OnInit {
 
 
   subscribeHomeAPI() {
-    this.homeService.content.subscribe(model => {
+    this.homeService.dependencies_content.subscribe(model => {
       if (model){
-        this.homeModel = model;
-        this.advisory_bodies = this.homeModel.advisory_body;
+        this.dependenciesModel = model;
+        this.advisory_bodies = this.dependenciesModel.advisory_body;
       }
     });
   }

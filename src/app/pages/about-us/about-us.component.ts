@@ -1,8 +1,8 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 
-import {HomeModel} from '../../core/models/section-module/home.model';
 import {HomeService} from '../../core/services/Section-Module/Home.service';
 import {WhoIsUsModel} from '../../core/models/section-module/who.is.us.model';
+import {DependenciesModel} from '../../core/models/section-module/dependencies.model';
 
 @Component({
   selector: 'app-about-us',
@@ -12,7 +12,7 @@ import {WhoIsUsModel} from '../../core/models/section-module/who.is.us.model';
 export class AboutUsComponent implements OnInit {
 
   who_is_us:WhoIsUsModel[] = [];
-  homeModel:HomeModel;
+  dependenciesModel:DependenciesModel;
 
   constructor(private homeService: HomeService) {
   }
@@ -24,10 +24,10 @@ export class AboutUsComponent implements OnInit {
 
 
   subscribeHomeAPI() {
-    this.homeService.content.subscribe(model => {
+    this.homeService.dependencies_content.subscribe(model => {
       if (model){
-        this.homeModel = model;
-        this.who_is_us = this.homeModel.who_is_us;
+        this.dependenciesModel = model;
+        this.who_is_us = this.dependenciesModel.who_is_us;
       }
     });
   }

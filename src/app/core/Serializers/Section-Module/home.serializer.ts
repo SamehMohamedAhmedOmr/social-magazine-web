@@ -28,11 +28,11 @@ export class HomeSerializer extends BaseSerializer implements Serializer {
     object.magazine_information = item.magazine_information;
     object.visitors_count = item.visitors_count;
     object.most_viewed_news = item.most_viewed_news;
-    object.advisory_body = item.advisory_body;
-    object.magazine_categories = item.magazine_categories;
-    object.publication_rules = item.publication_rules;
-    object.who_is_us = item.who_is_us;
-    object.magazine_goals = item.magazine_goals;
+
+    object.latest_videos = item.latest_videos;
+    object.latest_photos = item.latest_photos;
+    object.latest_activities = item.latest_activities;
+    object.latest_events = item.latest_events;
 
     return object;
   }

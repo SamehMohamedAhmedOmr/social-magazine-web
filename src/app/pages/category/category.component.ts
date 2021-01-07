@@ -5,8 +5,8 @@ import {MagazineCategoriesService} from '../../core/services/Section-Module/maga
 import {MatDialog} from '@angular/material/dialog';
 import {PopupImageGalleryComponent} from '../../shared/popup-image-gallery/popup-image-gallery.component';
 import {TranslateService} from '@ngx-translate/core';
-import {HomeModel} from '../../core/models/section-module/home.model';
 import {HomeService} from '../../core/services/Section-Module/Home.service';
+import {DependenciesModel} from '../../core/models/section-module/dependencies.model';
 
 @Component({
   selector: 'app-category',
@@ -17,7 +17,7 @@ export class CategoryComponent implements OnInit {
 
   categories:MagazineCategoryModel[] = [];
 
-  homeModel:HomeModel;
+  dependenciesModel:DependenciesModel;
 
   constructor(private magazineCategoriesService:MagazineCategoriesService,
               private ngxService: NgxUiLoaderService,
@@ -32,10 +32,10 @@ export class CategoryComponent implements OnInit {
   }
 
   subscribeHomeAPI() {
-    this.homeService.content.subscribe(model => {
+    this.homeService.dependencies_content.subscribe(model => {
       if (model){
-        this.homeModel = model;
-        this.categories = this.homeModel.magazine_categories;
+        this.dependenciesModel = model;
+        this.categories = this.dependenciesModel.magazine_categories;
       }
     });
   }

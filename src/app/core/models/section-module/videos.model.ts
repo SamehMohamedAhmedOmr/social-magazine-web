@@ -1,13 +1,12 @@
 import {ModelBase} from '../Base/base.model';
 
-export class MagazineNewsModel extends ModelBase {
+export class VideosModel extends ModelBase {
 
 	public content:string;
 	public title:string;
 	public slug:string;
-	public views:number;
-	public images:[];
-  public created_at:string;
+	public link:string;
+	public created_at:string;
 
 	constructor(id: number) {
 		super(id);
@@ -17,10 +16,9 @@ export class MagazineNewsModel extends ModelBase {
 		return {
 			'title' : this.title,
 			'slug' : this.slug,
-			'views' : this.views,
+			'link' : this.link,
 			'content' : this.content,
-			'images' : this.images,
-      'created_at' : this.created_at
+			'created_at' : this.created_at,
 		};
 	}
 
