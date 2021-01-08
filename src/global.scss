@@ -11,6 +11,14 @@
   color: var(--third-color);
 }
 
+.forth-color{
+  color: var(--forth-color);
+}
+
+.fifth-color{
+  color: var(--fifth-color);
+}
+
 .back-ground1{
   background-color: var(--background-1);
 }
@@ -53,29 +61,16 @@ p{
 
 .title-box{
 
-  .title{
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--title-color);
-  }
+  .title-mini-box{
+    border-bottom: #cccccc 1px dotted;
 
-  .title-border{
-    position: relative;
-    width: 100px;
-    height: 3px;
-    border-radius: 10px;
-    background-color: var(--title-after-color);
-    margin: -2px auto;
-    &:before{
-      content: "";
-      position: absolute;
-      margin: 0 auto;
-      left: 0;
-      right: 0;
-      border-top: 2px solid var(--title-after-color);
-      top: 5px;
-      padding: 4px 0 5px;
-      width: 40px;
+    .main-icon{
+      font-size: 2.5rem;
+    }
+  
+    .title{
+      font-size: 2rem;
+      font-weight: 900;
     }
   }
 }
