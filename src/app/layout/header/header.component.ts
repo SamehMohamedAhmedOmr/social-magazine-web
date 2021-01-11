@@ -46,6 +46,22 @@ export class HeaderComponent implements OnInit {
     return '/' + UrlName.contactUs();
   }
 
+  getEvents(){
+    return '/' + UrlName.events();
+  }
+
+  getActivities(){
+    return '/' + UrlName.activities();
+  }
+
+  getVideos(){
+    return '/' + UrlName.videos();
+  }
+
+  getPhotos(){
+    return '/' + UrlName.photos();
+  }
+
   getPublicationRules(){
     return '/' + UrlName.publicationRules();
   }

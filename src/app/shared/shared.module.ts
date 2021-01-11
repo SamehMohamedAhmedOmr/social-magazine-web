@@ -45,6 +45,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
 import { ArticlePreviewComponent } from './article/article-preview/article-preview.component';
 import { PreviewCellComponent } from './article/article-preview/preview-cell/preview-cell.component';
+import { TitleComponent } from './title/title.component';
+import { MostViewedComponent } from './most-viewed/most-viewed.component';
+import { ViewNewsPhotosComponent } from './view-news-photos/view-news-photos.component';
+import { VideosComponent } from './videos/videos.component';
+import { title } from 'process';
 
 @NgModule({
   declarations: [
@@ -58,7 +63,7 @@ import { PreviewCellComponent } from './article/article-preview/preview-cell/pre
     BasicComponent, InfoComponent, AuthorComponent,
     SuggestedJudgeComponent, AttachmentsComponent,
     ConfirmComponent, AttachmentsListComponent,
-    AuthorsListComponent, JudgesListComponent, ArticlePreviewComponent, PreviewCellComponent
+    AuthorsListComponent, JudgesListComponent, ArticlePreviewComponent, PreviewCellComponent, TitleComponent, MostViewedComponent, ViewNewsPhotosComponent, VideosComponent
   ],
   entryComponents: [
     DeleteModalComponent,
@@ -91,6 +96,8 @@ import { PreviewCellComponent } from './article/article-preview/preview-cell/pre
     JudgesListComponent,
     AttachmentsListComponent,
     ArticlePreviewComponent,
+    MostViewedComponent,
+    TitleComponent
   ],
   imports: [
     CommonModule,

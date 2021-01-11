@@ -48,6 +48,22 @@ export class UrlName {
     return 'معلومات-عن-المجلة';
   }
 
+  public static events() {
+    return 'الفعاليات';
+  }
+
+  public static activities() {
+    return 'الانشطة';
+  }
+
+  public static videos() {
+    return 'الفيديوهات';
+  }
+
+  public static photos() {
+    return 'الصور';
+  }
+
 
   // user Module
   public static forgetPassword() {

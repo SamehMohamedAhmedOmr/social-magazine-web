@@ -1,17 +1,22 @@
-<app-latest-news [latest_news]="latest_news"></app-latest-news>
-
 <section class="py-4">
     <div class="container-fluid">
         <div class="web-container">
-            <div class="row rtl">
-                <div class="col-md-6 mb-4 set-border">
-                    <app-most-viewed></app-most-viewed>
+            <div class="row">
+                <div class="col-lg-9">
+                    <app-latest-news [latest_news]="latest_news"></app-latest-news>
                 </div>
+                <div class="col-lg-3">
+                    <app-most-viewed [padding]="'py-4'"></app-most-viewed>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
 
-                <div class="col-md-6">
-                    <app-most-downloaded></app-most-downloaded>
-                </div>
-            </div>
+<section class="mb-4">
+    <div class="container-fluid">
+        <div class="web-container">
+            <app-home-events></app-home-events>
         </div>
     </div>
 </section>
