@@ -97,7 +97,8 @@ import { title } from 'process';
     AttachmentsListComponent,
     ArticlePreviewComponent,
     MostViewedComponent,
-    TitleComponent
+    TitleComponent,
+    ViewNewsPhotosComponent
   ],
   imports: [
     CommonModule,

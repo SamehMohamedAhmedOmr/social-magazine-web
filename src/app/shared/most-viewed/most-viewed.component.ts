@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MostViewedComponent implements OnInit {
 
   @Input() padding:string = null;
+  @Input() position:string = null;
 
   constructor() { }
 

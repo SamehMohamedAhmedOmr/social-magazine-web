@@ -1,4 +1,4 @@
-<aside class="{{padding}}">
+<aside class="{{padding}} {{position}}">
 <div class="most-viewed">
     <app-section-title [main_title]="'PAGES.MOST_ARTICLE_VIEWED' | translate">
     </app-section-title>
@@ -10,8 +10,12 @@
         <div class="col-4">
           <div class="">
             <div class="">
-              <img src="../../../assets/images/default.jpg" alt="" class="img-fluid"
-                   onerror="this.src = '../../../assets/images/default.jpg'">
+              <a [routerLink]="">
+                <img class="img-fluid view-img"
+                    src="../../../assets/images/default.jpg"
+                    onerror="this.src = '../../../assets/images/default.jpg'"
+                    alt="">
+              </a>
             </div>
           </div>
         </div>

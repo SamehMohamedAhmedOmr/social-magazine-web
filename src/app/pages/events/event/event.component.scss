@@ -1,0 +1,48 @@
+.head{
+    
+
+    .title{
+
+        a{
+            &:hover{
+                color: var(--secondary-color);
+            }
+
+            color: var(--black-color);
+            transition: all .2s ease-in-out;
+
+            h3{
+                font-weight: 600;
+                font-size: 1.7rem !important;
+            }
+        }
+    }
+
+    .timeslot{
+        span{
+            font-weight: 600;
+            color: var(--black-color);
+        }
+    }
+}
+
+.content{
+
+    p{
+
+    }
+
+    a{
+        &:hover{
+            color: var(--secondary-color);
+        }
+
+        color: var(--black-color);
+        transition: all .2s ease-in-out;
+    }
+}
+
+.event-img{
+    width: 100%;
+    max-height: 185px;
+}

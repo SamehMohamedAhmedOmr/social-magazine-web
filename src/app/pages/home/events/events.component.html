@@ -6,7 +6,7 @@
 
     <div class="row rtl mt-2">
         <div class="col-md-4 col-lg-3 mb-4 rtl" *ngFor="let event of events.slice(0, 4)">
-            <a href="">
+            <a [routerLink]="">
                 <img class="img-fluid event-img"
                     src="{{this.event.images}}"
                     onerror="this.src = '../../../assets/images/default.jpg'"
