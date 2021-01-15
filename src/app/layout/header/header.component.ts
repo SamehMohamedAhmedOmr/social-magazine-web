@@ -18,6 +18,10 @@ export class HeaderComponent implements OnInit {
     return '/' + UrlName.home();
   }
 
+  getNews(){
+    return '/' + UrlName.news();
+  }
+
   getAboutUs(){
     return '/' + UrlName.aboutUs();
   }

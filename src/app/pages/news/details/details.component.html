@@ -1,24 +1,35 @@
-<section class="container-fluid my-4 px-5 py-4 rtl" *ngIf="model">
+<section class="py-4">
+  <div class="container-fluid">
+      <div class="web-container">
+          <div class="row">
+              <div class="col-lg-9">
+                <div class="my-4 px-5 py-4 rtl" *ngIf="model">
+                  <div class="card mb-3">
 
-  <div class="card mb-3">
-
-    <app-image-slider [images]="model.images"></app-image-slider>
-
-    <div class="card-body">
-      <h3 class="card-title">
-        {{ model.title }}
-      </h3>
-      <p class="card-text">
-        {{ model.content }}
-      </p>
-      <p class="card-text">
-        <small class="text-muted">
-          <span>{{'COMMON.view' | translate }}</span>
-          <i class="fa fa-eye mx-2"></i>
-          <span>{{ model.views }}</span>
-        </small>
-      </p>
-    </div>
+                    <app-image-slider [images]="model.images"></app-image-slider>
+                
+                    <div class="card-body">
+                      <h3 class="card-title">
+                        {{ model.title }}
+                      </h3>
+                      <p class="card-text">
+                        {{ model.content }}
+                      </p>
+                      <p class="card-text">
+                        <small class="text-muted">
+                          <span>{{'COMMON.view' | translate }}</span>
+                          <i class="fa fa-eye mx-2"></i>
+                          <span>{{ model.views }}</span>
+                        </small>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                  <app-most-viewed [padding]="'py-4'" [position]="'position-sticky sticky'"></app-most-viewed>
+              </div>
+          </div> 
+      </div>
   </div>
-
 </section>
