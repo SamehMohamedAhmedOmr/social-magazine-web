@@ -50,6 +50,7 @@ import { MostViewedComponent } from './most-viewed/most-viewed.component';
 import { ViewNewsPhotosComponent } from './view-news-photos/view-news-photos.component';
 import { VideosComponent } from './videos/videos.component';
 import { title } from 'process';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ import { title } from 'process';
     BasicComponent, InfoComponent, AuthorComponent,
     SuggestedJudgeComponent, AttachmentsComponent,
     ConfirmComponent, AttachmentsListComponent,
-    AuthorsListComponent, JudgesListComponent, ArticlePreviewComponent, PreviewCellComponent, TitleComponent, MostViewedComponent, ViewNewsPhotosComponent, VideosComponent
+    AuthorsListComponent, JudgesListComponent, ArticlePreviewComponent, PreviewCellComponent, TitleComponent, MostViewedComponent, ViewNewsPhotosComponent, VideosComponent, VideoPlayerComponent
   ],
   entryComponents: [
     DeleteModalComponent,
@@ -98,7 +99,8 @@ import { title } from 'process';
     ArticlePreviewComponent,
     MostViewedComponent,
     TitleComponent,
-    ViewNewsPhotosComponent
+    ViewNewsPhotosComponent,
+    VideosComponent
   ],
   imports: [
     CommonModule,

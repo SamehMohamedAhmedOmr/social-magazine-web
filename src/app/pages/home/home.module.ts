@@ -9,6 +9,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import {SharedModule} from '../../shared/shared.module';
 import {TranslateModule} from '@ngx-translate/core';
 import { EventsComponent } from './events/events.component';
+import { VideosComponent } from './videos/videos.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     HomeComponent,
     SliderComponent,
     TestimonialComponent,
-    EventsComponent
+    EventsComponent,
+    VideosComponent
   ],
   imports: [
     CommonModule,

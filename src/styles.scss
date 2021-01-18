@@ -80,3 +80,13 @@ input::-ms-input-placeholder { /* Microsoft Edge */
 mat-cell{
   word-break: break-all !important;
 }
+
+body app-video-player{
+  width: inherit !important;
+  ngx-youtube-player {
+    width: inherit !important;
+    iframe{
+      width: inherit !important;
+    }
+  }
+}
