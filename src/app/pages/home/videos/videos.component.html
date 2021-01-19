@@ -1,7 +1,7 @@
-<section class="">
-    <app-section-title [icon]="'fab fa-youtube'" 
-                        [main_title]="'فيديوهات رسالة'"
-                        [description]="'أهم فيديوهات رسالة'">
+<section *ngIf="videos.length">
+    <app-section-title [icon]="'fab fa-youtube'"
+                        [main_title]="'الفيديوهات'"
+                        [description]="'اخر الفيديوهات'">
     </app-section-title>
 
     <div class="row rtl mt-2">

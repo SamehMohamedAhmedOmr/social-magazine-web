@@ -11,6 +11,7 @@ export class TitleComponent implements OnInit {
   @Input() main_title:string = null;
   @Input() sub_title:string = null;
   @Input() description:string = null;
+  @Input() is_section_title:boolean = true;
 
   constructor() { }
 

@@ -30,27 +30,27 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatInputModule} from '@angular/material/input';
 import {ImageSliderComponent} from './image-slider/image-slider.component';
 import {PopupImageGalleryComponent} from './popup-image-gallery/popup-image-gallery.component';
-import { BasicComponent } from './article/forms/basic/basic.component';
-import { InfoComponent } from './article/forms/info/info.component';
-import { AuthorComponent } from './article/forms/author/author.component';
-import { SuggestedJudgeComponent } from './article/forms/suggested-judge/suggested-judge.component';
-import { AttachmentsComponent } from './article/forms/attachments/attachments.component';
-import { ConfirmComponent } from './article/forms/confirm/confirm.component';
+import {BasicComponent} from './article/forms/basic/basic.component';
+import {InfoComponent} from './article/forms/info/info.component';
+import {AuthorComponent} from './article/forms/author/author.component';
+import {SuggestedJudgeComponent} from './article/forms/suggested-judge/suggested-judge.component';
+import {AttachmentsComponent} from './article/forms/attachments/attachments.component';
+import {ConfirmComponent} from './article/forms/confirm/confirm.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTableModule} from '@angular/material/table';
-import { AttachmentsListComponent } from './article/list/attachments-list/attachments-list.component';
-import { AuthorsListComponent } from './article/list/authors-list/authors-list.component';
-import { JudgesListComponent } from './article/list/judges-list/judges-list.component';
+import {AttachmentsListComponent} from './article/list/attachments-list/attachments-list.component';
+import {AuthorsListComponent} from './article/list/authors-list/authors-list.component';
+import {JudgesListComponent} from './article/list/judges-list/judges-list.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
-import { ArticlePreviewComponent } from './article/article-preview/article-preview.component';
-import { PreviewCellComponent } from './article/article-preview/preview-cell/preview-cell.component';
-import { TitleComponent } from './title/title.component';
-import { MostViewedComponent } from './most-viewed/most-viewed.component';
-import { ViewNewsPhotosComponent } from './view-news-photos/view-news-photos.component';
-import { VideosComponent } from './videos/videos.component';
-import { title } from 'process';
-import { VideoPlayerComponent } from './video-player/video-player.component';
+import {ArticlePreviewComponent} from './article/article-preview/article-preview.component';
+import {PreviewCellComponent} from './article/article-preview/preview-cell/preview-cell.component';
+import {TitleComponent} from './title/title.component';
+import {MostViewedComponent} from './most-viewed/most-viewed.component';
+import {ViewNewsPhotosComponent} from './view-news-photos/view-news-photos.component';
+import {VideosComponent} from './videos/videos.component';
+import {VideoPlayerComponent} from './video-player/video-player.component';
+import {YouTubePlayerModule} from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -123,6 +123,7 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     MatTableModule,
     MatProgressBarModule,
     MatCardModule,
+    YouTubePlayerModule
   ]
 })
 

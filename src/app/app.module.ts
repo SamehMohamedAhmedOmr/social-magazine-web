@@ -1,9 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthLinksComponent} from './pages/auth-links/auth-links.component';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
 import {TranslateModule} from '@ngx-translate/core';
@@ -15,20 +15,17 @@ import {MarqueeComponent} from './layout/marquee/marquee.component';
 import {NgMarqueeModule} from 'ng-marquee';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {Interceptor} from './interceptor';
-import { HttpClientModule } from '@angular/common/http';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {HttpClientModule} from '@angular/common/http';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 import {MatDividerModule} from '@angular/material/divider';
 
-import { NgxSpinnerModule } from "ngx-spinner";
+import {NgxSpinnerModule} from 'ngx-spinner';
 import {NgxUiLoaderModule} from 'ngx-ui-loader';
 import {VisitorCountComponent} from './layout/footer/visitor-count/visitor-count.component';
 import {ToastNoAnimationModule, ToastrModule} from 'ngx-toastr';
 import {MatPaginatorIntl} from '@angular/material/paginator';
 import {getPaginatorIntl} from './core/config/paginatior.language';
-import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
 
 
 @NgModule({
@@ -57,9 +54,6 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     NgxUiLoaderModule,
     ToastrModule.forRoot(), // ToastrModule added
     ToastNoAnimationModule.forRoot(),
-    NgxYoutubePlayerModule.forRoot()
-
-
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -69,10 +63,10 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
       useClass: Interceptor,
       multi: true
     },
-    { provide: MatPaginatorIntl, useValue: getPaginatorIntl() }
+    {provide: MatPaginatorIntl, useValue: getPaginatorIntl()}
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 
-platformBrowserDynamic().bootstrapModule(AppModule);

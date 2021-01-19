@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {HomeModel} from '../../../core/models/section-module/home.model';
+import {HomeService} from '../../../core/services/Section-Module/Home.service';
+import {VideosModel} from '../../../core/models/section-module/videos.model';
 
 @Component({
   selector: 'app-videos',
@@ -7,19 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideosComponent implements OnInit {
 
-  videos = [
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', link: 'https://www.youtube.com/watch?v=8N_aay0ddcY', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', link: 'https://www.youtube.com/watch?v=8N_aay0ddcY', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', link: 'https://www.youtube.com/watch?v=8N_aay0ddcY', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', link: 'https://www.youtube.com/watch?v=8N_aay0ddcY', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', link: 'https://www.youtube.com/watch?v=8N_aay0ddcY', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', link: 'https://www.youtube.com/watch?v=8N_aay0ddcY', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', link: 'https://www.youtube.com/watch?v=8N_aay0ddcY', created_at: '2020/1/09' },
-  ];
+  homeModel:HomeModel;
 
-  constructor() { }
+  videos:VideosModel[] = [];
 
-  ngOnInit(): void {
+  constructor(private homeService: HomeService) { }
+
+  ngOnInit() {
+    this.homeService.content.subscribe(model => {
+      if (model){
+        this.homeModel = model;
+        this.videos = this.homeModel.latest_videos;
+      }
+    });
   }
 
 }

@@ -42,7 +42,7 @@ body {
 }
 
 @media screen and (max-width: 768px){
-  
+
 }
 
 .btn:hover {
@@ -85,12 +85,16 @@ mat-cell{
   word-break: break-all !important;
 }
 
-body app-video-player{
+body app-shared-videos{
   width: inherit !important;
-  ngx-youtube-player {
+  app-video-player{
     width: inherit !important;
-    iframe{
+    youtube-player {
       width: inherit !important;
+      iframe{
+        width: inherit !important;
+      }
     }
   }
 }
+

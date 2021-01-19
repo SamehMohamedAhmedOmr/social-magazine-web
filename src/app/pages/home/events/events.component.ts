@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EventsModel } from 'src/app/core/models/section-module/events.model';
+import {HomeModel} from '../../../core/models/section-module/home.model';
+import {VideosModel} from '../../../core/models/section-module/videos.model';
+import {HomeService} from '../../../core/services/Section-Module/Home.service';
 
 @Component({
   selector: 'app-home-events',
@@ -8,19 +11,19 @@ import { EventsModel } from 'src/app/core/models/section-module/events.model';
 })
 export class EventsComponent implements OnInit {
 
-  events = [
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', images: 'assets/images/slid1.jpg', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', images: 'assets/images/slid2.jpg', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', images: 'assets/images/slid3.jpg', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', images: 'assets/images/slid4.jpg', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', images: 'assets/images/slid5.jpg', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', images: 'assets/images/slid6.jpg', created_at: '2020/1/09' },
-    { content: 'lorem lom', title: 'slide1', slug: 'slug', images: 'assets/images/slid7.jpg', created_at: '2020/1/09' },
-  ];
+  homeModel:HomeModel;
 
-  constructor() { }
+  events:EventsModel[] = [];
 
-  ngOnInit(): void {
+  constructor(private homeService: HomeService) { }
+
+  ngOnInit() {
+    this.homeService.content.subscribe(model => {
+      if (model){
+        this.homeModel = model;
+        this.events = this.homeModel.latest_activities
+      }
+    });
   }
 
 }

@@ -15,7 +15,6 @@ export class VideosComponent implements OnInit {
   }
 
   extractVideoID(video) {
-    console.log(video);
     // tslint:disable-next-line:variable-name
     let video_id = video.split('v=')[1];
     // tslint:disable-next-line:prefer-const
