@@ -1,42 +1,35 @@
-<section class="back-ground3 py-4" *ngIf="latest_news.length">
-    <div class="container-fluid">
-        <div class="web-container">
-            <div class="title-box py-3 mb-2">
-                <h2 class="text-center title">
-                  {{ 'PAGES.LAST_NEWS' | translate }}
-                </h2>
-                <div class="title-border"></div>
-            </div>
+<section class="py-4" *ngIf="latest_news.length">
+    <app-section-title [icon]="'far fa-newspaper'" 
+                        [main_title]="'أخر'"
+                        [sub_title]="'اخبارنا'"
+                        [description]="'تعرف على كل جديد أخبار الجمعية'">
+    </app-section-title>
 
-            <div class="row rtl mt-2">
+    <div class="row rtl mt-2">
 
-                <div class="col-md-4 mb-4 rtl" *ngFor="let news of latest_news">
-                    <div class="news-box bg-white h-100">
-                        <div class="overflow-hidden img-container">
-                            <a [routerLink]="detailsUrl(news.slug)">
-                              <img class="img-fluid news-img"
-                                   src="{{this.news.images[0]}}"
-                                   onerror="this.src = '../../../assets/images/default.jpg'"
-                                   alt="">
-                            </a>
-                        </div>
-                        <div class="news-content p-4">
-                            <a [routerLink]="detailsUrl(news.slug)" class="link">
-                                <h3 class="">
-                                  {{ news.title }}
-                                </h3>
-                            </a>
-                            <p class="">
-                              <span>{{ displayContent(news.content) }}</span>
-                              <a *ngIf="displayMore(news.content)" class="text-danger" [routerLink]="detailsUrl(news.slug)">
-                                {{ 'COMMON.more' | translate }}
-                              </a>
-                            </p>
-                        </div>
-                    </div>
+        <div class="col-md-6 col-xl-4 mb-4 rtl" *ngFor="let news of latest_news">
+            <div class="news-box">
+                <div class="img-box">
+                    <a [routerLink]="detailsUrl(news.slug)">
+                        <div class="img-wrap"></div>
+                        <img class="img-fluid news-img"
+                            src="{{this.news.images[0]}}"
+                            onerror="this.src = '../../../assets/images/default.jpg'"
+                            alt="">
+                    </a>
+                    
+                    <a [routerLink]="detailsUrl(news.slug)" class="link news-title">
+                        <h3 class="mb-0">
+                        {{ news.title }}
+                        </h3>
+                    </a>
                 </div>
 
+                <div class="create-box">
+                    {{ displayContent(news.created_at) }}
+                </div>
             </div>
         </div>
+
     </div>
 </section>

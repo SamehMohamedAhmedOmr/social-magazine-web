@@ -1,38 +1,93 @@
-.news-box{
-    border-radius: 15px;
+.title-box{
 
-    .img-container{
-        height: 350px;
-        border-radius: 15px 15px 0 0;
-    }
-
-    .news-img{
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        transition: transform 0.7s ease-in-out;
-        &:hover{
-            transform: scale(1.2,1.2);
-        }
-    }
-
-    .news-content{
-        h3{
-            &:hover{
-                color: var(--main-color);
-            }
-            color: #333333;
-            font-weight: 600;
-            transition: color 0.4s ease-in-out;
-        }
-        p{
-            color: #555555;
-            font-weight: 500;
-            a{
-              text-decoration: none;
-            }
-        }
+    .title-mini-box{
+      border-bottom: #cccccc 1px dotted;
+  
+      .main-icon{
+        font-size: 2.5rem;
+      }
+    
+      .title{
+        font-size: 2rem;
+        font-weight: 900;
+      }
     }
 }
 
+.news-box{
 
+    .img-box{
+
+        height: 330px;
+        text-align: center;
+        position: relative;
+
+        &:hover .news-img{
+            transform: scale(0.95, 0.95);
+        }
+
+        &:hover .news-title{
+            bottom: 8px;
+            color: var(--white-color);
+            background-color: var(--forth-color);
+            box-shadow: 0px 10px 70px -10px rgba(227,27,36,0.4);
+        }
+
+        &:hover .img-wrap{
+            transform: scale(0.95, 0.95);
+            opacity: 0.9;
+        }
+
+        .news-img{
+            width: 95%;
+            height: 84%;
+            border-radius: 5px;
+            transition: all .2s ease-in-out;
+        }
+
+        .img-wrap{
+            position: absolute;
+            left: 2.5%;
+            width: 95%;
+            height: 84%;
+            border-radius: 5px;
+            background-color: rgba(39,49,139,0.6);
+            opacity: 0;
+            z-index: 1;
+            transition: all .2s ease-in-out;
+        }
+
+        .news-title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            color: var(--black-color);
+            left: 7%;
+            bottom: 0;
+            width: 86%;
+            height: 30%;
+            box-shadow: 0px 10px 60px -10px rgba(0,0,0,0.2);
+            background-color: #ffffff;
+            transition: all .2s ease-in-out;
+            z-index: 2;
+        }
+    }
+
+    .create-box{
+        font-size: 1rem;
+        color: rgba(0,0,0,0.7);
+        font-weight: 400;
+        letter-spacing: 0px;
+        padding: 25px 0 20px 0;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .news-box{
+      .img-box{
+          height: 400px;
+      }
+    }
+}

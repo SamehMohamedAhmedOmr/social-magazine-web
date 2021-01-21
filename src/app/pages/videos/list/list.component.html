@@ -1,0 +1,27 @@
+<section class="py-4">
+    <app-section-title [icon]="'fab fa-youtube'"
+                      [main_title]="'الفيديوهات'"
+                      [is_section_title]="false">
+    </app-section-title>
+
+    <div class="row rtl pt-3">
+        <div class="col-md-6 col-xl-4" *ngFor="let video of videos">
+            <div class="mb-5">
+                <div class="w-100">
+                    <app-shared-videos [link]="this.video.link" [height]='200'></app-shared-videos>
+                </div>
+
+                <div class="text-container py-4">
+                    <a [routerLink]="" class="link view-title">
+                        <h3 class="">
+                        {{ video.title }}
+                        </h3>
+                    </a>
+                    <span class="lead">
+                        {{ video.created_at }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

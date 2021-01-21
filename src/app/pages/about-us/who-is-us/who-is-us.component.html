@@ -1,10 +1,12 @@
 <section aria-label="who-is-us" *ngIf="who_is_us" class="portfolio-item mb-5">
 
-  <div class="title-box py-3 mb-2">
-    <h2 class="text-center title">
-      {{ 'PAGES.WHO_IS_US' | translate }}
-    </h2>
-    <div class="title-border"></div>
+  <app-section-title [icon]="'fas fa-users'"
+                      [main_title]="'PAGES.WHO_IS_US' | translate"
+                      [is_section_title]="false">
+  </app-section-title>
+
+  <div class="pb-3 pt-2 text-center">
+    <a href="#" class="btn btn-primary" target="_blank">المجلة العلمية</a>
   </div>
 
   <ol class="text-left">

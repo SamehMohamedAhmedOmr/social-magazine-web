@@ -33,12 +33,36 @@
                 </li>
 
                 <li class="nav-item rtl" aria-label="Publication-rule">
-                  <a class="nav-link rtl" [routerLink]="[getPublicationRules()]" routerLinkActive="active">
+                  <a class="nav-link rtl" [routerLink]="[getNews()]" routerLinkActive="active">
                     {{ 'PAGES.NEWS' | translate }}
                   </a>
                 </li>
 
-                <li class="nav-item rtl" aria-label="WHO_IS_US">
+                <li class="nav-item dropdown dropdown-mine rtl">
+                  <a class="nav-link dropdown-toggle rtl" id="navbarDropdownMenuLink" role="button"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      المجلة العلمية
+                  </a>
+                  <div class="dropdown-menu dropdown-content rtl" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown rtl" [routerLink]="[getAboutUs()]" routerLinkActive="active">
+                      {{ 'PAGES.WHO_IS_US' | translate }}
+                    </a>
+                    <a class="dropdown rtl" [routerLink]="[magazineGoals()]" routerLinkActive="active">
+                      {{ 'Components.MAGAZINE_GOAL.name' | translate }}
+                    </a>
+                    <a class="dropdown rtl" [routerLink]="[getAdvisoryBody()]" routerLinkActive="active">
+                      {{ 'PAGES.ADVISORY_BODY' | translate }}
+                    </a>
+                    <a class="dropdown rtl" [routerLink]="[getPublicationRules()]" routerLinkActive="active">
+                      {{ 'PAGES.PUBLICATION_RULES' | translate }}
+                    </a>
+                    <a class="dropdown rtl" [routerLink]="[getMagazineCategory()]" routerLinkActive="active">
+                      {{ 'PAGES.MAGAZINE_CATEGORY' | translate }}
+                    </a>
+                  </div>
+                </li>
+
+                <!-- <li class="nav-item rtl" aria-label="WHO_IS_US">
                   <a class="nav-link rtl" [routerLink]="[getAboutUs()]" routerLinkActive="active">
                     {{ 'PAGES.WHO_IS_US' | translate }}
                   </a>
@@ -60,19 +84,43 @@
                     <a class="nav-link rtl" [routerLink]="[getPublicationRules()]" routerLinkActive="active">
                       {{ 'PAGES.PUBLICATION_RULES' | translate }}
                     </a>
-                </li>
+                </li> -->
 
-                <li class="nav-item rtl" aria-label="category">
+                <!-- <li class="nav-item rtl" aria-label="category">
                     <a class="nav-link rtl" [routerLink]="[getMagazineCategory()]" routerLinkActive="active">
                       {{ 'PAGES.MAGAZINE_CATEGORY' | translate }}
                     </a>
-                </li>
+                </li> -->
 
 <!--                <li class="nav-item rtl" aria-label="send Article">-->
 <!--                    <a class="nav-link rtl" [routerLink]="[getSubmitArticle()]" routerLinkActive="active">-->
 <!--                      {{ 'PAGES.SEND_ARTICLE' | translate }}-->
 <!--                    </a>-->
 <!--                </li>-->
+
+                <li class="nav-item rtl" aria-label="events">
+                  <a class="nav-link rtl" [routerLink]="[getEvents()]" routerLinkActive="active">
+                    الفعاليات
+                  </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="activities">
+                  <a class="nav-link rtl" [routerLink]="[getActivities()]" routerLinkActive="active">
+                    الانشطة
+                  </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="videos">
+                  <a class="nav-link rtl" [routerLink]="[getVideos()]" routerLinkActive="active">
+                    الفيديوهات
+                  </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="photos">
+                  <a class="nav-link rtl" [routerLink]="[getPhotos()]" routerLinkActive="active">
+                    الصور
+                  </a>
+                </li>
 
                 <li class="nav-item rtl" aria-label="contact-us">
                     <a class="nav-link rtl" [routerLink]="[getContactUs()]" routerLinkActive="active">

@@ -36,7 +36,7 @@ export const locale = {
       MY_ARTICLE: 'My Article',
       LOGOUT: 'Logout',
       LAST_NEWS: 'Last News',
-      MOST_ARTICLE_VIEWED: 'Most Article Viewed',
+      MOST_NEWS_VIEWED: 'Most News Viewed',
       MOST_ARTICLE_DOWNLOADED : 'Most Article Download',
       NEWS:'News',
     },

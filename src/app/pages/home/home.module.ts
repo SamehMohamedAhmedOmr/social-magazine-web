@@ -4,12 +4,12 @@ import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgMarqueeModule } from 'ng-marquee';
 import { SliderComponent } from './slider/slider.component';
-import { MostViewedComponent } from './most-viewed/most-viewed.component';
-import { MostDownloadedComponent } from './most-downloaded/most-downloaded.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {SharedModule} from '../../shared/shared.module';
 import {TranslateModule} from '@ngx-translate/core';
+import { EventsComponent } from './events/events.component';
+import { VideosComponent } from './videos/videos.component';
 
 const routes: Routes = [
   {
@@ -22,9 +22,9 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     SliderComponent,
-    MostViewedComponent,
-    MostDownloadedComponent,
-    TestimonialComponent
+    TestimonialComponent,
+    EventsComponent,
+    VideosComponent
   ],
   imports: [
     CommonModule,

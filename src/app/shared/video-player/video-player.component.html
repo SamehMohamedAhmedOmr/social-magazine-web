@@ -1,0 +1,13 @@
+<youtube-player *ngIf="height"
+                videoId="{{ video_id }}"
+                suggestedQuality="highres"
+                [height]="height"
+                [startSeconds]="0">
+</youtube-player>
+
+
+<youtube-player *ngIf="!height"
+                videoId="{{ video_id }}"
+                suggestedQuality="highres"
+                [startSeconds]="0">
+</youtube-player>

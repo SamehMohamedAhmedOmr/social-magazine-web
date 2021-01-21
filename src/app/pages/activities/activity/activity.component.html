@@ -1,0 +1,31 @@
+<section class="py-4 mx-md-5">
+    <app-section-title [icon]="'fas fa-briefcase'"
+                      [main_title]="'الانشطة'"
+                      [is_section_title]="false">
+    </app-section-title>
+
+    <div class="row rtl pt-3">
+        <div class="col-md-6 col-xl-4 mb-5" *ngFor="let activity of activities">
+            <div class="activity-card">
+                <div class="activity-content p-4">
+                    <div class="activity-img py-3">
+                        <img src="{{activity.images}}" class=""
+                            onerror="this.src = '../../../assets/images/default.jpg'"
+                            alt="">
+                    </div>
+                    <div class="activity-title">
+                        <h3 class="">{{activity.title}}</h3>
+
+                        <p class="">{{activity.content}}</p>
+                    </div>
+                </div>
+                <div class="activity-button">
+                    <a [routerLink]="" class="link py-3 d-block">
+                        <span>تفاصيل النشاط</span>
+                        <i class="fas fa-arrow-left pl-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

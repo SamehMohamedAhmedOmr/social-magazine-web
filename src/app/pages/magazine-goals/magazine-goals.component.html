@@ -1,7 +1,16 @@
-<section class="container-fluid my-4 px-5 py-4">
+<section class="py-4">
+  <div class="container-fluid">
+      <div class="web-container">
+          <div class="row rtl">
+              <div class="col-lg-9">
+                <app-magazine-goals-list [goals]="goals"></app-magazine-goals-list>
 
-  <app-magazine-goals-list [goals]="goals"></app-magazine-goals-list>
-
-  <app-mission-and-vision [information]="magazine_information"></app-mission-and-vision>
-
+                <app-mission-and-vision [information]="magazine_information"></app-mission-and-vision>
+              </div>
+              <div class="col-lg-3">
+                  <app-most-viewed [padding]="'py-4'" [position]="'position-sticky sticky'"></app-most-viewed>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>

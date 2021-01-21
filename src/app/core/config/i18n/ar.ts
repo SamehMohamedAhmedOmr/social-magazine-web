@@ -36,7 +36,7 @@ export const locale = {
       MY_ARTICLE: 'مقالاتي',
       LOGOUT: 'تسجيل الخروج',
       LAST_NEWS: 'آخر الأخبار',
-      MOST_ARTICLE_VIEWED: 'أكثر المقالات مشاهدًة',
+      MOST_NEWS_VIEWED: 'أكثر الأخبار مشاهدًة',
       MOST_ARTICLE_DOWNLOADED : 'أكثر المقالات تحميلًا',
       NEWS:'الأخبار',
     },

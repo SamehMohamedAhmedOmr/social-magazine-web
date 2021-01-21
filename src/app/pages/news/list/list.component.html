@@ -1,1 +1,19 @@
-<p>list works!</p>
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="web-container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <app-section-title [icon]="'far fa-newspaper'"
+                      [main_title]="'الاخبار'"
+                      [is_section_title]="false">
+                    </app-section-title>
+
+                    <app-view-news-photos></app-view-news-photos>
+                </div>
+                <div class="col-lg-3">
+                    <app-most-viewed [padding]="'py-4'" [position]="'position-sticky sticky'"></app-most-viewed>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>

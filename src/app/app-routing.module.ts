@@ -68,6 +68,26 @@ const routes: Routes = [
     loadChildren: () => import('./pages/news/news.module').then(m => m.NewsModule)
   },
 
+  {
+    path: UrlName.activities(),
+    loadChildren: () => import('./pages/activities/activities.module').then(m => m.ActivitiesModule)
+  },
+
+  {
+    path: UrlName.events(),
+    loadChildren: () => import('./pages/events/events.module').then(m => m.EventsModule)
+  },
+
+  {
+    path: UrlName.videos(),
+    loadChildren: () => import('./pages/videos/videos.module').then(m => m.VideosModule)
+  },
+
+  {
+    path: UrlName.photos(),
+    loadChildren: () => import('./pages/photos/photos.module').then(m => m.PhotosModule)
+  },
+
   // // article
   // {
   //   path: UrlName.article(),

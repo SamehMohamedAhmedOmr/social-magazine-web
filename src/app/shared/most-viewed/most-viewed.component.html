@@ -1,0 +1,38 @@
+<aside class="{{padding}} {{position}}">
+  <div class="most-viewed">
+    <app-section-title [main_title]="'PAGES.MOST_NEWS_VIEWED' | translate" [is_section_title]="false">
+    </app-section-title>
+
+    <div class="d-flex flex-column align-items-center">
+      <div class="mb-4 my-container">
+
+        <div class="row py-3 view-item" *ngFor="let singleNews of most_viewed_news">
+          <div class="col-xl-5 col-md-5 view-img-container">
+            <div class="">
+              <a [routerLink]="detailsUrl(singleNews.slug)">
+                <img class="view-img"
+                      src="{{ singleNews.images[0] }}"
+                      onerror="this.src = '../../../assets/images/default.jpg'"
+                      alt="">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-xl-7 col-md-7">
+            <div class="py-2 py-md-0 text-left view-content">
+              <div class="">
+                <a [routerLink]="detailsUrl(singleNews.slug)" class="link">
+                  <h4 class="mini-title ">
+                    {{ singleNews.title }}
+                  </h4>
+                </a>
+              </div>
+              <div class="most-content">
+                <i class="fas fa-eye pr-2"></i> <span>{{ singleNews.views }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

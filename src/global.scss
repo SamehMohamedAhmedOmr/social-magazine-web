@@ -11,6 +11,14 @@
   color: var(--third-color);
 }
 
+.forth-color{
+  color: var(--forth-color);
+}
+
+.fifth-color{
+  color: var(--fifth-color);
+}
+
 .back-ground1{
   background-color: var(--background-1);
 }
@@ -42,6 +50,12 @@
 .web-container{
   padding: 12px 48px;
 }
+
+@media screen and (max-width: 768px){
+  .web-container{
+    padding: 0px 0px;
+  }
+}
 h3{
   font-size: 1.4rem !important;
 }
@@ -49,35 +63,6 @@ h3{
 p{
   font-size: 1.1rem !important;
   line-height: 1.5;
-}
-
-.title-box{
-
-  .title{
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--title-color);
-  }
-
-  .title-border{
-    position: relative;
-    width: 100px;
-    height: 3px;
-    border-radius: 10px;
-    background-color: var(--title-after-color);
-    margin: -2px auto;
-    &:before{
-      content: "";
-      position: absolute;
-      margin: 0 auto;
-      left: 0;
-      right: 0;
-      border-top: 2px solid var(--title-after-color);
-      top: 5px;
-      padding: 4px 0 5px;
-      width: 40px;
-    }
-  }
 }
 
 .nav-link{
