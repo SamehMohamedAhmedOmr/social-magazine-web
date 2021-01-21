@@ -1,0 +1,22 @@
+.text-container{
+
+    .view-title{
+        font-size: 1.5rem;
+        color: var(--black-color);
+        transition: all .2s ease-in-out;
+
+        h3{
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        &:hover{
+            color: var(--main-color);
+        }
+    }
+
+    span{
+        font-size: 0.9rem;
+        margin-right: 15px;
+    }
+}

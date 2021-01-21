@@ -1,5 +1,10 @@
 <section class="py-4 mx-md-5">
-    <div class="row rtl">
+    <app-section-title [icon]="'far fa-calendar-check'"
+                      [main_title]="'الفعاليات'"
+                      [is_section_title]="false">
+    </app-section-title>
+
+    <div class="row rtl pt-3">
         <div class="col-12 mb-5" *ngFor="let event of events">
             <div class="row rtl">
                 <div class="col-8">

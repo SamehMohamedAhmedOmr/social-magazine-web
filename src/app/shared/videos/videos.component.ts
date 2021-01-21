@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class VideosComponent implements OnInit {
 
   @Input() link:string = null;
+  @Input() height:string = null;
 
   constructor() { }
 
