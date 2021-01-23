@@ -1,14 +1,14 @@
 <section aria-label="goals" *ngIf="goals" class="portfolio-item mb-5">
-  
-  <app-section-title [icon]="'fas fa-bullseye'"
+
+  <app-section-title [icon]="'fas fa-coins'"
                       [main_title]="'Components.MAGAZINE_GOAL.name' | translate"
                       [is_section_title]="false">
   </app-section-title>
 
-  <ol class="text-left">
+  <ul class="text-left ul-listing">
     <li *ngFor="let goal of goals">
       <p class="description" [innerHTML]="goal.content"></p>
     </li>
-  </ol>
+  </ul>
 
 </section>
