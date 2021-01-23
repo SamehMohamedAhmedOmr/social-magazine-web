@@ -47,7 +47,6 @@ import {ArticlePreviewComponent} from './article/article-preview/article-preview
 import {PreviewCellComponent} from './article/article-preview/preview-cell/preview-cell.component';
 import {TitleComponent} from './title/title.component';
 import {MostViewedComponent} from './most-viewed/most-viewed.component';
-import {ViewNewsPhotosComponent} from './view-news-photos/view-news-photos.component';
 import {VideosComponent} from './videos/videos.component';
 import {VideoPlayerComponent} from './video-player/video-player.component';
 import {YouTubePlayerModule} from '@angular/youtube-player';
@@ -64,7 +63,8 @@ import {YouTubePlayerModule} from '@angular/youtube-player';
     BasicComponent, InfoComponent, AuthorComponent,
     SuggestedJudgeComponent, AttachmentsComponent,
     ConfirmComponent, AttachmentsListComponent,
-    AuthorsListComponent, JudgesListComponent, ArticlePreviewComponent, PreviewCellComponent, TitleComponent, MostViewedComponent, ViewNewsPhotosComponent, VideosComponent, VideoPlayerComponent
+    AuthorsListComponent, JudgesListComponent, ArticlePreviewComponent,
+    PreviewCellComponent, TitleComponent, MostViewedComponent, VideosComponent, VideoPlayerComponent
   ],
   entryComponents: [
     DeleteModalComponent,
@@ -99,7 +99,6 @@ import {YouTubePlayerModule} from '@angular/youtube-player';
     ArticlePreviewComponent,
     MostViewedComponent,
     TitleComponent,
-    ViewNewsPhotosComponent,
     VideosComponent,
   ],
   imports: [
