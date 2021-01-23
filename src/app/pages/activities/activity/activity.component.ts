@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { UrlName } from 'src/app/core/global/url.name';
+import {ActivatedRoute, Router} from '@angular/router';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {AuthNoticeService} from '../../../core/services/auth-notice.service';
+import {ActivityModel} from '../../../core/models/section-module/activity.model';
+import {ActivitiesService} from '../../../core/services/Section-Module/activities.service';
 
 @Component({
   selector: 'app-activity',
@@ -8,42 +13,31 @@ import { UrlName } from 'src/app/core/global/url.name';
 })
 export class ActivityComponent implements OnInit {
 
-  activities = [
-    { content: 'مركز رسالة الطبي والذي يضم  نخبة من امهر الأطباء بمختلف التخصصات',
-      title: 'المشروعات الطبية', slug: 'slug', images: 'assets/images/slid1.jpg',
-      created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'مركز رسالة الطبي والذي يضم  نخبة من امهر الأطباء بمختلف التخصصات',
-      title: 'المشروعات الطبية', slug: 'slug', images: 'assets/images/slid5.jpg',
-      created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'مركز رسالة الطبي والذي يضم  نخبة من امهر الأطباء بمختلف التخصصات',
-      title: 'المشروعات الطبية', slug: 'slug', images: 'assets/images/slid6.jpg',
-      created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'مركز رسالة الطبي والذي يضم  نخبة من امهر الأطباء بمختلف التخصصات',
-      title: 'المشروعات الطبية', slug: 'slug', images: 'assets/images/slid2.jpg',
-      created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'مركز رسالة الطبي والذي يضم  نخبة من امهر الأطباء بمختلف التخصصات',
-      title: 'المشروعات الطبية', slug: 'slug', images: 'assets/images/slid7.jpg',
-      created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'مركز رسالة الطبي والذي يضم  نخبة من امهر الأطباء بمختلف التخصصات',
-      title: 'المشروعات الطبية', slug: 'slug', images: 'assets/images/slid3.jpg',
-      created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'مركز رسالة الطبي والذي يضم  نخبة من امهر الأطباء بمختلف التخصصات',
-      title: 'المشروعات الطبية', slug: 'slug', images: 'assets/images/slie9.jpg',
-      created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'مركز رسالة الطبي والذي يضم  نخبة من امهر الأطباء بمختلف التخصصات',
-      title: 'المشروعات الطبية', slug: 'slug', images: 'assets/images/slid8.jpg',
-      created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'مركز رسالة الطبي والذي يضم  نخبة من امهر الأطباء بمختلف التخصصات',
-      title: 'المشروعات الطبية', slug: 'slug', images: 'assets/images/slid4.jpg',
-      created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'مركز رسالة الطبي والذي يضم  نخبة من امهر الأطباء بمختلف التخصصات',
-      title: 'المشروعات الطبية', slug: 'slug', images: 'assets/images/slid0.jpg',
-      created_at: 'يناير 9 @ 10:00 ص' }
-  ];
+  activities:ActivityModel[] = [];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private service:ActivitiesService,
+              private ngxService: NgxUiLoaderService,
+              private authNoticeService: AuthNoticeService,
+              private router:Router,
+              private cdr:ChangeDetectorRef) {
+  }
 
   ngOnInit(): void {
+    this.get();
+  }
+
+  private get() {
+    this.ngxService.start();
+    this.service.list(null).subscribe(
+      (data) => {
+        this.activities = data;
+        this.ngxService.stop();
+      } , error => {
+        console.log(error);
+        // this.router.navigate(['/'],).then();
+      }
+    );
   }
 
   detailsUrl(slug){

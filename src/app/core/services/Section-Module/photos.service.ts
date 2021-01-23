@@ -15,7 +15,7 @@ export class PhotosService extends BaseService<PhotosModel> {
 		super(
 			Http,
 			environment.url(),
-			'admins/photos',
+			'photos',
 			new PhotosSerializer());
 	}
 

@@ -15,7 +15,7 @@ export class ActivitiesService extends BaseService<ActivityModel> {
 		super(
 			Http,
 			environment.url(),
-			'admins/activities',
+			'activities',
 			new ActivitiesSerializer());
 	}
 
