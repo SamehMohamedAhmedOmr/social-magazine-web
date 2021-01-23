@@ -44,7 +44,7 @@
   <li class="icon-container">
     <i class="fa fa-print print-icon" aria-hidden="true"></i>
   </li>
-  <li class="icon-container">
+  <li class="icon-container" *ngIf="magazine_information">
     <a href="{{magazine_information.magazine_link}}" class="my-btn" target="_blank">المجلة العلمية</a>
   </li>
 </ul>
