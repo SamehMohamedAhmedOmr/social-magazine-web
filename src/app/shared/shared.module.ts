@@ -63,7 +63,8 @@ import {YouTubePlayerModule} from '@angular/youtube-player';
     BasicComponent, InfoComponent, AuthorComponent,
     SuggestedJudgeComponent, AttachmentsComponent,
     ConfirmComponent, AttachmentsListComponent,
-    AuthorsListComponent, JudgesListComponent, ArticlePreviewComponent, PreviewCellComponent, TitleComponent, MostViewedComponent, VideosComponent, VideoPlayerComponent
+    AuthorsListComponent, JudgesListComponent, ArticlePreviewComponent,
+    PreviewCellComponent, TitleComponent, MostViewedComponent, VideosComponent, VideoPlayerComponent
   ],
   entryComponents: [
     DeleteModalComponent,
