@@ -42,7 +42,13 @@
   </li> -->
 
   <li class="icon-container">
-    <i class="fa fa-print print-icon" aria-hidden="true"></i>
+    <button printSectionId="app"
+            class="print-btn"
+            [useExistingCss]="true"
+            ngxPrint>
+      <i class="fa fa-print print-icon" aria-hidden="true"></i>
+    </button>
+
   </li>
   <li class="icon-container" *ngIf="magazine_information">
     <a href="{{magazine_information.magazine_link}}" class="my-btn" target="_blank">المجلة العلمية</a>

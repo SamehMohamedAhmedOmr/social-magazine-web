@@ -26,6 +26,7 @@ import {VisitorCountComponent} from './layout/footer/visitor-count/visitor-count
 import {ToastNoAnimationModule, ToastrModule} from 'ngx-toastr';
 import {MatPaginatorIntl} from '@angular/material/paginator';
 import {getPaginatorIntl} from './core/config/paginatior.language';
+import {NgxPrintModule} from 'ngx-print';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import {getPaginatorIntl} from './core/config/paginatior.language';
     NgxUiLoaderModule,
     ToastrModule.forRoot(), // ToastrModule added
     ToastNoAnimationModule.forRoot(),
-
+    NgxPrintModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
