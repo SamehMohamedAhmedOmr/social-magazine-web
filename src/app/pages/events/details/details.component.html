@@ -1,21 +1,27 @@
-<div class="px-5 py-4 rtl" *ngIf="model">
+<kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
+
+<div [hidden]="isLoadingResults">
+  <div class="px-5 py-4 rtl" *ngIf="model">
     <div class="mb-3">
-      
+
       <div class="my-card-title pb-5">
         <h3 class="">{{ model.title }}</h3>
       </div>
-  
-      <app-image-slider [images]="model.images"></app-image-slider>
-  
-      <div class="card-body">
-        <p class="card-text" [innerHTML]="model.content"></p>
+
+      <div class="d-flex justify-content-end mb-3">
         <p class="card-text">
-          <small class="text-muted">
-            <i class="fa fa-eye mx-2"></i>
-            <span>{{ model.views }}</span>
-            <span> {{'COMMON.view' | translate }}</span>
+          <small class="text-muted font-weight-bold">
+            {{ model.created_at }}
           </small>
         </p>
       </div>
+
+      <app-image-slider [images]="model.images"></app-image-slider>
+
+      <div class="card-body">
+        <p class="card-text" [innerHTML]="model.content"></p>
+      </div>
     </div>
   </div>
+
+</div>

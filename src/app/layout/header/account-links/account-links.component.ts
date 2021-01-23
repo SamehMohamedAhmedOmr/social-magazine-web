@@ -19,11 +19,11 @@ import {HomeService} from '../../../core/services/Section-Module/Home.service';
 })
 export class AccountLinksComponent implements OnInit {
 
-  profile:ProfileModel;
-  homeModel:HomeModel;
-  magazine_information:MagazineInformationModel;
+  profile: ProfileModel;
+  homeModel: HomeModel;
+  magazine_information: MagazineInformationModel;
 
-  constructor(public localStorageService :LocalStorageService,
+  constructor(public localStorageService: LocalStorageService,
               private toastr: ToastrService,
               private profileService: ProfileService,
               private homeService: HomeService,
@@ -38,9 +38,9 @@ export class AccountLinksComponent implements OnInit {
     this.subscribeHomeAPI();
   }
 
-  private profileSubscribe(){
+  private profileSubscribe() {
     this.profileService.content.subscribe(model => {
-      if (model){
+      if (model) {
         this.profile = model;
       }
     });
@@ -48,26 +48,26 @@ export class AccountLinksComponent implements OnInit {
 
   subscribeHomeAPI() {
     this.homeService.content.subscribe(model => {
-      if (model){
+      if (model) {
         this.homeModel = model;
         this.magazine_information = this.homeModel.magazine_information;
       }
     });
   }
 
-  getLoginPage(){
+  getLoginPage() {
     return '/' + UrlName.login();
   }
 
-  getRegister(){
+  getRegister() {
     return '/' + UrlName.register();
   }
 
-  getProfile(){
+  getProfile() {
     return '/' + UrlName.profile();
   }
 
-  getMyArticle(){
+  getMyArticle() {
     return '/' + UrlName.myArticle();
   }
 
@@ -92,4 +92,9 @@ export class AccountLinksComponent implements OnInit {
       this.ngxService.stop();
     });
   }
+
+  print() {
+
+  }
+
 }

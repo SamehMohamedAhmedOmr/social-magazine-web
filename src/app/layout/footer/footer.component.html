@@ -57,7 +57,11 @@
       <span class="d-block">
         {{ 'footer.copyright' | translate }}
         <i class="far fa-copyright mx-2"></i>
-        <strong class="forth-color">{{ 'BASIC.APP_NAME' | translate }}</strong>
+        <strong>
+          <a class="app_name" [routerLink]="getHomeLink()">
+            {{ 'BASIC.APP_NAME' | translate }}
+          </a>
+        </strong>
         {{ 'footer.all_right_saved' | translate }}
       </span>
     </div>

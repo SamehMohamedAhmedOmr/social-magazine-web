@@ -15,7 +15,7 @@ export class EventsService extends BaseService<EventsModel> {
 		super(
 			Http,
 			environment.url(),
-			'admins/events',
+			'events',
 			new EventsSerializer());
 	}
 

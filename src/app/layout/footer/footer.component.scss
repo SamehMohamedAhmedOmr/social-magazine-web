@@ -1,55 +1,63 @@
-
 //Vars
 
 $backGroundFooter: #35322d;
-$copyrightFooter: #262a30;
+$copyrightFooter: var(--sub-color);
 
-.footer{
-    background-color: var(--lite-black);
+.footer {
+  background-color: var(--light-blue);
 }
 
-.main-footer{
-    color: var(--second-color);
-    h3{
-      font-weight: bold;
-    }
+.main-footer {
+  color: var(--second-color);
 
-    ul{
-        padding: 0;
-        list-style-type: none;
-        li{
-            padding: 6px 0;
-            span{
-                margin-right: 6px;
-            }
+  h3 {
+    font-weight: bold;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      padding: 6px 0;
+
+      span {
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .social-icons {
+    .social-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $copyrightFooter;
+      }
+
+      a {
+        color: var(--second-color);
+
+        i {
+          padding: 3px 10px;
         }
+      }
     }
-
-    .social-icons{
-        .social-icon{
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.2s ease-in-out;
-
-            &:hover{
-                background-color: $copyrightFooter;
-            }
-
-            a{
-                color: var(--second-color);
-
-                i{
-                    padding: 3px 10px;
-                }
-            }
-        }
-    }
+  }
 }
 
-.copyright-footer{
-    background-color: $copyrightFooter;
+.copyright-footer {
+  background-color: $copyrightFooter;
+}
+
+.app_name{
+  color: #a0a5c9;
+  text-transform: none;
+  text-decoration: none;
 }

@@ -50,6 +50,7 @@ import {MostViewedComponent} from './most-viewed/most-viewed.component';
 import {VideosComponent} from './videos/videos.component';
 import {VideoPlayerComponent} from './video-player/video-player.component';
 import {YouTubePlayerModule} from '@angular/youtube-player';
+import { NoDataComponent } from './no-data/no-data.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import {YouTubePlayerModule} from '@angular/youtube-player';
     SuggestedJudgeComponent, AttachmentsComponent,
     ConfirmComponent, AttachmentsListComponent,
     AuthorsListComponent, JudgesListComponent, ArticlePreviewComponent,
-    PreviewCellComponent, TitleComponent, MostViewedComponent, VideosComponent, VideoPlayerComponent
+    PreviewCellComponent, TitleComponent, MostViewedComponent, VideosComponent, VideoPlayerComponent, NoDataComponent
   ],
   entryComponents: [
     DeleteModalComponent,
@@ -100,6 +101,7 @@ import {YouTubePlayerModule} from '@angular/youtube-player';
     MostViewedComponent,
     TitleComponent,
     VideosComponent,
+    NoDataComponent,
   ],
   imports: [
     CommonModule,

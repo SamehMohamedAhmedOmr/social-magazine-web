@@ -1,6 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import { UrlName } from 'src/app/core/global/url.name';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UrlName} from 'src/app/core/global/url.name';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {AuthNoticeService} from '../../../core/services/auth-notice.service';
+import {MagazineNewsModel} from '../../../core/models/section-module/magazine.news.model';
+import {MagazineNewsService} from '../../../core/services/Section-Module/magazine.news.service';
 
 @Component({
   selector: 'app-list',
@@ -9,29 +13,36 @@ import { UrlName } from 'src/app/core/global/url.name';
 })
 export class ListComponent implements OnInit {
 
-  news = [
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid1.jpg', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid2.jpg', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid3.jpg', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid4.jpg', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid5.jpg', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid6.jpg', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid7.jpg', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid8.jpg', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid9.jpg', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid10.jpg', created_at: '22 ديسمبر، 2020' },
-    
-  ];
+  news: MagazineNewsModel[] = [];
+  isLoadingResults:boolean = true;
 
-  constructor(private router:Router) {
-    
+  constructor(private route: ActivatedRoute,
+              private service: MagazineNewsService,
+              private ngxService: NgxUiLoaderService,
+              private authNoticeService: AuthNoticeService,
+              private router: Router,
+              private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
+    this.get();
   }
 
-  detailsUrl(slug){
-    return  '/' + UrlName.news() + '/' + slug;
+  private get() {
+    this.isLoadingResults = true;
+    this.service.list(null).subscribe(
+      (data) => {
+        this.news = data;
+        this.isLoadingResults = false;
+        this.cdr.markForCheck();
+      }, error => {
+        this.router.navigate(['/'],).then();
+      }
+    );
+  }
+
+  detailsUrl(slug) {
+    return '/' + UrlName.news() + '/' + slug;
   }
 
 }

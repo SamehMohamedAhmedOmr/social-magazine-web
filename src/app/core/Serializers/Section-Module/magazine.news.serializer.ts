@@ -24,11 +24,14 @@ export class MagazineNewsSerializer extends BaseSerializer implements Serializer
 		let object = new MagazineNewsModel(null);
 
 		object.title = item.title;
-		object.content = item.content;
+    object.slug = item.slug;
+
+    object.content = item.content;
     object.views = item.views;
 
 		object.images = item.images;
 
+		object.created_at = item.created_at;
 
 		return object;
 	}

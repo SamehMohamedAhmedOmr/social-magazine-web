@@ -15,7 +15,7 @@ export class VideosService extends BaseService<VideosModel> {
 		super(
 			Http,
 			environment.url(),
-			'admins/videos',
+			'videos',
 			new VideosSerializer());
 	}
 

@@ -14,14 +14,15 @@ export class DetailsComponent implements OnInit {
 
   slug = null;
 
-  model:MagazineNewsModel;
+  model: MagazineNewsModel;
+  isLoadingResults: boolean = true;
 
   constructor(private route: ActivatedRoute,
-              private service:MagazineNewsService,
+              private service: MagazineNewsService,
               private ngxService: NgxUiLoaderService,
               private authNoticeService: AuthNoticeService,
-              private router:Router,
-              private cdr:ChangeDetectorRef) {
+              private router: Router,
+              private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -29,18 +30,19 @@ export class DetailsComponent implements OnInit {
   }
 
   private get() {
-    this.ngxService.start();
+    this.isLoadingResults = true;
     this.route.params.subscribe((resp) => {
       this.slug = resp['slug'];
       // call api to get shipping rule
       this.service.get(this.slug).subscribe(
         (data) => {
           this.model = data;
-          this.ngxService.stop();
-        } , error => {
-          // this.router.navigate(['/'],).then();
+          this.isLoadingResults = false;
+          this.cdr.markForCheck();
+        }, error => {
+          this.router.navigate(['/'],).then();
         }
-      )
+      );
     });
   }
 

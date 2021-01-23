@@ -31,7 +31,7 @@ export class EventsSerializer extends BaseSerializer implements Serializer {
 		object.images = item.images;
 
     object.slug = item.slug;
-    object.created_at = item.created_at;
+    object.created_at = item.date;
 
 		return object;
 	}

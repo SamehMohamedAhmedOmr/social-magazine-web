@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HomeModel} from '../../core/models/section-module/home.model';
 import {HomeService} from '../../core/services/Section-Module/Home.service';
 import {MagazineInformationModel} from '../../core/models/section-module/magazine.information.model';
+import {UrlName} from '../../core/global/url.name';
 
 @Component({
   selector: 'app-footer',
@@ -25,6 +26,10 @@ export class FooterComponent implements OnInit {
         this.visitor = this.homeModel.visitors_count;
       }
     });
+  }
+
+  getHomeLink(){
+    return '/' + UrlName.home();
   }
 
 }
