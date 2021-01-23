@@ -2,8 +2,9 @@
                       [main_title]="'الصور'"
                       [is_section_title]="false">
 </app-section-title>
+<kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
 
-<section class="py-4">
+<section class="py-4" [hidden]="isLoadingResults">
     <div class="row rtl">
         <div class="col-xl-4 col-md-6" *ngFor="let photo of photos">
             <div class="mb-5">

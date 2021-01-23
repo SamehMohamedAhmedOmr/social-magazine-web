@@ -4,7 +4,9 @@
                       [is_section_title]="false">
     </app-section-title>
 
-    <div class="row rtl pt-3">
+  <kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
+
+  <div class="row rtl pt-3" [hidden]="isLoadingResults">
         <div class="col-md-6 col-xl-4" *ngFor="let video of videos">
             <div class="mb-5">
                 <div class="w-100">

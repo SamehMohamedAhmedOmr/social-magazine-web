@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { UrlName } from 'src/app/core/global/url.name';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {UrlName} from 'src/app/core/global/url.name';
+import {ActivatedRoute, Router} from '@angular/router';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {AuthNoticeService} from '../../../core/services/auth-notice.service';
+import {VideosModel} from '../../../core/models/section-module/videos.model';
+import {VideosService} from '../../../core/services/Section-Module/videos.service';
 
 @Component({
   selector: 'app-list',
@@ -8,22 +13,35 @@ import { UrlName } from 'src/app/core/global/url.name';
 })
 export class ListComponent implements OnInit {
 
-  videos = [
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', link: 'https://www.youtube.com/watch?v=gJFKgwSPU2s', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', link: 'https://www.youtube.com/watch?v=8N_aay0ddcY', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', link: 'https://www.youtube.com/watch?v=1p_DqV5mjM4', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', link: 'https://www.youtube.com/watch?v=hiHwoITyuPg', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', link: 'https://www.youtube.com/watch?v=1p_DqV5mjM4', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', link: 'https://www.youtube.com/watch?v=8N_aay0ddcY', created_at: '22 ديسمبر، 2020' },
-    { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', link: 'https://www.youtube.com/watch?v=hiHwoITyuPg', created_at: '22 ديسمبر، 2020' },
-  ];
+  videos: VideosModel[] = [];
+  isLoadingResults: boolean = true;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute,
+              private service: VideosService,
+              private ngxService: NgxUiLoaderService,
+              private authNoticeService: AuthNoticeService,
+              private router: Router,
+              private cdr: ChangeDetectorRef) {
   }
 
-  detailsUrl(slug){
-    return  '/' + UrlName.videos() + '/' + slug;
+  ngOnInit(): void {
+    this.get();
+  }
+
+  private get() {
+    this.isLoadingResults = true;
+    this.service.list(null).subscribe(
+      (data) => {
+        this.videos = data;
+        this.isLoadingResults = false;
+        this.cdr.markForCheck();
+      }, error => {
+        this.router.navigate(['/'],).then();
+      }
+    );
+  }
+
+  detailsUrl(slug) {
+    return '/' + UrlName.videos() + '/' + slug;
   }
 }

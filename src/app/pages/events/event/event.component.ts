@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UrlName } from 'src/app/core/global/url.name';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UrlName} from 'src/app/core/global/url.name';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {AuthNoticeService} from '../../../core/services/auth-notice.service';
+import {EventsModel} from '../../../core/models/section-module/events.model';
+import {EventsService} from '../../../core/services/Section-Module/events.service';
 
 @Component({
   selector: 'app-event',
@@ -9,25 +13,35 @@ import { UrlName } from 'src/app/core/global/url.name';
 })
 export class EventComponent implements OnInit {
 
-  events = [
-    { content: 'ومكملين معاكم مع ثانى أسبوع من محاضرات أنوار رسالة المجانية لشهر يناير  السبت 9 يناير  محاضرات " التوحيد والخشوع "…',
-      title: 'محاضرات أنوار رسالة المجانية لشهر يناير ', slug: 'slug', images: 'assets/images/slid1.jpg', created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'ومكملين معاكم مع ثانى أسبوع من محاضرات أنوار رسالة المجانية لشهر يناير  السبت 9 يناير  محاضرات " التوحيد والخشوع "…',
-      title: 'محاضرات أنوار رسالة المجانية لشهر يناير ', slug: 'slug', images: 'assets/images/slid2.jpg', created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'ومكملين معاكم مع ثانى أسبوع من محاضرات أنوار رسالة المجانية لشهر يناير  السبت 9 يناير  محاضرات " التوحيد والخشوع "…',
-      title: 'محاضرات أنوار رسالة المجانية لشهر يناير ', slug: 'slug', images: 'assets/images/slid3.jpg', created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'ومكملين معاكم مع ثانى أسبوع من محاضرات أنوار رسالة المجانية لشهر يناير  السبت 9 يناير  محاضرات " التوحيد والخشوع "…',
-      title: 'محاضرات أنوار رسالة المجانية لشهر يناير ', slug: 'slug', images: 'assets/images/slid4.jpg', created_at: 'يناير 9 @ 10:00 ص' },
-    { content: 'ومكملين معاكم مع ثانى أسبوع من محاضرات أنوار رسالة المجانية لشهر يناير  السبت 9 يناير  محاضرات " التوحيد والخشوع "…',
-      title: 'محاضرات أنوار رسالة المجانية لشهر يناير ', slug: 'slug', images: 'assets/images/slid5.jpg', created_at: 'يناير 9 @ 10:00 ص' },
+  events: EventsModel[] = [];
+  isLoadingResults: boolean = true;
 
-  ];
-  constructor(private router:Router) { }
-
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute,
+              private service: EventsService,
+              private ngxService: NgxUiLoaderService,
+              private authNoticeService: AuthNoticeService,
+              private router: Router,
+              private cdr: ChangeDetectorRef) {
   }
 
-  detailsUrl(slug){
-    return  '/' + UrlName.events() + '/' + slug;
+  ngOnInit(): void {
+    this.get();
+  }
+
+  private get() {
+    this.isLoadingResults = true;
+    this.service.list(null).subscribe(
+      (data) => {
+        this.events = data;
+        this.isLoadingResults = false;
+        this.cdr.markForCheck();
+      }, error => {
+        this.router.navigate(['/'],).then();
+      }
+    );
+  }
+
+  detailsUrl(slug) {
+    return '/' + UrlName.events() + '/' + slug;
   }
 }
