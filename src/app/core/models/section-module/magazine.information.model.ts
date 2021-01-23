@@ -11,6 +11,7 @@ export class MagazineInformationModel extends ModelBase {
 	public email:string;
 	public postal_code:string;
 	public facebook:string;
+	public magazine_link:string;
 	public twitter:string;
 	public instgram:string;
 	public whatsapp:string;

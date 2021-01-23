@@ -2,7 +2,8 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {AuthNoticeService} from '../../../core/services/auth-notice.service';
-import {MagazineNewsService} from '../../../core/services/Section-Module/magazine.news.service';
+import {VideosService} from '../../../core/services/Section-Module/videos.service';
+import {VideosModel} from '../../../core/models/section-module/videos.model';
 
 @Component({
   selector: 'app-details',
@@ -13,10 +14,10 @@ export class DetailsComponent implements OnInit {
 
   slug = null;
 
-  model:MagazineNewsService;
+  model:VideosModel;
 
   constructor(private route: ActivatedRoute,
-              private service:MagazineNewsService,
+              private service:VideosService,
               private ngxService: NgxUiLoaderService,
               private authNoticeService: AuthNoticeService,
               private router:Router,
