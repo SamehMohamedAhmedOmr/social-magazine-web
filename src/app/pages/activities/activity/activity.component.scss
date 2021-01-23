@@ -4,6 +4,7 @@
     .activity-content{
         border: 4px solid #27318b;
         border-bottom: none;
+        height: 80%;
 
         .activity-img{
 
@@ -32,6 +33,7 @@
 
     .activity-button{
         border: 4px solid #27318b;
+        height: 20%;
 
         &:hover a{
             color: #ffffff;
@@ -43,7 +45,11 @@
             color: var(--main-color);
             font-weight: 700;
             transition: all 0.2s ease-in-out;
-            
+            text-align: center;
+            align-items: center;
+            display: flex !important;
+            justify-content: center;
+
             i{
                 font-size: 1rem;
             }

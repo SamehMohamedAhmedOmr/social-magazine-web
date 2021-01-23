@@ -23,8 +23,10 @@
           </div>
 
           <div class="content px-3">
-            <p [innerHTML]="single_event.content"></p>
-            <a [routerLink]="" class="link">للاطلاع علي المزيد ..</a>
+            <p [innerHTML]="getContent(single_event.content)"></p>
+            <a *ngIf="checkContentLength(single_event.content)"
+               [routerLink]="detailsUrl(single_event.slug)"
+               class="link">للاطلاع علي المزيد ..</a>
           </div>
         </div>
 
