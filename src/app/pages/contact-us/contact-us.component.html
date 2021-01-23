@@ -83,9 +83,32 @@
                         </span>
                       </span>
                     </div>
+
+                    <div aria-label="whatsapp"
+                         *ngIf="magazine_information.whatsapp"
+                         class="col-sm-6 col-12 mb-3">
+                      <i class="fab fa-whatsapp mx-2"></i>
+                      <span>
+                        <strong>{{ 'Components.MAGAZINE_INFORMATION.columns.whatsapp' | translate }} : </strong>
+                        <span>
+                          {{ magazine_information.whatsapp }}
+                        </span>
+                      </span>
+                    </div>
               
                   </div>
-              
+                  
+                  <div class="text-center social-icons d-flex justify-content-center">
+                    <div *ngIf="magazine_information.facebook" class="social-icon m-1">
+                      <a href="{{magazine_information.facebook}}" class="" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                    <div *ngIf="magazine_information.instgram" class="social-icon m-1">
+                      <a href="{{magazine_information.instgram}}" class="" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div *ngIf="magazine_information.twitter" class="social-icon m-1">
+                      <a href="{{magazine_information.twitter}}" class="" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                  </div>
               
                 </section>
               </div>

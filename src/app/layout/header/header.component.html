@@ -1,11 +1,23 @@
+<div class="head-header">
+  <div class="container-fluid">
+    <div *ngIf="magazine_information.whatsapp || magazine_information.facebook || magazine_information.instgram || magazine_information.twitter" class="my-container d-flex justify-content-between">
+      <div *ngIf="magazine_information.whatsapp" class="">
+        <i class="fab fa-whatsapp"></i>
+        <span>{{magazine_information.whatsapp}}</span>
+      </div>
+      <div class="">
+        <a *ngIf="magazine_information.facebook" href="{{magazine_information.facebook}}" class="" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a *ngIf="magazine_information.instgram" href="{{magazine_information.instgram}}" class="" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a *ngIf="magazine_information.twitter" href="{{magazine_information.twitter}}" class="" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark my-nav">
     <div class="container-fluid d-flex rtl">
         <a class="navbar-brand d-flex flex-column align-items-center justify-content-center rtl"
            [routerLink]="[getHomeLink()]">
             <img src="../../assets/images/logo2.png" alt="logo" class="img-logo">
-            <span class="main-Title">
-              {{ 'BASIC.APP_NAME' | translate }}
-            </span>
         </a>
         <button class="navbar-toggler rtl" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,14 +26,14 @@
         <div class="collapse navbar-collapse rtl" id="navbarNavDropdown">
             <ul class="navbar-nav rtl align-items-center nav-bar-list menu-item w-100">
 
-<!--                <li class="nav-item rtl d-lg-none d-block w-100">-->
-<!--                  <div class="form-inline w-100">-->
-<!--                    <app-account-links class="w-100"></app-account-links>-->
-<!--                  </div>-->
-<!--                  <div class="my-4">-->
-<!--                    <mat-divider></mat-divider>-->
-<!--                  </div>-->
-<!--                </li>-->
+               <li class="nav-item rtl d-lg-none d-block w-100">
+                 <div class="form-inline w-100">
+                   <app-account-links class="w-100"></app-account-links>
+                 </div>
+                 <div class="my-4">
+                   <mat-divider></mat-divider>
+                 </div>
+               </li>
 
                 <li class="nav-item rtl">
                     <a class="nav-link rtl" [routerLink]="[getHomeLink()]" routerLinkActive="active">
@@ -62,42 +74,6 @@
                   </div>
                 </li>
 
-                <!-- <li class="nav-item rtl" aria-label="WHO_IS_US">
-                  <a class="nav-link rtl" [routerLink]="[getAboutUs()]" routerLinkActive="active">
-                    {{ 'PAGES.WHO_IS_US' | translate }}
-                  </a>
-                </li>
-
-                <li class="nav-item rtl" aria-label="WHO_IS_US">
-                  <a class="nav-link rtl" [routerLink]="[magazineGoals()]" routerLinkActive="active">
-                    {{ 'Components.MAGAZINE_GOAL.name' | translate }}
-                  </a>
-                </li>
-
-                <li class="nav-item rtl" aria-label="getAdvisoryBody">
-                  <a class="nav-link rtl" [routerLink]="[getAdvisoryBody()]" routerLinkActive="active">
-                    {{ 'PAGES.ADVISORY_BODY' | translate }}
-                  </a>
-                </li>
-
-                <li class="nav-item rtl" aria-label="Publication-rule">
-                    <a class="nav-link rtl" [routerLink]="[getPublicationRules()]" routerLinkActive="active">
-                      {{ 'PAGES.PUBLICATION_RULES' | translate }}
-                    </a>
-                </li> -->
-
-                <!-- <li class="nav-item rtl" aria-label="category">
-                    <a class="nav-link rtl" [routerLink]="[getMagazineCategory()]" routerLinkActive="active">
-                      {{ 'PAGES.MAGAZINE_CATEGORY' | translate }}
-                    </a>
-                </li> -->
-
-<!--                <li class="nav-item rtl" aria-label="send Article">-->
-<!--                    <a class="nav-link rtl" [routerLink]="[getSubmitArticle()]" routerLinkActive="active">-->
-<!--                      {{ 'PAGES.SEND_ARTICLE' | translate }}-->
-<!--                    </a>-->
-<!--                </li>-->
-
                 <li class="nav-item rtl" aria-label="events">
                   <a class="nav-link rtl" [routerLink]="[getEvents()]" routerLinkActive="active">
                     الفعاليات
@@ -130,8 +106,8 @@
 
             </ul>
         </div>
-<!--        <div class="form-inline d-lg-block d-none">-->
-<!--            <app-account-links></app-account-links>-->
-<!--        </div>-->
+       <div class="form-inline d-lg-block d-none">
+           <app-account-links></app-account-links>
+       </div>
     </div>
 </nav>

@@ -10,6 +10,10 @@ export class MagazineInformationModel extends ModelBase {
 	public fax_number:string;
 	public email:string;
 	public postal_code:string;
+	public facebook:string;
+	public twitter:string;
+	public instgram:string;
+	public whatsapp:string;
 
 	constructor(id: number) {
 		super(id);

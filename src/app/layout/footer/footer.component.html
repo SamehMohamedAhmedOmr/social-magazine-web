@@ -16,6 +16,10 @@
               <i class="fas fa-print"></i>
               <span>{{ magazine_information.fax_number }}</span>
             </li>
+            <li *ngIf="magazine_information.whatsapp">
+              <i class="fab fa-whatsapp"></i>
+              <span>{{ magazine_information.whatsapp }}</span>
+            </li>
           </ul>
         </div>
         <div class="col-md-6">
@@ -29,6 +33,17 @@
               <span>{{ 'COMMON.address' | translate }} : {{ magazine_information.address }}</span>
             </li>
           </ul>
+        </div>
+      </div>
+      <div class="text-center social-icons d-flex justify-content-center">
+        <div *ngIf="magazine_information.facebook" class="social-icon">
+          <a href="{{magazine_information.facebook}}" class="" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+        <div *ngIf="magazine_information.instgram" class="social-icon">
+          <a href="{{magazine_information.instgram}}" class="" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div *ngIf="magazine_information.twitter" class="social-icon">
+          <a href="{{magazine_information.twitter}}" class="" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
     </div>

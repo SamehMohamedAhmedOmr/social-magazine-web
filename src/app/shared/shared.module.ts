@@ -100,7 +100,7 @@ import {YouTubePlayerModule} from '@angular/youtube-player';
     MostViewedComponent,
     TitleComponent,
     ViewNewsPhotosComponent,
-    VideosComponent
+    VideosComponent,
   ],
   imports: [
     CommonModule,

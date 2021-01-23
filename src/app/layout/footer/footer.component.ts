@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {HomeModel} from '../../core/models/section-module/home.model';
 import {HomeService} from '../../core/services/Section-Module/Home.service';
 import {MagazineInformationModel} from '../../core/models/section-module/magazine.information.model';
-import {TrackersModel} from '../../core/models/section-module/trackers.model';
 
 @Component({
   selector: 'app-footer',

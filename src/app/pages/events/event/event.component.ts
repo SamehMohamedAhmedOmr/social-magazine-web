@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from 'express';
+import { UrlName } from 'src/app/core/global/url.name';
 
 @Component({
   selector: 'app-event',
@@ -20,9 +22,12 @@ export class EventComponent implements OnInit {
       title: 'محاضرات أنوار رسالة المجانية لشهر يناير ', slug: 'slug', images: 'assets/images/slid5.jpg', created_at: 'يناير 9 @ 10:00 ص' },
       
   ];
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  detailsUrl(slug){
+    return  '/' + UrlName.events() + '/' + slug;
+  }
 }
