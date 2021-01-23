@@ -18,9 +18,9 @@
                             alt="">
                     </a>
                     
-                    <a [routerLink]="detailsUrl(news.slug)" class="link news-title">
+                    <a [routerLink]="detailsUrl(news.slug)" class="link news-title p-3">
                         <h3 class="mb-0">
-                        {{ news.title }}
+                        {{ calcLength(news.title) }}
                         </h3>
                     </a>
                 </div>

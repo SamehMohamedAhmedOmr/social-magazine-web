@@ -52,6 +52,27 @@ $titleFont: 1.2rem;
     }
 }
 
+@media screen and (max-width: 500px){
+    .head-header{
+        .my-container{
+            padding: 8px 0px;
+        }
+    }
+}
+
+@media screen and (max-width: 400px){
+    .head-header{
+        .my-container{
+            flex-direction: column;
+            align-items: center;
+
+            .whatsapp{
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
 // NavBar
 
 .my-nav{
