@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UrlName} from '../../core/global/url.name';
+import {HomeModel} from '../../core/models/section-module/home.model';
+import {HomeService} from '../../core/services/Section-Module/Home.service';
+import {MagazineInformationModel} from '../../core/models/section-module/magazine.information.model';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +11,21 @@ import {UrlName} from '../../core/global/url.name';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {
+  magazine_information:MagazineInformationModel;
+
+  homeModel:HomeModel;
+
+  constructor(private homeService: HomeService) { }
+
+  ngOnInit() {
+    this.homeService.content.subscribe(model => {
+      if (model){
+        this.homeModel = model;
+        this.magazine_information = this.homeModel.magazine_information;
+      }
+    });
   }
 
-  ngOnInit(): void {
-  }
 
   getHomeLink(){
     return '/' + UrlName.home();

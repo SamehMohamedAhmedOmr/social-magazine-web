@@ -1,6 +1,6 @@
 <ul class="navbar-nav rtl p-0 flex-xl-row flex-column">
 
-  <li aria-label="login"
+  <!-- <li aria-label="login"
       *ngIf="!localStorageService.getToken()"
       class="nav-item rtl d-flex justify-content-center align-items-center">
     <a class="nav-link rtl" [routerLink]="[getLoginPage()]">
@@ -39,6 +39,12 @@
         {{ 'PAGES.LOGOUT' | translate }}
       </a>
     </div>
-  </li>
+  </li> -->
 
+  <li class="icon-container">
+    <i class="fa fa-print print-icon" aria-hidden="true"></i>
+  </li>
+  <li class="icon-container" *ngIf="magazine_information">
+    <a href="{{magazine_information.magazine_link}}" class="my-btn" target="_blank">المجلة العلمية</a>
+  </li>
 </ul>

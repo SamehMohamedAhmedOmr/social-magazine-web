@@ -1,1 +1,16 @@
-<p>details works!</p>
+<div class="px-5 py-4 rtl" *ngIf="model">
+    <div class="mb-3">
+
+      <div class="my-card-title pb-5">
+        <h3 class="">{{ model.title }}</h3>
+      </div>
+
+      <div class="w-100">
+        <app-shared-videos [link]="model.link" [height]='350'></app-shared-videos>
+      </div>
+
+      <div class="card-body">
+        <p class="card-text" [innerHTML]="model.content"></p>
+      </div>
+    </div>
+  </div>

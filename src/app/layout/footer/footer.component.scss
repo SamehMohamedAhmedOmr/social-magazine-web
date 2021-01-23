@@ -24,6 +24,30 @@ $copyrightFooter: #262a30;
             }
         }
     }
+
+    .social-icons{
+        .social-icon{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                background-color: $copyrightFooter;
+            }
+
+            a{
+                color: var(--second-color);
+
+                i{
+                    padding: 3px 10px;
+                }
+            }
+        }
+    }
 }
 
 .copyright-footer{

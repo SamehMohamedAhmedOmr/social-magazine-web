@@ -12,7 +12,7 @@
 
                   <ol class="text-left">
                     <li *ngFor="let rule of rules">
-                      <p class="description">{{rule.content}}</p>
+                      <p class="description" [innerHTML]="rule.content"></p>
                     </li>
                   </ol>
               

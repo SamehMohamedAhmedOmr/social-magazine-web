@@ -114,3 +114,46 @@ ul li {
   cursor: pointer;
 }
 
+.my-btn{
+  display: inline-block;
+  padding: .375rem .75rem;
+  color: var(--white);
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .5rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--secondary-color);
+  transition: all 0.2s ease-in-out;
+
+  &:hover{
+      text-decoration: none;
+      background-color: var(--main-color);
+  }
+}
+
+.icon-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1.3rem;
+
+
+  .print-icon{
+    font-size: 2rem;
+    color: rgb(52, 58, 71);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover{
+      color: var(--secondary-color);
+      font-size: 2.3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 991.98px){
+  .icon-container{
+    margin-bottom: 7px;
+  }
+}

@@ -8,6 +8,9 @@ import {TranslateService} from '@ngx-translate/core';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ProfileService} from '../../../core/services/User-Module/profile.service';
 import {ProfileModel} from '../../../core/models/User-Module/profile.model';
+import {HomeModel} from '../../../core/models/section-module/home.model';
+import {MagazineInformationModel} from '../../../core/models/section-module/magazine.information.model';
+import {HomeService} from '../../../core/services/Section-Module/Home.service';
 
 @Component({
   selector: 'app-account-links',
@@ -17,10 +20,13 @@ import {ProfileModel} from '../../../core/models/User-Module/profile.model';
 export class AccountLinksComponent implements OnInit {
 
   profile:ProfileModel;
+  homeModel:HomeModel;
+  magazine_information:MagazineInformationModel;
 
   constructor(public localStorageService :LocalStorageService,
               private toastr: ToastrService,
               private profileService: ProfileService,
+              private homeService: HomeService,
               private router: Router,
               private ngxService: NgxUiLoaderService,
               public translateService: TranslateService,
@@ -29,12 +35,22 @@ export class AccountLinksComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileSubscribe();
+    this.subscribeHomeAPI();
   }
 
   private profileSubscribe(){
     this.profileService.content.subscribe(model => {
       if (model){
         this.profile = model;
+      }
+    });
+  }
+
+  subscribeHomeAPI() {
+    this.homeService.content.subscribe(model => {
+      if (model){
+        this.homeModel = model;
+        this.magazine_information = this.homeModel.magazine_information;
       }
     });
   }

@@ -28,6 +28,30 @@ $titleFont: 1.2rem;
     background-color: transparent;
 }
 
+// head-header
+
+.head-header{
+    background-color: #32354a;
+
+    .my-container{
+        padding: 8px 35px;
+        color: var(--white-color);
+
+        a{
+            color: var(--white-color);
+        }
+
+        i{
+            font-size: 1.1rem;
+            padding: 4px 10px;
+        }
+
+        span{
+            font-size: 1.1rem;
+        }
+    }
+}
+
 // NavBar
 
 .my-nav{
@@ -35,7 +59,7 @@ $titleFont: 1.2rem;
 }
 
 .img-logo{
-    width: 50px;
+    width: 75px;
 }
 
 .main-Title{

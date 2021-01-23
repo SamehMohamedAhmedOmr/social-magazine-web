@@ -5,13 +5,13 @@
                       [is_section_title]="false">
   </app-section-title>
 
-  <div class="pb-3 pt-2 text-center">
-    <a href="#" class="btn btn-primary" target="_blank">المجلة العلمية</a>
+  <div class="pb-3 pt-2 text-center" *ngIf="magazine_information">
+    <a href="{{magazine_information.magazine_link}}" class="my-btn" target="_blank">المجلة العلمية</a>
   </div>
 
   <ol class="text-left">
     <li *ngFor="let about of who_is_us">
-      <p class="description">{{about.content}}</p>
+      <p class="description" [innerHTML]="about.content"></p>
     </li>
   </ol>
 

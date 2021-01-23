@@ -5,28 +5,24 @@
     <div aria-label="vision"
          *ngIf="information.mission" class="portfolio-item mb-5 {{information.vision ? 'col-lg-6 col-12' : 'col-12'}}">
       <div class=" h-100">
-        <div class="title-box py-3 mb-2">
-          <h2 class="text-center title">
-            {{ 'Components.MAGAZINE_INFORMATION.columns.mission' | translate }}
-          </h2>
-          <div class="title-border"></div>
-        </div>
+        <app-section-title [icon]="'fas fa-paper-plane'"
+                      [main_title]="'Components.MAGAZINE_INFORMATION.columns.mission' | translate"
+                      [is_section_title]="false">
+        </app-section-title>
 
-        <p class="description text-center">{{information.mission}}</p>
+        <p class="description text-center" [innerHTML]="information.mission"></p>
       </div>
     </div>
 
     <div aria-label="mission"
          *ngIf="information.vision" class="portfolio-item mb-5 {{information.mission ? 'col-lg-6 col-12' : 'col-12'}}">
       <div class=" h-100">
-        <div class="title-box py-3 mb-2">
-          <h2 class="text-center title">
-            {{ 'Components.MAGAZINE_INFORMATION.columns.vision' | translate }}
-          </h2>
-          <div class="title-border"></div>
-        </div>
+        <app-section-title [icon]="'fas fa-paper-plane'"
+                      [main_title]="'Components.MAGAZINE_INFORMATION.columns.vision' | translate"
+                      [is_section_title]="false">
+        </app-section-title>
 
-        <p class="description text-center">{{information.vision}}</p>
+        <p class="description text-center" [innerHTML]="information.vision"></p>
       </div>
     </div>
 

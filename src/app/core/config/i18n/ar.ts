@@ -129,6 +129,7 @@ export const locale = {
 					mission: 'الرسالة',
 					fax_number: 'رقم الفاكس',
 					postal_code: 'الكود البريدي',
+					whatsapp: 'واتساب',
 				}
 			},
 
@@ -185,7 +186,7 @@ export const locale = {
 		},
 
 		BASIC:{
-			APP_NAME : 'مجلة مستقبل العلوم الاجتماعية',
+			APP_NAME : 'الجمعية العربية للتنمية البشرية والبيئية',
 			ADMIN_PANEL : "لوحة التحكم",
 		},
 

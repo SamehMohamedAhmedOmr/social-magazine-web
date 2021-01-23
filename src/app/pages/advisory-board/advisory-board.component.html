@@ -12,7 +12,7 @@
 
                   <ol class="text-left">
                     <li *ngFor="let advisory of advisory_bodies">
-                      <p class="description">{{advisory.job}} / {{ advisory.name }}</p>
+                      <p class="description" [innerHTML]="advisory.job +'/'+ advisory.name"></p>
                     </li>
                   </ol>
               

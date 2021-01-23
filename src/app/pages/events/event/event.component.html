@@ -5,30 +5,30 @@
     </app-section-title>
 
     <div class="row rtl pt-3">
-        <div class="col-12 mb-5" *ngFor="let event of events">
+        <div class="col-12 mb-5" *ngFor="let single_event of events">
             <div class="row rtl">
                 <div class="col-8">
                     <div class="head mb-4">
                         <div class="title">
-                            <a [routerLink]=""  class="link">
-                                <h3 class="mb-2">{{event.title}}</h3>
+                            <a [routerLink]="detailsUrl(single_event.slug)" class="link">
+                                <h3 class="mb-2">{{single_event.title}}</h3>
                             </a>
                         </div>
-        
+
                         <div class="timeslot">
-                            <span class="">{{event.created_at}}</span>
+                            <span class="">{{single_event.created_at}}</span>
                         </div>
                     </div>
 
                     <div class="content px-3">
-                        <p class="">{{event.content}}</p>
+                        <p class="">{{single_event.content}}</p>
                         <a [routerLink]="" class="link">للاطلاع علي المزيد ..</a>
                     </div>
                 </div>
 
                 <div class="col-4">
-                    <img src="{{this.event.images}}" alt="" class="img-fluid event-img">
-                </div>                
+                    <img src="{{single_event.images}}" alt="" class="img-fluid event-img">
+                </div>
             </div>
         </div>
     </div>
