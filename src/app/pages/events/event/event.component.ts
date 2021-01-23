@@ -44,4 +44,13 @@ export class EventComponent implements OnInit {
   detailsUrl(slug) {
     return '/' + UrlName.events() + '/' + slug;
   }
+
+  getContent(text){
+    return (text.length > 400) ? text.substring(0, 400) + ' ......' : text;
+  }
+
+  checkContentLength(text){
+    return (text.length > 400);
+  }
+
 }
