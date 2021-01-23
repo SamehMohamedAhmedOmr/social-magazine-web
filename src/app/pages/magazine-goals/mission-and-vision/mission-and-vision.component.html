@@ -10,7 +10,7 @@
                       [is_section_title]="false">
         </app-section-title>
 
-        <p class="description text-center">{{information.mission}}</p>
+        <p class="description text-center" [innerHTML]="information.mission"></p>
       </div>
     </div>
 
@@ -22,7 +22,7 @@
                       [is_section_title]="false">
         </app-section-title>
 
-        <p class="description text-center">{{information.vision}}</p>
+        <p class="description text-center" [innerHTML]="information.vision"></p>
       </div>
     </div>
 

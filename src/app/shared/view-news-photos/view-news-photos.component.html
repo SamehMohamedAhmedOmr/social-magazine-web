@@ -1,12 +1,12 @@
 <section class="py-4">
     <div class="row rtl">
-        <div class="col-xl-4 col-md-6" *ngFor="let photo of news_photos">
+        <div class="col-xl-4 col-md-6" *ngFor="let model of models">
             <div class="mb-5">
                 <div class="img-contanier">
-                    <a [routerLink]="">
+                    <a [routerLink]="detailsUrl(model.slug)">
                         <div class="img-wrap"></div>
                         <img class="img-fluid view-img"
-                            src="{{this.photo.images}}"
+                            src="{{model.images}}"
                             onerror="this.src = '../../../assets/images/default.jpg'"
                             alt="">
                     </a>
@@ -14,11 +14,11 @@
                 <div class="text-container py-4">
                     <a [routerLink]="" class="link view-title">
                         <h3 class="">
-                        {{ photo.title }}
+                        {{ model.title }}
                         </h3>
                     </a>
                     <span class="lead">
-                        {{ photo.created_at }}
+                        {{ model.created_at }}
                     </span>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UrlName } from 'src/app/core/global/url.name';
 
 @Component({
   selector: 'app-list',
@@ -22,4 +23,7 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  detailsUrl(slug){
+    return  '/' + UrlName.videos() + '/' + slug;
+  }
 }

@@ -12,7 +12,7 @@
 
                   <ol class="text-left">
                     <li *ngFor="let category of categories" class="mb-3 p-4">
-                      <p class="description">{{category.content}}</p>
+                      <p class="description" [innerHTML]="category.content"></p>
                       <div *ngIf="category.images" class="text-right">
                         <button class="btn btn-dark"
                                 (click)="openGalleryDialog(category.images)">

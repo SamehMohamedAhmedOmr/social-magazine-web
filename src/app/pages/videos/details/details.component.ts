@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {AuthNoticeService} from '../../../core/services/auth-notice.service';
+import {MagazineNewsService} from '../../../core/services/Section-Module/magazine.news.service';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  slug = null;
 
-  ngOnInit(): void {
+  model:MagazineNewsService;
+
+  constructor(private route: ActivatedRoute,
+              private service:MagazineNewsService,
+              private ngxService: NgxUiLoaderService,
+              private authNoticeService: AuthNoticeService,
+              private router:Router,
+              private cdr:ChangeDetectorRef) {
   }
 
+  ngOnInit(): void {
+    this.get();
+  }
+
+  private get() {
+    this.ngxService.start();
+    this.route.params.subscribe((resp) => {
+      this.slug = resp['slug'];
+      // call api to get shipping rule
+      this.service.get(this.slug).subscribe(
+        (data) => {
+          this.model = data;
+          this.ngxService.stop();
+        } , error => {
+          // this.router.navigate(['/'],).then();
+        }
+      )
+    });
+  }
 }

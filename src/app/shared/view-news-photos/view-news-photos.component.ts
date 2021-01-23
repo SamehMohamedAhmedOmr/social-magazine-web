@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UrlName } from 'src/app/core/global/url.name';
+import { MagazineNewsModel } from 'src/app/core/models/section-module/magazine.news.model';
 
 @Component({
   selector: 'app-view-news-photos',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-news-photos.component.scss']
 })
 export class ViewNewsPhotosComponent implements OnInit {
+
+  @Input() models: MagazineNewsModel[] = [];
 
   news_photos = [
     { content: 'lorem lom', title: 'زيارة وزيرة التضامن لتفتتح فرع الشهيد أحمد المنسي بمقر جمعية رسالة بالدقي', slug: 'slug', images: 'assets/images/slid1.jpg', created_at: '22 ديسمبر، 2020' },
@@ -24,6 +28,10 @@ export class ViewNewsPhotosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  detailsUrl(slug){
+    return  '/' + UrlName.news() + '/' + slug;
   }
 
 }

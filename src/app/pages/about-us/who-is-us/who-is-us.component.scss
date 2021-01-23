@@ -1,0 +1,17 @@
+.my-btn{
+    display: inline-block;
+    padding: .375rem .75rem;
+    color: var(--white);
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .5rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: var(--secondary-color);
+    transition: all 0.2s ease-in-out;
+
+    &:hover{
+        text-decoration: none;
+        background-color: var(--main-color);
+    }
+}

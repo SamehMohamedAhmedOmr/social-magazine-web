@@ -7,7 +7,7 @@
 
   <ol class="text-left">
     <li *ngFor="let goal of goals">
-      <p class="description">{{goal.content}}</p>
+      <p class="description" [innerHTML]="goal.content"></p>
     </li>
   </ol>
 

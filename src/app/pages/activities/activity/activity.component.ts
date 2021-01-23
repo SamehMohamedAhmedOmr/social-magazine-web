@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UrlName } from 'src/app/core/global/url.name';
 
 @Component({
   selector: 'app-activity',
@@ -45,4 +46,7 @@ export class ActivityComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  detailsUrl(slug){
+    return  '/' + UrlName.activities() + '/' + slug;
+  }
 }
