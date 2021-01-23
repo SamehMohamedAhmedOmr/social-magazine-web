@@ -36,4 +36,7 @@
       </div>
     </div>
   </div>
+
+  <app-no-data [text]="'فعاليات'" *ngIf="!events.length && !isLoadingResults"></app-no-data>
+
 </section>

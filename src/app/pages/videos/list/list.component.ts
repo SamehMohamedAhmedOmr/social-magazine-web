@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.get();
+   this.get();
   }
 
   private get() {

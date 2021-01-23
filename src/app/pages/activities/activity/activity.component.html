@@ -29,5 +29,7 @@
     </div>
   </div>
 
+  <app-no-data [text]="'انشطة'" *ngIf="!activities.length && !isLoadingResults"></app-no-data>
+
 
 </section>
