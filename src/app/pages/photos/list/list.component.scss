@@ -1,0 +1,47 @@
+.img-contanier{
+
+    position: relative;
+
+    &:hover .img-wrap{
+        opacity: 0.8;
+    }
+
+    .view-img{
+        width: 100%;
+        height: 270px
+    }
+
+    .img-wrap{
+        position: absolute;
+        width: 100%;
+        height: 270px;
+        background-color: rgba(39,49,139,0.6);
+        opacity: 0;
+        z-index: 1;
+        transition: all .2s ease-in-out;
+    }
+}
+
+
+.text-container{
+
+    .view-title{
+        font-size: 1.5rem;
+        color: var(--black-color);
+        transition: all .2s ease-in-out;
+
+        h3{
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        &:hover{
+            color: var(--main-color);
+        }
+    }
+
+    span{
+        font-size: 0.9rem;
+        margin-right: 15px;
+    }
+}

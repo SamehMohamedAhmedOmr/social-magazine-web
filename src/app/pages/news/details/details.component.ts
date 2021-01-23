@@ -38,7 +38,7 @@ export class DetailsComponent implements OnInit {
           this.model = data;
           this.ngxService.stop();
         } , error => {
-          this.router.navigate(['/'],).then();
+          // this.router.navigate(['/'],).then();
         }
       )
     });
