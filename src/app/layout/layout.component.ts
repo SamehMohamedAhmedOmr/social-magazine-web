@@ -10,7 +10,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class LayoutComponent implements OnInit {
 
 
-  loader_color = '#a98f5b';
+  loader_color = '#8d272b';
   loader_type:SpinnerType = 'rotating-plane';
   pbThickness = 5;
   pbDirection:DirectionType = 'rtl';

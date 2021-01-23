@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { UrlName } from 'src/app/core/global/url.name';
 
 @Component({
@@ -20,7 +20,7 @@ export class EventComponent implements OnInit {
       title: 'محاضرات أنوار رسالة المجانية لشهر يناير ', slug: 'slug', images: 'assets/images/slid4.jpg', created_at: 'يناير 9 @ 10:00 ص' },
     { content: 'ومكملين معاكم مع ثانى أسبوع من محاضرات أنوار رسالة المجانية لشهر يناير  السبت 9 يناير  محاضرات " التوحيد والخشوع "…',
       title: 'محاضرات أنوار رسالة المجانية لشهر يناير ', slug: 'slug', images: 'assets/images/slid5.jpg', created_at: 'يناير 9 @ 10:00 ص' },
-      
+
   ];
   constructor(private router:Router) { }
 

@@ -16,7 +16,7 @@
               <i class="fas fa-print"></i>
               <span>{{ magazine_information.fax_number }}</span>
             </li>
-            <li *ngIf="magazine_information.whatsapp">
+            <li *ngIf="magazine_information && magazine_information.whatsapp">
               <i class="fab fa-whatsapp"></i>
               <span>{{ magazine_information.whatsapp }}</span>
             </li>
@@ -35,7 +35,7 @@
           </ul>
         </div>
       </div>
-      <div class="text-center social-icons d-flex justify-content-center">
+      <div class="text-center social-icons d-flex justify-content-center" *ngIf="magazine_information">
         <div *ngIf="magazine_information.facebook" class="social-icon">
           <a href="{{magazine_information.facebook}}" class="" target="_blank"><i class="fab fa-facebook"></i></a>
         </div>

@@ -1,4 +1,4 @@
-<div class="head-header">
+<div class="head-header" *ngIf="magazine_information">
   <div class="container-fluid">
     <div *ngIf="magazine_information.whatsapp || magazine_information.facebook || magazine_information.instgram || magazine_information.twitter" class="my-container d-flex justify-content-between">
       <div *ngIf="magazine_information.whatsapp" class="">
@@ -13,6 +13,7 @@
     </div>
   </div>
 </div>
+
 <nav class="navbar navbar-expand-lg navbar-dark my-nav">
     <div class="container-fluid d-flex rtl">
         <a class="navbar-brand d-flex flex-column align-items-center justify-content-center rtl"

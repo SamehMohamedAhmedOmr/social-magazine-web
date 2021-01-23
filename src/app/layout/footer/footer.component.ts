@@ -10,7 +10,7 @@ import {MagazineInformationModel} from '../../core/models/section-module/magazin
 })
 export class FooterComponent implements OnInit {
 
-  magazine_information:MagazineInformationModel = null;
+  magazine_information:MagazineInformationModel;
   visitor:number;
 
   homeModel:HomeModel;
