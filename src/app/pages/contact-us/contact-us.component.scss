@@ -12,14 +12,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: all 0.2s ease-in-out;
-
-      &:hover{
-          background-color: var(--dark-grey);
+      
+      &:hover a{
+          color: var(--main-color);
+          font-size: 1.8rem;
       }
 
       a{
           color: var(--black-color);
+          transition: all 0.2s ease-in-out;
 
           i{
               padding: 3px 10px;
