@@ -5,6 +5,8 @@ import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {AuthNoticeService} from '../../../core/services/auth-notice.service';
 import {EventsModel} from '../../../core/models/section-module/events.model';
 import {EventsService} from '../../../core/services/Section-Module/events.service';
+import {PaginateParams} from '../../../core/models/paginateParams.interface';
+import {GlobalConfig} from '../../../core/global/global.config';
 
 @Component({
   selector: 'app-event',
@@ -16,6 +18,19 @@ export class EventComponent implements OnInit {
   events: EventsModel[] = [];
   isLoadingResults: boolean = true;
 
+  headerParams: PaginateParams = {
+    active: 1,
+    per_page: GlobalConfig.pagination_per_page,
+    search_key: null,
+    sort_key: null,
+    sort_order: 'desc',
+    next_page_index: 0,
+  };
+
+  // pagination variables
+  resultsLength = 0;
+  pageIndex = 0;
+
   constructor(private route: ActivatedRoute,
               private service: EventsService,
               private ngxService: NgxUiLoaderService,
@@ -25,15 +40,17 @@ export class EventComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.get();
+    this.get(this.headerParams);
   }
 
-  private get() {
+  private get(headerParams) {
     this.isLoadingResults = true;
+    this.headerParams = headerParams;
     this.service.list(null).subscribe(
-      (data) => {
-        this.events = data;
+      (resp) => {
+        this.events = resp;
         this.isLoadingResults = false;
+        this.resultsLength = (resp['pagination'] ? resp['pagination'].total : 0);
         this.cdr.markForCheck();
       }, error => {
         this.router.navigate(['/'],).then();
@@ -51,6 +68,13 @@ export class EventComponent implements OnInit {
 
   checkContentLength(text){
     return (text.length > 400);
+  }
+
+  // pagination data tables
+  public pagination(pageIndex) {
+    this.pageIndex = pageIndex;
+    this.headerParams.next_page_index = this.pageIndex - 1;
+    this.get(this.headerParams);
   }
 
 }

@@ -5,6 +5,7 @@ import {SharedModule} from '../../shared/shared.module';
 import {RouterModule, Routes} from '@angular/router';
 import { DetailsComponent } from './details/details.component';
 import { ListComponent } from './list/list.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 const routes: Routes = [
@@ -27,11 +28,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [NewsComponent, DetailsComponent, ListComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        SharedModule,
+        NgxPaginationModule
+    ]
 })
 export class NewsModule {
 }

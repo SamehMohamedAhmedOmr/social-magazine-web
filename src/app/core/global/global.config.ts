@@ -4,7 +4,7 @@ export class GlobalConfig {
   // tslint:disable-next-line:variable-name
   public static list_per_page = 50;
   // tslint:disable-next-line:variable-name radix
-  public static pagination_per_page: number = (parseInt(localStorage.getItem('pagination_per_page'))) ? parseInt(localStorage.getItem('pagination_per_page')) : 10;
+  public static pagination_per_page: number = (parseInt(localStorage.getItem('pagination_per_page'))) ? parseInt(localStorage.getItem('pagination_per_page')) : 6;
 
   public static setLocalStorageWithExpiry(key, Value, ttl) {
     const now = new Date();

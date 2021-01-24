@@ -7,7 +7,10 @@
   <kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
 
   <div class="row rtl pt-3" [hidden]="isLoadingResults">
-    <div class="col-12 mb-5" *ngFor="let single_event of events">
+    <div class="col-12 mb-5" *ngFor="let single_event of events | paginate: { id: 'events',
+                                                      itemsPerPage: headerParams.per_page,
+                                                      currentPage: pageIndex,
+                                                      totalItems: resultsLength }">
       <div class="row rtl">
         <div class="col-8">
           <div class="head mb-4">
@@ -37,6 +40,22 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div aria-label="pagination" *ngIf="events.length && !isLoadingResults">
+    <pagination-controls  id="events"
+                          (pageChange)="pagination($event)"
+                          (pageBoundsCorrection)="pagination($event)"
+                          maxSize="9"
+                          directionLinks="true"
+                          autoHide="false"
+                          responsive="true"
+                          previousLabel="السابق"
+                          nextLabel="التالي"
+                          screenReaderPaginationLabel="Pagination"
+                          screenReaderPageLabel="page"
+                          screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
   </div>
 
   <app-no-data [text]="'فعاليات'" *ngIf="!events.length && !isLoadingResults"></app-no-data>

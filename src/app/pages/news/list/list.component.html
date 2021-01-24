@@ -9,7 +9,10 @@
 
   <div class="row rtl" [hidden]="isLoadingResults">
 
-    <div class="col-xl-4 col-md-6" *ngFor="let single_news of news">
+    <div class="col-xl-4 col-md-6" *ngFor="let single_news of news | paginate: { id: 'news',
+                                                      itemsPerPage: headerParams.per_page,
+                                                      currentPage: pageIndex,
+                                                      totalItems: resultsLength }">
       <div class="mb-5">
         <div class="img-contanier">
           <a [routerLink]="detailsUrl(single_news.slug)">
@@ -32,8 +35,24 @@
         </div>
       </div>
     </div>
-
   </div>
+
+  <div aria-label="pagination" *ngIf="news.length && !isLoadingResults">
+    <pagination-controls  id="news"
+                          (pageChange)="pagination($event)"
+                          (pageBoundsCorrection)="pagination($event)"
+                          maxSize="9"
+                          directionLinks="true"
+                          autoHide="false"
+                          responsive="true"
+                          previousLabel="السابق"
+                          nextLabel="التالي"
+                          screenReaderPaginationLabel="Pagination"
+                          screenReaderPageLabel="page"
+                          screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+  </div>
+
 
   <app-no-data [text]="'اخبار'" *ngIf="!news.length && !isLoadingResults"></app-no-data>
 
