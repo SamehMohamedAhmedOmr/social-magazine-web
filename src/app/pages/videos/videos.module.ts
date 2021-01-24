@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 const routes: Routes = [
   {
@@ -26,10 +27,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [VideosComponent, ListComponent, DetailsComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        SharedModule,
+        NgxPaginationModule
+    ]
 })
 export class VideosModule { }

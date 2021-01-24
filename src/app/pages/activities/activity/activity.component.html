@@ -7,7 +7,10 @@
   <kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
 
   <div class="row rtl pt-3" [hidden]="isLoadingResults">
-    <div class="col-md-6 col-xl-4 mb-5" *ngFor="let activity of activities">
+    <div class="col-md-6 col-xl-4 mb-5" *ngFor="let activity of activities | paginate: { id: 'activities',
+                                                      itemsPerPage: headerParams.per_page,
+                                                      currentPage: pageIndex,
+                                                      totalItems: resultsLength }">
       <div class="activity-card h-100">
         <div class="activity-content p-4">
           <div class="activity-img py-3">
@@ -27,6 +30,22 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div aria-label="pagination" *ngIf="activities.length && !isLoadingResults">
+    <pagination-controls  id="activities"
+                          (pageChange)="pagination($event)"
+                          (pageBoundsCorrection)="pagination($event)"
+                          maxSize="9"
+                          directionLinks="true"
+                          autoHide="false"
+                          responsive="true"
+                          previousLabel="السابق"
+                          nextLabel="التالي"
+                          screenReaderPaginationLabel="Pagination"
+                          screenReaderPageLabel="page"
+                          screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
   </div>
 
   <app-no-data [text]="'انشطة'" *ngIf="!activities.length && !isLoadingResults"></app-no-data>

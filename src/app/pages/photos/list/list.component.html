@@ -7,7 +7,10 @@
 <section class="py-4">
 
   <div class="row rtl" [hidden]="isLoadingResults">
-    <div class="col-xl-4 col-md-6" *ngFor="let photo of photos">
+    <div class="col-xl-4 col-md-6" *ngFor="let photo of photos | paginate: { id: 'photos',
+                                                      itemsPerPage: headerParams.per_page,
+                                                      currentPage: pageIndex,
+                                                      totalItems: resultsLength }">
       <div class="mb-5">
         <div class="img-contanier">
           <a [routerLink]="detailsUrl(photo.slug)">
@@ -30,6 +33,22 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div aria-label="pagination" class="text-left" *ngIf="photos.length && !isLoadingResults">
+    <pagination-controls  id="photos"
+                          (pageChange)="pagination($event)"
+                          (pageBoundsCorrection)="pagination($event)"
+                          maxSize="9"
+                          directionLinks="true"
+                          autoHide="false"
+                          responsive="true"
+                          previousLabel="السابق"
+                          nextLabel="التالي"
+                          screenReaderPaginationLabel="Pagination"
+                          screenReaderPageLabel="page"
+                          screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
   </div>
 
   <app-no-data [text]="'صور'" *ngIf="!photos.length && !isLoadingResults"></app-no-data>
