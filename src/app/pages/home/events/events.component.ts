@@ -3,6 +3,7 @@ import { EventsModel } from 'src/app/core/models/section-module/events.model';
 import {HomeModel} from '../../../core/models/section-module/home.model';
 import {VideosModel} from '../../../core/models/section-module/videos.model';
 import {HomeService} from '../../../core/services/Section-Module/Home.service';
+import {UrlName} from '../../../core/global/url.name';
 
 @Component({
   selector: 'app-home-events',
@@ -26,4 +27,7 @@ export class EventsComponent implements OnInit {
     });
   }
 
+  detailsUrl(slug) {
+    return '/' + UrlName.activities() + '/' + slug;
+  }
 }
