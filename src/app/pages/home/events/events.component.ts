@@ -22,12 +22,12 @@ export class EventsComponent implements OnInit {
     this.homeService.content.subscribe(model => {
       if (model){
         this.homeModel = model;
-        this.events = this.homeModel.latest_activities
+        this.events = this.homeModel.latest_events
       }
     });
   }
 
   detailsUrl(slug) {
-    return '/' + UrlName.activities() + '/' + slug;
+    return '/' + UrlName.events() + '/' + slug;
   }
 }
