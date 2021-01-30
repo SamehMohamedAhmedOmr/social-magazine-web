@@ -1,0 +1,22 @@
+
+.testimonial{
+    background-image: linear-gradient(rgb(0, 0, 0, 0.4),rgb(0, 0, 0, 0.5)), url('../../../assets/images/overlay-bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+// Medium devices (tablets, less than 992px)
+@media (min-width: 768px) {
+  .set-border{
+    border-left: 1px solid #dee2e6 !important;
+  }
+}
+
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .set-border{
+    border-bottom: 1px solid #dee2e6 !important;
+  }
+}

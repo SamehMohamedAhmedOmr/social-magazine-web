@@ -1,0 +1,56 @@
+<ul class="navbar-nav rtl p-0 flex-xl-row flex-column">
+
+  <!-- <li aria-label="login"
+      *ngIf="!localStorageService.getToken()"
+      class="nav-item rtl d-flex justify-content-center align-items-center">
+    <a class="nav-link rtl" [routerLink]="[getLoginPage()]">
+      {{ 'PAGES.LOGIN' | translate }}
+    </a>
+  </li>
+
+  <li aria-label="register"
+      *ngIf="!localStorageService.getToken()"
+      class="nav-item rtl d-flex justify-content-center align-items-center mx-0">
+    <a class="nav-link rtl" [routerLink]="[getRegister()]">
+      {{ 'PAGES.REGISTER' | translate }}
+    </a>
+  </li>
+
+  <li aria-label="Profile"
+      *ngIf="localStorageService.getToken()"
+      class="nav-item dropdown dropdown-mine rtl d-flex justify-content-center align-items-center">
+    <a class="nav-link dropdown-toggle rtl" id="accountDropdown" role="button" data-toggle="dropdown"
+       aria-haspopup="true"
+       aria-expanded="false">
+      <img src="../../assets/images/no-avatar.png" alt="" class="img-cont rounded-circle mr-2">
+      <span class="nav-item-color">
+           {{ 'PAGES.HELLO' | translate }} {{ profile?.first_name }}
+      </span>
+    </a>
+    <div class="dropdown-menu dropdown-content rtl accountDropdown w-100" aria-labelledby="accountDropdown">
+      <a class="dropdown-item rtl text-center" [routerLink]="[getProfile()]">
+        {{ 'PAGES.ACCOUNT' | translate }}
+      </a>
+      <a class="dropdown-item rtl text-center" [routerLink]="[getMyArticle()]">
+        {{ 'PAGES.MY_ARTICLE' | translate }}
+      </a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item rtl text-center logout-btn" (click)="logout()">
+        {{ 'PAGES.LOGOUT' | translate }}
+      </a>
+    </div>
+  </li> -->
+
+  <li class="icon-container">
+    <button printSectionId="app"
+            class="print-btn"
+            [useExistingCss]="true"
+            ngxPrint>
+      <i class="fa fa-print print-icon" aria-hidden="true"></i>
+    </button>
+
+  </li>
+  <li class="icon-container" *ngIf="magazine_information">
+    <a href="{{magazine_information.magazine_link}}" class="my-btn" target="_blank">المجلة العلمية</a>
+  </li>
+</ul>

@@ -1,0 +1,32 @@
+<form class="theme-form" [formGroup]="form" autocomplete="off">
+
+  <div aria-label="email" class="form-group">
+    <mat-form-field  class="w-100">
+      <mat-label>{{ 'COMMON.email' | translate }}</mat-label>
+      <input matInput formControlName="email" placeholder="{{ 'COMMON.email' | translate }}">
+    </mat-form-field>
+
+    <kt-form-error
+      [form]="form"
+      [controlName]="'email'"
+      [validationType]="'required'"
+      [controlText]="'COMMON.email' | translate"
+    ></kt-form-error>
+  </div>
+
+  <div class="form-group">
+
+    <mat-form-field  class="w-100">
+      <mat-label>{{ 'COMMON.password' | translate }}</mat-label>
+      <input matInput type="password" formControlName="password" placeholder="{{ 'COMMON.password' | translate }}">
+    </mat-form-field>
+
+    <kt-form-error
+      [form]="form"
+      [controlName]="'password'"
+      [validationType]="'required'"
+      [controlText]="'COMMON.password' | translate"
+      [IS_F]="true"
+    ></kt-form-error>
+  </div>
+</form>

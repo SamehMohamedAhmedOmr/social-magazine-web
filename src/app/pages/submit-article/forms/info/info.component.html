@@ -1,0 +1,19 @@
+<app-article-info
+  [form]="form"
+  [keywords_ar]="keywords_ar"
+  [keywords_en]="keywords_en"
+>
+</app-article-info>
+
+<div aria-label="navigation" class="mt-5">
+
+  <button class="btn btn-dark mx-2" (click)="back()">
+    {{ 'stepper.back' | translate }}
+  </button>
+
+  <button class="btn btn-dark" (click)="submitForm()">
+    {{ 'stepper.continue' | translate }}
+  </button>
+
+</div>
+

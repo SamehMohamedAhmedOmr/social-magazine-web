@@ -1,0 +1,33 @@
+<section class="py-4">
+  <div class="container-fluid">
+      <div class="web-container">
+          <div class="row rtl">
+              <div class="col-lg-9">
+                <section aria-label="PUBLICATION_RULE" *ngIf="categories" class="portfolio-item mb-5">
+
+                  <app-section-title [icon]="'fas fa-th'"
+                      [main_title]="'Components.MAGAZINE_CATEGORY.name' | translate"
+                      [is_section_title]="false">
+                  </app-section-title>
+
+                  <ul class="text-left ul-listing">
+                    <li *ngFor="let category of categories" class="mb-3 p-4">
+                      <p class="description" [innerHTML]="category.content"></p>
+                      <div *ngIf="category.images" class="text-center">
+                        <button class="btn btn-dark"
+                                (click)="openGalleryDialog(category.images)">
+                          {{ 'COMMON.attachment' | translate }}
+                        </button>
+                      </div>
+                    </li>
+                  </ul>
+
+                </section>
+              </div>
+              <div class="col-lg-3">
+                  <app-most-viewed [padding]="'py-4'" [position]="'position-sticky sticky'"></app-most-viewed>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

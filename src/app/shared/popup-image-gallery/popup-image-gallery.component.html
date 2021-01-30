@@ -1,0 +1,22 @@
+<div class="modal-header">
+	<h3 class="modal-title font-weight-bold">
+		{{ data.title }}
+	</h3>
+	<button type="button" class="close" (click)="onNoClick()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+
+<mat-dialog-content>
+	<div class="modal-body">
+
+    <app-image-slider [images]="data.images"></app-image-slider>
+
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+	<div class="modal-footer w-100 d-flex justify-content-center">
+		<button type="button" class="btn btn-secondary" (click)="onNoClick()">{{ 'Components.Close' | translate }}</button>
+	</div>
+</mat-dialog-actions>

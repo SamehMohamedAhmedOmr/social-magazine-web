@@ -1,0 +1,85 @@
+<div class="example-container mat-elevation-z8 rtl mb-5">
+
+  <div class="alert alert-secondary">
+    {{ 'submit_article.navigation.suggested_judges' | translate }}
+  </div>
+
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- first_name Column -->
+    <ng-container matColumnDef="first_name">
+
+      <mat-header-cell *matHeaderCellDef>
+        {{ 'Components.USERS.columns.first_name' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">
+          {{ 'Components.USERS.columns.first_name' | translate }}
+        </span>
+        {{element.first_name}}
+      </mat-cell>
+
+    </ng-container>
+
+    <!-- family_name Column -->
+    <ng-container matColumnDef="family_name">
+
+      <mat-header-cell *matHeaderCellDef>
+        {{ 'Components.USERS.columns.family_name' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">
+          {{ 'Components.USERS.columns.family_name' | translate }}
+        </span>
+        {{element.family_name}}
+      </mat-cell>
+
+    </ng-container>
+
+    <!-- email Column -->
+    <ng-container matColumnDef="email">
+
+      <mat-header-cell *matHeaderCellDef>
+        {{ 'COMMON.email' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">
+          {{ 'COMMON.email' | translate }}
+        </span>
+        {{element.email}}
+      </mat-cell>
+
+    </ng-container>
+
+    <!-- options Column -->
+    <ng-container matColumnDef="options">
+
+      <mat-header-cell *matHeaderCellDef class="justify-content-center">
+        {{ 'submit_article.form.options' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element" class="justify-content-center">
+        <span class="mobile-label">
+        {{ 'submit_article.form.options' | translate }}
+        </span>
+        <button class="btn btn-outline-danger" (click)="deleteModal(element)">
+        <span>
+          {{ 'submit_article.form.delete' | translate }}
+        </span>
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </mat-cell>
+
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </table>
+
+  <kt-no-record-found [resultsLength]="dataSource.length"></kt-no-record-found>
+</div>
+

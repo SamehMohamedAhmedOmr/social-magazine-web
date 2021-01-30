@@ -1,0 +1,41 @@
+<section aria-label="basic-form" *ngIf="checkINITIAL()">
+  <app-article-basic-data
+    [article_id]="article_id"
+    [article]="article">
+  </app-article-basic-data>
+</section>
+
+<section aria-label="basic-form" *ngIf="checkKEYWORDS()">
+  <app-article-data-info
+    [article_id]="article_id"
+    [article]="article">
+  </app-article-data-info>
+</section>
+
+<section aria-label="basic-form" *ngIf="checkAUTHORS()">
+  <app-article-authors-form
+    [article_id]="article_id"
+    [article]="article">
+  </app-article-authors-form>
+</section>
+
+<section aria-label="basic-form" *ngIf="checkJUDGES()">
+  <app-article-suggested-judges-data
+    [article_id]="article_id"
+    [article]="article">
+  </app-article-suggested-judges-data>
+</section>
+
+<section aria-label="basic-form" *ngIf="checkATTACHMENTS()">
+  <app-article-attachments-data
+    [article]="article"
+    [article_id]="article_id">
+  </app-article-attachments-data>
+</section>
+
+<section aria-label="basic-form" *ngIf="checkSUBMIT()">
+  <app-article-confirm-form
+    [article_id]="article_id"
+    [article]="article">
+  ></app-article-confirm-form>
+</section>

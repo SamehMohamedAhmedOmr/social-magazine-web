@@ -1,0 +1,31 @@
+<section aria-label="mission-vision" *ngIf="information" class="w-100">
+
+  <div class="row m-0">
+
+    <div aria-label="vision"
+         *ngIf="information.mission" class="portfolio-item mb-5 {{information.vision ? 'col-lg-6 col-12' : 'col-12'}}">
+      <div class=" h-100">
+        <app-section-title [icon]="'far fa-envelope-open'"
+                      [main_title]="'Components.MAGAZINE_INFORMATION.columns.mission' | translate"
+                      [is_section_title]="false">
+        </app-section-title>
+
+        <p class="description text-center" [innerHTML]="information.mission"></p>
+      </div>
+    </div>
+
+    <div aria-label="mission"
+         *ngIf="information.vision" class="portfolio-item mb-5 {{information.mission ? 'col-lg-6 col-12' : 'col-12'}}">
+      <div class=" h-100">
+        <app-section-title [icon]="'far fa-eye'"
+                      [main_title]="'Components.MAGAZINE_INFORMATION.columns.vision' | translate"
+                      [is_section_title]="false">
+        </app-section-title>
+
+        <p class="description text-center" [innerHTML]="information.vision"></p>
+      </div>
+    </div>
+
+  </div>
+
+</section>

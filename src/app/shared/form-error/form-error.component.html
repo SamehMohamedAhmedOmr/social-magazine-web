@@ -1,0 +1,6 @@
+<div>
+	<mat-error *ngIf="isControlHasError()" class="mb-4 {{text_direction}}">
+		<strong *ngIf="!IS_F">{{ 'VALIDATION.REQUIRED' | translate: {name : controlText} }}</strong>
+		<strong *ngIf="IS_F">{{ 'VALIDATION.REQUIRED_F' | translate: {name : controlText} }}</strong>
+	</mat-error>
+</div>

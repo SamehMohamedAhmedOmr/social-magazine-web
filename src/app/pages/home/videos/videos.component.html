@@ -1,0 +1,12 @@
+<section *ngIf="videos.length">
+    <app-section-title [icon]="'fab fa-youtube'"
+                        [main_title]="'الفيديوهات'"
+                        [description]="'اخر الفيديوهات'">
+    </app-section-title>
+
+    <div class="row rtl mt-2">
+        <div class="col-lg-4 mb-4 rtl" *ngFor="let video of videos.slice(0, 3)">
+            <app-shared-videos [link]="this.video.link"></app-shared-videos>
+        </div>
+    </div>
+</section>

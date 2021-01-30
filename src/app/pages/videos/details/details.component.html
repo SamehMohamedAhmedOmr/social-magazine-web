@@ -1,0 +1,29 @@
+<kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
+
+<div [hidden]="isLoadingResults">
+  <div class="px-5 py-4 rtl" *ngIf="model">
+    <div class="mb-3">
+
+      <div class="my-card-title pb-5">
+        <h3 class="">{{ model.title }}</h3>
+      </div>
+
+      <div class="d-flex justify-content-end mb-3">
+        <p class="card-text">
+          <small class="text-muted font-weight-bold">
+            {{ model.created_at }}
+          </small>
+        </p>
+      </div>
+
+      <div class="w-100">
+        <app-shared-videos [link]="model.link" [height]='350'></app-shared-videos>
+      </div>
+
+      <div class="card-body">
+        <p class="card-text" [innerHTML]="model.content"></p>
+      </div>
+    </div>
+  </div>
+
+</div>

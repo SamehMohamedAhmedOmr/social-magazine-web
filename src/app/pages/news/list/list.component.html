@@ -1,0 +1,59 @@
+<app-section-title [icon]="'far fa-newspaper'"
+                   [main_title]="'الاخبار'"
+                   [is_section_title]="false">
+</app-section-title>
+
+<kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
+
+<section class="py-4">
+
+  <div class="row rtl" [hidden]="isLoadingResults">
+
+    <div class="col-xl-4 col-md-6" *ngFor="let single_news of news | paginate: { id: 'news',
+                                                      itemsPerPage: headerParams.per_page,
+                                                      currentPage: pageIndex,
+                                                      totalItems: resultsLength }">
+      <div class="mb-5">
+        <div class="img-contanier">
+          <a [routerLink]="detailsUrl(single_news.slug)">
+            <div class="img-wrap"></div>
+            <img class="img-fluid view-img"
+                 src="{{single_news.images[0]}}"
+                 onerror="this.src = '../../../assets/images/default.jpg'"
+                 alt="">
+          </a>
+        </div>
+        <div class="text-container py-4">
+          <a [routerLink]="detailsUrl(single_news.slug)" class="link view-title">
+            <h3 class="">
+              {{ single_news.title }}
+            </h3>
+          </a>
+          <span class="lead">
+                        {{ single_news.created_at }}
+                    </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div aria-label="pagination" *ngIf="news.length && !isLoadingResults">
+    <pagination-controls  id="news"
+                          (pageChange)="pagination($event)"
+                          (pageBoundsCorrection)="pagination($event)"
+                          maxSize="9"
+                          directionLinks="true"
+                          autoHide="false"
+                          responsive="true"
+                          previousLabel="السابق"
+                          nextLabel="التالي"
+                          screenReaderPaginationLabel="Pagination"
+                          screenReaderPageLabel="page"
+                          screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+  </div>
+
+
+  <app-no-data [text]="'اخبار'" *ngIf="!news.length && !isLoadingResults"></app-no-data>
+
+</section>

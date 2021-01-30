@@ -1,0 +1,120 @@
+<section aria-label="MY ARTICLE" class="portfolio-item mb-5 rtl">
+
+  <div class="title-box py-3 mb-4">
+    <h2 class="text-center title">
+      {{ 'PAGES.MY_ARTICLE' | translate }}
+    </h2>
+    <div class="title-border"></div>
+  </div>
+
+  <kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
+
+  <div class="mx-3" [hidden]="isLoadingResults">
+
+    <div class="row w-100 mb-4">
+
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-primary" [routerLink]="[submitArticle()]">
+          {{ 'PAGES.SEND_ARTICLE' | translate }}
+        </button>
+      </div>
+
+    </div>
+
+    <div class="example-container mat-elevation-z8 rtl mb-5 mt-5">
+
+      <table mat-table [dataSource]="dataSource">
+
+        <!-- series Column -->
+        <ng-container matColumnDef="series">
+
+          <mat-header-cell *matHeaderCellDef>
+            {{ 'submit_article.form.series' | translate }}
+          </mat-header-cell>
+
+          <mat-cell *matCellDef="let element; let i = index">
+            <span class="mobile-label">
+              {{ 'submit_article.form.series' | translate }}
+            </span>
+            {{i + from_index}}
+          </mat-cell>
+
+        </ng-container>
+
+        <!-- title_ar Column -->
+        <ng-container matColumnDef="title_ar">
+
+          <mat-header-cell *matHeaderCellDef>
+            {{ 'submit_article.form.title_ar' | translate }}
+          </mat-header-cell>
+
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">
+              {{ 'submit_article.form.title_ar' | translate }}
+            </span>
+            {{ displayContent(element.title_ar) }}
+          </mat-cell>
+
+        </ng-container>
+
+        <!-- status Column -->
+        <ng-container matColumnDef="status">
+
+          <mat-header-cell *matHeaderCellDef>
+            {{ 'submit_article.form.status' | translate }}
+          </mat-header-cell>
+
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">
+            {{ 'submit_article.form.status' | translate }}
+            </span>
+            {{element.last_status}}
+          </mat-cell>
+
+        </ng-container>
+
+        <!-- options Column -->
+        <ng-container matColumnDef="options">
+
+          <mat-header-cell *matHeaderCellDef class="justify-content-center">
+            {{ 'submit_article.form.options' | translate }}
+          </mat-header-cell>
+
+          <mat-cell *matCellDef="let element" class="justify-content-center">
+              <span class="mobile-label">
+              {{ 'submit_article.form.options' | translate }}
+              </span>
+              <div *ngIf="element.last_status_key == 'NOT_COMPLETED'" class="navigate">
+                <a (click)="completeArticle(element)">
+                  {{ 'submit_article.navigation.continue' | translate }}
+                </a>
+                <i class="fas fa-edit"></i>
+              </div>
+              <div *ngIf="element.last_status_key == 'NEW'" class="navigate">
+                <a [routerLink]="[element.id]">
+                  <i class="fas fa-eye"></i>
+                </a>
+              </div>
+          </mat-cell>
+
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </table>
+
+      <kt-no-record-found [resultsLength]="articles.length"></kt-no-record-found>
+
+    </div>
+    <!--Table-->
+    <mat-paginator
+      [length]="resultsLength"
+      [pageIndex]="pageIndex"
+      [pageSize]="headerParams.per_page"
+      (page)="pagination($event)">
+    </mat-paginator>
+
+  </div>
+
+</section>
+

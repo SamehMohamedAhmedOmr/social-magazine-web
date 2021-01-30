@@ -1,0 +1,121 @@
+<section class="py-4">
+  <div class="container-fluid">
+      <div class="web-container">
+          <div class="row rtl">
+              <div class="col-lg-9">
+                <section aria-label="PUBLICATION_RULE" class="portfolio-item mb-5">
+
+                  <app-section-title [icon]="'fas fa-edit'"
+                      [main_title]="'PAGES.CONTACT_US' | translate"
+                      [is_section_title]="false">
+                  </app-section-title>
+
+                  <div class="contact-us row rtl p-4" *ngIf="magazine_information">
+
+                    <div aria-label="title"
+                         *ngIf="magazine_information.title"
+                         class="col-12 mb-3">
+                      <i class="fas fa-home mx-2"></i>
+                      <span>
+                        <strong>{{ 'COMMON.name' | translate }} : </strong>
+                        <span>
+                          {{ magazine_information.title }}
+                        </span>
+                      </span>
+                    </div>
+
+                    <div aria-label="phone"
+                         *ngIf="magazine_information.phone"
+                         class="col-sm-6 col-12 mb-3">
+                      <i class="fas fa-phone mx-2"></i>
+                      <span>
+                        <strong>{{ 'COMMON.phone' | translate }} : </strong>
+                        <span>
+                          {{ magazine_information.phone }}
+                        </span>
+                      </span>
+                    </div>
+
+                    <div aria-label="fax_number"
+                         *ngIf="magazine_information.fax_number"
+                         class="col-sm-6 col-12 mb-3">
+                      <i class="fas fa-print mx-2"></i>
+                      <span>
+                        <strong>{{ 'Components.MAGAZINE_INFORMATION.columns.fax_number' | translate }} : </strong>
+                        <span>
+                          {{ magazine_information.fax_number }}
+                        </span>
+                      </span>
+                    </div>
+
+                    <div aria-label="email"
+                         *ngIf="magazine_information.email"
+                         class="col-sm-6 col-12 mb-3">
+                      <i class="fas fa-envelope mx-2"></i>
+                      <span>
+                        <strong>{{ 'COMMON.email' | translate }} : </strong>
+                        <span>
+                          {{ magazine_information.email }}
+                        </span>
+                      </span>
+                    </div>
+
+                    <div aria-label="address"
+                         *ngIf="magazine_information.address"
+                         class="col-sm-6 col-12 mb-3">
+                      <i class="fas fa-map-marker-alt mx-2"></i>
+                      <span>
+                        <strong>{{ 'COMMON.address' | translate }} : </strong>
+                        <span>
+                          {{ magazine_information.address }}
+                        </span>
+                      </span>
+                    </div>
+
+                    <div aria-label="postal_code"
+                         *ngIf="magazine_information.postal_code"
+                         class="col-sm-6 col-12 mb-3">
+                      <i class="fas fa-inbox mx-2"></i>
+                      <span>
+                        <strong>{{ 'Components.MAGAZINE_INFORMATION.columns.postal_code' | translate }} : </strong>
+                        <span>
+                          {{ magazine_information.postal_code }}
+                        </span>
+                      </span>
+                    </div>
+
+                    <div aria-label="whatsapp"
+                         *ngIf="magazine_information.whatsapp"
+                         class="col-sm-6 col-12 mb-3">
+                      <i class="fab fa-whatsapp mx-2"></i>
+                      <span>
+                        <strong>{{ 'Components.MAGAZINE_INFORMATION.columns.whatsapp' | translate }} : </strong>
+                        <span>
+                          {{ magazine_information.whatsapp }}
+                        </span>
+                      </span>
+                    </div>
+
+                  </div>
+
+                  <div class="text-center social-icons d-flex justify-content-center" *ngIf="magazine_information">
+                    <div *ngIf="magazine_information.facebook" class="social-icon m-1">
+                      <a href="{{magazine_information.facebook}}" class="" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                    <div *ngIf="magazine_information.instgram" class="social-icon m-1">
+                      <a href="{{magazine_information.instgram}}" class="" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div *ngIf="magazine_information.twitter" class="social-icon m-1">
+                      <a href="{{magazine_information.twitter}}" class="" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                  </div>
+
+                </section>
+              </div>
+              <div class="col-lg-3">
+                  <app-most-viewed [padding]="'py-4'" [position]="'position-sticky sticky'"></app-most-viewed>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

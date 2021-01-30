@@ -1,0 +1,185 @@
+<form class="p-3" [formGroup]="form" autocomplete="off">
+
+  <div class="row" aria-label="First name and Family name">
+    <div class="col-md-6 col-12">
+      <!-- first_name  -->
+      <div class="my-4">
+        <div>
+          <mat-form-field class="w-100">
+            <mat-label>{{ 'Components.USERS.columns.first_name' | translate }}</mat-label>
+            <input matInput
+                   formControlName="first_name"
+                   placeholder="{{ 'Components.USERS.columns.first_name' | translate }}">
+          </mat-form-field>
+        </div>
+        <kt-form-error
+          [form]="form"
+          [controlName]="'first_name'"
+          [validationType]="'required'"
+          [controlText]="'Components.USERS.columns.first_name' | translate"
+        ></kt-form-error>
+      </div>
+      <!-- first_name  -->
+    </div>
+    <div class="col-md-6 col-12">
+      <!-- family_name  -->
+      <div class="my-4">
+        <div>
+          <mat-form-field class="w-100">
+            <mat-label>{{ 'Components.USERS.columns.family_name' | translate }}</mat-label>
+            <input matInput
+                   formControlName="family_name"
+                   placeholder="{{ 'Components.USERS.columns.family_name' | translate }}">
+          </mat-form-field>
+        </div>
+        <kt-form-error
+          [form]="form"
+          [controlName]="'family_name'"
+          [validationType]="'required'"
+          [controlText]="'Components.USERS.columns.family_name' | translate"
+        ></kt-form-error>
+      </div>
+      <!-- family_name  -->
+    </div>
+
+    <div class="col-md-6 col-12">
+      <!-- email  -->
+      <div class="my-4">
+        <div>
+          <mat-form-field class="w-100">
+            <mat-label>{{ 'COMMON.email' | translate }}</mat-label>
+            <input matInput
+                   type="email"
+                   formControlName="email"
+                   placeholder="{{ 'COMMON.email' | translate }}">
+          </mat-form-field>
+        </div>
+        <kt-form-error
+          [form]="form"
+          [controlName]="'email'"
+          [validationType]="'required'"
+          [controlText]="'COMMON.email' | translate"
+        ></kt-form-error>
+      </div>
+      <!-- email  -->
+    </div>
+    <div class="col-md-6 col-12">
+      <!-- password  -->
+      <div class="my-4" *ngIf="!hide_password">
+        <div>
+          <mat-form-field class="w-100">
+            <mat-label>{{ 'COMMON.password' | translate }}</mat-label>
+            <input matInput
+                   type="password"
+                   formControlName="password"
+                   placeholder="{{ 'COMMON.password' | translate }}">
+          </mat-form-field>
+        </div>
+        <kt-form-error
+          [form]="form"
+          [controlName]="'password'"
+          [validationType]="'required'"
+          [controlText]="'COMMON.password' | translate"
+          [IS_F]="true"
+        ></kt-form-error>
+      </div>
+      <!-- password  -->
+    </div>
+
+    <div class="col-md-6 col-12">
+      <!-- title  -->
+      <div class="my-4">
+        <div>
+          <mat-form-field class="w-100">
+            <mat-label>{{ 'Components.USERS.columns.title' | translate }}</mat-label>
+            <mat-select
+              formControlName="title">
+              <mat-option *ngFor="let title of titles" [value]="title.id">
+                {{title.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <kt-form-error
+          [form]="form"
+          [controlName]="'title'"
+          [validationType]="'required'"
+          [controlText]="'Components.USERS.columns.title' | translate"
+        ></kt-form-error>
+      </div>
+      <!-- title  -->
+    </div>
+    <div class="col-md-6 col-12">
+      <!-- gender  -->
+      <div class="my-4">
+        <div>
+          <mat-form-field class="w-100">
+            <mat-label>{{ 'Components.USERS.columns.gender' | translate }}</mat-label>
+            <mat-select
+              formControlName="gender">
+              <mat-option *ngFor="let gender of genders" [value]="gender.id">
+                {{gender.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <kt-form-error
+          [form]="form"
+          [controlName]="'gender'"
+          [validationType]="'required'"
+          [controlText]="'Components.USERS.columns.gender' | translate"
+        ></kt-form-error>
+      </div>
+      <!-- country  -->
+    </div>
+
+    <div class="col-md-6 col-12">
+      <!-- country  -->
+      <div class="my-4">
+        <div>
+          <mat-form-field class="w-100">
+            <mat-label>{{ 'Components.USERS.columns.country' | translate }}</mat-label>
+            <mat-select
+              formControlName="country">
+              <mat-option *ngFor="let country of countries" [value]="country.id">
+                <img src="{{country.image}}">
+                <span class="mx-2">{{country.name}}</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <kt-form-error
+          [form]="form"
+          [controlName]="'country'"
+          [validationType]="'required'"
+          [controlText]="'Components.USERS.columns.country' | translate"
+          [IS_F]="true"
+        ></kt-form-error>
+      </div>
+      <!-- country  -->
+    </div>
+    <div class="col-md-6 col-12">
+      <!-- phone  -->
+      <div class="my-4">
+        <div>
+          <mat-form-field class="w-100">
+            <mat-label>{{ 'COMMON.phone' | translate }}</mat-label>
+            <input matInput
+                   max="14"
+                   formControlName="phone"
+                   placeholder="{{ 'COMMON.phone' | translate }}">
+          </mat-form-field>
+        </div>
+        <kt-form-error
+          [form]="form"
+          [controlName]="'phone'"
+          [validationType]="'required'"
+          [controlText]="'COMMON.phone' | translate"
+        ></kt-form-error>
+      </div>
+      <!-- phone  -->
+    </div>
+  </div>
+
+</form>
+

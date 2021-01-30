@@ -1,65 +1,134 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import {UrlName} from './core/global/url.name';
+import {GuestGuard} from './core/guards/guest.guard';
+import {AuthGuard} from './core/guards/auth.guard';
 
 const routes: Routes = [
+
+  // Home
   {
-    path: "home",
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    path: UrlName.home(),
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
+
+  // About-us
   {
-    path: "about-us",
-    loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule)
+    path: UrlName.aboutUs(),
+    loadChildren: () => import('./pages/about-us/about-us.module').then(m => m.AboutUsModule)
   },
+
+  // About-us
   {
-    path: "contact-us",
-    loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule)
+    path: UrlName.magazineGoals(),
+    loadChildren: () => import('./pages/magazine-goals/magazine-goals.module').then(m => m.MagazineGoalsModule)
   },
+
+  // Contact-us
   {
-    path: "publication-terms",
-    loadChildren: () => import('./publication-terms/publication-terms.module').then(m => m.PublicationTermsModule)
+    path: UrlName.contactUs(),
+    loadChildren: () => import('./pages/contact-us/contact-us.module').then(m => m.ContactUsModule)
   },
+
+  // Publication-Rules
   {
-    path: "editorial-board",
-    loadChildren: () => import('./editorial-board/editorial-board.module').then(m => m.EditorialBoardModule)
+    path: UrlName.publicationRules(),
+    loadChildren: () => import('./pages/publication-terms/publication-terms.module').then(m => m.PublicationTermsModule)
   },
+
+
+  // Advisory-Body
   {
-    path: "advisory-board",
-    loadChildren: () => import('./advisory-board/advisory-board.module').then(m => m.AdvisoryBoardModule)
+    path: UrlName.advisoryBody(),
+    loadChildren: () => import('./pages/advisory-board/advisory-board.module').then(m => m.AdvisoryBoardModule)
   },
+
+
+  // Magazine Category
   {
-    path: "what-we-are",
-    loadChildren: () => import('./said-about-us/said-about-us.module').then(m => m.SaidAboutUsModule)
+    path: UrlName.magazineCategory(),
+    loadChildren: () => import('./pages/category/category.module').then(m => m.CategoryModule)
   },
+
+  // // Submit Article
+  // {
+  //   path: UrlName.submitArticle(),
+  //   loadChildren: () => import('./pages/submit-article/submit-article.module').then(m => m.SubmitArticleModule)
+  // },
+  //
+  // // Archive
+  // {
+  //   path: UrlName.archive(),
+  //   loadChildren: () => import('./pages/archive/archive.module').then(m => m.ArchiveModule)
+  // },
+
+  // news
   {
-    path: "category",
-    loadChildren: () => import('./category/category.module').then(m => m.CategoryModule)
+    path: UrlName.news(),
+    loadChildren: () => import('./pages/news/news.module').then(m => m.NewsModule)
   },
+
   {
-    path: "submit-article",
-    loadChildren: () => import('./submit-article/submit-article.module').then(m => m.SubmitArticleModule)
+    path: UrlName.activities(),
+    loadChildren: () => import('./pages/activities/activities.module').then(m => m.ActivitiesModule)
   },
+
   {
-    path: "archive",
-    loadChildren: () => import('./archive/archive.module').then(m => m.ArchiveModule)
+    path: UrlName.events(),
+    loadChildren: () => import('./pages/events/events.module').then(m => m.EventsModule)
   },
+
   {
-    path: "latest-news",
-    loadChildren: () => import('./latest-news/latest-news.module').then(m => m.LatestNewsModule)
+    path: UrlName.videos(),
+    loadChildren: () => import('./pages/videos/videos.module').then(m => m.VideosModule)
   },
+
   {
-    path: "login",
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+    path: UrlName.photos(),
+    loadChildren: () => import('./pages/photos/photos.module').then(m => m.PhotosModule)
   },
-  {
-    path: "register",
-    loadChildren: () => import('./registration/registration.module').then(m => m.RegistrationModule)
-  },
-  { path: "**", redirectTo: "/home", pathMatch: "full" }
+
+  // // article
+  // {
+  //   path: UrlName.article(),
+  //   loadChildren: () => import('./pages/article/article.module').then(m => m.ArticleModule)
+  // },
+  //
+  // // Login
+  // {
+  //   path: UrlName.login(),
+  //   canActivate: [GuestGuard],
+  //   loadChildren: () => import('./pages/Auth/login/login.module').then(m => m.LoginModule)
+  // },
+  //
+  // // register
+  // {
+  //   path: UrlName.register(),
+  //   canActivate: [GuestGuard],
+  //   loadChildren: () => import('./pages/Auth/registration/registration.module').then(m => m.RegistrationModule)
+  // },
+
+  // // profile
+  // {
+  //   path: UrlName.profile(),
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
+  // },
+  //
+  // // My Article
+  // {
+  //   path: UrlName.myArticle(),
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () => import('./pages/my-article/my-article.module').then(m => m.MyArticleModule)
+  // },
+
+  { path: '**', redirectTo: UrlName.home(), pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

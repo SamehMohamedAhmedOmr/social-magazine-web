@@ -1,0 +1,114 @@
+<div class="head-header" *ngIf="magazine_information">
+  <div class="container-fluid">
+    <div *ngIf="magazine_information.whatsapp || magazine_information.facebook || magazine_information.instgram || magazine_information.twitter" class="my-container d-flex justify-content-between">
+      <div *ngIf="magazine_information.whatsapp" class="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+        <span>{{magazine_information.whatsapp}}</span>
+      </div>
+      <div class="">
+        <a *ngIf="magazine_information.facebook" href="{{magazine_information.facebook}}" class="" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a *ngIf="magazine_information.instgram" href="{{magazine_information.instgram}}" class="" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a *ngIf="magazine_information.twitter" href="{{magazine_information.twitter}}" class="" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark my-nav">
+    <div class="container-fluid d-flex rtl">
+        <a class="navbar-brand d-flex flex-column align-items-center justify-content-center rtl"
+           [routerLink]="[getHomeLink()]">
+            <img src="../../assets/images/logo2.png" alt="logo" class="img-logo">
+        </a>
+        <button class="navbar-toggler rtl" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon rtl"></span>
+        </button>
+        <div class="collapse navbar-collapse rtl" id="navbarNavDropdown">
+            <ul class="navbar-nav rtl align-items-center nav-bar-list menu-item w-100">
+
+               <li class="nav-item rtl d-lg-none d-block w-100">
+                 <div class="form-inline w-100">
+                   <app-account-links class="w-100"></app-account-links>
+                 </div>
+                 <div class="my-4">
+                   <mat-divider></mat-divider>
+                 </div>
+               </li>
+
+                <li class="nav-item rtl">
+                    <a class="nav-link rtl" [routerLink]="[getHomeLink()]" routerLinkActive="active">
+                      <span>
+                        {{ 'PAGES.HOME' | translate }}
+                      </span>
+                      <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="Publication-rule">
+                  <a class="nav-link rtl" [routerLink]="[getNews()]" routerLinkActive="active">
+                    {{ 'PAGES.NEWS' | translate }}
+                  </a>
+                </li>
+
+                <li class="nav-item dropdown dropdown-mine rtl">
+                  <a class="nav-link dropdown-toggle rtl" id="navbarDropdownMenuLink" role="button"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      المجلة العلمية
+                  </a>
+                  <div class="dropdown-menu dropdown-content rtl" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown rtl" [routerLink]="[getAboutUs()]" routerLinkActive="active">
+                      {{ 'PAGES.WHO_IS_US' | translate }}
+                    </a>
+                    <a class="dropdown rtl" [routerLink]="[magazineGoals()]" routerLinkActive="active">
+                      {{ 'Components.MAGAZINE_GOAL.name' | translate }}
+                    </a>
+                    <a class="dropdown rtl" [routerLink]="[getAdvisoryBody()]" routerLinkActive="active">
+                      {{ 'PAGES.ADVISORY_BODY' | translate }}
+                    </a>
+                    <a class="dropdown rtl" [routerLink]="[getPublicationRules()]" routerLinkActive="active">
+                      {{ 'PAGES.PUBLICATION_RULES' | translate }}
+                    </a>
+                    <a class="dropdown rtl" [routerLink]="[getMagazineCategory()]" routerLinkActive="active">
+                      {{ 'PAGES.MAGAZINE_CATEGORY' | translate }}
+                    </a>
+                  </div>
+                </li>
+
+                <li class="nav-item rtl" aria-label="events">
+                  <a class="nav-link rtl" [routerLink]="[getEvents()]" routerLinkActive="active">
+                    الفعاليات
+                  </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="activities">
+                  <a class="nav-link rtl" [routerLink]="[getActivities()]" routerLinkActive="active">
+                    الانشطة
+                  </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="videos">
+                  <a class="nav-link rtl" [routerLink]="[getVideos()]" routerLinkActive="active">
+                    الفيديوهات
+                  </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="photos">
+                  <a class="nav-link rtl" [routerLink]="[getPhotos()]" routerLinkActive="active">
+                    الصور
+                  </a>
+                </li>
+
+                <li class="nav-item rtl" aria-label="contact-us">
+                    <a class="nav-link rtl" [routerLink]="[getContactUs()]" routerLinkActive="active">
+                      {{ 'PAGES.CONTACT_US' | translate }}
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+       <div class="form-inline d-lg-block d-none">
+           <app-account-links></app-account-links>
+       </div>
+    </div>
+</nav>

@@ -1,0 +1,83 @@
+<div class="form-div">
+  <form class="p-3" [formGroup]="form" autocomplete="off">
+
+    <div class="row" *ngIf="articleDependenciesModel">
+
+      <div class="col-12 rtl">
+        <p class="alert alert-secondary">
+          يجب ان يكون الملف المرفق بصيغة pdf او word
+        </p>
+      </div>
+
+      <div class="col-md-6 col-12">
+        <!-- attachment_type  -->
+        <div class="my-4">
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>{{ 'submit_article.form.attachment_type' | translate }}</mat-label>
+              <mat-select
+                formControlName="attachment_type">
+                <mat-option *ngFor="let type of articleDependenciesModel.attachment_types" [value]="type.id">
+                  {{type.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <kt-form-error
+            [form]="form"
+            [controlName]="'attachment_type'"
+            [validationType]="'required'"
+            [controlText]="'submit_article.form.attachment_type' | translate"
+          ></kt-form-error>
+        </div>
+        <!-- attachment_type  -->
+      </div>
+
+      <div class="col-md-6 col-12">
+        <!-- description  -->
+        <div class="my-4">
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>{{ 'submit_article.form.description' | translate }}</mat-label>
+              <textarea matInput
+                        formControlName="description"
+                        placeholder="{{ 'submit_article.form.description' | translate }}"
+              ></textarea>
+            </mat-form-field>
+          </div>
+          <kt-form-error
+            [form]="form"
+            [controlName]="'description'"
+            [validationType]="'required'"
+            [controlText]="'submit_article.form.description' | translate"
+          ></kt-form-error>
+        </div>
+        <!-- description  -->
+      </div>
+
+      <div class="col-12 rtl">
+        <!-- file  -->
+        <div class="my-4">
+          <div>
+            <label class="btn btn-outline-dark">
+              {{ 'submit_article.form.file' | translate }}
+              <i class="flaticon2-image-file"></i>
+              <input type="file" (change)="onFileSelect($event)" hidden/>
+            </label>
+            <label class="mx-3">{{file_name}}</label>
+          </div>
+          <kt-form-error
+            [form]="form"
+            [controlName]="'file'"
+            [validationType]="'required'"
+            [controlText]="'submit_article.form.file' | translate"
+          ></kt-form-error>
+        </div>
+        <!-- file  -->
+      </div>
+
+    </div>
+
+  </form>
+</div>
+

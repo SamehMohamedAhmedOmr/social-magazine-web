@@ -1,0 +1,16 @@
+.list-group-item+.list-group-item{
+  border-top-width: 1px;
+}
+
+ul{
+  li{
+    line-height: 2;
+    font-weight: bold;
+  }
+
+}
+
+li.active-list{
+  background-color: var(--main-color);
+  color: var(--second-color);
+}

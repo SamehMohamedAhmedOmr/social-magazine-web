@@ -1,0 +1,63 @@
+<section class="py-4 mx-xl-2">
+  <app-section-title [icon]="'far fa-calendar-check'"
+                     [main_title]="'الفعاليات'"
+                     [is_section_title]="false">
+  </app-section-title>
+
+  <kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
+
+  <div class="row rtl pt-3" [hidden]="isLoadingResults">
+    <div class="col-12 mb-5" *ngFor="let single_event of events | paginate: { id: 'events',
+                                                      itemsPerPage: headerParams.per_page,
+                                                      currentPage: pageIndex,
+                                                      totalItems: resultsLength }">
+      <div class="row rtl">
+        <div class="col-8">
+          <div class="head mb-4">
+            <div class="title">
+              <a [routerLink]="detailsUrl(single_event.slug)" class="link">
+                <h3 class="mb-2">{{single_event.title}}</h3>
+              </a>
+            </div>
+
+            <div class="timeslot">
+              <span class="">{{single_event.created_at}}</span>
+            </div>
+          </div>
+
+          <div class="content px-3">
+            <p [innerHTML]="getContent(single_event.content)"></p>
+            <a *ngIf="checkContentLength(single_event.content)"
+               [routerLink]="detailsUrl(single_event.slug)"
+               class="link">للاطلاع علي المزيد ..</a>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <img src="{{single_event.images[0]}}"
+               onerror="this.src = '../../../assets/images/default.jpg'"
+               alt="" class="img-fluid event-img">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div aria-label="pagination" *ngIf="events.length && !isLoadingResults">
+    <pagination-controls  id="events"
+                          (pageChange)="pagination($event)"
+                          (pageBoundsCorrection)="pagination($event)"
+                          maxSize="9"
+                          directionLinks="true"
+                          autoHide="false"
+                          responsive="true"
+                          previousLabel="السابق"
+                          nextLabel="التالي"
+                          screenReaderPaginationLabel="Pagination"
+                          screenReaderPageLabel="page"
+                          screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+  </div>
+
+  <app-no-data [text]="'فعاليات'" *ngIf="!events.length && !isLoadingResults"></app-no-data>
+
+</section>

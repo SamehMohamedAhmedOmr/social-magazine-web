@@ -1,0 +1,38 @@
+
+
+// adjust
+
+.fa-star{
+    color: #ffb03b;
+    padding: 0 4px;
+}
+
+.test-img{
+    width: 100px !important;
+    height: 100px;
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.15);
+    margin: 0 auto;
+}
+
+.test-name{
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
+.test-content{
+    font-size: 1.4rem;
+    color: rgb(238, 238, 238);
+}
+
+.fa-quote-left, .fa-quote-right{
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 767.98px) {
+  .fa-quote-left, .fa-quote-right{
+    display: none;
+  }
+}

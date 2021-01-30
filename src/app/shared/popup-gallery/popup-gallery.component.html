@@ -1,0 +1,33 @@
+<div class="modal-header">
+	<h5 class="modal-title">
+		{{ data.title }}
+	</h5>
+	<button type="button" class="close" (click)="onNoClick()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+
+<mat-dialog-content>
+	<div class="modal-body">
+
+		<kt-gallery
+			[show_gallery]="true"
+			[gallery_type]="data.gallery_type"
+			[selectedImages]="data.selectedImages"
+			[galleryInterface]="data.galleryInterface"
+			[multiple_images]="data.multiple_images"
+		></kt-gallery>
+
+	</div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+	<div class="modal-footer w-100 d-flex justify-content-center">
+		<button type="button" class="btn btn-secondary" (click)="onNoClick()">{{ 'Components.Close' | translate }}</button>
+<!--		<button type="button" class="btn btn-primary text-light"-->
+<!--				[mat-dialog-close]="true" (click)="save()"-->
+<!--				cdkFocusInitial>-->
+<!--			Add Price List-->
+<!--		</button>-->
+	</div>
+</mat-dialog-actions>

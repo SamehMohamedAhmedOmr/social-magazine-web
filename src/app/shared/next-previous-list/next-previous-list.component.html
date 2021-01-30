@@ -1,0 +1,19 @@
+<div aria-label="next-previous">
+	<div class="row justify-content-center">
+		<button mat-raised-button
+				matTooltip="Get Previous Bulk of data"
+				(click)="previous()"
+				[disabled]="disabledPrevious()"
+				class="btn btn-secondary m-2" >
+			<i class="fa fa-caret-left fa-lg p-0"></i>
+		</button>
+
+		<button mat-raised-button
+				matTooltip="Get Next Bulk of data"
+				(click)="next()"
+				[disabled]="disabledNext()"
+				class="btn btn-secondary m-2">
+			<i class="fa fa-caret-right fa-lg p-0"></i>
+		</button>
+	</div>
+</div>

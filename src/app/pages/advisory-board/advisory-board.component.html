@@ -1,0 +1,27 @@
+<section class="py-4">
+  <div class="container-fluid">
+      <div class="web-container">
+          <div class="row rtl">
+              <div class="col-lg-9">
+                <section aria-label="advisory_bodies" *ngIf="advisory_bodies" class="portfolio-item mb-5">
+
+                  <app-section-title [icon]="'fas fa-users'"
+                      [main_title]="'Components.ADVISORY_BODY.name' | translate"
+                      [is_section_title]="false">
+                  </app-section-title>
+
+                  <ol class="text-left">
+                    <li *ngFor="let advisory of advisory_bodies">
+                      <p class="description" [innerHTML]="advisory.job +'/'+ advisory.name"></p>
+                    </li>
+                  </ol>
+
+                </section>
+              </div>
+              <div class="col-lg-3">
+                  <app-most-viewed [padding]="'py-4'" [position]="'position-sticky sticky'"></app-most-viewed>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

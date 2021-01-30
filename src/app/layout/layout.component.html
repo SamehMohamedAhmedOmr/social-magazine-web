@@ -1,5 +1,22 @@
-<app-header></app-header>
 
-<router-outlet></router-outlet>
+<ngx-ui-loader [fgsType]="loader_type"
+               [bgsType]="loader_type"
+               [bgsColor]="loader_color"
+               [fgsColor]="loader_color"
+               [pbColor]="loader_color"
+               [pbThickness] = "pbThickness"
+               [pbDirection] = "pbDirection"
+               [overlayColor]="overlayColor"
+               [logoUrl]= "logoUrl"
+               [text] = "overlay_text"
+></ngx-ui-loader>
 
-<app-footer></app-footer>
+<div ngxUiLoaderBlurred blur="11" id="app">
+  <app-header></app-header>
+
+  <app-marquee></app-marquee>
+
+  <router-outlet></router-outlet>
+
+  <app-footer></app-footer>
+</div>

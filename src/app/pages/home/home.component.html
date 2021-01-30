@@ -1,0 +1,38 @@
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="web-container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <app-latest-news [latest_news]="latest_news"></app-latest-news>
+                </div>
+                <div class="col-lg-3">
+                    <app-most-viewed [padding]="'py-4'"></app-most-viewed>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="container-fluid">
+        <div class="web-container">
+            <app-home-events></app-home-events>
+        </div>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="container-fluid">
+        <div class="web-container">
+            <app-videos></app-videos>
+        </div>
+    </div>
+</section>
+
+<section class="testimonial" *ngIf="testimonials.length">
+    <div class="container-fluid" style="direction: ltr !important;">
+        <div class="web-container">
+            <app-testimonial [testimonials]="testimonials"></app-testimonial>
+        </div>
+    </div>
+</section>

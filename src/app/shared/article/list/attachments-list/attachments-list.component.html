@@ -1,0 +1,88 @@
+<div class="example-container mat-elevation-z8 rtl mb-4">
+
+  <div class="alert alert-secondary">
+    {{ 'submit_article.navigation.attachments' | translate }}
+  </div>
+
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- attachment_type Column -->
+    <ng-container matColumnDef="attachment_type">
+
+      <mat-header-cell *matHeaderCellDef>
+        {{ 'submit_article.form.attachment_type' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">
+          {{ 'submit_article.form.attachment_type' | translate }}
+        </span>
+        {{element?.attachment_type?.name}}
+      </mat-cell>
+
+    </ng-container>
+
+    <!-- title Column -->
+    <ng-container matColumnDef="title">
+
+      <mat-header-cell *matHeaderCellDef>
+        {{ 'submit_article.form.file_title' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">
+          {{ 'submit_article.form.file_title' | translate }}
+        </span>
+        {{element.title}}
+      </mat-cell>
+
+    </ng-container>
+
+    <!-- file Column -->
+    <ng-container matColumnDef="file">
+
+      <mat-header-cell *matHeaderCellDef class="justify-content-center">
+        {{ 'submit_article.form.file' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element" class="justify-content-center">
+        <span class="mobile-label">
+        {{ 'submit_article.form.file' | translate }}
+        </span>
+        <a class="btn btn-outline-success" href="{{element.file}}" target="_blank">
+          <i class="fas fa-download"></i>
+        </a>
+      </mat-cell>
+
+    </ng-container>
+
+    <!-- options Column -->
+    <ng-container matColumnDef="options">
+
+      <mat-header-cell *matHeaderCellDef class="justify-content-center">
+        {{ 'submit_article.form.options' | translate }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element" class="justify-content-center">
+        <span class="mobile-label">
+        {{ 'submit_article.form.options' | translate }}
+        </span>
+        <button class="btn btn-outline-danger" (click)="deleteModal(element)">
+        <span>
+          {{ 'submit_article.form.delete' | translate }}
+        </span>
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </mat-cell>
+
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </table>
+
+  <kt-no-record-found [resultsLength]="dataSource.length"></kt-no-record-found>
+
+</div>
+

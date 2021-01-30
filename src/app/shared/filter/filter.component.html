@@ -1,0 +1,88 @@
+<div class="col-12 my-4">
+
+	<div class="row">
+
+		<div class="row col-sm-6 col-12 px-4">
+			<!-- Select Number of item Per Page -->
+			<mat-form-field *ngIf="HasItemPerPage" class="filter-height" >
+				<mat-label [translate]="'Components.item_per_page'" ></mat-label>
+				<mat-select (selectionChange)="perPageChange()" [(ngModel)]="headerParams.per_page">
+					<mat-option [value]="10" >
+						{{ '10 ' }} <span [translate]="'Components.items'" ></span>
+					</mat-option>
+					<mat-option [value]="25">
+						{{ '25 ' }} <span [translate]="'Components.items'" ></span>
+					</mat-option>
+					<mat-option [value]="50">
+						{{ '50 ' }} <span [translate]="'Components.items'" ></span>
+					</mat-option>
+					<mat-option [value]="75">
+						{{ '75 ' }} <span [translate]="'Components.items'" ></span>
+					</mat-option>
+					<mat-option [value]="100">
+						{{ '100 ' }} <span [translate]="'Components.items'" ></span>
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+
+		<div class="row col-sm-6 col-12 px-4 justify-content-end">
+			<!--Add New Item Button-->
+			<button class="btn btn-success btn-sm filter-height"
+					[routerLink]="ButtonAddUrl" *ngIf="HasAdd">
+				{{ ButtonAddName }}
+				<i class="flaticon-add"></i>
+			</button>
+		</div>
+	</div>
+	<!--Search Filter-->
+	<div class="" *ngIf="!isLoadingResults">
+		<div class="my-4">
+
+			<mat-divider class="mb-4" *ngIf="HasItemPerPage"></mat-divider>
+			<form class="row mb-3 justify-content-start px-4">
+
+				<section class="row col-xl-1 col-sm-2 col-12 px-4 mb-sm-0 mb-5 align-items-center justify-content-center"
+						 *ngIf="HasExport">
+					<button mat-mini-fab
+							matTooltip="{{ 'Components.export' | translate }}"
+							color="primary"
+					   		(click)="export()">
+						<mat-icon class="flaticon2-download">
+						</mat-icon>
+					</button>
+				</section>
+
+				<section class="row  col-12 px-4 mb-sm-0 mb-5 d-flex align-items-center"
+						 *ngIf="HasSearchFilter"
+				[ngClass]="{'col-xl-5 col-sm-4':HasExport, 'col-sm-6' :!HasExport }">
+					<label class="w-100">
+						<input matInput name="filter_Position"
+							   [(ngModel)]= 'search_filter'
+							   (keyup)="FilterDataTable()"
+							   placeholder="{{ 'Components.Search' | translate }}">
+					</label>
+				</section>
+
+				<section class="row col-sm-6 col-12 px-4 justify-content-end align-items-center" *ngIf="HasActive == true">
+					<div class="row col-12">
+						<mat-radio-button class="p-0 col-md-4 col-sm-5 col-4" name="active"
+										  [checked]="headerParams.active == null"
+										  (click)="toggleStatus(null)">&nbsp; <span [translate]="'Components.all'" ></span>
+						</mat-radio-button>
+						<mat-radio-button class="p-0 col-md-4 col-sm-5 col-4" name="active"
+										  [checked]="headerParams.active == 1"
+										  (click)="toggleStatus(1)">&nbsp;<span [translate]="'Components.active'" ></span>
+						</mat-radio-button>
+						<mat-radio-button class="p-0 col-md-4 col-sm-5 col-4 mt-md-0 mt-sm-4 mt-0" name="active"
+										  [checked]="headerParams.active == 0"
+										  (click)="toggleStatus(0)">&nbsp;<span [translate]="'Components.is_active'" ></span>
+						</mat-radio-button>
+					</div>
+				</section>
+			</form>
+			<mat-divider class="mb-5" *ngIf="HasSearchFilter || HasActive"></mat-divider>
+		</div>
+	</div>
+
+</div>

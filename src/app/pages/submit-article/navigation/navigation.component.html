@@ -1,0 +1,24 @@
+<div class="rtl mb-3">
+  <ul class="list-group p-0">
+
+    <li class="list-group-item {{ checkINITIAL() ? 'active-list' : '' }}">
+      {{ 'submit_article.navigation.type_title' | translate }}
+    </li>
+    <li class="list-group-item {{ checkKEYWORDS() ? 'active-list' : '' }}">
+      {{ 'submit_article.navigation.content_keywords' | translate }}
+    </li>
+    <li class="list-group-item {{ checkAUTHORS() ? 'active-list' : '' }}">
+      {{ 'submit_article.navigation.manage_authors' | translate }}
+    </li>
+    <li class="list-group-item {{ checkJUDGES() ? 'active-list' : '' }}">
+      {{ 'submit_article.navigation.suggested_judges' | translate }}
+    </li>
+    <li class="list-group-item {{ checkATTACHMENTS() ? 'active-list' : '' }}">
+      {{ 'submit_article.navigation.attachments' | translate }}
+    </li>
+    <li class="list-group-item {{ checkSUBMIT() ? 'active-list' : '' }}">
+      {{ 'submit_article.navigation.confirm' | translate }}
+    </li>
+
+  </ul>
+</div>

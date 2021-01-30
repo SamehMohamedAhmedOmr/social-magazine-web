@@ -1,0 +1,69 @@
+<footer class="footer">
+
+  <div class="container-fluid">
+    <div class="main-footer pt-4 pb-2 px-5">
+      <div class="py-3 text-left">
+        <h3>{{ 'PAGES.CONTACT_US' | translate }}</h3>
+      </div>
+      <div class="row rtl" *ngIf="magazine_information">
+        <div class="col-md-6">
+          <ul>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>{{ magazine_information.phone }}</span>
+            </li>
+            <li>
+              <i class="fas fa-print"></i>
+              <span>{{ magazine_information.fax_number }}</span>
+            </li>
+            <li *ngIf="magazine_information && magazine_information.whatsapp">
+              <i class="fab fa-whatsapp"></i>
+              <span>{{ magazine_information.whatsapp }}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>{{ magazine_information.email }}</span>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>{{ 'COMMON.address' | translate }} : {{ magazine_information.address }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center social-icons d-flex justify-content-center" *ngIf="magazine_information">
+        <div *ngIf="magazine_information.facebook" class="social-icon">
+          <a href="{{magazine_information.facebook}}" class="" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+        <div *ngIf="magazine_information.instgram" class="social-icon">
+          <a href="{{magazine_information.instgram}}" class="" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div *ngIf="magazine_information.twitter" class="social-icon">
+          <a href="{{magazine_information.twitter}}" class="" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid copyright-footer py-3">
+    <div class="py-2 text-center second-color">
+      <span class="d-block mb-3" *ngIf="visitor">
+        <app-visitor-count [visitor_count]="visitor"></app-visitor-count>
+      </span>
+      <span class="d-block">
+        {{ 'footer.copyright' | translate }}
+        <i class="far fa-copyright mx-2"></i>
+        <strong>
+          <a class="app_name" [routerLink]="getHomeLink()">
+            {{ 'BASIC.APP_NAME' | translate }}
+          </a>
+        </strong>
+        {{ 'footer.all_right_saved' | translate }}
+      </span>
+    </div>
+  </div>
+</footer>

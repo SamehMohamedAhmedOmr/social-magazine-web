@@ -1,0 +1,10 @@
+<div class="marquee py-3" *ngIf="latest_news">
+    <ng-marquee [stopOnHover]="true" direction="left" speed="drowsy">
+        <span *ngFor="let news of latest_news">
+            <img src="../../../assets/images/logo2.png" alt="" class="logo-marquee mr-2">
+            <span class="mr-3 text-marquee">
+              {{news.title}}
+            </span>
+        </span>
+    </ng-marquee>
+</div>

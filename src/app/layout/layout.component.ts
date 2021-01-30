@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DirectionType, SpinnerType} from 'ngx-ui-loader/lib/utils/types';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-layout',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+
+  loader_color = '#8d272b';
+  loader_type:SpinnerType = 'rotating-plane';
+  pbThickness = 5;
+  pbDirection:DirectionType = 'rtl';
+  logoUrl = 'assets/images/logo2.png';
+  overlayColor = 'rgba(40, 40, 40, 0.9)';
+  overlay_text: string = null;
+
+  constructor(private translations : TranslateService) {
+  }
 
   ngOnInit(): void {
+    this.overlay_text = this.translations.instant('BASIC.APP_NAME');
+  }
+
+  blur(){
+    return 11;
   }
 
 }

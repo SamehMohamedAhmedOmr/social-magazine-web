@@ -1,0 +1,18 @@
+<section aria-label="who-is-us" *ngIf="who_is_us" class="portfolio-item mb-5">
+
+  <app-section-title [icon]="'far fa-question-circle'"
+                      [main_title]="'PAGES.WHO_IS_US' | translate"
+                      [is_section_title]="false">
+  </app-section-title>
+
+  <div class="pb-3 pt-2 text-center" *ngIf="magazine_information">
+    <a href="{{magazine_information.magazine_link}}" class="my-btn" target="_blank">المجلة العلمية</a>
+  </div>
+
+  <ul class="text-left ul-listing">
+    <li *ngFor="let about of who_is_us">
+      <p class="description" [innerHTML]="about.content"></p>
+    </li>
+  </ul>
+
+</section>

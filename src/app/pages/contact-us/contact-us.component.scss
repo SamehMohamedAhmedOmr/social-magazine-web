@@ -1,0 +1,30 @@
+.contact-us{
+  font-size: 0.95rem !important;
+}
+
+.social-icons{
+  font-size: 1.7rem;
+
+  .social-icon{
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      &:hover a{
+          color: var(--main-color);
+          font-size: 1.8rem;
+      }
+
+      a{
+          color: var(--black-color);
+          transition: all 0.2s ease-in-out;
+
+          i{
+              padding: 3px 10px;
+          }
+      }
+  }
+}

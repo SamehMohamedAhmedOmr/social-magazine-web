@@ -1,0 +1,76 @@
+<div class="form-div">
+  <form class="p-3" [formGroup]="form" autocomplete="off">
+
+    <div class="row">
+
+      <div class="col-md-6 col-12" *ngIf="articleDependenciesModel">
+        <!-- article_type  -->
+        <div class="my-4">
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>{{ 'submit_article.form.article_type' | translate }}</mat-label>
+              <mat-select
+                formControlName="article_type_id">
+                <mat-option *ngFor="let type of articleDependenciesModel.article_types" [value]="type.id">
+                  {{type.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <kt-form-error
+            [form]="form"
+            [controlName]="'article_type_id'"
+            [validationType]="'required'"
+            [controlText]="'submit_article.form.article_type' | translate"
+          ></kt-form-error>
+        </div>
+        <!-- article_type  -->
+      </div>
+
+      <div class="col-md-6 col-12">
+        <!-- title_ar  -->
+        <div class="my-4">
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>{{ 'submit_article.form.title_ar' | translate }}</mat-label>
+              <input matInput
+                     formControlName="title_ar"
+                     placeholder="{{ 'submit_article.form.title_ar' | translate }}" >
+            </mat-form-field>
+          </div>
+          <kt-form-error
+            [form]="form"
+            [controlName]="'title_ar'"
+            [validationType]="'required'"
+            [controlText]= "'submit_article.form.title_ar' | translate"
+          ></kt-form-error>
+        </div>
+        <!-- title_ar  -->
+      </div>
+
+      <div class="col-md-6 col-12">
+        <!-- title_en  -->
+        <div class="my-4">
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>{{ 'submit_article.form.title_en' | translate }}</mat-label>
+              <input matInput
+                     formControlName="title_en"
+                     placeholder="{{ 'submit_article.form.title_en' | translate }}" >
+            </mat-form-field>
+          </div>
+          <kt-form-error
+            [form]="form"
+            [controlName]="'title_en'"
+            [validationType]="'required'"
+            [controlText]= "'submit_article.form.title_en' | translate"
+          ></kt-form-error>
+        </div>
+        <!-- title_en  -->
+      </div>
+
+    </div>
+
+  </form>
+</div>
+
