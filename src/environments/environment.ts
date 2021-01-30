@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   apisVersion: "v1" ,
-  baseUrl: 'https://magazine-backend.sameh.store',
+  baseUrl: 'https://backend.j-fss.com',
   debug: false,
 
   url : function url (version: string = null) {

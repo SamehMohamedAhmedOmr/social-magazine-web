@@ -33,6 +33,9 @@
             </div>
           </div>
         </div>
+
+        <app-no-data [text]="'اخبار'" *ngIf="!most_viewed_news.length"></app-no-data>
+
       </div>
     </div>
   </div>

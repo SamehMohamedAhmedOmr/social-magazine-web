@@ -1,11 +1,11 @@
-<section class="py-4" *ngIf="latest_news.length">
-    <app-section-title [icon]="'far fa-newspaper'" 
+<section class="py-4">
+    <app-section-title [icon]="'far fa-newspaper'"
                         [main_title]="'أخر'"
                         [sub_title]="'اخبارنا'"
                         [description]="'تعرف على كل جديد أخبار الجمعية'">
     </app-section-title>
 
-    <div class="row rtl mt-2">
+    <div class="row rtl mt-2" *ngIf="latest_news">
 
         <div class="col-md-6 col-xl-4 mb-4 rtl" *ngFor="let news of latest_news">
             <div class="news-box">
@@ -17,7 +17,7 @@
                             onerror="this.src = '../../../assets/images/default.jpg'"
                             alt="">
                     </a>
-                    
+
                     <a [routerLink]="detailsUrl(news.slug)" class="link news-title p-3">
                         <h3 class="mb-0">
                         {{ calcLength(news.title) }}
@@ -32,4 +32,7 @@
         </div>
 
     </div>
+
+  <app-no-data [text]="'اخبار'" *ngIf="!latest_news.length"></app-no-data>
+
 </section>

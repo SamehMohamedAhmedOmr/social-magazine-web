@@ -9,7 +9,7 @@ import {TrackersModel} from '../../../core/models/section-module/trackers.model'
 })
 export class VisitorCountComponent implements OnInit {
 
-  @Input() visitor_count = 0;
+  @Input() visitor_count;
   counter:number[] = [];
   number_of_digit = 9;
 

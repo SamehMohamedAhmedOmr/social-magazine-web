@@ -22,6 +22,8 @@
                     </li>
                   </ul>
 
+                  <app-no-data [text]="'بيانات'" *ngIf="!categories.length"></app-no-data>
+
                 </section>
               </div>
               <div class="col-lg-3">

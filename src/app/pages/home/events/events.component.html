@@ -1,10 +1,10 @@
-<section *ngIf="events.length">
+<section>
     <app-section-title [icon]="'far fa-image'"
                         [main_title]="'الفاعليات فى صور'"
                         [description]="'البوم صور لأهم الفاعليات'">
     </app-section-title>
 
-    <div class="row rtl mt-2">
+    <div class="row rtl mt-2" *ngIf="events.length">
         <div class="col-md-6 col-lg-4 col-xl-3 mb-4 text-center rtl" *ngFor="let event of events.slice(0, 4)">
             <a [routerLink]="detailsUrl(event.slug)">
                 <img class="img-fluid event-img"
@@ -14,4 +14,7 @@
             </a>
         </div>
     </div>
+
+  <app-no-data [text]="'فعاليات'" *ngIf="!events.length"></app-no-data>
+
 </section>

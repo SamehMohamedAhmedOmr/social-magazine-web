@@ -8,11 +8,11 @@
       <div class="row rtl" *ngIf="magazine_information">
         <div class="col-md-6">
           <ul>
-            <li>
+            <li *ngIf="magazine_information.phone">
               <i class="fas fa-phone"></i>
               <span>{{ magazine_information.phone }}</span>
             </li>
-            <li>
+            <li *ngIf="magazine_information.fax_number">
               <i class="fas fa-print"></i>
               <span>{{ magazine_information.fax_number }}</span>
             </li>
@@ -24,11 +24,11 @@
         </div>
         <div class="col-md-6">
           <ul>
-            <li>
+            <li *ngIf="magazine_information.email">
               <i class="fas fa-envelope"></i>
               <span>{{ magazine_information.email }}</span>
             </li>
-            <li>
+            <li *ngIf="magazine_information.address">
               <i class="fas fa-map-marker-alt"></i>
               <span>{{ 'COMMON.address' | translate }} : {{ magazine_information.address }}</span>
             </li>
